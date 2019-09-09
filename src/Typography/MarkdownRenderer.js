@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import YoutubeEmbedVideo from 'youtube-embed-video';
-// import BpkImage, {
-//   withLoadingBehavior,
-//   withLazyLoading,
-// } from 'bpk-component-image';
 import scrollIntoView from 'scroll-into-view';
 // import {
 //   citation,
