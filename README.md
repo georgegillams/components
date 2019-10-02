@@ -5,11 +5,11 @@
 A set of reusable React components, that are published as plain JS and CSS for maximum compatibility.
 
 ## Developing
-To develop components within Storybook, run `npm start`.
+To develop components within Storybook, run `yarn start`.
 
 ## Publishing
 The following publish process will transpile the code and then publish it using `release-it`:
-`npm run release`
+`yarn run release`
 
 That's it!
 
