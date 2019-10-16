@@ -121,7 +121,7 @@
     "node-sass-tilde-importer": "^1.0.2",
     "nodemon": "^1.19.1",
     "null-loader": "3.0.0",
-    "plop": "2.4.0",
+    "plop": "2.5.0",
     "pretty-error": "^2.1.1",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
