@@ -51,10 +51,10 @@
     }
 
     &--light {
-      background-color: #c6c6c6;
+      background-color: $background-color-elevated;
 
       @media (prefers-color-scheme: dark) {
-        background-color: #3e3e3e;
+        background-color: $background-color-elevated-invert;
       }
     }
   }
@@ -64,9 +64,11 @@
     height: 0.4rem;
     transition: all 0.4s;
     background-color: $primary-color;
+    background-color: var(--primary-color, $primary-color);
     z-index: 3;
 
     &--light {
+      background-color: var(--primary-color-light, $primary-color-light);
       background-color: $primary-color-light;
     }
 
