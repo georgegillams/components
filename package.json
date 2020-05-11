@@ -39,7 +39,9 @@
     "start:aws": "npm run storybook",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "test:clean": "rimraf ./coverage",
-    "test:watch": "cross-env NODE_ENV=test jest --watchAll"
+    "test:watch": "cross-env NODE_ENV=test jest --watchAll",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "main": "dist/index.js",
   "release-it": {
@@ -65,7 +67,8 @@
     "react-dom": "^16.11.0",
     "recompose": "^0.30.0",
     "scroll-into-view": "^1.12.2",
-    "youtube-embed-video": "^1.2.1"
+    "youtube-embed-video": "^1.2.1",
+    "snyk": "^1.320.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
@@ -140,5 +143,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "heroku-run-build-script": true
+  "heroku-run-build-script": true,
+  "snyk": true
 }
