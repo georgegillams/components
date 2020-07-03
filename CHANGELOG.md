@@ -4,6 +4,7 @@
 
 - Breaking: Renamed `Subsection` to `Subsection`.
 - Breaking: Spit `Typography` components into separate sub-modules for better code-splitting and tree-shaking.
+- Breaking: Spit `Button` components into separate sub-modules for better code-splitting and tree-shaking.
 
 ## 7.0.0
 

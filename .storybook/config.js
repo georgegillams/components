@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { configure, addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
@@ -5,6 +7,9 @@ import { addParameters } from '@storybook/react'; // <- or your storybook framew
 
 addDecorator(withA11y);
 addDecorator(withKnobs);
+addDecorator(storyFn => {
+  return <div style={{ fontFamily: 'Quattrocento sans' }}>{storyFn()}</div>;
+});
 
 addParameters({
   backgrounds: [
@@ -20,10 +25,12 @@ configure(() => {
   require('../src/AnimatedContent/stories.js');
   require('../src/ArticleCard/stories.js');
   require('../src/ArticleDate/stories.js');
+  require('../src/BurgerButton/stories.js');
   require('../src/Button/stories.js');
   require('../src/Card/stories.js');
   require('../src/Checkbox/stories.js');
   require('../src/Code/stories.js');
+  require('../src/CopyButton/stories.js');
   require('../src/DebugObject/stories.js');
   require('../src/Degree/stories.js');
   require('../src/Design/stories.js');
