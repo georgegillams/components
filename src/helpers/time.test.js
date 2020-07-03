@@ -3,11 +3,11 @@ import { getTimeDifference, getTimeDifferenceFromMilliseconds } from './time';
 describe('time', () => {
   // #region getTimeDifference
   it('should getTimeDifference - 0', () => {
-    expect(getTimeDifference(0)).toBe('51 years ago');
+    expect(getTimeDifference(0)).toBe('over 50 years ago');
   });
 
   it('should getTimeDifference - - 1 second', () => {
-    expect(getTimeDifference(Date.now() - 1000)).toBe('a few seconds ago');
+    expect(getTimeDifference(Date.now() - 1000)).toBe('less than a minute ago');
   });
 
   it('should getTimeDifference - - 200 second', () => {
@@ -15,7 +15,7 @@ describe('time', () => {
   });
 
   it('should getTimeDifference - + 1 second', () => {
-    expect(getTimeDifference(Date.now() + 1000)).toBe('in a few seconds');
+    expect(getTimeDifference(Date.now() + 1000)).toBe('in less than a minute');
   });
 
   it('should getTimeDifference - + 200 second', () => {
@@ -29,11 +29,13 @@ describe('time', () => {
 
   // #region getTimeDifferenceFromMilliseconds
   it('should getTimeDifferenceFromMilliseconds - 0', () => {
-    expect(getTimeDifferenceFromMilliseconds(0)).toBe('a few seconds ago');
+    expect(getTimeDifferenceFromMilliseconds(0)).toBe('less than a minute ago');
   });
 
   it('should getTimeDifferenceFromMilliseconds - - 1 second', () => {
-    expect(getTimeDifferenceFromMilliseconds(-1000)).toBe('a few seconds ago');
+    expect(getTimeDifferenceFromMilliseconds(-1000)).toBe(
+      'less than a minute ago',
+    );
   });
 
   it('should getTimeDifferenceFromMilliseconds - - 200 second', () => {
@@ -43,7 +45,9 @@ describe('time', () => {
   });
 
   it('should getTimeDifferenceFromMilliseconds - + 1 second', () => {
-    expect(getTimeDifferenceFromMilliseconds(1000)).toBe('in a few seconds');
+    expect(getTimeDifferenceFromMilliseconds(1000)).toBe(
+      'in less than a minute',
+    );
   });
 
   it('should getTimeDifferenceFromMilliseconds - + 200 second', () => {
