@@ -13,9 +13,21 @@ const StatefulAnimateHeight = props => {
 
   return (
     <>
-      <AnimateHeight expanded={expanded} {...props}>
+      <AnimateHeight
+        verticalMargin={margin ? 16 : 0}
+        expanded={expanded}
+        {...props}
+      >
         <div style={margin ? { marginBottom: '1rem' } : {}}>
           {content ? content1 : content2}
+          <div
+            style={{
+              marginTop: '2rem',
+              width: '100%',
+              height: '1rem',
+              background: 'red',
+            }}
+          />
         </div>
       </AnimateHeight>
       <button
