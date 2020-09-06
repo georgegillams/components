@@ -37,7 +37,10 @@ const AnimateHeight = props => {
   return (
     <div
       aria-hidden={!expanded}
-      className={getClassName('animate-height__wrapper')}
+      className={getClassName(
+        'animate-height__wrapper',
+        expanded && 'animate-height__wrapper--expanded',
+      )}
       style={{ height: renderHeight }}
       {...rest}
     >

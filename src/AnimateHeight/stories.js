@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { AnimateHeight } from './index';
 
@@ -10,11 +9,14 @@ const content2 =
 const StatefulAnimateHeight = props => {
   const [expanded, setExpanded] = useState(false);
   const [content, setContent] = useState(false);
+  const [margin, setMargin] = useState(false);
 
   return (
     <>
       <AnimateHeight expanded={expanded} {...props}>
-        {content ? content1 : content2}
+        <div style={margin ? { marginBottom: '1rem' } : {}}>
+          {content ? content1 : content2}
+        </div>
       </AnimateHeight>
       <button
         type="button"
@@ -23,6 +25,14 @@ const StatefulAnimateHeight = props => {
         }}
       >
         Toggle expanded
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          setMargin(!margin);
+        }}
+      >
+        Toggle margin
       </button>
       <button
         type="button"
@@ -36,7 +46,10 @@ const StatefulAnimateHeight = props => {
   );
 };
 
-storiesOf('Animate height', module)
-  .add('Expanded', () => <AnimateHeight expanded>{content1}</AnimateHeight>)
-  .add('Collapsed', () => <AnimateHeight>{content1}</AnimateHeight>)
-  .add('Stateful', () => <StatefulAnimateHeight />);
+export default { title: 'Animate height' };
+
+export const Expanded = () => (
+  <AnimateHeight expanded>{content1}</AnimateHeight>
+);
+export const Collapsed = () => <AnimateHeight>{content1}</AnimateHeight>;
+export const Stateful = () => <StatefulAnimateHeight />;
