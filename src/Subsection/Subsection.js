@@ -66,13 +66,13 @@ const Subsection = props => {
         </a>
       )}
       {name && (
-        <h2
+        <h3
           id={anchorLink}
           className={textClassNames.join(' ')}
           {...headingProps}
         >
           {name}
-        </h2>
+        </h3>
       )}
       {children}
     </div>
