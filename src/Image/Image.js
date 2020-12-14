@@ -5,7 +5,7 @@ import { useEntryAnimationClientOnly } from '../ServerSideRendering';
 
 import ImageDumb from './ImageDumb';
 
-const Image = (props) => {
+const Image = props => {
   const [hidden, setHidden] = useState(true);
 
   const [isFirstRender, animationsEnabled] = useEntryAnimationClientOnly();
