@@ -173,7 +173,7 @@ test('ignores comment block if feature is unsupported', () => {
       { type: 'line', content: '> Unsupported quote line 3' },
       { type: 'line', content: 'Line 3' },
     ],
-    DEFAULT_SUPPORTED_FEATURES,
+    [],
   );
   expect(result.error).toBe(undefined);
   expect(result).toMatchSnapshot();
@@ -190,7 +190,7 @@ test('parses table', () => {
       { type: 'line', content: '| 2.1   | 2.2   | 2.3   |' },
       { type: 'line', content: 'Line 3' },
     ],
-    [],
+    DEFAULT_SUPPORTED_FEATURES,
   );
   expect(result.error).toBe(undefined);
   expect(result).toMatchSnapshot();

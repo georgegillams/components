@@ -16,26 +16,21 @@ Array [
   },
   Object {
     "children": Array [
-      Object {
-        "children": Array [
-          "Unsupported quote line 1",
-        ],
-        "type": "paragraph",
-      },
-      Object {
-        "children": Array [
-          "Unsupported quote line 2",
-        ],
-        "type": "paragraph",
-      },
-      Object {
-        "children": Array [
-          "Unsupported quote line 3",
-        ],
-        "type": "paragraph",
-      },
+      "> Unsupported quote line 1",
     ],
-    "type": "quotation",
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      "> Unsupported quote line 2",
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      "> Unsupported quote line 3",
+    ],
+    "type": "paragraph",
   },
   Object {
     "children": Array [
@@ -496,28 +491,72 @@ Array [
     "type": "paragraph",
   },
   Object {
-    "children": Array [
-      "| col 1 | col 2 | col 3 |",
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      "| ----- | ----- | ----- |",
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      "| 1.1   | 1.2   | 1.3   |",
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      "| 2.1   | 2.2   | 2.3   |",
-    ],
-    "type": "paragraph",
+    "body": Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            null,
+            Object {
+              "children": "1.1  ",
+              "type": "table-cell",
+            },
+            Object {
+              "children": "1.2  ",
+              "type": "table-cell",
+            },
+            Object {
+              "children": "1.3  ",
+              "type": "table-cell",
+            },
+            null,
+          ],
+          "type": "table-row",
+        },
+        Object {
+          "children": Array [
+            null,
+            Object {
+              "children": "2.1  ",
+              "type": "table-cell",
+            },
+            Object {
+              "children": "2.2  ",
+              "type": "table-cell",
+            },
+            Object {
+              "children": "2.3  ",
+              "type": "table-cell",
+            },
+            null,
+          ],
+          "type": "table-row",
+        },
+      ],
+      "type": "table-body",
+    },
+    "head": Object {
+      "children": Object {
+        "children": Array [
+          null,
+          Object {
+            "children": "col 1",
+            "type": "table-cell",
+          },
+          Object {
+            "children": "col 2",
+            "type": "table-cell",
+          },
+          Object {
+            "children": "col 3",
+            "type": "table-cell",
+          },
+          null,
+        ],
+        "type": "table-row",
+      },
+      "type": "table-head",
+    },
+    "type": "table",
   },
   Object {
     "children": Array [
