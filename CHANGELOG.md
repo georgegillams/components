@@ -1,5 +1,10 @@
 # Changelog
 
+## 19.7.0
+
+- Added: Button has `loading` option.
+- Added: New spinner component.
+
 ## 19.6.4
 
 - Fixed: Feature cards will now use the `title` as the `aria-label` if one is not provided explicitly.

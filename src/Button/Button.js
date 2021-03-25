@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { Spinner } from '../Spinner';
 import { cssModules } from '../helpers/cssModules';
 
 import STYLES from './button.scss';
@@ -18,7 +19,7 @@ const Button = React.forwardRef((props, ref) => {
     hrefExternal,
     hrefDumb,
     destructive,
-    disabled,
+    disabled: disabledProp,
     light,
     bouncy,
     onClick,
@@ -27,8 +28,16 @@ const Button = React.forwardRef((props, ref) => {
     children,
     secondary,
     white,
+    loading,
     ...rest
   } = props;
+
+  const disabled = disabledProp || loading;
+
+  const childClassNames = [getClassName('button__child')];
+  if (loading) {
+    childClassNames.push(getClassName('button__child--loading'));
+  }
 
   const classNameFinal = [getClassName('button__outer')];
   if (!destructive && !bouncy) {
@@ -88,7 +97,7 @@ const Button = React.forwardRef((props, ref) => {
         className={getClassName('button__a', classNameFinal.join(' '))}
         {...rest}
       >
-        <span className={getClassName('button__child')}>{children}</span>
+        <span className={childClassNames.join(' ')}>{children}</span>
       </a>
     );
   }
@@ -119,10 +128,15 @@ const Button = React.forwardRef((props, ref) => {
       ref={ref}
       {...rest}
     >
-      <span className={getClassName('button__child')}>
+      <span className={childClassNames.join(' ')}>
         {showDestructiveConfirmation && 'Click again to confirm '}
         {children}
       </span>
+      {loading && (
+        <div aria-hidden className={getClassName('button__loading-spinner')}>
+          <Spinner />
+        </div>
+      )}
     </button>
   );
 });
@@ -134,6 +148,7 @@ Button.propTypes = {
   hrefDumb: PropTypes.bool,
   secondary: PropTypes.bool,
   white: PropTypes.bool,
+  loading: PropTypes.bool,
   disabled: PropTypes.bool,
   light: PropTypes.bool,
   bouncy: PropTypes.bool,
@@ -151,6 +166,7 @@ Button.defaultProps = {
   secondary: false,
   white: false,
   light: false,
+  loading: false,
   disabled: false,
   bouncy: false,
   destructive: false,

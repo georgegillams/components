@@ -1,0 +1,75 @@
+@import '../Tokens/common';
+
+$spin-time: 0.8;
+$blade-count: 8;
+
+@keyframes spinner-fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+// See https://loading.io/css/
+
+.spinner {
+  &__outer {
+    position: relative;
+    display: inline-block;
+    width: 1.125rem;
+    height: 1.125rem;
+    color: $not-black;
+
+    @media (prefers-color-scheme: dark) {
+      color: $not-black-invert;
+    }
+
+    &--light {
+      color: $not-black-invert;
+
+      @media (prefers-color-scheme: dark) {
+        color: $not-black;
+      }
+    }
+
+    &--large {
+      width: 2.375rem;
+      height: 2.375rem;
+    }
+  }
+
+  &__inner {
+    position: absolute;
+    bottom: 0.05rem;
+    left: 0.5rem;
+    width: 0.13rem;
+    height: 0.3rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    background-color: currentColor;
+    animation: spinner-fade #{$spin-time}s infinite linear;
+    transform-origin: center -0.16rem;
+
+    $animation-delay: -1.5 * $spin-time;
+    $blade-rotation: 0deg;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        transform: rotate($blade-rotation);
+        animation-delay: #{$animation-delay}s;
+        $blade-rotation: $blade-rotation + 360 / $blade-count;
+        $animation-delay: $animation-delay + $spin-time / $blade-count;
+      }
+    }
+
+    &--large {
+      bottom: 0.1rem;
+      left: 1.05rem;
+      width: 0.25rem;
+      height: 0.8rem;
+      transform-origin: center -0.34em;
+    }
+  }
+}
