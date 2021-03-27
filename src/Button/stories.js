@@ -36,6 +36,7 @@ export const Large = () => <ButtonStory large />;
 export const Secondary = () => <ButtonStory secondary />;
 export const Bouncy = () => <ButtonStory bouncy />;
 export const Destructive = () => <ButtonStory destructive />;
+export const Loading = () => <ButtonStory loading />;
 export const Disabled = () => <ButtonStory disabled />;
 export const White = () => <ButtonStory dark white />;
 export const Href = () => <ButtonStory href="/test" />;
