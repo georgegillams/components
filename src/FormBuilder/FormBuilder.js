@@ -26,7 +26,7 @@ const FormBuilder = props => {
   const {
     className,
     centered,
-    disabled,
+    disabled: disabledProp,
     loading,
     entity,
     onDataChanged,
@@ -38,6 +38,8 @@ const FormBuilder = props => {
     test,
     ...rest
   } = props;
+
+  const disabled = disabledProp || loading;
 
   const classNameFinal = [];
   if (className) classNameFinal.push(className);

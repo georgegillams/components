@@ -1,5 +1,9 @@
 # Changelog
 
+## 19.8.1
+
+- Fixed: `FormBuilder` will be `disabled` if `loading` is true.
+
 ## 19.8.0
 
 - Added: `FormBuilder` has `loading` option.
