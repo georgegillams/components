@@ -1,5 +1,9 @@
 # Changelog
 
+## 19.8.0
+
+- Added: `FormBuilder` has `loading` option.
+
 ## 19.7.0
 
 - Added: Button has `loading` option.

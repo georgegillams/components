@@ -27,6 +27,7 @@ const FormBuilder = props => {
     className,
     centered,
     disabled,
+    loading,
     entity,
     onDataChanged,
     submitOnChange,
@@ -233,6 +234,7 @@ const FormBuilder = props => {
           )}
           onClick={onSubmit}
           disabled={disabled || !validity.every(v => v)}
+          loading={loading}
         >
           {submitLabel}
         </Button>
@@ -251,6 +253,7 @@ FormBuilder.propTypes = {
   formFields: PropTypes.arrayOf(PropTypes.object).isRequired,
   submitOnChange: PropTypes.bool,
   disabled: PropTypes.bool,
+  loading: PropTypes.bool,
   centered: PropTypes.bool,
   test: PropTypes.bool,
   className: PropTypes.string,
@@ -262,6 +265,7 @@ FormBuilder.defaultProps = {
   onDataChanged: null,
   submitOnChange: false,
   disabled: false,
+  loading: false,
   centered: false,
   test: false,
   preSubmitText: null,
