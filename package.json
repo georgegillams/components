@@ -8,6 +8,7 @@
   },
   "author": "George Gillams",
   "license": "MIT",
+  "main": "./index.js",
   "scripts": {
     "prerelease": "npm run transpile",
     "release": "babel-node scripts/release.js",
