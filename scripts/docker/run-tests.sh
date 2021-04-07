@@ -1,25 +1,42 @@
 #!/bin/bash
 
+updateMode=("$1" -eq "--update")
+useTTY=("$2" -eq "--tty")
 containerId=$(docker ps -a | grep gg-snapshot-test  | awk '{print $1}')
-destinationDirectory="/usr/src/tmp/gg-components/"
+tmpDirectory="/usr/src/tmp/"
+projectName="gg-components"
+destinationDirectory="${tmpDirectory}${projectName}/"
+if [ $useTTY ]; then
+  dockerArgs="-it"
+else
+  dockerArgs="-i"
+fi
 
 # copy project to container (except node_modules)
-docker cp .storybook $containerId:$destinationDirectory
-docker cp babel.config.js $containerId:$destinationDirectory
-docker cp backstop_data $containerId:$destinationDirectory
-docker cp config $containerId:$destinationDirectory
-docker cp package-lock.json $containerId:$destinationDirectory
-docker cp package.json $containerId:$destinationDirectory
-docker cp scripts $containerId:$destinationDirectory
-docker cp src $containerId:$destinationDirectory
-docker cp test $containerId:$destinationDirectory
+touch $projectName.tar.gz
+tar -zcf $projectName.tar.gz --exclude='node_modules' --exclude='.git' --exclude="$projectName.tar.gz" ./
+docker cp $projectName.tar.gz $containerId:$tmpDirectory
+
+# expand tar
+docker exec $dockerArgs $containerId mkdir -p $projectName
+docker exec $dockerArgs $containerId tar -xzf $projectName.tar.gz --directory $projectName
 
 # prepare project
-docker exec -it $containerId npm ci
-docker exec -it $containerId npm run build
+docker exec $dockerArgs -w $destinationDirectory $containerId npm ci
+docker exec $dockerArgs -w $destinationDirectory $containerId npm run build
 
 # run tests
-docker exec -it $containerId npm run backstopjs:test:allow-failure
+if [ $updateMode ]; then
+    docker exec $dockerArgs -w $destinationDirectory $containerId npm run backstopjs:test:allow-failure
+else
+    # should exit 1 if this fails, so if it does we set `shouldFail`
+    docker exec $dockerArgs -w $destinationDirectory $containerId npm run backstopjs:test || shouldFail=true
+fi
 
 # copy any failed snapshots back to the host
 docker cp $containerId:${destinationDirectory}backstop_data ./
+
+# a previous stage of the process failed, so we'll ensure that is communicated to the host
+if [ $shouldFail ]; then
+  exit 1
+fi
