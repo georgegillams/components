@@ -85,16 +85,22 @@ const Button = React.forwardRef((props, ref) => {
 
   if (className) classNameFinal.push(className);
 
+  const targettingProps = hrefExternal
+    ? {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }
+    : {};
+
   if (href && !disabled) {
     return (
       <a
         aria-label={children}
         href={hrefDumb ? null : href}
-        target={hrefExternal ? '_blank' : null}
-        rel={hrefExternal ? 'noopener noreferrer' : null}
         onClick={onClick}
         ref={ref}
         className={getClassName('button__a', classNameFinal.join(' '))}
+        {...targettingProps}
         {...rest}
       >
         <span className={childClassNames.join(' ')}>{children}</span>

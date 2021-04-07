@@ -32,15 +32,21 @@ const TextLink = React.forwardRef((props, ref) => {
     classNameFinal.push(className);
   }
 
+  const targettingProps = hrefExternal
+    ? {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }
+    : {};
+
   return (
     <a
       href={href}
-      rel={hrefExternal ? 'noopener noreferrer' : null}
-      target={hrefExternal ? '_blank' : null}
       className={classNameFinal.join(' ')}
       onClick={onClick}
       ref={ref}
       aria-label={hrefExternal ? `${children} (opens in a new tab)` : null}
+      {...targettingProps}
       {...rest}
     >
       {children}
