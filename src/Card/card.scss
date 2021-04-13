@@ -1,5 +1,10 @@
 @import '../Tokens/common';
 
+$shadow-normal: 0.2rem 0.2rem 0.5rem 0 $shadow-color;
+$shadow-normal-invert: 0.44rem 0.44rem 1rem 0 $shadow-color-invert;
+$shadow-hover: 0.4rem 0.4rem 1rem 0 $shadow-color;
+$shadow-hover-invert: 0.2rem 0.2rem 0.5rem 0 $shadow-color-invert;
+
 .card {
   position: relative;
   display: inline-block; // a tag needs this
@@ -9,27 +14,35 @@
   transition: all 0.4s;
   border: none; // button tag applies border
   border-radius: 0.35rem;
-  outline: none; // override system focus style as we have our own
   background: none; // override system button style
   text-align: left; // button tag centers things by default
   text-decoration: none;
-  box-shadow: 0.2rem 0.2rem 0.5rem 0 $shadow-color;
+  box-shadow: $shadow-normal;
+  cursor: pointer;
   overflow: hidden;
   box-sizing: border-box;
 
+  @include focus-style;
+
   @media (prefers-color-scheme: dark) {
-    box-shadow: 0.44rem 0.44rem 1rem 0 $shadow-color-invert;
+    box-shadow: $shadow-normal-invert;
   }
 
-  &:focus,
-  &:focus-within,
-  &:active,
-  &:hover {
-    box-shadow: 0.4rem 0.4rem 1rem 0 $shadow-color;
+  &--not-disabled {
+    &:focus,
+    &:focus-within,
+    &:active,
+    &:hover {
+      box-shadow: $shadow-hover;
 
-    @media (prefers-color-scheme: dark) {
-      box-shadow: 0.2rem 0.2rem 0.5rem 0 $shadow-color-invert;
+      @media (prefers-color-scheme: dark) {
+        box-shadow: $shadow-hover-invert;
+      }
     }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
   }
 
   &__outer-container {
@@ -82,25 +95,6 @@
         background-color: $disabled-background-color-invert;
         color: $disabled-color-invert;
       }
-    }
-  }
-
-  &__banner {
-    z-index: 3;
-    width: 0;
-    height: 0.4rem;
-    transition: all 0.4s;
-    background-color: $primary-color;
-    background-color: var(--primary-color, $primary-color);
-
-    &--light {
-      background-color: $primary-color-light;
-      background-color: var(--primary-color-light, $primary-color-light);
-    }
-
-    &--hovered {
-      width: 100%;
-      margin-left: 0;
     }
   }
 }

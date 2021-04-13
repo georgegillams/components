@@ -3,17 +3,10 @@
 exports[`Card should render correctly 1`] = `
 <button
   aria-disabled={null}
-  className={
-    Array [
-      "card",
-    ]
-  }
-  onBlur={[Function]}
+  className="card card--not-disabled"
   onClick={null}
-  onFocus={[Function]}
   onKeyPress={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  tabIndex={0}
   type="button"
 >
   <div
@@ -25,9 +18,5 @@ exports[`Card should render correctly 1`] = `
   >
     Some content
   </div>
-  <div
-    className="card__banner"
-    style={Object {}}
-  />
 </button>
 `;

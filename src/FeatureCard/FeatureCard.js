@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { cssModules } from '../helpers/cssModules';
@@ -18,8 +18,6 @@ export const FEATURE_CARD_LAYOUTS = {
 };
 
 const FeatureCard = React.forwardRef((props, ref) => {
-  const [hovering, setHovering] = useState(false);
-
   const {
     annotations,
     ariaLabel,
@@ -50,10 +48,6 @@ const FeatureCard = React.forwardRef((props, ref) => {
     );
   }
 
-  const bannerClassNames = [getClassName('feature-card__banner')];
-  if (hovering && !disabled) {
-    bannerClassNames.push(getClassName('feature-card__banner--hovered'));
-  }
   const outerBannerClassNames = [getClassName('feature-card__outer-container')];
   if (layout === FEATURE_CARD_LAYOUTS.narrowCompact) {
     classNameFinal.push(getClassName('feature-card--narrow-compact'));
@@ -104,11 +98,10 @@ const FeatureCard = React.forwardRef((props, ref) => {
               )}
             >
               <Subsection
+                inheritColor
                 disabled={disabled}
-                hover={hovering && !disabled}
                 anchor={false}
                 padding={false}
-                link
                 name={annotations.join(' ')}
               />
             </div>
@@ -120,12 +113,11 @@ const FeatureCard = React.forwardRef((props, ref) => {
                 )}
               >
                 <Subsection
+                  inheritColor
                   key={annotation}
                   disabled={disabled}
-                  hover={hovering && !disabled}
                   anchor={false}
                   padding={false}
-                  link
                   name={annotation}
                 />
               </div>
@@ -135,11 +127,10 @@ const FeatureCard = React.forwardRef((props, ref) => {
       </div>
       <div className={centerClassNames.join(' ')}>
         <Section
+          inheritColor
           padding={false}
           disabled={disabled}
-          hover={hovering && !disabled}
           name={title}
-          link={!disabled}
           className={getClassName('feature-card__title')}
         />
         {children && (
@@ -175,7 +166,6 @@ const FeatureCard = React.forwardRef((props, ref) => {
       aria-label={ariaLabel || title}
       className={classNameFinal.join(' ')}
       disabled={disabled}
-      onHoverChanged={setHovering}
       backgroundImageClassName={backgroundImageClassName}
       ref={ref}
       {...rest}

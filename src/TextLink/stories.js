@@ -36,11 +36,6 @@ export const Focused = () => (
     Test
   </FocusTextLink>
 );
-export const Dumb = () => (
-  <TextLink hrefDumb href="/lol" name="Test">
-    Test
-  </TextLink>
-);
 export const External = () => (
   <div>
     This is an external link to
