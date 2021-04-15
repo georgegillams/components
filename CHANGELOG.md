@@ -1,5 +1,9 @@
 # Changelog
 
+## 20.0.1
+
+- Fixed: Reinstated card focus indicators.
+
 ## 20.0.0
 
 - Breaking: Removed `hrefDumb` props as components shouldn't need to be hacked around to work properly with other routing mechanisms.
