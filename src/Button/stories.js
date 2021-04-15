@@ -49,6 +49,3 @@ export const SideBySide = () => (
 export const ExternalHref = () => (
   <ButtonStory hrefExternal href="https://duckduckgo.com/" />
 );
-export const DumbHref = () => (
-  <ButtonStory hrefDumb href="https://duckduckgo.com/" />
-);

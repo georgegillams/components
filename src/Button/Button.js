@@ -17,7 +17,6 @@ const Button = React.forwardRef((props, ref) => {
   const {
     href,
     hrefExternal,
-    hrefDumb,
     destructive,
     disabled: disabledProp,
     light,
@@ -96,7 +95,7 @@ const Button = React.forwardRef((props, ref) => {
     return (
       <a
         aria-label={children}
-        href={hrefDumb ? null : href}
+        href={href}
         onClick={onClick}
         ref={ref}
         className={getClassName('button__a', classNameFinal.join(' '))}
@@ -151,7 +150,6 @@ Button.propTypes = {
   large: PropTypes.bool,
   href: PropTypes.string,
   hrefExternal: PropTypes.bool,
-  hrefDumb: PropTypes.bool,
   secondary: PropTypes.bool,
   white: PropTypes.bool,
   loading: PropTypes.bool,
@@ -168,7 +166,6 @@ Button.defaultProps = {
   large: false,
   href: null,
   hrefExternal: false,
-  hrefDumb: false,
   secondary: false,
   white: false,
   light: false,

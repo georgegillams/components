@@ -1,6 +1,20 @@
 @import '../Tokens/common';
 
 .feature-card {
+  color: $not-black;
+
+  @media (prefers-color-scheme: dark) {
+    color: $not-black-invert;
+  }
+
+  &:focus,
+  &:focus-within,
+  &:active,
+  &:hover {
+    color: $primary-color;
+    color: var(--primary-color, $primary-color);
+  }
+
   &--narrow-compact {
     width: 25rem;
     max-width: 25rem;

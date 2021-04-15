@@ -1,4 +1,5 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 
 import { Section } from '../Section';
 
@@ -9,6 +10,11 @@ import { Card } from './index';
 export default { title: 'Card', component: Card };
 
 export const Default = () => (
+  <Card onClick={action('Button clicked')}>
+    <Section padding={false} name="Test" />{' '}
+  </Card>
+);
+export const Href = () => (
   <Card href="/test">
     <Section padding={false} name="Test" />{' '}
   </Card>
@@ -43,11 +49,6 @@ export const WithHref = () => (
     <Section padding={false} name="Test" />{' '}
   </Card>
 );
-export const WithDumbHref = () => (
-  <Card hrefDumb href="/test">
-    <Section padding={false} name="Test" />{' '}
-  </Card>
-);
 export const Disabled = () => (
   <Card disabled>
     <Section disabled padding={false} name="Test" />{' '}
@@ -55,6 +56,18 @@ export const Disabled = () => (
 );
 export const DisabledWithHref = () => (
   <Card disabled href="/test">
+    <Section disabled padding={false} name="Test" />{' '}
+  </Card>
+);
+export const NonAtomic = () => (
+  <Card atomic={false} onClick={action('Button clicked')}>
     <Section padding={false} name="Test" />{' '}
+    <a href="https://duckduckgo.com">Link</a>
+  </Card>
+);
+export const NonAtomicWithHref = () => (
+  <Card atomic={false} href="/test">
+    <Section padding={false} name="Test" />{' '}
+    <a href="https://duckduckgo.com">Link</a>
   </Card>
 );

@@ -9,6 +9,7 @@ const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const Subsection = props => {
   const {
+    inheritColor,
     link,
     padding,
     anchor,
@@ -17,7 +18,6 @@ const Subsection = props => {
     textClassName,
     children,
     disabled,
-    hover,
     headingProps,
     ...rest
   } = props;
@@ -26,11 +26,11 @@ const Subsection = props => {
   const textClassNames = [getClassName('subsection__heading')];
   const anchorClassNames = [getClassName('subsection__anchor-link')];
 
+  if (inheritColor) {
+    outerClassNames.push(getClassName('subsection__outer--inherit-color'));
+  }
   if (link) {
     textClassNames.push(getClassName('subsection__heading--link'));
-  }
-  if (hover) {
-    textClassNames.push(getClassName('subsection__heading--hovering'));
   }
   if (anchor) {
     textClassNames.push(getClassName('subsection__heading--with-anchor-link'));
@@ -80,13 +80,13 @@ const Subsection = props => {
 };
 
 Subsection.propTypes = {
+  inheritColor: PropTypes.bool,
   anchor: PropTypes.bool,
   link: PropTypes.bool,
   padding: PropTypes.bool,
   name: PropTypes.string,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  hover: PropTypes.bool,
   textClassName: PropTypes.string,
   // eslint-disable-next-line react/forbid-prop-types
   style: PropTypes.object,
@@ -96,10 +96,10 @@ Subsection.propTypes = {
 };
 
 Subsection.defaultProps = {
+  inheritColor: false,
   anchor: false,
   link: false,
   disabled: false,
-  hover: false,
   name: null,
   padding: true,
   className: null,
