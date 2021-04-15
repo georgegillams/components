@@ -33,6 +33,9 @@ const Card = React.forwardRef((props, ref) => {
       getClassName('card__background--highlighted'),
     );
   }
+  if (atomic) {
+    cardClassNames.push(getClassName('card--atomic'));
+  }
   if (disabled) {
     cardClassNames.push(getClassName('card--disabled'));
     backgroundImageClassNames.push(getClassName('card__background--disabled'));
@@ -45,19 +48,20 @@ const Card = React.forwardRef((props, ref) => {
   if (backgroundImageClassName) {
     backgroundImageClassNames.push(backgroundImageClassName);
   }
-  const outerBannerClassNames = [getClassName('card__outer-container')];
+  const outerClassNames = [getClassName('card__outer-container')];
+  const contentClassNames = [getClassName('card__content-container')];
   if (padded) {
-    outerBannerClassNames.push(getClassName('card__outer-container--padded'));
+    contentClassNames.push(getClassName('card__content-container--padded'));
   }
 
   const cardContent = (
-    <>
+    <div className={outerClassNames.join(' ')}>
       <div
         className={backgroundImageClassNames.join(' ')}
         style={fillImageSrc ? { backgroundImage: `url(${fillImageSrc})` } : {}}
       />
-      <div className={outerBannerClassNames.join(' ')}>{children}</div>
-    </>
+      <div className={contentClassNames.join(' ')}>{children}</div>
+    </div>
   );
 
   const tabIndex = atomic ? 0 : -1;

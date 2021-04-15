@@ -34,11 +34,6 @@ export const WithFillImage = () => (
     <Section padding={false} name="Test" />{' '}
   </Card>
 );
-export const WithBannerColour = () => (
-  <Card href="/test" bannerColor="red">
-    <Section padding={false} name="Test" />{' '}
-  </Card>
-);
 export const Light = () => (
   <Card href="/test" light>
     <Section padding={false} name="Test" />{' '}
