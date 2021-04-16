@@ -1,5 +1,9 @@
 # Changelog
 
+## 20.0.2
+
+- Fixed: Make non-atomic cards work better.
+
 ## 20.0.1
 
 - Fixed: Reinstated card focus indicators.
