@@ -6,6 +6,7 @@ exports[`Card should render correctly 1`] = `
   className="card card--atomic card--not-disabled"
   onClick={null}
   onKeyPress={[Function]}
+  role={null}
   tabIndex={0}
   type="button"
 >
