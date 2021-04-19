@@ -1,5 +1,9 @@
 # Changelog
 
+## 20.1.0
+
+- Added: Page container component.
+
 ## 20.0.2
 
 - Fixed: Make non-atomic cards work better.
