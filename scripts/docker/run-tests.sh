@@ -2,6 +2,7 @@
 
 updateMode=("$1" -eq "--update")
 useTTY=("$2" -eq "--tty")
+skipNpm=("$3" -eq "--skip-npm")
 containerId=$(docker ps -a | grep gg-snapshot-test  | awk '{print $1}')
 tmpDirectory="/usr/src/tmp/"
 projectName="gg-components"
@@ -23,7 +24,9 @@ docker exec $dockerArgs $containerId -w $destinationDirectory find . -maxdepth 1
 docker exec $dockerArgs $containerId tar -xzf $projectName.tar.gz --directory $projectName
 
 # prepare project
-docker exec $dockerArgs -w $destinationDirectory $containerId npm ci
+if ! [ $skipNpm ]; then
+  docker exec $dockerArgs -w $destinationDirectory $containerId npm ci
+fi
 docker exec $dockerArgs -w $destinationDirectory $containerId npm run build
 
 # run tests
