@@ -66,10 +66,16 @@ const Card = React.forwardRef((props, ref) => {
 
   // If atomic, enable keyboard focus and don't mess with roles.
   // If non-atomic, disable keyboard focus and use article role.
-  const atomicProps = {
-    tabIndex: atomic ? 0 : -1,
-    role: atomic ? null : 'article',
-  };
+  const atomicProps = {};
+
+  if (!atomic) {
+    atomicProps.role = 'group';
+    atomicProps.tabIndex = -1;
+  }
+
+  if (disabled) {
+    atomicProps.tabIndex = -1;
+  }
 
   if (href && !disabled) {
     return (
