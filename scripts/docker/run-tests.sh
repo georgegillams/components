@@ -20,7 +20,7 @@ docker cp $projectName.tar.gz $containerId:$tmpDirectory
 
 # cleanup existing files and expand tar
 docker exec $dockerArgs $containerId mkdir -p $projectName
-docker exec $dockerArgs $containerId -w $destinationDirectory find . -maxdepth 1 ! -name node_modules -exec rm -rf {} \;
+docker exec $dockerArgs -w $destinationDirectory $containerId find . -maxdepth 1 ! -name node_modules -exec rm -rf {} \;
 docker exec $dockerArgs $containerId tar -xzf $projectName.tar.gz --directory $projectName
 
 # prepare project
