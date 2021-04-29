@@ -1,0 +1,29 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+    - 4.0.2
+  - dependency-name: css-loader
+    versions:
+    - 5.0.1
+    - 5.0.2
+    - 5.1.1
+    - 5.1.2
+    - 5.1.3
+  - dependency-name: node-notifier
+    versions:
+    - 8.0.1
+  - dependency-name: yargs-parser
+    versions:
+    - 13.1.2
+  - dependency-name: serialize-javascript
+    versions:
+    - 4.0.0
