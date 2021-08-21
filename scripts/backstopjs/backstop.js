@@ -4,6 +4,7 @@ const backstop = require('backstopjs');
 const scenarioData = require('./scenarios.json');
 
 const PORT = 9001;
+const DELAY = 800;
 const BASE_URL = `http://127.0.0.1:${PORT}`;
 const STORY_BASE_URL = `${BASE_URL}/iframe.html?id=`;
 const DOCS_BASE_URL = `${BASE_URL}/iframe.html?viewMode=docs&id=`;
@@ -16,7 +17,7 @@ scenarioData.storyIds.forEach(sI => {
   scenarios.push({
     label: sI,
     url: `${STORY_BASE_URL}${sI}`,
-    delay: 600,
+    delay: DELAY,
     hideSelectors: scenarioData.globallyHiddenSelectors,
   });
 });
@@ -24,7 +25,7 @@ scenarioData.docIds.forEach(dI => {
   scenarios.push({
     label: dI,
     url: `${DOCS_BASE_URL}${dI}`,
-    delay: 500,
+    delay: DELAY,
     hideSelectors: scenarioData.globallyHiddenSelectors,
   });
 });
