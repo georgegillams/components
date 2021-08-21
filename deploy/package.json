@@ -1,0 +1,18 @@
+{
+  "name": "@george-gillams/components",
+  "version": "0.0.0",
+  "description": "Reusable transpiled React components",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/georgegillams/gg-components.git"
+  },
+  "author": "George Gillams",
+  "license": "MIT",
+  "scripts": {
+    "prod": "http-server build",
+    "start:aws": "AWS=true npm run prod"
+  },
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
