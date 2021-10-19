@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @import '../Tokens/common';
 
 $spin-time: 0.8;
@@ -57,8 +59,8 @@ $blade-count: 8;
       &:nth-child(#{$i}) {
         transform: rotate($blade-rotation);
         animation-delay: #{$animation-delay}s;
-        $blade-rotation: $blade-rotation + 360 / $blade-count;
-        $animation-delay: $animation-delay + $spin-time / $blade-count;
+        $blade-rotation: math.div($blade-rotation + 360, $blade-count);
+        $animation-delay: math.div($animation-delay + $spin-time, $blade-count);
       }
     }
 

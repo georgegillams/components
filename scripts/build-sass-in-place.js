@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
-import { dirname } from 'path';
-import { unlinkSync } from 'fs';
-import { exec, execSync } from 'child_process';
+import { writeFile, unlinkSync } from 'fs';
+import { execSync } from 'child_process';
+
+import sass from 'sass';
 
 import { blue } from './colors';
 
@@ -9,20 +10,23 @@ const auxillaryFiles = ['dist/Tokens/_common.scss'];
 
 const transpile = file =>
   new Promise((resolve, reject) => {
-    const outputFile = dirname(file);
-    const options =
-      '--importer=node_modules/node-sass-tilde-importer --include-path=node_modules --include-path=src --output-style compressed';
-    exec(
-      `npm run sass -- ${options} "${file}" --output="${outputFile}"`,
-      error => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        console.info(blue(file));
+    const outputFile = `${file.split('.scss')[0]}.css`;
+    sass.render({ file }, (error, result) => {
+      /* ... */
+      if (error) {
+        reject(error);
+      }
+      console.info(blue(file));
+      if (result && result.css) {
+        writeFile(outputFile, result.css.toString(), 'utf8', err2 => {
+          if (err2) return reject(err2);
+          resolve();
+          return null;
+        });
+      } else {
         resolve();
-      },
-    );
+      }
+    });
   });
 
 const deleteFile = file => {
