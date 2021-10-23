@@ -5,8 +5,39 @@ import { execSync } from 'child_process';
 
 import { yellow } from './colors';
 
+const getVersionRc = () => {
+  const versionRcFile = './.versionrc.json';
+  const versionRcFileContent = readFileSync(versionRcFile, {
+    encoding: 'utf8',
+  });
+  return JSON.parse(versionRcFileContent);
+};
+
+const versionRcDefaultType = changeType => ({
+  type: changeType,
+  section: changeType,
+  hidden: false,
+});
+
+const getMatchingType = (versionRc, changeType) => {
+  if (!versionRc || !versionRc.types) {
+    return versionRcDefaultType(changeType);
+  }
+  const matchingType = versionRc.types.filter(t => t.type === changeType);
+  if (matchingType.length === 1) {
+    return matchingType[0];
+  }
+  return versionRcDefaultType(changeType);
+};
+
+const isChangeTypeHidden = (versionRc, changeType) =>
+  !!getMatchingType(versionRc, changeType).hidden;
+
+const titleForChangeType = (versionRc, changeType) =>
+  getMatchingType(versionRc, changeType).section;
+
+// Matches format:
 // commitHash changeType(category): message
-const HIDDEN_CHANGE_TYPES = ['chore'];
 const COMMIT_REGEX = /([a-z0-9]+) ([a-zA-Z ]+)(\(.+\))?: (.+)/gm;
 
 const getLastTagOnCurrentBranch = () =>
@@ -20,7 +51,10 @@ const parseCommit = commit => {
   const splitCommit = RegExp(COMMIT_REGEX).exec(commit);
   if (!splitCommit) {
     console.log(yellow(`Including invalid commit message as patch: ${commit}`));
-    return { changeType: 'patch', message: commit };
+    return {
+      changeType: 'fix',
+      message: commit,
+    };
   }
   const changeType = splitCommit[2];
   const category = splitCommit[3];
@@ -61,12 +95,12 @@ const getSemverBumpFromChanges = changes => {
   return semverBump;
 };
 
-const generateMarkdown = (newVersion, changes) => {
+const generateMarkdown = (versionRc, newVersion, changes) => {
   let result = `## ${newVersion}\n\n`;
   Object.keys(changes)
-    .filter(changeType => !HIDDEN_CHANGE_TYPES.includes(changeType))
+    .filter(changeType => !isChangeTypeHidden(versionRc, changeType))
     .forEach(changeType => {
-      result += `### ${changeType}\n\n`;
+      result += `### ${titleForChangeType(versionRc, changeType)}\n\n`;
       changes[changeType].forEach(message => {
         result += ` - ${message}\n`;
       });
@@ -85,6 +119,7 @@ const addToChangelog = newEntries => {
 };
 
 export {
+  getVersionRc,
   getChangesData,
   getSemverBumpFromChanges,
   generateMarkdown,

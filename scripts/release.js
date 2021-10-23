@@ -7,6 +7,7 @@ import { inc } from 'semver';
 import packageData, { version } from '../package.json';
 
 import {
+  getVersionRc,
   getChangesData,
   getSemverBumpFromChanges,
   generateMarkdown,
@@ -74,8 +75,10 @@ if (semverBump === 'alpha') {
 }
 console.log(`Publishing version ${newVersion}`);
 
+const versionRc = getVersionRc();
+
 updatePackageFile(newVersion);
-const changelogMarkdown = generateMarkdown(newVersion, changeData);
+const changelogMarkdown = generateMarkdown(versionRc, newVersion, changeData);
 addToChangelog(changelogMarkdown);
 createTag(newVersion);
 commitChanges(newVersion);
