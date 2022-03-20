@@ -22,13 +22,13 @@ jobs:
           echo "github_event_name ${{ github.event_name }}"
 
       - name: npm install
-        run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci
+        run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
 
       - name: lint
-        run: npm run lint
+        run: yarn lint
 
       - name: jest test
-        run: npm test
+        run: yarn test
 
   snapshot-test:
     runs-on: ubuntu-latest
@@ -62,16 +62,20 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - name: npm install
-        run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci
+      - name: generate hash
+        run: |
+          echo "::set-output name=HASH::123455"
+          echo "::set-output name=ZIP_FILE_NAME::storybook---$HASH"
 
-      - name: build
-        run: npm run build:for-deploy
+      - name: build docker image
+        run: |
+          zipFileName = ${{ steps.generate-hash.outputs.ZIP_FILE_NAME }}
+          /bin/bash ./scripts/docker/export-prod.sh $zipFileName
 
       - name: deploy
         run: |
-          zipFileName="storybook-$(date +%s)"
-          zip -r $zipFileName deploy
+          zipFileName = ${{ steps.generate-hash.outputs.ZIP_FILE_NAME }}
+          zip -r $zipFileName docker-image.tar meta.json
           echo "${{ secrets.EC2_RSA }}" > ./identityFile.txt
           chmod 400 ./identityFile.txt
-          scp -o "StrictHostKeyChecking=no" -i ./identityFile.txt -r ./$zipFileName.zip ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com:/home/ubuntu/neo/
+          scp -o "StrictHostKeyChecking=no" -i ./identityFile.txt -r ./$zipFileName.zip ubuntu@ec2-13-40-134-151.eu-west-2.compute.amazonaws.com:/home/ubuntu/departure-lounge/
