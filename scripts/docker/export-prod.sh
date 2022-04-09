@@ -13,7 +13,7 @@ if (docker images | grep $image_name > /dev/null); then
 fi
 
 # build new image
-docker build --platform linux/arm64 -t $image_name -f DockerfileProd .
+docker buildx build --platform linux/arm64 -t $image_name -f DockerfileProd .
 
 # export image
 docker save $image_name > docker-image.tar

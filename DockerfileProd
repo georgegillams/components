@@ -5,12 +5,12 @@ RUN mkdir /opt/app
 WORKDIR /opt/app
 
 COPY . .
-RUN rm -rf node_modules
 RUN PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile 
 RUN yarn build
 
 # Remove dependencies we don't need in prod:
 RUN rm -rf node_modules
-RUN PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile --prod
+RUN yarn cache clean --all
+RUN PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile --production
 
 CMD ["yarn", "prod"]
