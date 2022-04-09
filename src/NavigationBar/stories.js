@@ -47,7 +47,7 @@ export const WithBurgerWrapper = () => (
       menuItems={menuItems}
       accountMenuItem={accountMenuItem}
       logo={logo}
-      burgerButtonWrapper={bbProps => (
+      burgerButtonWrapper={(bbProps) => (
         <div {...bbProps} style={{ backgroundColor: 'lime' }} />
       )}
     />

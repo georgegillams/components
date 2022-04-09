@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-escape */
 const MD_IMAGE_REGEX = /!\[(.*?)\]\((.*?)\)(.*)/gims;
-const MD_SMART_IMAGE_REGEX = /!\[([0-9]+)x([0-9]+)\]\[(.*?)\]\((.*?)\)\((.*?)\)(.*)/gi;
+const MD_SMART_IMAGE_REGEX =
+  /!\[([0-9]+)x([0-9]+)\]\[(.*?)\]\((.*?)\)\((.*?)\)(.*)/gi;
 const MD_YOUTUBE_REGEX = /!yt\[(.*)\]\((.*)\)/gims;
 
 const MD_LINK_REGEX = /\[(.+?)\]\((.+?)\)(.*)/gims;
@@ -17,7 +18,7 @@ const MD_FOOTNOTE_REFERENCE_REGEX = /\[\^([0-9]+)\](.*)/gims;
 const MD_FOOTNOTE_REGEX = /^\[\^([0-9]+)\]:\ (.+)/gims;
 /* eslint-enable */
 
-const flatten = arr =>
+const flatten = (arr) =>
   arr.reduce(
     (flat, toFlatten) =>
       flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten),
@@ -51,7 +52,7 @@ const parseStringForBoldness = (item, furtherProcess) => {
 };
 
 // Takes a string, and returns an array
-const parseStringForBigLink = item => {
+const parseStringForBigLink = (item) => {
   if (item.match(MD_BIG_LINK_REGEX)) {
     const elements = item.split(MD_BIG_LINK_REGEX);
     const href = elements[2];
@@ -225,7 +226,7 @@ const parseStringForCitations = (item, furtherProcess) => {
 };
 
 // Takes a string, and returns an array
-const parseStringForReferences = item => {
+const parseStringForReferences = (item) => {
   if (item.match(MD_REFERENCES_REGEX)) {
     const elements = item.split(MD_REFERENCES_REGEX);
     return [
@@ -240,7 +241,7 @@ const parseStringForReferences = item => {
 };
 
 // Takes a string, and returns an array
-const parseStringForFootnote = item => {
+const parseStringForFootnote = (item) => {
   if (item.match(MD_FOOTNOTE_REGEX)) {
     const elements = item.split(MD_FOOTNOTE_REGEX);
     return [
@@ -255,9 +256,9 @@ const parseStringForFootnote = item => {
 };
 
 const processStringsInList = (list, func, supportedFeatures) => {
-  const result = list.map(item => {
+  const result = list.map((item) => {
     if (typeof item === 'string') {
-      return func(item, toFurtherProcess =>
+      return func(item, (toFurtherProcess) =>
         // eslint-disable-next-line no-use-before-define
         parseSingleLineElements([toFurtherProcess], supportedFeatures),
       );
@@ -368,7 +369,7 @@ const parseSingleLineElements = (list, supportedFeatures) => {
   }
 
   // handle children elements recursively:
-  result = result.map(l => {
+  result = result.map((l) => {
     if (l.children) {
       return {
         ...l,

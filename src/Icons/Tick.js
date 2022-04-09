@@ -7,7 +7,7 @@ import STYLES from './icon.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Tick = props => {
+const Tick = (props) => {
   const { className, ...rest } = props;
 
   return (

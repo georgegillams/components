@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import ImageDumb from './ImageDumb';
 
-const Image = props => {
+const Image = (props) => {
   const [loaded, setLoaded] = useState(false);
 
   const onImageLoad = () => {

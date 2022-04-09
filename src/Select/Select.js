@@ -12,7 +12,7 @@ const OTHER_VALUE = '';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const Select = props => {
+const Select = (props) => {
   const {
     renderOtherLabel,
     otherInputId,
@@ -34,7 +34,7 @@ const Select = props => {
   const disabled = enabled === false;
 
   const showOtherFreeTextField =
-    enableOther && !options.map(o => o.value).includes(value);
+    enableOther && !options.map((o) => o.value).includes(value);
 
   const classNames = [getClassName('input__outer')];
   const innerClassNames = [
@@ -76,7 +76,7 @@ const Select = props => {
           {...inputProps}
         >
           {options &&
-            options.map(o => (
+            options.map((o) => (
               <option key={o.value} value={o.value}>
                 {o.name}
               </option>

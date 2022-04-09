@@ -8,7 +8,7 @@ import STYLES from './request-status.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const RequestStatusContainer = props => {
+const RequestStatusContainer = (props) => {
   const { statuses } = props;
 
   const classNameFinal = [getClassName('request-status__outer-container')];
@@ -22,7 +22,7 @@ const RequestStatusContainer = props => {
     <div className={classNameFinal.join(' ')}>
       {statuses &&
         statuses.map &&
-        statuses.map(status => (
+        statuses.map((status) => (
           <RequestStatus key={status.message} status={status} />
         ))}
     </div>

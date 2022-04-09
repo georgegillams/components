@@ -9,7 +9,7 @@ import STYLES from './segmented-control.scss';
 
 const getClassName = cssModules(STYLES);
 
-const SegmentedControlItem = props => {
+const SegmentedControlItem = (props) => {
   const { first, last, selected, children, className, ...rest } = props;
 
   const classNames = [getClassName('segmented-control__item', className)];

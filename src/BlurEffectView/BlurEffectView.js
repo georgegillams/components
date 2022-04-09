@@ -7,7 +7,7 @@ import STYLES from './blur-effect.scss';
 
 const getClassName = cssModules(STYLES);
 
-const BlurEffectView = props => {
+const BlurEffectView = (props) => {
   const myRef = useRef(null);
   let mainScrollElement = null;
   let mainScrollElementClone = null;
@@ -20,7 +20,7 @@ const BlurEffectView = props => {
     mainScrollElementClone.style.transform = `translatey(${yValue}px)`;
   };
 
-  const cleanUpElements = htmlNode => {
+  const cleanUpElements = (htmlNode) => {
     if (!htmlNode) {
       return;
     }

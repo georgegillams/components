@@ -7,7 +7,7 @@ import STYLES from './paragraph.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const Paragraph = props => {
+const Paragraph = (props) => {
   const { className, children, padding, ...rest } = props;
 
   const classNames = [getClassName('paragraph')];

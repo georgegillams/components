@@ -31,7 +31,7 @@ const tagText = {
   [TAG_TYPES.security]: 'Security',
 };
 
-const Tag = props => {
+const Tag = (props) => {
   const { className, disabled, ariaLabel, type, children, ...rest } = props;
 
   const outerClassNameFinal = [getClassName('tag__outer')];

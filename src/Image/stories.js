@@ -5,7 +5,7 @@ import ImageDumb from './ImageDumb';
 
 import { Image } from './index';
 
-const StatefulImageDumb = props => {
+const StatefulImageDumb = (props) => {
   const [loaded, setLoaded] = useState(false);
 
   return (

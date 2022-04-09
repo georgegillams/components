@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import { withScroll, withScrollProps } from './index';
 
-const ScrollReporter = props => {
+const ScrollReporter = (props) => {
   const {
     inView,
     scrollPosition,

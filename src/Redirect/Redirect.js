@@ -5,7 +5,7 @@ import { Paragraph } from '../Paragraph';
 import { TextLink } from '../TextLink';
 import { Section } from '../Section';
 
-const Redirect = props => {
+const Redirect = (props) => {
   const [isTimeToRedirect, setIsTimeToRedirect] = useState(false);
 
   useEffect(() => {

@@ -9,7 +9,7 @@ import STYLES from './code.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Code = props => {
+const Code = (props) => {
   const { children, lang, githubUrl, className, ...rest } = props;
 
   const classNameFinal = [getClassName('code__outer-container')];

@@ -7,7 +7,7 @@ import STYLES from './icon.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Copy = props => {
+const Copy = (props) => {
   const { className, ...rest } = props;
 
   return (

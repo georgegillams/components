@@ -105,7 +105,7 @@ const FeatureCard = React.forwardRef((props, ref) => {
                 name={annotations.join(' ')}
               />
             </div>
-            {annotations.map(annotation => (
+            {annotations.map((annotation) => (
               <div
                 className={getClassName(
                   'feature-card__annotation',

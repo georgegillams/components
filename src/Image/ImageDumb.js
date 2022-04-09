@@ -9,7 +9,7 @@ import STYLES from './image.scss';
 
 const getClassName = cssModules(STYLES);
 
-const ImageDumb = props => {
+const ImageDumb = (props) => {
   const {
     aspectX,
     aspectY,

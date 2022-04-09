@@ -19,7 +19,7 @@ import {
 } from '../singleLineElementLexer.js';
 import { DEFAULT_SUPPORTED_FEATURES } from '../constants.js';
 
-const simpleFurtherProcess = x => `forFurtherProcessing: "${x}"`;
+const simpleFurtherProcess = (x) => `forFurtherProcessing: "${x}"`;
 
 // #region individual items
 test('parses text containing image', () => {

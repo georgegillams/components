@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Paragraph } from '../Paragraph';
 
-const Reference = props => {
+const Reference = (props) => {
   const { reference, identifier, ...rest } = props;
 
   return (

@@ -9,7 +9,7 @@ import STYLES from './debug-object.scss';
 
 const getClassName = cssModules(STYLES);
 
-const DebugObject = props => {
+const DebugObject = (props) => {
   const { debugTitle, debugObject } = props;
 
   return (

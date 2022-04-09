@@ -8,7 +8,7 @@ import STYLES from './countdown.scss';
 
 const getClassName = cssModules(STYLES);
 
-const CountdownItem = props => {
+const CountdownItem = (props) => {
   const { name, number, textClassName, className, ...rest } = props;
 
   const classNames = [getClassName('countdown__item', className)];

@@ -37,12 +37,12 @@ const formFields = [
   },
 ];
 
-const formFieldsWithHints = formFields.map(f => ({
+const formFieldsWithHints = formFields.map((f) => ({
   ...f,
   hint: `Hint for ${f.name}`,
 }));
 
-const StatefulFormBuilder = props => {
+const StatefulFormBuilder = (props) => {
   const [entity, setEntity] = useState({});
 
   return <FormBuilder entity={entity} onDataChanged={setEntity} {...props} />;

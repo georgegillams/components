@@ -14,14 +14,10 @@ import STYLES from './forms.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const FormBuilder = props => {
+const FormBuilder = (props) => {
   const [formId] = props.test
     ? ['FORM_ID']
-    : useState(
-        Math.random()
-          .toString(36)
-          .substring(7),
-      );
+    : useState(Math.random().toString(36).substring(7));
 
   const {
     className,
@@ -55,7 +51,8 @@ const FormBuilder = props => {
   }
 
   const filteredFormFields = formFields.filter(
-    field => HelperFunctions.includes(Object.keys(field), 'show') && field.show,
+    (field) =>
+      HelperFunctions.includes(Object.keys(field), 'show') && field.show,
   );
 
   return (
@@ -94,7 +91,7 @@ const FormBuilder = props => {
                   name={formField.name}
                   label={formField.name}
                   checked={entity[formField.id]}
-                  onChange={event => {
+                  onChange={(event) => {
                     formValueChanged(
                       entity,
                       formField.id,
@@ -126,7 +123,7 @@ const FormBuilder = props => {
                     value={entity[formField.id]}
                     valid={validity[index]}
                     type={formField.type === 'password' ? 'password' : null}
-                    onChange={event => {
+                    onChange={(event) => {
                       formValueChanged(
                         entity,
                         formField.id,
@@ -159,7 +156,7 @@ const FormBuilder = props => {
                     name={formField.name}
                     value={entity[formField.id]}
                     valid={validity[index]}
-                    onChange={event => {
+                    onChange={(event) => {
                       formValueChanged(
                         entity,
                         formField.id,
@@ -202,7 +199,7 @@ const FormBuilder = props => {
                   name={formField.name}
                   value={entity[formField.id]}
                   valid={validity[index]}
-                  onChange={event => {
+                  onChange={(event) => {
                     formValueChanged(
                       entity,
                       formField.id,
@@ -235,7 +232,7 @@ const FormBuilder = props => {
             'forms__component__button',
           )}
           onClick={onSubmit}
-          disabled={disabled || !validity.every(v => v)}
+          disabled={disabled || !validity.every((v) => v)}
           loading={loading}
         >
           {submitLabel}

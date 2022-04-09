@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import { BurgerButton } from './index';
 
-const StatefulBurger = props => {
+const StatefulBurger = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

@@ -7,7 +7,7 @@ import STYLES from './animate-height.scss';
 
 const getClassName = cssModules(STYLES);
 
-const AnimateHeight = props => {
+const AnimateHeight = (props) => {
   const {
     className,
     expanded,
@@ -41,9 +41,8 @@ const AnimateHeight = props => {
       return;
     }
 
-    const {
-      top: collapsingElementTop,
-    } = childElement.current.getBoundingClientRect();
+    const { top: collapsingElementTop } =
+      childElement.current.getBoundingClientRect();
     const currentScrollY = window.scrollY;
     if (collapsingElementTop > scrollOffset) {
       return;

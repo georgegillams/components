@@ -1,6 +1,6 @@
 const POST_LOGIN_REDIRECT_LOCATION = 'post-login-redirect-location';
 
-const setPostLoginRedirect = location => {
+const setPostLoginRedirect = (location) => {
   localStorage.setItem(POST_LOGIN_REDIRECT_LOCATION, location);
 };
 

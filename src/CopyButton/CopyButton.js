@@ -8,7 +8,7 @@ import STYLES from './copy-button.scss';
 
 const getClassName = cssModules(STYLES);
 
-const CopyButton = props => {
+const CopyButton = (props) => {
   const { text, accessibilityLabel, className, ...rest } = props;
 
   const classNames = [getClassName('copy-button__outer', className)];

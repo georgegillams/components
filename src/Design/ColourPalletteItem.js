@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { CodeInline } from '../Code';
 import { Paragraph } from '../Paragraph';
 
-const ColourPalletteItem = props => {
+const ColourPalletteItem = (props) => {
   const { colourName, colour, ...rest } = props;
 
   return (

@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 
-const cleanRestScrollProps = obj => {
+const cleanRestScrollProps = (obj) => {
   delete obj.fullyInView;
   delete obj.hasBeenFullyInView;
   delete obj.hasBeenInView;

@@ -92,7 +92,7 @@ const Card = React.forwardRef((props, ref) => {
     );
   }
 
-  const onPress = e => {
+  const onPress = (e) => {
     if (e.key === 'Enter') {
       onClick(e);
     }

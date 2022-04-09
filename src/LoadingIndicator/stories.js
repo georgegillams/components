@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 
 import { LoadingIndicator } from './index';
 
-const StatefulLoading = props => {
+const StatefulLoading = (props) => {
   const [loading, setLoading] = useState(props.loading);
   const [error, setError] = useState(props.error);
 

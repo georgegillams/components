@@ -8,15 +8,9 @@ import STYLES from './degree-module.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const DegreeModule = props => {
-  const {
-    name,
-    markerPosition,
-    percentage,
-    filled,
-    className,
-    ...rest
-  } = props;
+const DegreeModule = (props) => {
+  const { name, markerPosition, percentage, filled, className, ...rest } =
+    props;
 
   const classNameFinal = [getClassName('degree-module')];
   if (className) {

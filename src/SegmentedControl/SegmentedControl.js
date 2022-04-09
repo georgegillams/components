@@ -8,7 +8,7 @@ import STYLES from './segmented-control.scss';
 
 const getClassName = cssModules(STYLES);
 
-const SegmentedControl = props => {
+const SegmentedControl = (props) => {
   const {
     options,
     selectedIndex,

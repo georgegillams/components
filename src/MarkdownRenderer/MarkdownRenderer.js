@@ -23,7 +23,7 @@ const getClassName = cssModules(STYLES);
 
 const ThemedTextLink = withTheme(TextLink);
 
-const MarkdownRenderer = props => {
+const MarkdownRenderer = (props) => {
   const {
     content,
     supportedFeatures,
@@ -84,7 +84,7 @@ const elementForContent = (
   }
 
   if (HelperFunctions.isArray(content)) {
-    return content.map(c =>
+    return content.map((c) =>
       elementForContent(c, depth, light, elementClassName, padding),
     );
   }
@@ -171,18 +171,18 @@ const elementForContent = (
   }
 
   if (content.type === 'bulletList') {
-    childElement = childElement.map(c => <li>{c}</li>);
+    childElement = childElement.map((c) => <li>{c}</li>);
     return <ul>{childElement}</ul>;
   }
 
   if (content.type === 'numberedList') {
-    childElement = childElement.map(c => <li>{c}</li>);
+    childElement = childElement.map((c) => <li>{c}</li>);
     return <ol>{childElement}</ol>;
   }
 
   if (content.type === 'quotation') {
     if (childElement.length > 1) {
-      childElement = childElement.map(c => (
+      childElement = childElement.map((c) => (
         <Paragraph padding={padding}>{c}</Paragraph>
       ));
     }
@@ -227,7 +227,7 @@ const elementForContent = (
   if (content.type === 'blockCode') {
     return (
       <Code lang={content.language} githubUrl={content.url}>
-        {content.codeLines.map(c => (
+        {content.codeLines.map((c) => (
           <>
             {c.replace(/ /g, '\u00a0')}
             <br />

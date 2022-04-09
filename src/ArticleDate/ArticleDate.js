@@ -7,7 +7,7 @@ import STYLES from './article-date.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const ArticleDate = props => {
+const ArticleDate = (props) => {
   const { date, padding, className, ...rest } = props;
 
   const classNames = [getClassName('article-date__date')];

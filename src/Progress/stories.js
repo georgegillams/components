@@ -5,7 +5,7 @@ import { Progress } from './index';
 
 const INTERACTIVE_INCREMENT = 33;
 
-const StatefulProgress = props => {
+const StatefulProgress = (props) => {
   const [progress, setProgress] = useState(0);
 
   return (
