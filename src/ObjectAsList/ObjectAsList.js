@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const ObjectAsList = props => {
+const ObjectAsList = (props) => {
   const { name, value, depth, ...rest } = props;
 
   const [expanded, setExpanded] = useState(false);
@@ -16,7 +16,7 @@ const ObjectAsList = props => {
           onClick={() => {
             setExpanded(!expanded);
           }}
-          onKeyDown={e => {
+          onKeyDown={(e) => {
             if (e.key === 'ArrowRight') {
               setExpanded(true);
             }
@@ -24,7 +24,7 @@ const ObjectAsList = props => {
               setExpanded(false);
             }
           }}
-          onKeyPress={e => {
+          onKeyPress={(e) => {
             if (e.key === 'Enter') {
               setExpanded(!expanded);
             }
@@ -32,7 +32,7 @@ const ObjectAsList = props => {
           {...rest}
         >{`${expanded ? '🔽' : '▶️'} ${name || 'top-level'}:`}</div>
         {expanded &&
-          Object.keys(value).map(k => (
+          Object.keys(value).map((k) => (
             <ObjectAsList key={k} name={k} value={value[k]} depth={depth + 1} />
           ))}
       </>

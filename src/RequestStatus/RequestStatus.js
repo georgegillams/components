@@ -7,7 +7,7 @@ import STYLES from './request-status.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const RequestStatus = props => {
+const RequestStatus = (props) => {
   const { status, className, ...rest } = props;
   const { type, message } = status;
 

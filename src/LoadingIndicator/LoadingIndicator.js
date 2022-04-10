@@ -8,7 +8,7 @@ import STYLES from './style.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const LoadingIndicator = props => {
+const LoadingIndicator = (props) => {
   const { loading, error, children, ...rest } = props;
 
   if (!loading && !error) {

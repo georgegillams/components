@@ -9,7 +9,7 @@ import STYLES from './money-pot.scss';
 
 const getClassName = cssModules(STYLES);
 
-const MoneyPot = props => {
+const MoneyPot = (props) => {
   const {
     name,
     balance,

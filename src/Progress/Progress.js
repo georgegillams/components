@@ -7,7 +7,7 @@ import STYLES from './progress.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const Progress = props => {
+const Progress = (props) => {
   const { error, progress, max, className, ...rest } = props;
 
   const cappedProgress = Math.min(max, progress);

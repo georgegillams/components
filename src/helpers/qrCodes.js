@@ -1,12 +1,6 @@
-const getJsonFromScannedData = data => {
+const getJsonFromScannedData = (data) => {
   try {
-    return JSON.parse(
-      data
-        .split("'")
-        .join('"')
-        .split("'")
-        .join('"'),
-    );
+    return JSON.parse(data.split("'").join('"').split("'").join('"'));
   } catch (err) {
     return null;
   }

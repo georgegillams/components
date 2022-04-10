@@ -7,7 +7,7 @@ import STYLES from './quote.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const Quote = props => {
+const Quote = (props) => {
   const { children, className, ...rest } = props;
 
   const classNameFinal = [getClassName('quote__container')];

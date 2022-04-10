@@ -7,7 +7,7 @@ import STYLES from './section.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const Section = props => {
+const Section = (props) => {
   const {
     inheritColor,
     link,
@@ -49,10 +49,7 @@ const Section = props => {
     textClassNames.push(textClassName);
   }
 
-  const anchorLink = `${name}`
-    .toLowerCase()
-    .split(' ')
-    .join('-');
+  const anchorLink = `${name}`.toLowerCase().split(' ').join('-');
 
   return (
     <div className={outerClassNames.join(' ')} {...rest}>

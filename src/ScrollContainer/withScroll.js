@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import throttle from 'lodash/throttle';
+import throttle from 'lodash.throttle';
 import wrapDisplayName from 'recompose/wrapDisplayName';
 
 const withScrollProps = {
@@ -19,7 +19,7 @@ const withScrollProps = {
   scrollPositionVh: PropTypes.number,
 };
 
-const withScroll = ComponentToScroll => {
+const withScroll = (ComponentToScroll) => {
   class WithScroll extends Component {
     constructor(): void {
       super();
@@ -81,7 +81,7 @@ const withScroll = ComponentToScroll => {
       );
 
       const fullyInView = scrollPosition >= 100;
-      this.setState(prevState => ({
+      this.setState((prevState) => ({
         inView,
         hasBeenInView: inView || prevState.hasBeenInView,
         outOfView,
@@ -189,7 +189,7 @@ const withScroll = ComponentToScroll => {
       return (
         <div
           id={this.placeholderReference}
-          ref={element => {
+          ref={(element) => {
             this.element = element;
           }}
           style={style}

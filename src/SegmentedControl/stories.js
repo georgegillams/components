@@ -10,7 +10,7 @@ import { SegmentedControl } from './index';
 
 const getClassName = cssModules(STYLES);
 
-const SegmentedControlStory = props => {
+const SegmentedControlStory = (props) => {
   const { className, selectedIndex: initiallySelectedIndex, ...rest } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(initiallySelectedIndex);

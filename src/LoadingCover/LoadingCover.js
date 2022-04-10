@@ -9,7 +9,7 @@ import STYLES from './loading-cover.scss';
 
 const getClassName = cssModules(STYLES);
 
-const LoadingCover = props => {
+const LoadingCover = (props) => {
   const {
     loadingSkeleton: LoadingSkeleton,
     loading,

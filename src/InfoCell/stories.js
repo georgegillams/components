@@ -5,7 +5,7 @@ import { TextLink } from '../TextLink';
 
 import { InfoCell, INFO_CELL_STYLES } from './index';
 
-const StatefulStory = props => {
+const StatefulStory = (props) => {
   const [hasBeenMostlyInView, setHasBeenMostlyInView] = useState(false);
 
   return (

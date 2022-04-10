@@ -29,7 +29,7 @@ const createDictionary = (data, keyProperty) => {
   return dict;
 };
 
-const deArrayitise = array => {
+const deArrayitise = (array) => {
   if (array && array.length === 1) {
     return array[0];
   }

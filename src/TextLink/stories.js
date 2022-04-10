@@ -9,7 +9,7 @@ import { TextLink } from './index';
 
 const getClassName = cssModules(STYLES);
 
-const FocusTextLink = props => {
+const FocusTextLink = (props) => {
   const link = useRef(null);
 
   useEffect(() => {

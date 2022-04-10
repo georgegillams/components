@@ -1,8 +1,9 @@
-const isEmpty = value => value === undefined || value === null || value === '';
-const join = rules => (value, data) =>
-  rules.map(rule => rule(value, data)).filter(error => !!error)[0];
+const isEmpty = (value) =>
+  value === undefined || value === null || value === '';
+const join = (rules) => (value, data) =>
+  rules.map((rule) => rule(value, data)).filter((error) => !!error)[0];
 
-export const email = value => {
+export const email = (value) => {
   // Let's not start a debate on email regex. This is just for an example app!
   if (
     !isEmpty(value) &&
@@ -13,28 +14,28 @@ export const email = value => {
   return null;
 };
 
-export const required = value => {
+export const required = (value) => {
   if (isEmpty(value)) {
     return 'Required';
   }
   return null;
 };
 
-export const minLength = min => value => {
+export const minLength = (min) => (value) => {
   if (!isEmpty(value) && value.length < min) {
     return `Must be at least ${min} characters`;
   }
   return null;
 };
 
-export const maxLength = max => value => {
+export const maxLength = (max) => (value) => {
   if (!isEmpty(value) && value.length > max) {
     return `Must be no more than ${max} characters`;
   }
   return null;
 };
 
-export const integer = value => {
+export const integer = (value) => {
   if (!Number.isInteger(Number(value))) {
     return 'Must be an integer';
   }
@@ -42,7 +43,7 @@ export const integer = value => {
 };
 
 export function oneOf(enumeration) {
-  return value => {
+  return (value) => {
     if (!enumeration.indexOf(value)) {
       return `Must be one of: ${enumeration.join(', ')}`;
     }
@@ -50,7 +51,7 @@ export function oneOf(enumeration) {
   };
 }
 
-export const match = field => (value, data) => {
+export const match = (field) => (value, data) => {
   if (data) {
     if (value !== data[field]) {
       return 'Do not match';
@@ -62,7 +63,7 @@ export const match = field => (value, data) => {
 export function createValidator(rules) {
   return (data = {}) => {
     const errors = {};
-    Object.keys(rules).forEach(key => {
+    Object.keys(rules).forEach((key) => {
       const rule = join([].concat(rules[key])); // concat enables both functions and arrays of functions
       const error = rule(data[key], data);
       if (error) {

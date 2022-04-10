@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { AnimatedContent } from './index';
 
-const StatefulAnimatedContent = props => {
+const StatefulAnimatedContent = (props) => {
   const [inView, setInView] = useState(false);
 
   return (

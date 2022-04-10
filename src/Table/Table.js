@@ -17,7 +17,7 @@ const commonDefaultProps = {
   className: null,
 };
 
-const Table = props => {
+const Table = (props) => {
   const { className, children, ...rest } = props;
 
   return (
@@ -40,7 +40,7 @@ Table.defaultProps = {
   ...commonDefaultProps,
 };
 
-const Head = props => {
+const Head = (props) => {
   const { className, children, ...rest } = props;
 
   return (
@@ -58,7 +58,7 @@ Head.defaultProps = {
   ...commonDefaultProps,
 };
 
-const Body = props => {
+const Body = (props) => {
   const { className, children, ...rest } = props;
 
   return (
@@ -76,7 +76,7 @@ Body.defaultProps = {
   ...commonDefaultProps,
 };
 
-const Row = props => {
+const Row = (props) => {
   const { className, children, ...rest } = props;
 
   return (
@@ -94,7 +94,7 @@ Row.defaultProps = {
   ...commonDefaultProps,
 };
 
-const Cell = props => {
+const Cell = (props) => {
   const { className, children, ...rest } = props;
 
   return (

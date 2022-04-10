@@ -12,19 +12,19 @@ const MD_TABLE_REGEX_CELLS = /\s?\|\s?/gims;
 const MD_TABLE_HEADER_DIVIDER_REGEX = /\|(?:\s+(-+)\s+\|)+/gims;
 /* eslint-enable no-useless-escape */
 
-const convertLinesToParagraphs = list =>
-  list.map(l => {
+const convertLinesToParagraphs = (list) =>
+  list.map((l) => {
     if (l.type === 'line') {
       return { type: 'paragraph', children: [l.content] };
     }
     return l;
   });
 
-const parseLinesForNumberedList = list => {
+const parseLinesForNumberedList = (list) => {
   const results = [];
   let currentResult = null;
 
-  list.forEach(l => {
+  list.forEach((l) => {
     if (l.type !== 'line') {
       results.push(l);
       return;
@@ -56,11 +56,11 @@ const parseLinesForNumberedList = list => {
   return results;
 };
 
-const parseLinesForBulletList = list => {
+const parseLinesForBulletList = (list) => {
   const results = [];
   let currentResult = null;
 
-  list.forEach(l => {
+  list.forEach((l) => {
     if (l.type !== 'line') {
       results.push(l);
       return;
@@ -92,11 +92,11 @@ const parseLinesForBulletList = list => {
   return results;
 };
 
-const parseLinesForBlockCode = list => {
+const parseLinesForBlockCode = (list) => {
   const results = [];
   let currentResult = null;
 
-  list.forEach(l => {
+  list.forEach((l) => {
     if (l.type !== 'line') {
       results.push(l);
       return;
@@ -135,11 +135,11 @@ const parseLinesForBlockCode = list => {
   return results;
 };
 
-const parseLinesForTable = list => {
+const parseLinesForTable = (list) => {
   const results = [];
   let currentResult = null;
 
-  list.forEach(l => {
+  list.forEach((l) => {
     if (l.type !== 'line') {
       results.push(l);
       return;
@@ -190,11 +190,11 @@ const parseLinesForTable = list => {
 
   return results;
 };
-const parseLinesForQuoteBlock = list => {
+const parseLinesForQuoteBlock = (list) => {
   const results = [];
   let currentResult = null;
 
-  list.forEach(l => {
+  list.forEach((l) => {
     if (l.type !== 'line') {
       results.push(l);
       return;
@@ -252,7 +252,7 @@ const parseMultiLineElements = (list, supportedFeatures) => {
   }
 
   // handle children elements recursively:
-  result = result.map(l => {
+  result = result.map((l) => {
     if (l.children) {
       return {
         ...l,

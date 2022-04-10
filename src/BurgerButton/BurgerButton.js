@@ -7,7 +7,7 @@ import STYLES from './burger-button.scss';
 
 const getClassName = cssModules(STYLES);
 
-const BurgerButton = props => {
+const BurgerButton = (props) => {
   const { onClick, className, lineClassName, isOpen, ...rest } = props;
 
   const innerClassNames = [getClassName('burger-button__inner')];

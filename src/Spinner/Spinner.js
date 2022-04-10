@@ -7,7 +7,7 @@ import STYLES from './spinner.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Spinner = props => {
+const Spinner = (props) => {
   const { large, light, className, ...rest } = props;
 
   const outerClassNames = [getClassName('spinner__outer')];

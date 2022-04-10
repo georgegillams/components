@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useEffectAfterPageLoad = effectFunc => {
+const useEffectAfterPageLoad = (effectFunc) => {
   const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {

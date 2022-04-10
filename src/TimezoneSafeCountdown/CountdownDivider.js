@@ -8,7 +8,7 @@ import STYLES from './countdown.scss';
 
 const getClassName = cssModules(STYLES);
 
-const CountdownDivider = props => {
+const CountdownDivider = (props) => {
   const { textClassName, className, ...rest } = props;
 
   const classNames = [

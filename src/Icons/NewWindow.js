@@ -7,7 +7,7 @@ import STYLES from './icon.scss';
 
 const getClassName = cssModules(STYLES);
 
-const NewWindow = props => {
+const NewWindow = (props) => {
   const { className, ...rest } = props;
 
   return (

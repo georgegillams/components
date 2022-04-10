@@ -7,7 +7,7 @@ import STYLES from './marker.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Marker = props => {
+const Marker = (props) => {
   const [showPopover, setShowPopover] = useState(false);
 
   const { displayPercentage, hoverText, className, ...rest } = props;
@@ -17,7 +17,7 @@ const Marker = props => {
     classNames.push(className);
   }
 
-  const setHover = newValue => {
+  const setHover = (newValue) => {
     setShowPopover(newValue);
   };
 
@@ -29,7 +29,7 @@ const Marker = props => {
     setHover(false);
   };
 
-  const onPress = e => {
+  const onPress = (e) => {
     if (e.key === 'Enter') {
       hoverStarted();
     }

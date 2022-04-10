@@ -7,7 +7,7 @@ import STYLES from './animated-content.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const AnimatedContent = props => {
+const AnimatedContent = (props) => {
   const { inView, className, children, ...rest } = props;
   const classNameFinal = [getClassName('animated-content__outer-container')];
   if (inView) {

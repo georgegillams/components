@@ -13,7 +13,7 @@ export const WIDTHS = {
 
 const getClassName = cssModules(STYLES);
 
-const PageContainer = props => {
+const PageContainer = (props) => {
   const { className, width, centred, bottomPadding, ...rest } = props;
 
   const outerClassNames = [getClassName('page-container__container')];

@@ -10,7 +10,7 @@ import { Checkbox } from './index';
 
 const getClassName = cssModules(STYLES);
 
-const StatefulCheckbox = props => {
+const StatefulCheckbox = (props) => {
   const [checked, setChecked] = useState(props.checked);
   const [valid, setValid] = useState(null);
   const [disabled, setDisabled] = useState(false);
@@ -22,7 +22,7 @@ const StatefulCheckbox = props => {
         valid={valid}
         checked={checked}
         disabled={disabled}
-        onChange={e => setChecked(e.target.checked)}
+        onChange={(e) => setChecked(e.target.checked)}
         {...props}
       />
       {!disabled && (

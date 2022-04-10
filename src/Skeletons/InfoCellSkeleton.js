@@ -8,7 +8,7 @@ import STYLES from './skeleton.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const InfoCellSkeleton = props => {
+const InfoCellSkeleton = (props) => {
   const { className, ...rest } = props;
 
   const classNames = [getClassName('skeleton__info-cell')];

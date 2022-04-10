@@ -33,32 +33,32 @@ module.exports = ({ config, mode }) => {
       },
     ],
   });
-  config.module.rules.push({
-    test: /\.(jpg|png|gif)$/,
-    use: [
-      'file-loader',
-      {
-        loader: 'image-webpack-loader',
-        options: {
-          query: {
-            gifsicle: {
-              interlaced: true,
-            },
-            mozjpeg: {
-              progressive: true,
-            },
-            optipng: {
-              optimizationLevel: 7,
-            },
-            pngquant: {
-              quality: '65-90',
-              speed: 4,
-            },
-          },
-        },
-      },
-    ],
-  });
+  // config.module.rules.push({
+  //   test: /\.(jpg|png|gif)$/,
+  //   use: [
+  //     'file-loader',
+  //     {
+  //       loader: 'image-webpack-loader',
+  //       options: {
+  //         query: {
+  //           gifsicle: {
+  //             interlaced: true,
+  //           },
+  //           mozjpeg: {
+  //             progressive: true,
+  //           },
+  //           optipng: {
+  //             optimizationLevel: 7,
+  //           },
+  //           pngquant: {
+  //             quality: '65-90',
+  //             speed: 4,
+  //           },
+  //         },
+  //       },
+  //     },
+  //   ],
+  // });
 
   return config;
 };

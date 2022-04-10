@@ -8,7 +8,7 @@ import STYLES from './skeleton.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const SmallButtonSkeleton = props => {
+const SmallButtonSkeleton = (props) => {
   const { className, ...rest } = props;
 
   const classNames = [getClassName('skeleton__button--small')];

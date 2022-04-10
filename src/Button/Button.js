@@ -9,10 +9,8 @@ import STYLES from './button.scss';
 const getClassName = cssModules(STYLES);
 
 const Button = React.forwardRef((props, ref) => {
-  const [
-    showDestructiveConfirmation,
-    setShowDestructiveConfirmation,
-  ] = useState(false);
+  const [showDestructiveConfirmation, setShowDestructiveConfirmation] =
+    useState(false);
 
   const {
     href,
@@ -112,7 +110,7 @@ const Button = React.forwardRef((props, ref) => {
     onClickFinal = null;
   }
 
-  const onDestructiveClickFinal = event => {
+  const onDestructiveClickFinal = (event) => {
     if (showDestructiveConfirmation) {
       setShowDestructiveConfirmation(false);
       onClickFinal(event);

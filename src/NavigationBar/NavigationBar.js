@@ -9,13 +9,13 @@ import STYLES from './navigation-bar.scss';
 
 const getClassName = cssModules({ ...STYLES });
 
-const NavigationBar = props => {
+const NavigationBar = (props) => {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(false);
   const [changing, setChanging] = useState(false);
   const headerElement = useRef(null);
 
-  const setAppAriaHidden = hidden => {
+  const setAppAriaHidden = (hidden) => {
     if (typeof window === 'undefined' || !document.getElementsByTagName) {
       return;
     }
@@ -60,7 +60,7 @@ const NavigationBar = props => {
   };
 
   useEffect(() => {
-    const escEventListener = event => {
+    const escEventListener = (event) => {
       if (event.isComposing || event.keyCode === 27) {
         closeMenu();
       }
@@ -112,7 +112,7 @@ const NavigationBar = props => {
 
   const menuItemsWithClickBehaviour =
     menuItems &&
-    menuItems.map(menuItem =>
+    menuItems.map((menuItem) =>
       menuItem
         ? React.cloneElement(menuItem, {
             onClick: closeMenu,
@@ -210,7 +210,7 @@ NavigationBar.defaultProps = {
   logo: null,
   menuItems: null,
   user: null,
-  burgerButtonWrapper: bbProps => <>{bbProps.children}</>,
+  burgerButtonWrapper: (bbProps) => <>{bbProps.children}</>,
 };
 
 export default NavigationBar;

@@ -8,7 +8,7 @@ import STYLES from './skeleton.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const FormHintSkeleton = props => {
+const FormHintSkeleton = (props) => {
   const { className, ...rest } = props;
 
   const classNames = [getClassName('skeleton__form-hint')];

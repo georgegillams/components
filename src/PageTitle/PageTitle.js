@@ -8,7 +8,7 @@ import STYLES from './page-title.scss';
 
 const getClassName = cssModules(STYLES);
 
-const PageTitle = props => {
+const PageTitle = (props) => {
   const {
     padding,
     link,

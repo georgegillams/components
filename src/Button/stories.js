@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import { Button } from './index';
 
-const ButtonStory = props => {
+const ButtonStory = (props) => {
   const { className, dark, focus, ...rest } = props;
   const button = useRef(null);
 

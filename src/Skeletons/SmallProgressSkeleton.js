@@ -8,7 +8,7 @@ import STYLES from './skeleton.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const SmallProgressSkeleton = props => {
+const SmallProgressSkeleton = (props) => {
   const { className, ...rest } = props;
 
   const classNames = [getClassName('skeleton__progress--small')];

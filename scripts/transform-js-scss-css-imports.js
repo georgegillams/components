@@ -9,7 +9,7 @@ const updateImports = (file, findReplaces) =>
         reject(err);
       }
       let result = data;
-      findReplaces.forEach(fr => {
+      findReplaces.forEach((fr) => {
         const splitFile = result.split(fr.find);
         if (splitFile.length === 1) {
           return;
@@ -17,7 +17,7 @@ const updateImports = (file, findReplaces) =>
         result = splitFile.join(fr.replace);
       });
 
-      writeFile(file, result, 'utf8', err2 => {
+      writeFile(file, result, 'utf8', (err2) => {
         if (err2) return reject(err2);
         resolve();
         return null;
@@ -35,9 +35,9 @@ const jsFiles = execSync(
 )
   .toString()
   .split('\n')
-  .filter(s => s !== '');
+  .filter((s) => s !== '');
 
-const updatePromises = jsFiles.map(jF => updateImports(jF, findReplaces));
+const updatePromises = jsFiles.map((jF) => updateImports(jF, findReplaces));
 
 Promise.all(updatePromises).then(() => {
   console.log('All good.  👍');

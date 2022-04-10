@@ -15,7 +15,7 @@ export const NOTIFICATION_TYPES = {
   error: 'error',
 };
 
-const Notification = props => {
+const Notification = (props) => {
   const { type, deleted, children, className, ...rest } = props;
 
   const notificationClassName = [

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
 
-const NavigationItem = props => {
+const NavigationItem = (props) => {
   const { name, className, ...rest } = props;
 
   return (

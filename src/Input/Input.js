@@ -9,7 +9,7 @@ import STYLES from './input.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const Input = props => {
+const Input = (props) => {
   const {
     name,
     value,
@@ -97,7 +97,7 @@ Input.defaultProps = {
   name: null,
   onChange: null,
   className: null,
-  component: iProps => <input {...iProps} />,
+  component: (iProps) => <input {...iProps} />,
   enabled: true,
   iconProps: null,
   inputProps: null,

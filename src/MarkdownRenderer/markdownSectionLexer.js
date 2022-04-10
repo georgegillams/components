@@ -4,7 +4,7 @@ const MD_SUBSECTION_REGEX = /^##\ (.+)/gims;
 const MD_SUBSUBSECTION_REGEX = /^###\ (.+)/gims;
 /* eslint-enable */
 
-const matchesSectioningRegex = text => {
+const matchesSectioningRegex = (text) => {
   let matches = false;
   if (text.match(MD_SECTION_REGEX)) {
     matches = true;
@@ -18,9 +18,9 @@ const matchesSectioningRegex = text => {
   return matches;
 };
 
-const isSectioned = splitContent => {
+const isSectioned = (splitContent) => {
   let contentIsSectioned = false;
-  splitContent.forEach(c => {
+  splitContent.forEach((c) => {
     if (matchesSectioningRegex(c)) {
       contentIsSectioned = true;
     }
@@ -28,8 +28,8 @@ const isSectioned = splitContent => {
   return contentIsSectioned;
 };
 
-const convertStringsToLines = strings =>
-  strings.map(sC => ({ type: 'line', content: sC }));
+const convertStringsToLines = (strings) =>
+  strings.map((sC) => ({ type: 'line', content: sC }));
 
 // TODO Should ignore lines matching the regex if inside a code block
 /*
@@ -52,7 +52,7 @@ const parseSectioning = (
     currentResult = { type, name: null, children: [] };
   }
 
-  splitContent.forEach(sC => {
+  splitContent.forEach((sC) => {
     if (sC.match(regex)) {
       results.push(currentResult);
       const title = sC.split(regex)[1];
@@ -66,13 +66,13 @@ const parseSectioning = (
 
   results.push(currentResult);
   const nonEmptyResults = results.filter(
-    x => x && (x.type !== type || !!x.name || x.children.length > 0),
+    (x) => x && (x.type !== type || !!x.name || x.children.length > 0),
   );
 
   return nonEmptyResults;
 };
 
-const parseSubsubsections = splitContent => {
+const parseSubsubsections = (splitContent) => {
   const result = parseSectioning(
     splitContent,
     'subsubsection',
@@ -81,9 +81,9 @@ const parseSubsubsections = splitContent => {
   return result;
 };
 
-const parseSubsections = splitContent => {
+const parseSubsections = (splitContent) => {
   let result = parseSectioning(splitContent, 'subsection', MD_SUBSECTION_REGEX);
-  result = result.map(r => {
+  result = result.map((r) => {
     if (r.type === 'subsection') {
       return {
         ...r,
@@ -95,14 +95,14 @@ const parseSubsections = splitContent => {
   return result;
 };
 
-const parseSections = splitContent => {
+const parseSections = (splitContent) => {
   let result = parseSectioning(
     splitContent,
     'section',
     MD_SECTION_REGEX,
     false,
   );
-  result = result.map(r => {
+  result = result.map((r) => {
     if (r.type === 'section') {
       return { ...r, children: parseSubsections(r.children) };
     }
@@ -115,7 +115,7 @@ const parseSections = splitContent => {
  * Turns a string into a list of sections and lines, ready for further processing
  */
 const lexStructure = (content, supportedFeatures) => {
-  const splitContent = content.split('\n').filter(x => x.trim() !== '');
+  const splitContent = content.split('\n').filter((x) => x.trim() !== '');
   if (splitContent.length === 0) {
     return [];
   }

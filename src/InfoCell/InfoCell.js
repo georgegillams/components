@@ -12,7 +12,7 @@ export const INFO_CELL_STYLES = {
   dark: 'dark',
 };
 
-const InfoCell = props => {
+const InfoCell = (props) => {
   const {
     title,
     content,

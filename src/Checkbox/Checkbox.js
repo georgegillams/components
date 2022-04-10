@@ -8,7 +8,7 @@ import STYLES from './checkbox.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Checkbox = props => {
+const Checkbox = (props) => {
   const {
     onChange,
     labelClassName,

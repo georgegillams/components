@@ -7,7 +7,7 @@ import STYLES from './icon.scss';
 
 const getClassName = cssModules(STYLES);
 
-const ExclamationCircle = props => {
+const ExclamationCircle = (props) => {
   const { className, ...rest } = props;
 
   return (

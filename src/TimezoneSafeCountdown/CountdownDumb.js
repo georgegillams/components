@@ -17,7 +17,7 @@ const MS_PER_MINUTE = MS_PER_SECOND * 60;
 const MS_PER_HOUR = MS_PER_MINUTE * 60;
 const MS_PER_DAY = MS_PER_HOUR * 24;
 
-const absFloor = num => {
+const absFloor = (num) => {
   if (num > 0) {
     return Math.floor(num);
   }
@@ -29,7 +29,7 @@ export const DISPLAY_TYPES = {
   daysOnly: 'daysOnly',
 };
 
-const CountdownDumb = props => {
+const CountdownDumb = (props) => {
   const {
     millis,
     textClassName,
@@ -147,7 +147,7 @@ const CountdownDumb = props => {
         checked={paused}
         name="pause_checkbox"
         label="Reduce motion"
-        onChange={e => {
+        onChange={(e) => {
           if (onPauseChanged) {
             onPauseChanged(e.target.checked);
           }

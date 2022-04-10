@@ -7,7 +7,7 @@ import STYLES from './error.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-const Error = props => {
+const Error = (props) => {
   const { className, ...rest } = props;
 
   return <span className={getClassName('error', className)} {...rest} />;

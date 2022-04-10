@@ -7,7 +7,7 @@ import STYLES from './code.scss';
 
 const getClassName = cssModules(STYLES);
 
-const CodeBashArrow = props => (
+const CodeBashArrow = (props) => (
   <span {...props} className={getClassName('code__bash-arrow')}>
     {'▶ '}
   </span>

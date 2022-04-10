@@ -13,7 +13,7 @@ const allowFailure = process.argv.includes('--allowFailure');
 
 const scenarios = [];
 
-scenarioData.storyIds.forEach(sI => {
+scenarioData.storyIds.forEach((sI) => {
   scenarios.push({
     label: sI,
     url: `${STORY_BASE_URL}${sI}`,
@@ -21,7 +21,7 @@ scenarioData.storyIds.forEach(sI => {
     hideSelectors: scenarioData.globallyHiddenSelectors,
   });
 });
-scenarioData.docIds.forEach(dI => {
+scenarioData.docIds.forEach((dI) => {
   scenarios.push({
     label: dI,
     url: `${DOCS_BASE_URL}${dI}`,

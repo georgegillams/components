@@ -7,7 +7,7 @@ import STYLES from './code.scss';
 
 const getClassName = cssModules(STYLES);
 
-const CodeInline = props => {
+const CodeInline = (props) => {
   const { children, className, inheritColor, ...rest } = props;
 
   const classNameFinal = [

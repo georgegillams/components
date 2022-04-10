@@ -6,7 +6,7 @@ import { Section } from '../Section';
 import { ObjectAsList } from '../ObjectAsList';
 import { Paragraph } from '../Paragraph';
 
-const APIEntity = props => {
+const APIEntity = (props) => {
   const { entityType, entity, name, children, ...rest } = props;
   if (!entity) {
     return null;

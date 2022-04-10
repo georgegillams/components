@@ -5,7 +5,7 @@ import { MoneyPot } from './index';
 
 const INTERACTIVE_INCREMENT = 1300;
 
-const StatefulMoneyPot = props => {
+const StatefulMoneyPot = (props) => {
   const [expected, setExpected] = useState(0);
   const [balance, setBalance] = useState(0);
 
