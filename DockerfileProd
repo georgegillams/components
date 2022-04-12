@@ -1,5 +1,5 @@
 ARG NODE_VERSION=16.13.1-alpine
-FROM node:${NODE_VERSION}
+FROM node:${NODE_VERSION} as build
 
 RUN mkdir /opt/app
 WORKDIR /opt/app
@@ -8,9 +8,14 @@ COPY . .
 RUN PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile 
 RUN yarn build
 
-# Remove dependencies we don't need in prod:
-RUN rm -rf node_modules
-RUN yarn cache clean --all
-RUN PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile --production
+FROM node:${NODE_VERSION} as main
+
+RUN mkdir /opt/app
+WORKDIR /opt/app
+
+COPY --from=build /opt/app/build /
+COPY --from=build /opt/app/package.json /
+COPY --from=build /opt/app/yarn.lock /
+RUN yarn global add http-server
 
 CMD ["yarn", "prod"]
