@@ -111,6 +111,7 @@ jobs:
       - name: release
         env:
           NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          GH_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
         run: |
           npm config set //registry.npmjs.org/:_authToken $NPM_PUBLISH_TOKEN
           yarn release
