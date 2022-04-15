@@ -1,5 +1,11 @@
 # Changelog
 
+## 20.5.0
+
+### Features
+
+ - Add styled text (#591)
+
 ## 20.4.1
 
 ## 20.4.0
