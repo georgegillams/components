@@ -100,6 +100,8 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
+      # We use a fresh checkout here so that we can authenticate with a personal access token.
+      # This allows us to push new commits to a protected branch, which we cannot do with default GH action token.
       - name: Pull git repo
         run: |
           git config --global user.name "GitHub Actions Bot"
