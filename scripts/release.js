@@ -35,7 +35,7 @@ const createTag = (newVersion) => {
 
 const commitChanges = (newVersion) => {
   execSync(`git add .`);
-  execSync(`git commit -m "Publish ${newVersion}"`);
+  execSync(`git commit -m "[skip ci] Publish ${newVersion}"`);
   execSync(`git push`);
   console.log(blue('Code pushed'));
 };
