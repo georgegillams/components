@@ -4,9 +4,6 @@
 
 ### Bug Fixes
 
- - a
- - a
- - main test
  - Publish as me
  - dda7606 Test
  - Fix local snapshot testing (#593)
