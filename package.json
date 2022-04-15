@@ -35,7 +35,7 @@
     "prettier": "prettier --config .prettierrc --write \"**/*.js\"",
     "sass": "sass",
     "storybook": "start-storybook -p 9001",
-    "build": "build-storybook -c .storybook -o build",
+    "build": "build-storybook -c .storybook -o build --quiet",
     "build:for-deploy:clean": "rm -rf deploy/build",
     "build:for-deploy": "npm run build:for-deploy:clean && npm run build && cp -R build deploy/ && cp -R config deploy/",
     "build:test": "npm run build",
