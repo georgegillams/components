@@ -20,7 +20,7 @@ class StatefulInput extends Component {
           valid={this.state.valid}
           value={this.state.value}
           enabled={this.state.enabled}
-          onChange={e => this.setState({ value: e.target.value })}
+          onChange={(e) => this.setState({ value: e.target.value })}
           {...rest}
         />
         {!this.state.enabled && (

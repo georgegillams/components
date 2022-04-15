@@ -29,4 +29,5 @@ module.exports = {
       '<rootDir>/config/jest-mocks/image.js',
   },
   setupFilesAfterEnv: ['<rootDir>/config/test-setup.js'],
+  testEnvironment: 'jsdom',
 };

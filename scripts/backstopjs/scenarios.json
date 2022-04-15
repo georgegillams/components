@@ -41,7 +41,8 @@
     "table",
     "tags",
     "text-area",
-    "text-link"
+    "text-link",
+    "styled-text"
   ],
   "storyIds": [
     "navigation-bar--default",
@@ -51,7 +52,5 @@
     "request-status--success",
     "request-status--warn"
   ],
-  "globallyHiddenSelectors": [
-    "[class^=markdown-renderer__youtube]"
-  ]
+  "globallyHiddenSelectors": ["[class^=markdown-renderer__youtube]"]
 }

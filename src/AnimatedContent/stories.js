@@ -20,7 +20,10 @@ const StatefulAnimatedContent = (props) => {
   );
 };
 
-export default { title: 'Animated content', component: AnimatedContent };
+export default {
+  title: 'Animated content',
+  component: AnimatedContent,
+};
 
 export const InView = () => (
   <AnimatedContent inView>

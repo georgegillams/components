@@ -39,7 +39,7 @@ class StatefulDegreeModule extends Component {
         <button
           type="button"
           onClick={() => {
-            this.setState(prevState => ({
+            this.setState((prevState) => ({
               filled: !prevState.filled,
             }));
           }}
