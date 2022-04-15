@@ -100,18 +100,19 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
+      - name: Pull git repo
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "<>"
+          git config --global credential.helper cache
+          git clone https://${{secrets.PUBLISH_GH_TOKEN}}@github.com/georgegillams/gg-components
+
       - name: npm install
         run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
-
-      - name: setup git config
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
 
       - name: release
         env:
           NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
-          GH_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
         run: |
           npm config set //registry.npmjs.org/:_authToken $NPM_PUBLISH_TOKEN
           yarn release
