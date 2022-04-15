@@ -13,7 +13,7 @@ const getVersionRc = () => {
   return JSON.parse(versionRcFileContent);
 };
 
-const versionRcDefaultType = changeType => ({
+const versionRcDefaultType = (changeType) => ({
   type: changeType,
   section: changeType,
   hidden: false,
@@ -23,7 +23,7 @@ const getMatchingType = (versionRc, changeType) => {
   if (!versionRc || !versionRc.types) {
     return versionRcDefaultType(changeType);
   }
-  const matchingType = versionRc.types.filter(t => t.type === changeType);
+  const matchingType = versionRc.types.filter((t) => t.type === changeType);
   if (matchingType.length === 1) {
     return matchingType[0];
   }
@@ -41,11 +41,9 @@ const titleForChangeType = (versionRc, changeType) =>
 const COMMIT_REGEX = /([a-z0-9]+) ([a-zA-Z ]+)(\(.+\))?: (.+)/gm;
 
 const getLastTagOnCurrentBranch = () =>
-  execSync('git describe --abbrev=0 --tags')
-    .toString()
-    .split('\n')[0];
+  execSync('git describe --abbrev=0 --tags').toString().split('\n')[0];
 
-const parseCommit = commit => {
+const parseCommit = (commit) => {
   // Reset the regex each time we use it:
   COMMIT_REGEX.lastIndex = 0;
   const splitCommit = RegExp(COMMIT_REGEX).exec(commit);
@@ -71,8 +69,8 @@ const getChangesData = () => {
   const commits = execSync(`git log ${lastTag}..HEAD --oneline`)
     .toString()
     .split('\n')
-    .filter(s => s !== '');
-  commits.forEach(commit => {
+    .filter((s) => s !== '');
+  commits.forEach((commit) => {
     const { changeType, message } = parseCommit(commit);
 
     if (!changes[changeType]) {
@@ -83,9 +81,9 @@ const getChangesData = () => {
   return changes;
 };
 
-const getSemverBumpFromChanges = changes => {
+const getSemverBumpFromChanges = (changes) => {
   let semverBump = 'patch';
-  Object.keys(changes).forEach(changeType => {
+  Object.keys(changes).forEach((changeType) => {
     if (changeType === 'feat') {
       semverBump = 'minor';
     } else if (changeType === 'BREAKING CHANGE') {
@@ -98,10 +96,10 @@ const getSemverBumpFromChanges = changes => {
 const generateMarkdown = (versionRc, newVersion, changes) => {
   let result = `## ${newVersion}\n\n`;
   Object.keys(changes)
-    .filter(changeType => !isChangeTypeHidden(versionRc, changeType))
-    .forEach(changeType => {
+    .filter((changeType) => !isChangeTypeHidden(versionRc, changeType))
+    .forEach((changeType) => {
       result += `### ${titleForChangeType(versionRc, changeType)}\n\n`;
-      changes[changeType].forEach(message => {
+      changes[changeType].forEach((message) => {
         result += ` - ${message}\n`;
       });
       result += '\n';
@@ -109,7 +107,7 @@ const generateMarkdown = (versionRc, newVersion, changes) => {
   return result;
 };
 
-const addToChangelog = newEntries => {
+const addToChangelog = (newEntries) => {
   const changelogFile = './CHANGELOG.md';
   const changelogContent = readFileSync(changelogFile, { encoding: 'utf8' });
   const changelogTitle = `# Changelog\n\n`;

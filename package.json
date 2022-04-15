@@ -1,6 +1,6 @@
 {
   "name": "@george-gillams/components",
-  "version": "20.1.2",
+  "version": "20.2.1",
   "description": "Reusable transpiled React components",
   "repository": {
     "type": "git",
@@ -12,11 +12,8 @@
   "scripts": {
     "prerelease": "npm run transpile",
     "release": "babel-node scripts/release.js",
-    "release:major": "npm run release -- --major",
-    "release:minor": "npm run release -- --minor",
-    "release:patch": "npm run release -- --patch",
-    "release:alpha": "npm run release -- --alpha",
-    "transpile": "npm run pretranspile && npm run transpile:js && npm run transform:js && npm run transpile:sass && npm run transpile:copy-tokens && npm run transpile:remove-stories",
+    "release:alpha": "yarn release --alpha",
+    "transpile": "yarn pretranspile && yarn transpile:js && yarn transform:js && yarn transpile:sass && yarn transpile:copy-tokens && yarn transpile:remove-stories",
     "transpile:js": "babel src -d dist --copy-files",
     "transform:js": "babel-node scripts/transform-js-scss-css-imports.js",
     "transpile:sass": "babel-node scripts/build-sass-in-place.js",

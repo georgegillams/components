@@ -32,7 +32,7 @@ scenarioData.docIds.forEach((dI) => {
 
 const config = {
   id: 'gg-components-default',
-  misMatchThreshold: 1,
+  misMatchThreshold: 3,
   viewports: [
     {
       label: 'phone',

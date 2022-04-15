@@ -18,7 +18,7 @@ import { blue, yellow } from './colors';
 console.log('Starting release');
 console.log('');
 
-const updatePackageFile = newVersion => {
+const updatePackageFile = (newVersion) => {
   const newPackageData = JSON.parse(JSON.stringify(packageData));
   newPackageData.version = newVersion;
   const fileContent = `${JSON.stringify(newPackageData, null, 2)}\n`;
@@ -28,14 +28,14 @@ const updatePackageFile = newVersion => {
   console.log(blue('package.json updated'));
 };
 
-const createTag = newVersion => {
+const createTag = (newVersion) => {
   execSync(`git tag ${newVersion} && git push --tags`);
   console.log(blue('Release tagged'));
 };
 
-const commitChanges = newVersion => {
+const commitChanges = (newVersion) => {
   execSync(`git add .`);
-  execSync(`git commit -m "Publish ${newVersion}"`);
+  execSync(`git commit -m "[skip ci] Publish ${newVersion}"`);
   execSync(`git push`);
   console.log(blue('Code pushed'));
 };
@@ -45,10 +45,15 @@ const publishPackage = () => {
   console.log(blue('Package published'));
 };
 
-const getCurrentPublishedVersion = () =>
-  execSync(`npm view @george-gillams/components version`)
-    .toString()
-    .split('\n')[0];
+const getCurrentPublishedVersion = () => {
+  try {
+    return execSync(`npm view @george-gillams/components version`)
+      .toString()
+      .split('\n')[0];
+  } catch (error) {
+    return '0.0.0';
+  }
+};
 
 const changeData = getChangesData();
 
