@@ -23,9 +23,9 @@ To update backstopJS snapshots:
 Make sure docker is running. Then run these three commands:
 
 ```
-/bin/bash ./scripts/docker/prepare.sh
-/bin/bash ./scripts/docker/run-tests.sh --update
-/bin/bash ./scripts/docker/clean-up.sh'
+/bin/bash ./scripts/docker/snapshot-test/prepare.sh
+/bin/bash ./scripts/docker/snapshot-test/run-tests.sh --update
+/bin/bash ./scripts/docker/snapshot-test/clean-up.sh'
 ```
 
 - The first will setup the docker image and container. If they already exist this will be super fast.

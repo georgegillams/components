@@ -41,8 +41,8 @@ jobs:
 
       - name: run snapshot tests
         run: |
-          ./scripts/docker/prepare.sh
-          ./scripts/docker/run-tests.sh
+          ./scripts/docker/snapshot-test/prepare.sh
+          ./scripts/docker/snapshot-test/run-tests.sh
 
       - name: save snapshots
         if: failure()
