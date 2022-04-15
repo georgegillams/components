@@ -1,5 +1,11 @@
 # Changelog
 
+## 20.2.1
+
+### Bug Fixes
+
+ - 8bdfc07 Publish 20.2.0
+
 ## 20.2.0
 
 ### Bug Fixes
