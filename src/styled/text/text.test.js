@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import Text, { TAG_NAMES } from './Text';
+import Text, { TAG_NAMES } from './text';
 
 describe('text', () => {
   it('should render children', () => {
