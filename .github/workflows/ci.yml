@@ -7,6 +7,50 @@ on:
     branches: [main]
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: print job details
+        run: |
+          echo "github_ref ${{ github.ref }}"
+          echo "github_event_name ${{ github.event_name }}"
+
+      - name: npm install
+        run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
+
+      - name: lint
+        run: yarn lint
+
+      - name: jest test
+        run: yarn test
+
+  snapshot-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: run snapshot tests
+        run: |
+          ./scripts/docker/snapshot-test/prepare.sh
+          ./scripts/docker/snapshot-test/run-tests.sh
+
+      - name: save snapshots
+        if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: bitmaps_reference
+          path: backstop_data/bitmaps_reference
+
   deploy:
     runs-on: ubuntu-latest
     needs: [test, snapshot-test]
