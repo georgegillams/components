@@ -18,6 +18,8 @@ import { blue, yellow } from './colors';
 console.log('Starting release');
 console.log('');
 
+const debug = process.argv.includes('--debug');
+
 const updatePackageFile = (newVersion) => {
   const newPackageData = JSON.parse(JSON.stringify(packageData));
   newPackageData.version = newVersion;
@@ -29,19 +31,42 @@ const updatePackageFile = (newVersion) => {
 };
 
 const createTag = (newVersion) => {
-  execSync(`git tag ${newVersion} && git push --tags`);
+  const commands = [`git tag ${newVersion} && git push --tags`];
+
+  if (debug) {
+    commands.forEach((c) => console.log(blue(c)));
+  } else {
+    commands.forEach(execSync);
+  }
+
   console.log(blue('Release tagged'));
 };
 
 const commitChanges = (newVersion) => {
-  execSync(`git add .`);
-  execSync(`git commit -m "Publish ${newVersion}"`);
-  execSync(`git push`);
+  const commands = [
+    `git add .`,
+    `git commit -m "[skip ci] Publish ${newVersion}"`,
+    `git push`,
+  ];
+
+  if (debug) {
+    commands.forEach((c) => console.log(blue(c)));
+  } else {
+    commands.forEach(execSync);
+  }
+
   console.log(blue('Code pushed'));
 };
 
 const publishPackage = () => {
-  execSync(`(cd dist && npm publish)`);
+  const commands = [`(cd dist && npm publish --access public)`];
+
+  if (debug) {
+    commands.forEach((c) => console.log(blue(c)));
+  } else {
+    commands.forEach(execSync);
+  }
+
   console.log(blue('Package published'));
 };
 
@@ -85,7 +110,7 @@ const versionRc = getVersionRc();
 updatePackageFile(newVersion);
 const changelogMarkdown = generateMarkdown(versionRc, newVersion, changeData);
 addToChangelog(changelogMarkdown);
-createTag(newVersion);
 commitChanges(newVersion);
+createTag(newVersion);
 publishPackage();
 console.log('Done');
