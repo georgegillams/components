@@ -1,5 +1,11 @@
 # Changelog
 
+## 20.5.1
+
+### Bug Fixes
+
+ - Fix tests (#598)
+
 ## 20.5.0
 
 ### Features
