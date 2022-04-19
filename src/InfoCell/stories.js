@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { TextLink } from '../TextLink';
+import { TextLink } from '../text-link';
 
 import { InfoCell, INFO_CELL_STYLES } from './index';
 

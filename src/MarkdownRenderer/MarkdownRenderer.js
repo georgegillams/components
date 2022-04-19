@@ -9,7 +9,7 @@ import HelperFunctions from '../helpers/HelperFunctions';
 import { Image } from '../Image';
 import { CodeInline, Code } from '../Code';
 import { Paragraph } from '../Paragraph';
-import { TextLink } from '../TextLink';
+import { TextLink } from '../text-link';
 import { Quote } from '../Quote';
 import { Section } from '../Section';
 import { Subsection } from '../Subsection';

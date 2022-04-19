@@ -1,20 +1,23 @@
 import React from 'react';
 
-import Text, { TAG_NAMES } from './index';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import Text, { SIZES } from './index';
+import { text, select } from '@storybook/addon-knobs';
 
-export default { title: 'Styled/Text', component: Text };
+export default { title: 'Styled/Molecules/Text', component: Text };
 
 export const Default = () => (
-  <Text tagName={select('tagName', Object.keys(TAG_NAMES), TAG_NAMES.span)}>
+  <Text size={select('Size', Object.keys(SIZES), SIZES.md)}>
     {text('Text', 'Lorem ipsum')}
   </Text>
 );
 
-export const EveryTag = () => (
+export const EverySize = () => (
   <>
-    {Object.keys(TAG_NAMES).map((t) => (
-      <Text tagName={t}>Lorem ipsum</Text>
+    {Object.keys(SIZES).map((s) => (
+      <>
+        <Text size={s}>Lorem ipsum — {s}</Text>
+        <br />
+      </>
     ))}
   </>
 );

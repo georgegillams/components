@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { scopeFocus, unscopeFocus } from 'a11y-focus-scope';
 
-import { BurgerButton } from '../BurgerButton';
+import BurgerButton from '../burger-button';
 import { cssModules } from '../helpers/cssModules';
 
 import STYLES from './navigation-bar.scss';

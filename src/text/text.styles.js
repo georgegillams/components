@@ -1,26 +1,40 @@
 import styled, { css } from 'styled-components';
-import { fontSizeXxl, fontSizeXl, fontSizeLg } from '../constants/font';
+import {
+  fontSizeXxl,
+  fontSizeXl,
+  fontSizeLg,
+  fontSizeMd,
+  fontSizeSm,
+  fontSizeXs,
+} from '../constants/font';
+import { SIZES } from './constants.js';
 
-const tagStyles = {
-  h1: css`
+const sizeStyles = {
+  [SIZES.xxl]: css`
     font-size: ${fontSizeXxl};
     font-weight: bold;
   `,
-  h2: css`
+  [SIZES.xl]: css`
     font-size: ${fontSizeXl};
     font-weight: bold;
   `,
-  h3: css`
+  [SIZES.lg]: css`
     font-size: ${fontSizeLg};
     font-weight: bold;
   `,
-  h4: css`
-    font-weight: bold;
+  [SIZES.md]: css`
+    font-size: ${fontSizeMd};
   `,
-  span: css``,
+  [SIZES.sm]: css`
+    font-size: ${fontSizeSm};
+  `,
+  [SIZES.xs]: css`
+    font-size: ${fontSizeXs};
+  `,
+  [SIZES.inherit]: css``,
 };
 
 export const StyledText = styled.span`
   margin: 0;
-  ${(props) => tagStyles[props.tagName]}
+  ${(props) => sizeStyles[props.size]}
 `;

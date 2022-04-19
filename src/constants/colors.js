@@ -4,7 +4,7 @@ export const bpkColorSkyGrayTint07 = '#f1f2f8';
 export const bpkColorSkyGrayTint01 = '#444560';
 export const disabledBackgroundColor = '#cdcdd7';
 export const disabledColor = 'rgb(100, 100, 100)';
-export const disabledBackgroundColorinvert = 'rgb(89, 89, 89)';
+export const disabledBackgroundColorInvert = 'rgb(89, 89, 89)';
 export const disabledColorInvert = 'darkgray';
 
 export const primaryColorDarkInvert = 'white';
@@ -24,7 +24,7 @@ export const ctaColorInvert = '#025ca2';
 export const ctaColor = '#0067b7';
 
 export const notBlack = '#1e1e1e';
-export const notBlackInvert = 'white';
+export const notBlackDarkMode = 'white';
 
 export const shadowColor = 'rgba(37, 32, 31, 0.3)';
 export const shadowColorInvert = 'transparent';
@@ -42,11 +42,12 @@ export const alternatingBackgroundColor2 = '#e3e3e8';
 export const alternatingBackgroundColor2Invert = '#191a1b';
 
 export const linkColor = 'darkorchid';
-export const linkColorInvert = 'orchid';
-export const linkColorHover = '$primaryColor';
+export const linkColorDarkMode = 'orchid';
+export const linkColorHover = primaryColor;
+export const linkColorHoverDarkMode = primaryColor;
 
-export const checkboxTickColor = '$primaryColor';
-export const segmentedControlSelectedColor = '$linkColor';
+export const checkboxTickColor = primaryColor;
+export const segmentedControlSelectedColor = linkColor;
 
 export const mobileNavigationUnfoldedHeight = '24rem';
 
@@ -57,4 +58,4 @@ export const navigationBarMenuZIndex = '998';
 export const navigationBarScrimZIndex = '997';
 
 export const outlineColor = 'rgba(0, 125, 250, 0.6)';
-export const outlineColorInvert = 'rgba(0, 125, 250, 0.6)';
+export const outlineColorDarkMode = 'rgba(0, 125, 250, 0.6)';

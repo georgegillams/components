@@ -40,9 +40,9 @@
     "subsection",
     "table",
     "tags",
-    "text",
     "text-area",
-    "text-link"
+    "styled-text",
+    "styled-text-link"
   ],
   "storyIds": [
     "navigation-bar--default",

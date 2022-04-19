@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Paragraph } from '../Paragraph';
-import { TextLink } from '../TextLink';
+import TextLink from '../text-link';
 import { Section } from '../Section';
 
 const Redirect = (props) => {
