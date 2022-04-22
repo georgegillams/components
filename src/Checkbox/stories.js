@@ -2,13 +2,7 @@
 
 import React, { useState } from 'react';
 
-import { cssModules } from '../helpers/cssModules';
-
-import STYLES from './stories.scss';
-
-import { Checkbox } from './index';
-
-const getClassName = cssModules(STYLES);
+import Checkbox from './index';
 
 const StatefulCheckbox = (props) => {
   const [checked, setChecked] = useState(props.checked);
@@ -105,7 +99,7 @@ export const DisabledChecked = () => (
 );
 
 export const WithCssVariables = () => (
-  <div className={getClassName('stories__themed')}>
+  <div>
     <Checkbox checked label="Test" name="Test" />
   </div>
 );
