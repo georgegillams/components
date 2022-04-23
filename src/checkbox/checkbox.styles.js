@@ -1,5 +1,20 @@
 import styled, { css } from 'styled-components';
-// @import '../Tokens/common';
+import {
+  backgroundColor,
+  backgroundColorDarkMode,
+  bpkColorMonteverde,
+  bpkColorPanjin,
+  disabledBackgroundColor,
+  disabledBackgroundColorDarkMode,
+  disabledColor,
+  disabledColorDarkMode,
+  notBlack,
+  notBlackDarkMode,
+  primaryColor,
+  primaryColorDarkMode,
+} from '../constants/colors';
+import { focusStyle } from '../constants/styles';
+import TickIcon from '../Icons/Tick';
 
 export const Label = styled.label`
   display: flex;
@@ -23,86 +38,120 @@ export const Input = styled.input`
   background: ${backgroundColor};
   box-shadow: 0 0 0 1px #cdcdd7 inset;
   cursor: pointer;
-  /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-appearance: none;
-  /* stylelint-disable-next-line property-no-vendor-prefix */
   -moz-appearance: none;
   appearance: none;
 
-  ${focusStyle(true)}
+  ${focusStyle(false)}
 
   @media (prefers-color-scheme: dark) {
-    background: $background-color-invert;
+    background: ${backgroundColorDarkMode};
   }
 
-  //     &--disabled {
-  //       background-color: $disabled-background-color;
-  //       cursor: inherit;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: ${disabledBackgroundColor};
+      cursor: inherit;
 
-  //       @media (prefers-color-scheme: dark) {
-  //         background-color: $disabled-background-color-invert;
-  //       }
-  //     }
-  //     &--valid {
-  //       box-shadow: 0 0 0 1px $bpk-color-monteverde inset;
-  //     }
-  //     &--invalid {
-  //       box-shadow: 0 0 0 1px $bpk-color-panjin inset;
-  //     }
+      @media (prefers-color-scheme: dark) {
+        background-color: ${disabledBackgroundColorDarkMode};
+      }
+    `}
+
+  ${({ valid }) => {
+    switch (valid) {
+      case true:
+        return css`
+          box-shadow: 0 0 0 1px ${bpkColorMonteverde} inset;
+        `;
+      case false:
+        return css`
+          box-shadow: 0 0 0 1px ${bpkColorPanjin} inset;
+        `;
+      default:
+        return null;
+    }
+  }}
 `;
 
-//   &__check {
-//     position: absolute;
-//     top: 0.12rem;
-//     left: 0.15rem;
-//     display: none;
-//     color: $checkbox-tick-color;
-//     color: var(--checkbox-tick-color, $checkbox-tick-color);
-//     fill: $checkbox-tick-color;
-//     fill: var(--checkbox-tick-color, $checkbox-tick-color);
-//     pointer-events: none;
+export const Icon = styled(TickIcon)`
+  position: absolute;
+  top: 0.12rem;
+  left: 0.15rem;
+  display: none;
+  pointer-events: none;
+  color: ${primaryColor};
+  fill: ${primaryColor};
 
-//     @media (prefers-color-scheme: dark) {
-//       color: $primary-color-invert;
-//       color: var(--checkbox-tick-color-invert, $primary-color-invert);
-//       fill: $primary-color-invert;
-//       fill: var(--checkbox-tick-color-invert, $primary-color-invert);
-//     }
+  @media (prefers-color-scheme: dark) {
+    color: ${primaryColorDarkMode};
+    fill: ${primaryColorDarkMode};
+  }
 
-//     &--checked {
-//       display: inherit;
-//     }
+  ${({ theme }) =>
+    theme &&
+    css`
+      color: ${theme.checkboxTickColor};
+      fill: ${theme.checkboxTickColor};
 
-//     &--valid {
-//       color: $bpk-color-monteverde;
-//       fill: $bpk-color-monteverde;
-//     }
-//     &--invalid {
-//       color: $bpk-color-panjin;
-//       fill: $bpk-color-panjin;
-//     }
-//     &--disabled {
-//       color: $disabled-color;
-//       fill: $disabled-color;
+      @media (prefers-color-scheme: dark) {
+        color: ${theme.checkboxTickColorDarkMode};
+        fill: ${theme.checkboxTickColorDarkMode};
+      }
+    `}
 
-//       @media (prefers-color-scheme: dark) {
-//         color: $disabled-color-invert;
-//         fill: $disabled-color-invert;
-//       }
-//     }
-//   }
+  ${({ checked }) =>
+    checked &&
+    css`
+      display: inherit;
+    `}
 
-//   &__label {
-//     margin-left: 0.5rem;
-//     color: $not-black;
-//     font-size: 1.2rem;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${disabledColor};
+      fill: ${disabledColor};
 
-//     @media (prefers-color-scheme: dark) {
-//       color: $not-black-invert;
-//     }
+      @media (prefers-color-scheme: dark) {
+        color: ${disabledColorDarkMode};
+        fill: ${disabledColorDarkMode};
+      }
+    `}
 
-//     &--disabled {
-//       color: $disabled-background-color;
-//     }
-//   }
-// }
+     ${({ valid }) => {
+    switch (valid) {
+      case true:
+        return css`
+          color: ${bpkColorMonteverde};
+          fill: ${bpkColorMonteverde};
+        `;
+      case false:
+        return css`
+          color: ${bpkColorPanjin};
+          fill: ${bpkColorPanjin};
+        `;
+      default:
+        return null;
+    }
+  }}
+`;
+
+export const VisibleLabel = styled.div`
+     margin-left: 0.5rem;
+     color: ${notBlack};
+     font-size: 1.2rem;
+
+     @media (prefers-color-scheme: dark) {
+       color: ${notBlackDarkMode};
+     }
+
+     ${({ disabled }) =>
+       disabled &&
+       css`
+         color: ${disabledBackgroundColor};
+       `}
+     }
+   }
+
+`;

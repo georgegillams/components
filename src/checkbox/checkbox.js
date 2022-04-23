@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import withStyledTheme from '../styled-theming';
 
-import Tick from '../Icons/Tick';
-
-import { Input, InputWrapper, Label } from './checkbox.styles';
+import {
+  Icon,
+  Input,
+  InputWrapper,
+  Label,
+  VisibleLabel,
+} from './checkbox.styles';
 
 const Checkbox = (props) => {
   const {
@@ -34,11 +39,19 @@ const Checkbox = (props) => {
           readOnly={!onChange}
           onChange={enabled ? onChange : null}
           disabled={disabled}
+          valid={valid}
           {...inputProps}
         />
-        <Tick />
+        <Icon
+          checked={checked}
+          valid={valid}
+          disabled={disabled}
+          theme={theme}
+        />
       </InputWrapper>
-      <span aria-hidden="true">{label} </span>
+      <VisibleLabel aria-hidden="true" disabled={disabled}>
+        {label}
+      </VisibleLabel>
     </Label>
   );
 };
@@ -52,6 +65,7 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   valid: PropTypes.bool,
+  theme: PropTypes.object,
 };
 
 Checkbox.defaultProps = {
@@ -60,6 +74,7 @@ Checkbox.defaultProps = {
   checked: false,
   disabled: false,
   valid: null,
+  theme: null,
 };
 
-export default Checkbox;
+export default withStyledTheme(Checkbox);

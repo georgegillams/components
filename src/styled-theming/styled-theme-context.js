@@ -6,6 +6,8 @@ export const STYLED_THEMES = {
     textLinkColorHover: null,
     textLinkColorDarkMode: null,
     textLinkColorHoverDarkMode: null,
+    checkboxTickColor: null,
+    checkboxTickColorDarkMode: null,
   },
 };
 

@@ -85,9 +85,13 @@ class StatefulTextArea extends Component {
   }
 }
 
-storiesOf('Text area', module)
-  .add('Default', () => <TextArea value="Test" />)
-  .add('Valid', () => <TextArea value="Test" valid />)
-  .add('Invalid', () => <TextArea value="Test" valid={false} />)
-  .add('Disabled', () => <TextArea value="Test" enabled={false} />)
-  .add('Stateful', () => <StatefulTextArea />);
+export default {
+  title: 'Styled/Molecules/Text area',
+  component: TextArea,
+};
+
+export const Default = () => <TextArea value="Test" />;
+export const Valid = () => <TextArea value="Test" valid />;
+export const Invalid = () => <TextArea value="Test" valid={false} />;
+export const Disabled = () => <TextArea value="Test" enabled={false} />;
+export const Stateful = () => <StatefulTextArea />;

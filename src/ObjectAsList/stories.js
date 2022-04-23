@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import { ObjectAsList } from './index';
 
-storiesOf('Object as list', module).add('default', () => (
+storiesOf('Styled/Molecules/Object as list', module).add('default', () => (
   <ObjectAsList
     name="Geoff"
     value={{

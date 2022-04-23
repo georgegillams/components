@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ExclamationCircle from '../Icons/ExclamationCircle';
 import Tick from '../Icons/Tick';
 import { cssModules } from '../helpers/cssModules';
-import { Input } from '../Input';
+import Input from '../input';
 
 import STYLES from './input.scss';
 

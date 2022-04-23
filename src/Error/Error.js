@@ -1,26 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { cssModules } from '../helpers/cssModules';
-
-import STYLES from './error.scss';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import { Error as StyledError } from './error.styles';
 
 const Error = (props) => {
-  const { className, ...rest } = props;
-
-  return <span className={getClassName('error', className)} {...rest} />;
+  return <StyledError {...props} />;
 };
 
 Error.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
 };
 
 Error.defaultProps = {
   children: null,
-  className: null,
 };
 
 export default Error;
