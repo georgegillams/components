@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import { Spinner } from './index';
+import Spinner from './index';
 
 export default { title: 'Spinner', component: Spinner };
 
