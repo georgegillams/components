@@ -1,1 +1,1 @@
-export { Table, Head, Body, Row, Cell } from './table2';
+export { Table, Head, Body, Row, Cell } from './table';
