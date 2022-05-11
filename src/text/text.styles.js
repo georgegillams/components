@@ -34,7 +34,31 @@ const sizeStyles = {
   [SIZES.inherit]: css``,
 };
 
-export const StyledText = styled.span`
+export const commonStyles = css`
   margin: 0;
   ${(props) => sizeStyles[props.size]}
+`;
+
+export const StyledH1 = styled.h1`
+  ${commonStyles}
+`;
+
+export const StyledH2 = styled.h1`
+  ${commonStyles}
+`;
+
+export const StyledH3 = styled.h1`
+  ${commonStyles}
+`;
+
+export const StyledH4 = styled.h1`
+  ${commonStyles}
+`;
+
+export const StyledSpan = styled.span`
+  ${commonStyles}
+`;
+
+export const StyledP = styled.p`
+  ${commonStyles}
 `;

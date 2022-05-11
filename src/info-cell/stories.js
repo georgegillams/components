@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 
 import TextLink from '../text-link';
 
@@ -10,67 +10,22 @@ export default {
   component: InfoCell,
 };
 
+const aux = (
+  <div style={{ width: '5rem', height: '100%', backgroundColor: 'red' }} />
+);
+
 export const Default = () => (
-  <div className="js">
+  <div className={select('JS enabled', ['js', 'no-js'], 'js')}>
     <InfoCell
       hasBeenMostlyInView={boolean('hasBeenMostlyInView', true)}
       title="Title"
       content={<TextLink href="/test">Content</TextLink>}
-      aux={
-        <div
-          style={{ width: '5rem', height: '5rem', backgroundColor: 'red' }}
-        />
-      }
-    />
-  </div>
-);
-
-export const NoAux = () => (
-  <div className="js">
-    <InfoCell
-      hasBeenMostlyInView={boolean('hasBeenMostlyInView', true)}
-      title="Title"
-      content={<TextLink href="/test">Content</TextLink>}
-    />
-  </div>
-);
-export const NoAuxDark = () => (
-  <div className="js">
-    <InfoCell
-      hasBeenMostlyInView={boolean('hasBeenMostlyInView', true)}
-      title="Title"
-      cellStyle={INFO_CELL_STYLES.dark}
-      content={<TextLink href="/test">Content</TextLink>}
-    />
-  </div>
-);
-
-export const InView = () => (
-  <div className="js">
-    <InfoCell
-      hasBeenMostlyInView={true}
-      title="Title"
-      content={<TextLink href="/test">Content</TextLink>}
-    />
-  </div>
-);
-
-export const OutOfView = () => (
-  <div className="js">
-    <InfoCell
-      hasBeenMostlyInView={true}
-      title="Title"
-      content={<TextLink href="/test">Content</TextLink>}
-    />
-  </div>
-);
-
-export const OutOfViewNoJs = () => (
-  <div className="no-js">
-    <InfoCell
-      hasBeenMostlyInView={true}
-      title="Title"
-      content={<TextLink href="/test">Content</TextLink>}
+      aux={aux}
+      cellStyle={select(
+        'Cell style',
+        Object.values(INFO_CELL_STYLES),
+        INFO_CELL_STYLES.light,
+      )}
     />
   </div>
 );

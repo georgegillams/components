@@ -1,7 +1,6 @@
-// @import '../Tokens/common';
+export const auxHeight = '14rem';
+export const auxHeightMobile = '10rem';
 
-// $card-height: 14rem;
-// $card-height-mobile: 10rem;
 import styled, { css } from 'styled-components';
 import {
   alternatingBackgroundColor1,
@@ -14,8 +13,6 @@ import { breakpointSm } from '../constants/layout';
 import Text from '../text';
 import { INFO_CELL_STYLES } from './constants';
 
-// .info-cell {
-//   &__outer {
 export const OuterWrapper = styled.div`
   display: flex;
   justify-content: space-around;
@@ -42,17 +39,7 @@ export const OuterWrapper = styled.div`
   }}
 `;
 
-//     &--dark {
-
-//       @media (prefers-color-scheme: dark) {
-//         background-color: $alternating-background-color-2-invert;
-//         color: white;
-//       }
-//     }
-//   }
-
 export const InnerWrapper = styled.div`
-  //   &__inner {
   display: flex;
   width: 100%;
   max-width: 70rem;
@@ -65,66 +52,47 @@ export const InnerWrapper = styled.div`
   }
 `;
 
-//     @include bpk-breakpoint-mobile {
-//     }
-//   }
+export const TextContainer = styled.div`
+  display: flex;
+  min-width: 14rem;
+  min-height: 8rem;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-export const Title = styled(Text)``;
-//   &__title {
-//     margin: 0;
-//     font-size: $section-font-size;
-//     font-weight: inherit;
+  @media (min-width: ${breakpointSm}) {
+  }
+`;
 
-//     &--with-content {
-//       margin-bottom: $spacing-base;
-//     }
-//   }
+export const Title = styled(Text)`
+  ${({ withContent }) =>
+    withContent &&
+    css`
+      padding-bottom: 1rem;
+    `}
+`;
 
-//   &__text-container {
-//     display: flex;
-//     min-width: 14rem;
-//     min-height: 8rem;
-//     padding: $spacing-base;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//   }
+export const AuxOuter = styled.div`
+  height: ${auxHeightMobile};
+  overflow: hidden;
 
-//   &__aux-outer {
-//     height: $card-height;
-//     overflow: hidden;
+  @media (min-width: ${breakpointSm}) {
+    height: ${auxHeight};
+  }
+`;
 
-//     @include bpk-breakpoint-mobile {
-//       height: $card-height-mobile;
-//     }
-//   }
+export const AuxInner = styled.div`
+  //   &__aux-inner {
+  padding-top: 0rem;
+  opacity: 1;
+  transition: all 1s ease-in-out;
+  display: flex;
+  height: ${auxHeightMobile};
+  flex-direction: column;
+  justify-content: end;
 
-//   &__aux-inner {
-//     padding-top: 0;
-//     opacity: 1;
-
-//     @include bpk-breakpoint-mobile {
-//       height: $card-height-mobile;
-//     }
-
-//     &--animated {
-//       transition: all 1s ease-in-out;
-//     }
-
-//     &--hidden {
-//       padding-top: $card-height;
-//       opacity: 0;
-//     }
-//   }
-
-//   &__aux {
-//     display: flex;
-//     height: $card-height;
-//     flex-direction: column;
-//     justify-content: end;
-
-//     @include bpk-breakpoint-mobile {
-//       height: $card-height-mobile;
-//     }
-//   }
-// }
+  @media (min-width: ${breakpointSm}) {
+    height: ${auxHeight};
+  }
+`;

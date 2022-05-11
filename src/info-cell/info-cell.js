@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InnerWrapper, OuterWrapper, Title } from './info-cell.styles';
+import {
+  AuxInner,
+  AuxOuter,
+  auxHeight,
+  InnerWrapper,
+  OuterWrapper,
+  TextContainer,
+  Title,
+} from './info-cell.styles';
 import { SIZES } from '../text';
 import { INFO_CELL_STYLES } from './constants';
 
@@ -29,42 +37,29 @@ const InfoCell = (props) => {
 
   const showAux = hasBeenMostlyInView || hasBeenFullyInView;
 
-  // const classNames = [getClassName('info-cell__outer')];
-  // if (cellStyle === INFO_CELL_STYLES.dark) {
-  //   classNames.push(getClassName('info-cell__outer--dark'));
-  // }
-
-  // const auxClassNames = [getClassName('info-cell__aux')];
-  // const auxInnerClassNames = [getClassName('info-cell__aux-inner')];
-  // const auxInnerClassNamesAnimated = [
-  //   getClassName('info-cell__aux-inner', 'info-cell__aux-inner--animated'),
-  // ];
-  // const auxOuterClassNames = [getClassName('info-cell__aux-outer')];
-
-  // if (!showAux) {
-  //   auxInnerClassNamesAnimated.push(
-  //     getClassName('info-cell__aux-inner--hidden'),
-  //   );
-  // }
-
-  // const titleClassNames = [getClassName('info-cell__title')];
-  // if (content) {
-  //   titleClassNames.push(getClassName('info-cell__title--with-content'));
-  // }
-
   return (
     <OuterWrapper cellStyle={cellStyle} {...rest}>
+      <style>
+        {`
+        .js .hidden {
+          padding-top: ${auxHeight};
+          opacity: 0;
+        }
+        `}
+      </style>
       <InnerWrapper>
-        <div className={'info-cell__text-container'}>
-          <Title as="h3" size={SIZES.xl}>
+        <TextContainer>
+          <Title tagName="h3" size={SIZES.xl} withContent={!!content}>
             {title}
           </Title>
           {content && content}
-        </div>
+        </TextContainer>
         <div>
-          <div className={'auxInnerClassNamesAnimated'}>
-            <div className={'auxClassNames'}>{aux && aux}</div>
-          </div>
+          <AuxOuter>
+            <AuxInner className={hasBeenMostlyInView ? 'not-hidden' : 'hidden'}>
+              {aux && aux}
+            </AuxInner>
+          </AuxOuter>
         </div>
       </InnerWrapper>
     </OuterWrapper>

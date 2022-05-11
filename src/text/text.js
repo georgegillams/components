@@ -1,21 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledText } from './text.styles.js';
+import {
+  StyledH1,
+  StyledH2,
+  StyledH3,
+  StyledH4,
+  StyledP,
+  StyledSpan,
+} from './text.styles.js';
 import { SIZES } from './constants.js';
 
+const componentForTagName = {
+  h1: StyledH1,
+  h2: StyledH2,
+  h3: StyledH3,
+  h4: StyledH4,
+  span: StyledSpan,
+  p: StyledP,
+};
+
 const Text = (props) => {
-  const { size, children, ...rest } = props;
+  const { size, tagName, children, ...rest } = props;
+
+  const Component = componentForTagName[tagName];
+  if (!Component) {
+    return null;
+  }
 
   return (
-    <StyledText size={size} {...rest}>
+    <Component size={size} {...rest}>
       {children}
-    </StyledText>
+    </Component>
   );
 };
 
-Text.propTypes = { size: PropTypes.string };
+Text.propTypes = {
+  size: PropTypes.string,
+  tagName: PropTypes.oneOf(Object.keys(componentForTagName)),
+};
 
-Text.defaultProps = { size: SIZES.inherit };
+Text.defaultProps = { size: SIZES.inherit, tagName: 'span' };
 
 export default Text;
