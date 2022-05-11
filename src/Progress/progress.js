@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Inner, Outer } from './progress.styles';
+import withStyledTheme from '../styled-theming';
 
 const Progress = (props) => {
-  const { error, progress, max, ...rest } = props;
+  const { error, progress, max, theme, ...rest } = props;
 
   const cappedProgress = Math.min(max, progress);
   const progressPercentage = (100 * cappedProgress) / max;
@@ -15,22 +16,18 @@ const Progress = (props) => {
       aria-valuemax={max}
       {...rest}
     >
-      <Inner progressPercentage={progressPercentage} />
+      <Inner progressPercentage={progressPercentage} theme={theme} />
     </Outer>
   );
 };
 
 Progress.propTypes = {
   progress: PropTypes.number.isRequired,
-  children: PropTypes.node,
-  error: PropTypes.bool,
   max: PropTypes.number,
 };
 
 Progress.defaultProps = {
-  children: null,
-  error: false,
   max: 100,
 };
 
-export default Progress;
+export default withStyledTheme(Progress);

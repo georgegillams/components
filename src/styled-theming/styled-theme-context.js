@@ -8,6 +8,8 @@ export const STYLED_THEMES = {
     textLinkColorHoverDarkMode: null,
     checkboxTickColor: null,
     checkboxTickColorDarkMode: null,
+    progressBarColor: null,
+    progressBarColorDarkMode: null,
   },
 };
 
