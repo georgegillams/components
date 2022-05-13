@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ChevronIcon from './Chevron';
-import CopyIcon from './Copy';
-import ExclamationCircleIcon from './ExclamationCircle';
-import FilterIcon from './Filter';
-import NewWindowIcon from './NewWindow';
-import TickIcon from './Tick';
+import ChevronIcon from './chevron';
+import CopyIcon from './copy';
+import ExclamationCircleIcon from './exclamation-circle';
+import FilterIcon from './filter';
+import NewWindowIcon from './new-window';
+import TickIcon from './tick';
 
-export default { title: 'Icons' };
+export default { title: 'Styled/Molecules/Icon' };
 
 export const Chevron = () => <ChevronIcon />;
 export const Copy = () => <CopyIcon />;
