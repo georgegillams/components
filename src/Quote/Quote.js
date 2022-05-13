@@ -1,32 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import { cssModules } from '../helpers/cssModules';
-
-import STYLES from './quote.scss';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import { Container } from './quote.styles';
+import withStyledTheme from '../styled-theming';
 
 const Quote = (props) => {
-  const { children, className, ...rest } = props;
-
-  const classNameFinal = [getClassName('quote__container')];
-  if (className) classNameFinal.push(className);
-
-  return (
-    <div className={classNameFinal.join(' ')} {...rest}>
-      {children}
-    </div>
-  );
+  return <Container {...props} />;
 };
 
-Quote.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-};
-
-Quote.defaultProps = {
-  className: null,
-};
-
-export default Quote;
+export default withStyledTheme(Quote);

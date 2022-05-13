@@ -10,6 +10,8 @@ export const STYLED_THEMES = {
     checkboxTickColorDarkMode: null,
     progressBarColor: null,
     progressBarColorDarkMode: null,
+    quoteBarColor: null,
+    quoteBarColorDarkMode: null,
   },
 };
 
