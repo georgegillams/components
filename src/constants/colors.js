@@ -36,9 +36,9 @@ export const backgroundColorElevatedinvert = '#222324';
 export const backgroundColorElevatedColored = 'white';
 export const backgroundColorElevatedColoredinvert = '#050d1b';
 
-export const alternatingBackgroundColor1 = '#f4f4f4';
+export const alternatingBackgroundColor1 = '#fbfbfb';
 export const alternatingBackgroundColor1DarkMode = '#121313';
-export const alternatingBackgroundColor2 = '#e3e3e8';
+export const alternatingBackgroundColor2 = '#f4f4f4';
 export const alternatingBackgroundColor2DarkMode = '#191a1b';
 
 export const linkColor = 'darkorchid';
