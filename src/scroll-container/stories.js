@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { withScroll, withScrollProps } from './index';
+import withScroll, { withScrollProps } from './index';
 
 const ScrollReporter = (props) => {
   const {
@@ -63,7 +63,7 @@ ScrollReporter.propTypes = withScrollProps;
 
 const ScrollReportedWithScroll = withScroll(ScrollReporter);
 
-storiesOf('Scroll container', module).add('ScrollContainer', () => (
+storiesOf('Styled/HOCs/Scroll container', module).add('ScrollContainer', () => (
   <div
     style={{
       height: '200vh',
