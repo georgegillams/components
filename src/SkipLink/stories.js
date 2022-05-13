@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Paragraph } from '../Paragraph';
 
-import { SkipLink } from './index';
+import SkipLink from './index';
 
 export default { title: 'Skip link', component: SkipLink };
 
