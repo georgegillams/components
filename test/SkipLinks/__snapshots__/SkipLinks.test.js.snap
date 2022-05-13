@@ -1,29 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SkipLink should render correctly 1`] = `
-<a
-  className="skip-link"
-  href="#main"
+<div
+  className="sc-bczRLJ fcZDZy"
 >
-  Skip to main content
-</a>
+  <a
+    className="sc-gsnTZi dttWYl"
+    href="#main"
+  >
+    Skip to main content
+  </a>
+</div>
 `;
 
 exports[`SkipLink should support arbitrary props 1`] = `
-<a
-  className="skip-link"
-  href="#main"
-  testID="123"
+<div
+  className="sc-bczRLJ fcZDZy"
 >
-  Skip to main content
-</a>
+  <a
+    className="sc-gsnTZi dttWYl"
+    href="#main"
+  >
+    Skip to main content
+  </a>
+</div>
 `;
 
 exports[`SkipLink should support custom class names 1`] = `
-<a
-  className="skip-link custom-classname"
-  href="#main"
+<div
+  className="sc-bczRLJ fcZDZy"
 >
-  Skip to main content
-</a>
+  <a
+    className="sc-gsnTZi dttWYl"
+    href="#main"
+  >
+    Skip to main content
+  </a>
+</div>
 `;

@@ -1,4 +1,4 @@
-import { cleanRestScrollProps } from '../../src/ScrollContainer';
+import { cleanRestScrollProps } from '../../src/scroll-container';
 
 describe('ScrollContainer', () => {
   it('should clean rest props correctly', () => {

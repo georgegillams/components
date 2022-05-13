@@ -19,6 +19,7 @@
     "transpile:sass": "babel-node scripts/build-sass-in-place.js",
     "transpile:copy-tokens": "cp -R ./src/Tokens/* ./dist/Tokens/",
     "transpile:remove-stories": "find ./dist -name \"stories.js\" -exec rm {} \\;",
+    "transpile:js:live": "yarn transpile:js --watch",
     "clean": "npm run test:clean && npm run build:clean",
     "dev": "npm run start",
     "fix:adapter-core-5": "cp ./scripts/adapter_core5.js node_modules/webrtc-adapter/src/js/adapter_core5.js",

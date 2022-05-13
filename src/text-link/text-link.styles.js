@@ -7,7 +7,7 @@ import {
 } from '../constants/colors';
 import Text from '../text';
 import { focusStyle } from '../constants/styles';
-import NewWindow from '../Icons/NewWindow';
+import NewWindow from '../icon/new-window';
 
 export const Anchor = styled(Text)`
   display: inline-block;
