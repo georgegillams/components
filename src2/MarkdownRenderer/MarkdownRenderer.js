@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import YoutubeEmbedVideo from 'youtube-embed-video';
 
-import { Table, Head, Body, Row, Cell } from '../Table';
+import { Table, Head, Body, Row, Cell } from '../table';
 import { cssModules } from '../helpers/cssModules';
 import { withTheme } from '../Theming';
 import HelperFunctions from '../helpers/HelperFunctions';
 import { Image } from '../Image';
 import { CodeInline, Code } from '../Code';
 import { Paragraph } from '../Paragraph';
-import { TextLink } from '../text-link';
-import { Quote } from '../Quote';
+import TextLink from '../text-link';
+import Quote from '../quote';
 import { Section } from '../Section';
 import { Subsection } from '../Subsection';
 import { Citation, Reference } from '../References';

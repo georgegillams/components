@@ -5,7 +5,7 @@ import {
   primaryColor,
   primaryColorDarkMode,
 } from '../constants/colors';
-import { Progress } from '../Progress';
+import Progress from '../progress';
 
 export const Wrapper = styled.span`
   display: flex;

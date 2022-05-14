@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Spinner } from '../Spinner';
+import Spinner from '../spinner';
 import { cssModules } from '../helpers/cssModules';
 
 import STYLES from './button.scss';
