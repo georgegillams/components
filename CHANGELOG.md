@@ -1,5 +1,12 @@
 # Changelog
 
+## 21.0.1
+
+### Bug Fixes
+
+ - Rename case 2
+ - Rename case
+
 ## 21.0.0
 
 ### Breaking changes
