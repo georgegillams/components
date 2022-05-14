@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// TODO: can we use react's useMemo for this?
+import memoize from 'lodash.memoize';
+
 import Tick from '../Icons/Tick';
 import ExclamationCircle from '../Icons/ExclamationCircle';
-import { cssModules } from '../helpers/cssModules';
+import {
+  InputWrapper,
+  styleIconComponent,
+  styleInputComponent,
+} from './input.styles';
 
-import STYLES from './input.scss';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const styleInputComponentMemoized = memoize(styleInputComponent);
+const styleIconComponentMemoized = memoize(styleIconComponent);
 
 const Input = (props) => {
   const {
@@ -17,7 +23,6 @@ const Input = (props) => {
     enabled,
     type,
     valid,
-    className,
     inputProps,
     iconProps,
     component: InputComponent,
@@ -26,33 +31,26 @@ const Input = (props) => {
     ...rest
   } = props;
 
+  const StyledInputComponent = styleInputComponentMemoized(InputComponent);
+
   const disabled = enabled === false;
   const invalid = valid === false;
 
-  const classNames = [getClassName('input__outer')];
-  const innerClassNames = [getClassName('input__inner')];
-  const iconClassNames = [getClassName('input__icon')];
-  if (disabled) {
-    classNames.push(getClassName('input__outer--disabled'));
-    innerClassNames.push(getClassName('input__inner--disabled'));
-  }
-  if (className) {
-    classNames.push(className);
-  }
-
   let IconComponent = null;
   if (valid && enabled) {
-    iconClassNames.push(getClassName('input__icon--valid'));
     IconComponent = Tick;
   }
   if (valid === false && enabled) {
-    iconClassNames.push(getClassName('input__icon--invalid'));
     IconComponent = ExclamationCircle;
   }
 
+  const StyledIconComponent = IconComponent
+    ? styleIconComponentMemoized(IconComponent)
+    : null;
+
   return (
-    <div className={classNames.join(' ')} {...rest}>
-      <InputComponent
+    <InputWrapper disabled={disabled} {...rest}>
+      <StyledInputComponent
         aria-invalid={invalid}
         aria-disabled={disabled}
         value={value || ''}
@@ -61,15 +59,14 @@ const Input = (props) => {
         disabled={disabled}
         readOnly={!onChange}
         onChange={enabled ? onChange : null}
-        className={innerClassNames.join(' ')}
         id={id}
         aria-describedby={ariaDescribedby}
         {...inputProps}
       />
-      {IconComponent && (
-        <IconComponent className={iconClassNames.join(' ')} {...iconProps} />
+      {StyledIconComponent && (
+        <StyledIconComponent valid={valid} {...iconProps} />
       )}
-    </div>
+    </InputWrapper>
   );
 };
 
@@ -79,7 +76,6 @@ Input.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func,
-  className: PropTypes.string,
   component: PropTypes.func,
   enabled: PropTypes.bool,
   // eslint-disable-next-line react/forbid-prop-types
@@ -96,8 +92,7 @@ Input.defaultProps = {
   value: null,
   name: null,
   onChange: null,
-  className: null,
-  component: (iProps) => <input {...iProps} />,
+  component: (props) => <input {...props} />,
   enabled: true,
   iconProps: null,
   inputProps: null,

@@ -1,4 +1,1 @@
-import Quote from './Quote';
-
-export default Quote;
-export { Quote };
+export { default } from './quote';
