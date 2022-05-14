@@ -16,7 +16,7 @@ export const primaryColorTransparent = 'rgba(30, 50, 200, 0.15)';
 export const primaryColor = '#44aeff';
 
 export const destructiveColor = '#e02626';
-export const destructiveColorDark = '#9f1717';
+export const destructiveColorDarkMode = '#9f1717';
 
 export const ctaColorDarkInvert = '#004479';
 export const ctaColorDark = '#004880';
