@@ -1,5 +1,11 @@
 # Changelog
 
+## 21.0.0
+
+### Breaking changes
+
+ - Styled text-link (#599)
+
 ## 20.5.1
 
 ### Bug Fixes
