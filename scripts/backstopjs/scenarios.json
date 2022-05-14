@@ -6,7 +6,6 @@
     "feature-card",
     "form-builder",
     "image-dumb",
-    "loading-cover",
     "markdown-renderer",
     "notifications",
     "page-container",
@@ -18,7 +17,6 @@
     "skeletons",
     "subsection",
     "tags",
-    "text-area",
     "styled-molecules-animate-height",
     "styled-molecules-animated-content",
     "styled-molecules-article-date",
@@ -27,7 +25,6 @@
     "styled-molecules-copy-button",
     "styled-molecules-error",
     "styled-molecules-icon",
-    "styled-molecules-info-cell",
     "styled-molecules-input",
     "styled-molecules-object-as-list",
     "styled-molecules-progress",
@@ -36,10 +33,12 @@
     "styled-molecules-spinner",
     "styled-molecules-table",
     "styled-molecules-text",
+    "styled-molecules-text-area",
     "styled-molecules-text-link",
     "styled-organisms-api-entity",
     "styled-organisms-debug-object",
-    "styled-organisms-degree-module"
+    "styled-organisms-degree-module",
+    "styled-organisms-info-cell"
   ],
   "storyIds": [
     "navigation-bar--default",
