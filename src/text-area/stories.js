@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { TextArea } from './index';
+import TextArea from './index';
 
 class StatefulTextArea extends Component {
   constructor(props) {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
 import Input from '../input';
-import { TextArea } from '../TextArea';
+import TextArea from '../text-area';
 import { Select } from '../Select';
 import Checkbox from '../checkbox';
 import { cssModules } from '../helpers/cssModules';
