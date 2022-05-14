@@ -14,7 +14,7 @@ import {
   primaryColorDarkMode,
 } from '../constants/colors';
 import { focusStyle } from '../constants/styles';
-import TickIcon from '../Icons/Tick';
+import TickIcon from '../icon/tick';
 
 export const Label = styled.label`
   display: flex;

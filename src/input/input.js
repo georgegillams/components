@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 // TODO: can we use react's useMemo for this?
 import memoize from 'lodash.memoize';
 
-import Tick from '../Icons/Tick';
-import ExclamationCircle from '../Icons/ExclamationCircle';
+import Tick from '../icon/tick';
+import ExclamationCircle from '../icon/exclamation-circle';
 import {
   InputWrapper,
   styleIconComponent,

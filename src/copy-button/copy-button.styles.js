@@ -6,7 +6,7 @@ import {
   linkColorHoverDarkMode,
 } from '../constants/colors';
 import { focusStyle } from '../constants/styles';
-import Copy from '../Icons/Copy';
+import Copy from '../icon/copy';
 
 export const Button = styled.button`
   display: flex;
