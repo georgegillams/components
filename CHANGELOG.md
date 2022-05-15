@@ -1,5 +1,11 @@
 # Changelog
 
+## 21.0.6
+
+### Bug Fixes
+
+ - Fix DockerfileProd
+
 ## 21.0.5
 
 ### Bug Fixes
