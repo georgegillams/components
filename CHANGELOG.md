@@ -1,5 +1,14 @@
 # Changelog
 
+## 21.0.4
+
+### Bug Fixes
+
+ - Fix snapshots (#601)
+ - Rename 9
+ - Rename 8
+ - Rename 7
+
 ## 21.0.3
 
 ### Bug Fixes
