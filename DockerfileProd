@@ -13,9 +13,10 @@ FROM node:${NODE_VERSION} as main
 RUN mkdir /opt/app
 WORKDIR /opt/app
 
-COPY --from=build /opt/app/build /
-COPY --from=build /opt/app/package.json /
-COPY --from=build /opt/app/yarn.lock /
+# Have to specify full destination path as this is a directory, otherwise the contents of `build` will be placed in `/opt/app/`
+COPY --from=build /opt/app/build /opt/app/build
+COPY --from=build /opt/app/package.json /opt/app/
+COPY --from=build /opt/app/yarn.lock /opt/app/
 RUN yarn global add http-server
 
 CMD ["yarn", "prod"]
