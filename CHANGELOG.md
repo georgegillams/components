@@ -1,5 +1,11 @@
 # Changelog
 
+## 21.0.7
+
+### Bug Fixes
+
+ - Reinstate loading cover (#603)
+
 ## 21.0.6
 
 ### Bug Fixes
