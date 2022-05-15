@@ -1,5 +1,11 @@
 # Changelog
 
+## 21.0.5
+
+### Bug Fixes
+
+ - Small naming fixes (#602)
+
 ## 21.0.4
 
 ### Bug Fixes
