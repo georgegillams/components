@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
-import { Card } from '../Card';
+import Card from '../card';
 
 import AnimateHeight from './index';
 

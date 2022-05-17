@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { getTimeDifference } from '../helpers/time';
-import { Section } from '../Section';
-import { ObjectAsList } from '../ObjectAsList';
-import { Paragraph } from '../Paragraph';
+import Section from '../section';
+import ObjectAsList from '../object-as-list';
+import Paragraph from '../paragraph';
 
 const APIEntity = (props) => {
   const { entityType, entity, name, children, ...rest } = props;
