@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { lexStructure } from '../markdownSectionLexer.js';
+import { lexStructure } from '../markdown-section-lexer';
 import { DEFAULT_SUPPORTED_FEATURES } from '../constants';
 
 test('parses whitespace', () => {

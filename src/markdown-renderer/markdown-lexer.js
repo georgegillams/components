@@ -1,7 +1,7 @@
-import { lexStructure } from './markdownSectionLexer';
+import { lexStructure } from './markdown-section-lexer';
 import { DEFAULT_SUPPORTED_FEATURES } from './constants';
-import { parseMultiLineElements } from './multiLineElementLexer';
-import { parseSingleLineElements } from './singleLineElementLexer';
+import { parseMultiLineElements } from './multi-line-element-lexer';
+import { parseSingleLineElements } from './single-line-element-lexer';
 
 const markdownLexer = (
   content,

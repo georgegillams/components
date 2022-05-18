@@ -23,5 +23,4 @@ const useEntryAnimationClientOnly = () => {
   return [isFirstRender, animationsEnabled];
 };
 
-export default { useEntryAnimationClientOnly };
-export { useEntryAnimationClientOnly };
+export default useEntryAnimationClientOnly;

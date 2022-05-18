@@ -36,5 +36,4 @@ const useEffectAfterPageLoad = (effectFunc) => {
   }, [pageLoaded]);
 };
 
-export default { useEffectAfterPageLoad };
-export { useEffectAfterPageLoad };
+export default useEffectAfterPageLoad;

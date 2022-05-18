@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { FormBuilder } from './index';
+import FormBuilder from './index';
 
 const selectOptions = [
   { value: 'apple', name: 'Apple' },

@@ -15,7 +15,7 @@ import Section from '../section';
 import Subsection from '../subsection';
 import { Citation, Reference } from '../references';
 
-import { markdownLexer } from './markdownLexer';
+import { markdownLexer } from './markdown-lexer';
 import { DEFAULT_SUPPORTED_FEATURES } from './constants';
 import STYLES from './markdown-renderer.scss';
 

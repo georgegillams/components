@@ -6,7 +6,7 @@ import { cssModules } from '../helpers/cssModules';
 
 import STYLES from './stories.scss';
 
-import { SegmentedControl } from './index';
+import SegmentedControl from './index';
 
 const getClassName = cssModules(STYLES);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Redirect } from './index';
+import Redirect from './index';
 
 storiesOf('Redirect', module)
   .add('Default', () => (

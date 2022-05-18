@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { markdownLexer } from '../markdownLexer.js';
+import { markdownLexer } from '../markdown-lexer.js';
 
 test('parses link', () => {
   const result = markdownLexer(

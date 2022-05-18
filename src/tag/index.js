@@ -1,1 +1,1 @@
-export { default as Tag, TAG_TYPES } from './tag';
+export { default, TAG_TYPES } from './tag';

@@ -4,7 +4,7 @@ import React from 'react';
 
 import Paragraph from '../paragraph';
 
-import { NavigationBar, NavigationItem } from './index';
+import NavigationBar, { NavigationItem } from './index';
 
 const menuItems = [
   <NavigationItem name="Test 1" />,

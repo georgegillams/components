@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 
 // import STYLES from './stories.scss';
 
-import { MarkdownRenderer } from './index';
+import MarkdownRenderer from './index';
 
 // const LONG_TEXT =
 //   'LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA.';
