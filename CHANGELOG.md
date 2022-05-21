@@ -1,5 +1,11 @@
 # Changelog
 
+## 23.0.5
+
+### Bug Fixes
+
+ - Fix info cell scroll (#609)
+
 ## 23.0.4
 
 ### Bug Fixes
