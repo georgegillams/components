@@ -30,6 +30,9 @@ jobs:
       - name: jest test
         run: yarn test
 
+      - name: test build
+        run: yarn build
+
   # snapshot-test:
   #   runs-on: ubuntu-latest
 

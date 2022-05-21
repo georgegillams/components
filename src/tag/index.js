@@ -1,1 +1,2 @@
-export { default, TAG_TYPES } from './tag';
+export { default } from './tag';
+export { TAG_TYPES } from './constants';

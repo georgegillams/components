@@ -1,17 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Paragraph from '../paragraph';
-
-import Code, { CodeInline } from './index';
-
-storiesOf('Code in line', module)
-  .add('Default', () => <CodeInline>This is some code.</CodeInline>)
-  .add('In text', () => (
-    <Paragraph>
-      This is a sentence containing <CodeInline>some</CodeInline> code.
-    </Paragraph>
-  ));
+import Code from './index';
 
 storiesOf('Code block', module)
   .add('Default', () => (
