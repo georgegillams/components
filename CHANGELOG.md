@@ -1,5 +1,16 @@
 # Changelog
 
+## 23.0.0
+
+### Bug Fixes
+
+ - More renaming 3
+ - More renaming 2
+
+### Breaking changes
+
+ - More renaming 1
+
 ## 22.0.1
 
 ### Bug Fixes
