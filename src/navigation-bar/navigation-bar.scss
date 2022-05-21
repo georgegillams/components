@@ -63,9 +63,6 @@ $webkit-filter: saturate(180%) blur(20px);
 
 .navigation-bar {
   &__container {
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: $navigation-bar-z-index;
     width: 100%;
     padding: 0.4rem 0.2rem;
