@@ -3,16 +3,18 @@ import { storiesOf } from '@storybook/react';
 
 import Redirect from './index';
 
-storiesOf('Redirect', module)
-  .add('Default', () => (
-    <Redirect
-      name="You are now being redirected to our contact page"
-      to="/contact"
-    />
-  ))
-  .add('External', () => (
-    <Redirect
-      name="You are now being redirected to Flickr"
-      to="https://flickr.com/"
-    />
-  ));
+export default { title: 'Styled/Organisms/Redirect', component: Redirect };
+
+export const Default = () => (
+  <Redirect
+    name="You are now being redirected to our contact page"
+    to="/contact"
+  />
+);
+
+export const External = () => (
+  <Redirect
+    name="You are now being redirected to Flickr"
+    to="https://flickr.com/"
+  />
+);

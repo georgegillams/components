@@ -1,36 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { cssModules } from '../helpers/cssModules';
-
-import STYLES from './request-status.scss';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import { StatusItem } from './request-status.styles';
 
 const RequestStatus = (props) => {
-  const { status, className, ...rest } = props;
+  const { status, ...rest } = props;
   const { type, message } = status;
 
-  const classNameFinal = [getClassName('request-status__status')];
-
-  if (type === 'success') {
-    classNameFinal.push(getClassName('request-status__status--success'));
-  }
-  if (type === 'warn') {
-    classNameFinal.push(getClassName('request-status__status--warn'));
-  }
-  if (type === 'error') {
-    classNameFinal.push(getClassName('request-status__status--error'));
-  }
-
-  if (className) {
-    classNameFinal.push(className);
-  }
-
   return (
-    <span className={classNameFinal.join(' ')} {...rest}>
+    <StatusItem type={type} {...rest}>
       {message}
-    </span>
+    </StatusItem>
   );
 };
 
