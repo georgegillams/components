@@ -56,7 +56,7 @@ const InfoCell = (props) => {
         </TextContainer>
         <div>
           <AuxOuter>
-            <AuxInner className={hasBeenMostlyInView ? 'not-hidden' : 'hidden'}>
+            <AuxInner className={showAux ? 'not-hidden' : 'hidden'}>
               {aux && aux}
             </AuxInner>
           </AuxOuter>
