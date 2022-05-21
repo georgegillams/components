@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Section as GGSection } from '../Section';
+import GGSection from '../section';
 
 export const Section = styled(GGSection)`
   background-color: #ed75ff;

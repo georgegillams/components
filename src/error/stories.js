@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Paragraph } from '../Paragraph';
+import Paragraph from '../paragraph';
 import { text } from '@storybook/addon-knobs';
 
 import Error from './index';

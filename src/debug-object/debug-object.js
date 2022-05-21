@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Section } from './debug-object.styles';
-import { ObjectAsList } from '../ObjectAsList';
+import ObjectAsList from '../object-as-list';
 
 const DebugObject = (props) => {
   const { debugTitle, debugObject } = props;
