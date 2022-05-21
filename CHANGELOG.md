@@ -1,5 +1,16 @@
 # Changelog
 
+## 23.0.1
+
+### Bug Fixes
+
+ - Rename case 8
+ - Rename case 7
+ - Rename case 6
+ - Rename case 5
+ - Rename case 4
+ - Rename case 3
+
 ## 23.0.0
 
 ### Bug Fixes
