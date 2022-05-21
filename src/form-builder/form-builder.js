@@ -8,7 +8,7 @@ import Select from '../select';
 import Checkbox from '../checkbox';
 import { cssModules } from '../helpers/cssModules';
 import { formValueChanged } from '../helpers/objects';
-import HelperFunctions from '../helpers/HelperFunctions';
+import HelperFunctions from '../helpers/helper-functions';
 
 import STYLES from './forms.scss';
 

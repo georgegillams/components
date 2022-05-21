@@ -5,7 +5,7 @@ import YoutubeEmbedVideo from 'youtube-embed-video';
 import { Table, Head, Body, Row, Cell } from '../table';
 import { cssModules } from '../helpers/cssModules';
 import { withTheme } from '../Theming';
-import HelperFunctions from '../helpers/HelperFunctions';
+import HelperFunctions from '../helpers/helper-functions';
 import { Image } from '../Image';
 import Code, { CodeInline } from '../code';
 import Paragraph from '../paragraph';
