@@ -16,7 +16,7 @@ import {
   parseStringForSmartImage,
   parseStringForStrikethrough,
   parseStringForTripleStarBoldItalic,
-} from '../singleLineElementLexer.js';
+} from '../single-line-element-lexer';
 import { DEFAULT_SUPPORTED_FEATURES } from '../constants.js';
 
 const simpleFurtherProcess = (x) => `forFurtherProcessing: "${x}"`;

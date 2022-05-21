@@ -6,7 +6,7 @@ import {
   parseLinesForBulletList,
   parseLinesForBlockCode,
   parseLinesForTable,
-} from '../multiLineElementLexer.js';
+} from '../multi-line-element-lexer';
 import { DEFAULT_SUPPORTED_FEATURES } from '../constants.js';
 
 // #region individual lists

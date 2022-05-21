@@ -1,9 +1,15 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
-import { ObjectAsList } from './index';
+import ObjectAsList from './index';
 
-storiesOf('Styled/Molecules/Object as list', module).add('default', () => (
+console.log(`ObjectAsList`, ObjectAsList);
+
+export default {
+  title: 'Styled/Molecules/Object as list',
+  component: ObjectAsList,
+};
+
+export const Default = () => (
   <ObjectAsList
     name="Geoff"
     value={{
@@ -15,4 +21,4 @@ storiesOf('Styled/Molecules/Object as list', module).add('default', () => (
       unspecifiedObjectKey: { test1: '1', test2: '2' },
     }}
   />
-));
+);
