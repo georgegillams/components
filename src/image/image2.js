@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 
-import ImageDumb from './ImageDumb';
+import ImageDumb from './image-dumb';
 
 const Image = (props) => {
   const [loaded, setLoaded] = useState(false);

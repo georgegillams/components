@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import ImageDumb from './ImageDumb';
+import ImageDumb from './image-dumb';
 
-import { Image } from './index';
+import Image from './index';
 
 const StatefulImageDumb = (props) => {
   const [loaded, setLoaded] = useState(false);
