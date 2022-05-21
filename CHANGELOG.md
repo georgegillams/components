@@ -1,5 +1,12 @@
 # Changelog
 
+## 22.0.1
+
+### Bug Fixes
+
+ - Fix case 2
+ - Fix case 1
+
 ## 22.0.0
 
 ### Breaking changes
