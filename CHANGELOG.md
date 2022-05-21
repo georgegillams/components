@@ -1,5 +1,11 @@
 # Changelog
 
+## 23.0.4
+
+### Bug Fixes
+
+ - Sticky nav bar (#608)
+
 ## 23.0.3
 
 ## 23.0.2
