@@ -5,7 +5,7 @@ import { cssModules } from '../helpers/cssModules';
 import Section from '../section';
 import Subsection from '../subsection';
 import Card from '../card';
-import { Image } from '../Image';
+import Image from '../image';
 
 import STYLES from './feature-card.scss';
 

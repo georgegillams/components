@@ -6,7 +6,7 @@ import { Table, Head, Body, Row, Cell } from '../table';
 import { cssModules } from '../helpers/cssModules';
 import { withTheme } from '../Theming';
 import HelperFunctions from '../helpers/helper-functions';
-import { Image } from '../Image';
+import Image from '../image';
 import Code, { CodeInline } from '../code';
 import Paragraph from '../paragraph';
 import TextLink from '../text-link';
