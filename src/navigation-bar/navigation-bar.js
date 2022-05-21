@@ -122,7 +122,11 @@ const NavigationBar = (props) => {
     );
 
   return (
-    <header role="banner" ref={headerElement}>
+    <header
+      role="banner"
+      ref={headerElement}
+      style={{ position: 'sticky', top: 0 }}
+    >
       {show && (
         <div
           aria-hidden="true"
@@ -132,12 +136,6 @@ const NavigationBar = (props) => {
         />
       )}
 
-      <div
-        className={getClassName(
-          'navigation-bar__bar-placeholder',
-          wrapping && 'navigation-bar__bar-placeholder--wrapping',
-        )}
-      />
       <div className={outerClassNameFinal.join(' ')} {...rest}>
         <div className={getClassName('navigation-bar__bar')} {...rest}>
           <div
