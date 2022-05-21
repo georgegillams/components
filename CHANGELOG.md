@@ -1,5 +1,11 @@
 # Changelog
 
+## 22.0.0
+
+### Breaking changes
+
+ - Rename components (#604)
+
 ## 21.0.7
 
 ### Bug Fixes
