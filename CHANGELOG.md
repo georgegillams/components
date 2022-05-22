@@ -1,5 +1,11 @@
 # Changelog
 
+## 23.0.6
+
+### Bug Fixes
+
+ - Fix navigation bar z-index
+
 ## 23.0.5
 
 ### Bug Fixes
