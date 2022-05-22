@@ -7,7 +7,7 @@ import backgroundImage from './backgroundImage.png';
 
 import Card from './index';
 
-export default { title: 'Card', component: Card };
+export default { title: 'Sass/Molecules/Card', component: Card };
 
 export const Default = () => (
   <Card onClick={action('Button clicked')}>

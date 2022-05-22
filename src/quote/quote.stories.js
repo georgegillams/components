@@ -1,12 +1,11 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Quote from './index';
 
-storiesOf('Styled/Molecules/Quote', module).add('default', () => (
-  <Quote>Lorem ipse dolor sit amet.</Quote>
-));
-// .add('themed', () => (
+export default { title: 'Styled/Molecules/Quote', component: Quote };
+
+export const Default = () => <Quote>Lorem ipse dolor sit amet.</Quote>;
+// export const themed = () => (
 //   <div className={getClassName('stories__themed')}>
 //     <Quote>Lorem ipse dolor sit amet.</Quote>
 //   </div>

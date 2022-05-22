@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import TextArea from './index';
 

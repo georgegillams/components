@@ -1,9 +1,13 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import DebugObject from './index';
 
-storiesOf('Styled/Organisms/Debug object', module).add('default', () => (
+export default {
+  title: 'Styled/Molecules/Debug object',
+  component: DebugObject,
+};
+
+export const Default = () => (
   <div>
     <DebugObject
       debugTitle="Geoff"
@@ -17,4 +21,4 @@ storiesOf('Styled/Organisms/Debug object', module).add('default', () => (
       }}
     />
   </div>
-));
+);

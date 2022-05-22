@@ -3,7 +3,10 @@ import React from 'react';
 
 import PageContainer, { WIDTHS } from './index';
 
-export default { title: 'Page container', component: PageContainer };
+export default {
+  title: 'Sass/Molecules/Page container',
+  component: PageContainer,
+};
 
 const content = (
   <>

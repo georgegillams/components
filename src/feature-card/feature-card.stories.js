@@ -6,7 +6,7 @@ const image = 'https://via.placeholder.com/460x460/red/white?text=image';
 const backgroundImage =
   'https://via.placeholder.com/460x210/blue/black?text=image';
 
-export default { title: 'Feature card', component: FeatureCard };
+export default { title: 'Sass/Organisms/Feature card', component: FeatureCard };
 
 export const Default = () => (
   <FeatureCard
