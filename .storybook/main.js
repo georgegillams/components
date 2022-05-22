@@ -6,8 +6,10 @@ module.exports = {
     '@storybook/addon-backgrounds',
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
+    '@storybook/addon-measure',
+    '@storybook/addon-outline',
+    '@storybook/addon-postcss', // TODO: CSS LEGACY
     '@storybook/addon-viewport',
-    '@storybook/addon-postcss',
     'storybook-dark-mode',
   ],
 };
