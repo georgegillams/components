@@ -11,7 +11,7 @@ const LONG_TEXT =
 
 const getClassName = cssModules(STYLES);
 
-export default { title: 'Subsection', component: Subsection };
+export default { title: 'Sass/Molecules/Subsection', component: Subsection };
 
 export const Default = () => <Subsection name="Test" />;
 export const Long = () => <Subsection name={LONG_TEXT} />;

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import SectionSkeleton from '../skeleton/section-skeleton';
 import CardSkeleton from '../skeleton/card-skeleton';
@@ -53,10 +52,14 @@ const StatefulLoadingCover = () => {
   );
 };
 
-storiesOf('Loading cover', module)
-  .add('default', () => <StatefulLoadingCover />)
-  .add('flex-centered', () => (
-    <div className={getClassName('stories__flex')}>
-      <StatefulLoadingCover />
-    </div>
-  ));
+export default {
+  title: 'Sass/Molecules/Loading cover',
+  component: LoadingCover,
+};
+
+export const Default = () => <StatefulLoadingCover />;
+export const FlexCentered = () => (
+  <div className={getClassName('stories__flex')}>
+    <StatefulLoadingCover />
+  </div>
+);

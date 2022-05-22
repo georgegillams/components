@@ -11,7 +11,7 @@ const LONG_TEXT =
 
 const getClassName = cssModules(STYLES);
 
-export default { title: 'Section', component: Section };
+export default { title: 'Sass/Molecules/Section', component: Section };
 
 export const Default = () => <Section name="Test" />;
 export const Long = () => <Section name={LONG_TEXT} />;

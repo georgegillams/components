@@ -21,7 +21,7 @@ import {
   TicketStatusSkeleton,
 } from './index';
 
-export default { title: 'Skeletons', component: Skeleton };
+export default { title: 'Sass/Molecules/Skeletons', component: Skeleton };
 
 export {
   ButtonSkeleton,

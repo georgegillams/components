@@ -1,25 +1,28 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import MarkdownRenderer from '../markdown-renderer';
 
 import Notification, { NOTIFICATION_TYPES } from './index';
 
-storiesOf('Notifications', module)
-  .add('Notification - simple success', () => (
-    <Notification type={NOTIFICATION_TYPES.success}>Simple text</Notification>
-  ))
-  .add('Notification - simple warn', () => (
-    <Notification type={NOTIFICATION_TYPES.warn}>Simple text</Notification>
-  ))
-  .add('Notification - simple error', () => (
-    <Notification type={NOTIFICATION_TYPES.error}>Simple text</Notification>
-  ))
-  .add('Notification - markdown', () => (
-    <Notification type={NOTIFICATION_TYPES.warn}>
-      <MarkdownRenderer
-        padding={false}
-        content="Hi. Here's a [link](https://www.google.com/)"
-      />
-    </Notification>
-  ));
+export default {
+  title: 'Styled/Molecules/Notifications',
+  component: Notification,
+};
+
+export const NotificationSimpleSuccess = () => (
+  <Notification type={NOTIFICATION_TYPES.success}>Simple text</Notification>
+);
+export const NotificationSimpleWarn = () => (
+  <Notification type={NOTIFICATION_TYPES.warn}>Simple text</Notification>
+);
+export const NotificationSimpleError = () => (
+  <Notification type={NOTIFICATION_TYPES.error}>Simple text</Notification>
+);
+export const NotificationMarkdown = () => (
+  <Notification type={NOTIFICATION_TYPES.warn}>
+    <MarkdownRenderer
+      padding={false}
+      content="Hi. Here's a [link](https://www.google.com/)"
+    />
+  </Notification>
+);

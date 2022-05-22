@@ -27,7 +27,7 @@ const ButtonStory = (props) => {
   );
 };
 
-export default { title: 'Button', component: Button };
+export default { title: 'Sass/Molecules/Button', component: Button };
 
 export const Primary = () => <ButtonStory />;
 export const Focused = () => <ButtonStory focus />;
