@@ -6,6 +6,7 @@ import BurgerButton from '../burger-button';
 import { cssModules } from '../helpers/cssModules';
 
 import STYLES from './navigation-bar.scss';
+import { navigationBarScrimZIndex } from '../constants/colors';
 
 const getClassName = cssModules({ ...STYLES });
 
@@ -125,7 +126,7 @@ const NavigationBar = (props) => {
     <header
       role="banner"
       ref={headerElement}
-      style={{ position: 'sticky', top: 0 }}
+      style={{ position: 'sticky', top: 0, zIndex: navigationBarScrimZIndex }}
     >
       {show && (
         <div
