@@ -28,6 +28,7 @@ const Input = (props) => {
     component: InputComponent,
     id,
     'aria-describedby': ariaDescribedby,
+    children,
     ...rest
   } = props;
 
@@ -62,7 +63,9 @@ const Input = (props) => {
         id={id}
         aria-describedby={ariaDescribedby}
         {...inputProps}
-      />
+      >
+        {children}
+      </StyledInputComponent>
       {StyledIconComponent && (
         <StyledIconComponent valid={valid} {...iconProps} />
       )}
