@@ -1,18 +1,27 @@
 import React from 'react';
 
+const themeProperties = [
+  'textLinkColor',
+  'textLinkColorHover',
+  'textLinkColorDarkMode',
+  'textLinkColorHoverDarkMode',
+  'checkboxTickColor',
+  'checkboxTickColorDarkMode',
+  'progressBarColor',
+  'progressBarColorDarkMode',
+  'quoteBarColor',
+  'quoteBarColorDarkMode',
+];
+
 export const STYLED_THEMES = {
-  default: {
-    textLinkColor: null,
-    textLinkColorHover: null,
-    textLinkColorDarkMode: null,
-    textLinkColorHoverDarkMode: null,
-    checkboxTickColor: null,
-    checkboxTickColorDarkMode: null,
-    progressBarColor: null,
-    progressBarColorDarkMode: null,
-    quoteBarColor: null,
-    quoteBarColorDarkMode: null,
-  },
+  default: themeProperties.reduce(
+    (prev, next) => ({ ...prev, [next]: null }),
+    {},
+  ),
+  white: themeProperties.reduce(
+    (prev, next) => ({ ...prev, [next]: 'white' }),
+    {},
+  ),
 };
 
 export const StyledThemeContext = React.createContext(
