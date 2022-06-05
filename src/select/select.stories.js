@@ -104,16 +104,11 @@ export const Disabled = () => (
   <Select value="apple" enabled={false} options={selectOptions} />
 );
 export const WithOther = () => (
-  <Select value="other value" options={selectOptions} enableOther />
+  <Select value="other value" options={selectOptions} />
 );
 export const Stateful = () => (
   <StatefulInput value="apple" component={Select} options={selectOptions} />
 );
 export const StatefulWithOther = () => (
-  <StatefulInput
-    value="apple"
-    component={Select}
-    options={selectOptions}
-    enableOther
-  />
+  <StatefulInput value="apple" component={Select} options={selectOptions} />
 );
