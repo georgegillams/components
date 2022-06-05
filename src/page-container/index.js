@@ -1,1 +1,2 @@
-export { default, WIDTHS } from './page-container';
+export { default } from './page-container';
+export { WIDTHS } from './constants';

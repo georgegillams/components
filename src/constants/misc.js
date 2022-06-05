@@ -1,6 +1,9 @@
 // // page widths
-// $page-max-width: 60rem;
-// $page-max-width-prose: 41.25rem;
+export const pageMaxWidth = '60rem';
+export const pageMaxWidthProse = '41.25rem';
+
+import { css } from 'styled-components';
+import { breakpointMd } from './layout';
 
 // // bpk-token values
 // $bpk-color-panjin: #d1435b;
@@ -132,6 +135,19 @@
 //   }
 // }
 
+export const pageContainer = css`
+  width: 100%;
+  max-width: ${pageMaxWidth};
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0.9375rem;
+  padding-left: 0.9375rem;
+
+  @media (min-width: ${breakpointMd}) {
+    padding-right: 1.875rem;
+    padding-left: 1.875rem;
+  }
+`;
 // @mixin page-container() {
 //   width: 100%;
 //   max-width: 60rem;
