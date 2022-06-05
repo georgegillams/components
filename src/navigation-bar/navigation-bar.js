@@ -1,14 +1,25 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { scopeFocus, unscopeFocus } from 'a11y-focus-scope';
+import { JS_CLASSNAME, NO_JS_CLASSNAME } from '../js-feature-detector';
 
 import BurgerButton from '../burger-button';
-import { cssModules } from '../helpers/cssModules';
 
-import STYLES from './navigation-bar.scss';
-import { navigationBarScrimZIndex } from '../constants/colors';
+import {
+  AnimatedContainer,
+  AnimatedContainerInner,
+  BarInner,
+  BarOuter,
+  BurgerContainer,
+  DesktopNavWrapper,
+  Header,
+  LogoContainer,
+  Scrim,
+  TabletNavWrapper,
+} from './navigation-bar.styles';
 
-const getClassName = cssModules({ ...STYLES });
+const CLASS_HIDE_JS = `navigation-bar__burger-wrapper--no-js`;
+const CLASS_HIDE_NO_JS = `navigation-bar__burger-wrapper--js`;
 
 const NavigationBar = (props) => {
   const [open, setOpen] = useState(false);
@@ -86,30 +97,11 @@ const NavigationBar = (props) => {
   };
 
   const {
-    className,
     menuItems,
-    burgerButtonWrapper: BurgerButtonWrapper,
     logo,
-    accountMenuItem,
-    wrapping,
+    noJsLinkProvider: NoJsLinkProvider,
     ...rest
   } = props;
-  const outerClassNameFinal = [getClassName('navigation-bar__container')];
-  if (className) {
-    outerClassNameFinal.push(className);
-  }
-
-  const animatedContainerClassNameFinal = [
-    getClassName('navigation-bar__animated-container'),
-  ];
-  const scrimClassNames = [getClassName('navigation-bar__scrim')];
-  const burgerClassNames = [getClassName('navigation-bar__burger-button')];
-  if (open) {
-    animatedContainerClassNameFinal.push(
-      getClassName('navigation-bar__animated-container--open'),
-    );
-    scrimClassNames.push(getClassName('navigation-bar__scrim--open'));
-  }
 
   const menuItemsWithClickBehaviour =
     menuItems &&
@@ -117,99 +109,92 @@ const NavigationBar = (props) => {
       menuItem
         ? React.cloneElement(menuItem, {
             onClick: closeMenu,
-            className: getClassName('navigation-bar__sidebar-menu-item'),
           })
         : null,
     );
 
+  const logoWithClickBehaviour = React.cloneElement(logo, {
+    onClick: closeMenu,
+  });
+
   return (
-    <header
-      role="banner"
-      ref={headerElement}
-      style={{ position: 'sticky', top: 0, zIndex: navigationBarScrimZIndex }}
-    >
+    <Header role="banner" ref={headerElement}>
+      <style>
+        {/* The hidden style is only shown if an ancestor element has the `js` class. */}
+        {/* This style is inlined to ensure that it is available as soon as the HTML is delivered to the browser. */}
+        {`.${JS_CLASSNAME} .${CLASS_HIDE_JS} {
+  display: none;
+}`}
+        {`.${NO_JS_CLASSNAME} .${CLASS_HIDE_NO_JS} {
+  display: none;
+}`}
+      </style>
       {show && (
-        <div
+        // scrim
+        <Scrim
           aria-hidden="true"
           role="presentation"
-          className={scrimClassNames.join(' ')}
           onClick={closeMenu}
+          open={open}
         />
       )}
 
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
-        <div className={getClassName('navigation-bar__bar')} {...rest}>
-          <div
-            className={getClassName(
-              'navigation-bar__mobile-container',
-              'navigation-bar__mobile-container--left',
-            )}
-          >
-            <BurgerButtonWrapper>
+      {show && (
+        // animated container
+        <AnimatedContainer open={open} aria-hidden={show ? null : 'true'}>
+          <AnimatedContainerInner>
+            {menuItemsWithClickBehaviour}
+          </AnimatedContainerInner>
+        </AnimatedContainer>
+      )}
+
+      {/* outer */}
+      <BarOuter {...rest}>
+        {/* nav bar */}
+        <BarInner>
+          {/* burger container */}
+          <TabletNavWrapper>
+            <BurgerContainer>
               <BurgerButton
-                className={burgerClassNames.join(' ')}
-                lineClassName={getClassName(
-                  'navigation-bar__burger-button__line',
-                )}
                 isOpen={open}
                 aria-label="Menu"
                 onClick={toggleMenu}
+                className={CLASS_HIDE_NO_JS}
               />
-            </BurgerButtonWrapper>
-          </div>
-          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-          <div
-            className={getClassName('navigation-bar__logo-container')}
-            onClick={closeMenu}
-          >
-            {logo}
-          </div>
-          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-          <div
-            className={getClassName(
-              'navigation-bar__mobile-container',
-              'navigation-bar__mobile-container--rgt',
-            )}
-            onClick={closeMenu}
-          >
-            {accountMenuItem}
-          </div>
-        </div>
-      </div>
-      {show && (
-        <div
-          aria-hidden={show ? null : 'true'}
-          className={animatedContainerClassNameFinal.join(' ')}
-        >
-          <nav
-            className={getClassName('navigation-bar__mobile-menu-container')}
-          >
+              <NoJsLinkProvider
+                className={CLASS_HIDE_JS}
+                aria-label="Sitemap"
+                href="/site-map"
+              >
+                <BurgerButton isOpen={false} aria-hidden="true" />
+              </NoJsLinkProvider>
+              {/* TODO: Add link alternative - only rendered with no-js */}
+            </BurgerContainer>
+            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+            {logoWithClickBehaviour}
+            <BurgerContainer />
+          </TabletNavWrapper>
+          <DesktopNavWrapper>
+            {logoWithClickBehaviour}
             {menuItemsWithClickBehaviour}
-          </nav>
-        </div>
-      )}
-    </header>
+          </DesktopNavWrapper>
+          {/* Duplicated to allow flex to position the Logo in the center */}
+        </BarInner>
+      </BarOuter>
+    </Header>
   );
 };
 
 NavigationBar.propTypes = {
-  wrapping: PropTypes.bool,
-  accountMenuItem: PropTypes.node,
-  className: PropTypes.string,
-  burgerButtonWrapper: PropTypes.element,
   logo: PropTypes.node,
   menuItems: PropTypes.arrayOf(PropTypes.node),
-  user: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  noJsLinkProvider: PropTypes.component,
 };
 
 NavigationBar.defaultProps = {
-  wrapping: false,
-  accountMenuItem: null,
-  className: null,
   logo: null,
-  menuItems: null,
-  user: null,
-  burgerButtonWrapper: (bbProps) => <>{bbProps.children}</>,
+  menuItems: [],
+  noJsLinkProvider: (props) => <a {...props} />,
 };
 
 export default NavigationBar;
