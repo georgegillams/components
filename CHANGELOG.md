@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.0.3
+
+### Bug Fixes
+
+ - Fix styled theme definitions (#617)
+
 ## 24.0.2
 
 ### Bug Fixes
