@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Link, StyledSkipLink, Wrapper } from './skip-link.styles';
+import { Link, Wrapper } from './skip-link.styles';
 
 const SkipLink = (props) => {
-  const { label, href, className, ...rest } = props;
+  const { label, href, ...rest } = props;
 
   return (
     <Wrapper {...rest}>
