@@ -1,5 +1,15 @@
 # Changelog
 
+## 24.0.0
+
+### Bug Fixes
+
+ - S
+
+### Breaking changes
+
+ - Styled select - removed other option
+
 ## 23.0.8
 
 ## 23.0.7
