@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.0.1
+
+### Bug Fixes
+
+ - Rename section stories (#615)
+
 ## 24.0.0
 
 ### Bug Fixes
