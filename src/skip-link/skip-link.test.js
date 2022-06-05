@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import SkipLink from '../../src/skip-link';
+import SkipLink from './index';
 
 describe('SkipLink', () => {
   it('should render correctly', () => {

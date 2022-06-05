@@ -28,7 +28,7 @@ exports[`SkipLink should support arbitrary props 1`] = `
 
 exports[`SkipLink should support custom class names 1`] = `
 <div
-  className="sc-bczRLJ fcZDZy"
+  className="sc-bczRLJ fcZDZy custom-classname"
 >
   <a
     className="sc-gsnTZi dttWYl"

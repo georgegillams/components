@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { bpkColorPanjin } from '../constants/colors';
-import { borderRadiusSm, spacingSm } from '../constants/layout';
+import { spacingSm } from '../constants/layout';
 import { durationSm } from '../constants/timings';
 import { focusStyle } from '../constants/styles';
 
