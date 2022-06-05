@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.0.2
+
+### Bug Fixes
+
+ - Fix skip-link (#612)
+
 ## 24.0.1
 
 ### Bug Fixes
