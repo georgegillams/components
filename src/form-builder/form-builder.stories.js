@@ -25,7 +25,6 @@ const formFields = [
     validationRegex: null,
     type: 'SELECT',
     options: selectOptions,
-    enableOther: true,
     show: true,
   },
   {
