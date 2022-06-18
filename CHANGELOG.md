@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.1.0
+
+### Features
+
+ - New nav bar design (#620)
+
 ## 24.0.3
 
 ### Bug Fixes
