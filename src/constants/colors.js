@@ -54,8 +54,8 @@ export const mobileNavigationUnfoldedHeight = '24rem';
 export const requestStatusZIndex = '1000';
 export const navigationbarZIndex = '999';
 export const cookiebannerZIndex = '500';
-export const navigationBarMenuZIndex = '998';
 export const navigationBarScrimZIndex = '997';
+export const navigationBarMenuZIndex = '998';
 
 export const outlineColor = 'rgba(0, 125, 250, 0.6)';
 export const outlineColorDarkMode = 'rgba(0, 125, 250, 0.6)';
