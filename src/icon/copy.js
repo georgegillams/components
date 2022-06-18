@@ -11,12 +11,4 @@ const Copy = (props) => {
   );
 };
 
-Copy.propTypes = {
-  className: PropTypes.string,
-};
-
-Copy.defaultProps = {
-  className: null,
-};
-
 export default Copy;
