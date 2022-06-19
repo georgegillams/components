@@ -119,12 +119,14 @@ const NavigationBar = (props) => {
 
   return (
     <Header role="banner" ref={headerElement}>
+      {/* This style is inlined to ensure that it is available as soon as the HTML is delivered to the browser. */}
+
       <style>
-        {/* The hidden style is only shown if an ancestor element has the `js` class. */}
-        {/* This style is inlined to ensure that it is available as soon as the HTML is delivered to the browser. */}
+        {/* The style is only applied if an ancestor element has the `js` class. */}
         {`.${JS_CLASSNAME} .${CLASS_HIDE_JS} {
   display: none;
 }`}
+        {/* The style is only applied if an ancestor element has the `no-js` class. */}
         {`.${NO_JS_CLASSNAME} .${CLASS_HIDE_NO_JS} {
   display: none;
 }`}
@@ -188,7 +190,7 @@ const NavigationBar = (props) => {
 NavigationBar.propTypes = {
   logo: PropTypes.node,
   menuItems: PropTypes.arrayOf(PropTypes.node),
-  noJsLinkProvider: PropTypes.component,
+  noJsLinkProvider: PropTypes.func,
 };
 
 NavigationBar.defaultProps = {

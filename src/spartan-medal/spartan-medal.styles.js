@@ -1,14 +1,25 @@
 import styled, { css } from 'styled-components';
+import { spacingXs } from '../constants/layout';
 import SpartanLogo from '../spartan-logo';
+import TextLink from '../text-link';
 
-export const Wrapper = styled.svg.attrs({
+// Wedges are 7.5cm in real life. 7.5 *1.8666666667 = 14
+const displayWidth = `14rem`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  width: ${displayWidth};
+  height: ${displayWidth};
+`;
+
+export const WrapperSvg = styled.svg.attrs({
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 75 75',
   width: '75',
   height: '75',
 })`
-  width: 14rem;
-  height: 14rem;
+  width: ${displayWidth};
+  height: ${displayWidth};
 `;
 
 export const BackgroundOuter = styled.circle.attrs({
@@ -65,7 +76,7 @@ export const LeftText = styled.text.attrs({ width: 500 })`
 `;
 
 export const LeftTextPath = styled.textPath.attrs({
-  startOffset: 14,
+  startOffset: 16,
   alignmentBaseline: 'center',
   xlinkHref: '#textLine2',
 })``;
@@ -73,4 +84,15 @@ export const LeftTextPath = styled.textPath.attrs({
 export const StyledSpartanLogo = styled(SpartanLogo).attrs({
   x: (75 - 44) / 2,
   y: (75 - 44) / 2,
+})``;
+
+export const LinkContainer = styled.div`
+  position: absolute;
+  right: calc(${displayWidth} / 2);
+  bottom: 0;
+`;
+
+export const StravaLink = styled(TextLink).attrs({
+  target: '_blank',
+  rel: 'noopener noreferrer',
 })``;

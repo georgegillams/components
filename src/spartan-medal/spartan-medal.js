@@ -21,10 +21,16 @@ import {
   LeftTextPath,
   LeftText,
   StyledSpartanLogo,
+  LinkContainer,
+  StravaLink,
+  WrapperSvg,
 } from './spartan-medal.styles';
+import { StyledThemeProvider } from '../styled-theming';
+
+import StravaIcon from '../icon/strava';
 
 const SpartanMedal = (props) => {
-  const { type, year, ...rest } = props;
+  const { type, year, stravaLink, ...rest } = props;
 
   const { foreground, background } = TYPE_COLORS[type];
   const title = TYPE_DESCRIPTION[type];
@@ -35,24 +41,40 @@ const SpartanMedal = (props) => {
   const logo = <circle cx="37.5" cy="37.5" r="22" />;
 
   return (
-    <Wrapper>
-      <BackgroundOuter />
-      <BackgroundInner />
-      <Flash color={background} />
+    <Wrapper {...rest}>
+      <WrapperSvg>
+        <BackgroundOuter />
+        <BackgroundInner />
+        <Flash color={background} />
 
-      <RightTextGuidePath />
-      <RightText color={foreground}>
-        <RightTextPath>
-          {distance} KILOMETERS • {obstacles} OBSTACLES
-        </RightTextPath>
-      </RightText>
+        <RightTextGuidePath />
+        <RightText color={foreground}>
+          <RightTextPath>
+            {distance} KILOMETERS • {obstacles} OBSTACLES
+          </RightTextPath>
+        </RightText>
 
-      <LeftTextGuidePath />
-      <LeftText>
-        <LeftTextPath>SPRINT {yearRoman}</LeftTextPath>
-      </LeftText>
+        <LeftTextGuidePath />
+        <LeftText>
+          <LeftTextPath>SPRINT {yearRoman}</LeftTextPath>
+        </LeftText>
 
-      <StyledSpartanLogo color={background} />
+        <StyledSpartanLogo color={background} />
+      </WrapperSvg>
+      <LinkContainer>
+        <StyledThemeProvider
+          theme={{
+            textLinkColor: background,
+            textLinkColorDarkMode: background,
+          }}
+        >
+          {stravaLink && (
+            <StravaLink href={stravaLink}>
+              <StravaIcon />
+            </StravaLink>
+          )}
+        </StyledThemeProvider>
+      </LinkContainer>
     </Wrapper>
   );
 };
