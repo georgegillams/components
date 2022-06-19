@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.3.0
+
+### Features
+
+ - Add strava link to spartan medals (#622)
+
 ## 24.2.0
 
 ### Features
