@@ -11,12 +11,4 @@ const ExclamationCircle = (props) => {
   );
 };
 
-ExclamationCircle.propTypes = {
-  className: PropTypes.string,
-};
-
-ExclamationCircle.defaultProps = {
-  className: null,
-};
-
 export default ExclamationCircle;

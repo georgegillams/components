@@ -11,12 +11,4 @@ const NewWindow = (props) => {
   );
 };
 
-NewWindow.propTypes = {
-  className: PropTypes.string,
-};
-
-NewWindow.defaultProps = {
-  className: null,
-};
-
 export default NewWindow;

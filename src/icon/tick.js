@@ -11,12 +11,4 @@ const Tick = (props) => {
   );
 };
 
-Tick.propTypes = {
-  className: PropTypes.string,
-};
-
-Tick.defaultProps = {
-  className: null,
-};
-
 export default Tick;
