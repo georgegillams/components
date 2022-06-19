@@ -1,7 +1,15 @@
 import styled, { css } from 'styled-components';
+import { spacingXs } from '../constants/layout';
 import SpartanLogo from '../spartan-logo';
+import TextLink from '../text-link';
 
-export const Wrapper = styled.svg.attrs({
+export const Wrapper = styled.div`
+  position: relative;
+  width: 14rem;
+  height: 14rem;
+`;
+
+export const WrapperSvg = styled.svg.attrs({
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 75 75',
   width: '75',
@@ -73,4 +81,15 @@ export const LeftTextPath = styled.textPath.attrs({
 export const StyledSpartanLogo = styled(SpartanLogo).attrs({
   x: (75 - 44) / 2,
   y: (75 - 44) / 2,
+})``;
+
+export const LinkContainer = styled.div`
+  position: absolute;
+  right: 7rem;
+  bottom: 0;
+`;
+
+export const StravaLink = styled(TextLink).attrs({
+  target: '_blank',
+  rel: 'noopener noreferrer',
 })``;
