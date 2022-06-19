@@ -24,7 +24,7 @@ const SpartanTrifectaWedge = (props) => {
   const { foreground, background } = TYPE_COLORS[type];
 
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <BackgroundOuter />
       <BackgroundInner />
       <InnerDecoration />

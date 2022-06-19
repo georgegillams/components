@@ -3,10 +3,13 @@ import { spacingXs } from '../constants/layout';
 import SpartanLogo from '../spartan-logo';
 import TextLink from '../text-link';
 
+// Wedges are 7.5cm in real life. 7.5 *1.8666666667 = 14
+const displayWidth = `14rem`;
+
 export const Wrapper = styled.div`
   position: relative;
-  width: 14rem;
-  height: 14rem;
+  width: ${displayWidth};
+  height: ${displayWidth};
 `;
 
 export const WrapperSvg = styled.svg.attrs({
@@ -15,8 +18,8 @@ export const WrapperSvg = styled.svg.attrs({
   width: '75',
   height: '75',
 })`
-  width: 14rem;
-  height: 14rem;
+  width: ${displayWidth};
+  height: ${displayWidth};
 `;
 
 export const BackgroundOuter = styled.circle.attrs({
@@ -73,7 +76,7 @@ export const LeftText = styled.text.attrs({ width: 500 })`
 `;
 
 export const LeftTextPath = styled.textPath.attrs({
-  startOffset: 14,
+  startOffset: 16,
   alignmentBaseline: 'center',
   xlinkHref: '#textLine2',
 })``;
@@ -85,7 +88,7 @@ export const StyledSpartanLogo = styled(SpartanLogo).attrs({
 
 export const LinkContainer = styled.div`
   position: absolute;
-  right: 7rem;
+  right: calc(${displayWidth} / 2);
   bottom: 0;
 `;
 

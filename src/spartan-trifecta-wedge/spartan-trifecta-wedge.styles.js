@@ -1,14 +1,17 @@
 import styled, { css } from 'styled-components';
 import SpartanLogo from '../spartan-logo/spartan-logo';
 
+// Wedges are 10cm in real life. 10 *1.8666666667 = 18.6
+const displayWidth = '18.6rem';
+
 export const Wrapper = styled.svg.attrs({
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 100 100',
   width: '100',
   height: '100',
 })`
-  width: 18.6rem;
-  height: 18.6rem;
+  width: ${displayWidth};
+  height: ${displayWidth};
 `;
 
 export const BackgroundOuter = styled.circle.attrs({
@@ -53,11 +56,11 @@ export const TopText = styled.text.attrs({ width: 500 })`
   font-size: 0.77rem;
   font-weight: light;
   fill: ${(props) => props.color};
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.16rem;
 `;
 
 export const TopTextPath = styled.textPath.attrs({
-  startOffset: 10,
+  startOffset: 1,
   alignmentBaseline: 'center',
   xlinkHref: '#textLine1',
 })``;
