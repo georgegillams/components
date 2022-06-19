@@ -17,15 +17,15 @@ export const TYPE_DESCRIPTION = {
 export const TYPE_DISTANCE = {
   [EVENT_TYPE.sprint]: 5,
   [EVENT_TYPE.super]: 10,
-  [EVENT_TYPE.beast]: 20,
-  [EVENT_TYPE.ultra]: 54,
+  [EVENT_TYPE.beast]: 21,
+  [EVENT_TYPE.ultra]: 50,
 };
 
 export const TYPE_OBSTACLES = {
   [EVENT_TYPE.sprint]: 20,
   [EVENT_TYPE.super]: 25,
   [EVENT_TYPE.beast]: 30,
-  [EVENT_TYPE.ultra]: 70,
+  [EVENT_TYPE.ultra]: 55,
 };
 
 export const TYPE_COLORS = {

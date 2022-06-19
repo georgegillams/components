@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import SpartanLogo from '../spartan-logo/spartan-logo';
 
 export const Wrapper = styled.svg.attrs({
   xmlns: 'http://www.w3.org/2000/svg',
@@ -11,60 +12,76 @@ export const Wrapper = styled.svg.attrs({
 `;
 
 export const BackgroundOuter = styled.circle.attrs({
-  cx: 37.5,
-  cy: 37.5,
-  r: 37.5,
+  cx: 50,
+  cy: 50,
+  r: 50,
 })`
   fill: #a0a0a0;
 `;
 
 export const BackgroundInner = styled.circle.attrs({
-  cx: 37.5,
-  cy: 37.5,
-  r: 25.5,
+  cx: 50,
+  cy: 50,
+  r: 31.5,
 })`
   fill: #d9d9d9;
+`;
+
+export const InnerDecoration = styled.circle.attrs({
+  cx: 50,
+  cy: 50,
+  r: 31.5,
+})`
+  stroke: black;
+  fill: none;
 `;
 
 export const Flash = styled.path.attrs({
-  d: 'M37.5 75C47.4456 75 56.9839 71.0491 64.0165 64.0165C71.0491 56.9839 75 47.4456 75 37.5C75 27.5544 71.0491 18.0161 64.0165 10.9835C56.9839 3.95088 47.4456 -1.186e-07 37.5 0V8.59567C45.1659 8.59567 52.5178 11.6409 57.9384 17.0616C63.3591 22.4822 66.4043 29.8341 66.4043 37.5C66.4043 45.1659 63.3591 52.5178 57.9384 57.9384C52.5178 63.3591 45.1659 66.4043 37.5 66.4043V75Z',
+  d: 'M6 50C6 74.3005 25.6995 94 50 94C74.3005 94 94 74.3005 94 50C94 25.6995 74.3005 6 50 6C25.6995 6 6 25.6995 6 50ZM85.485 50C85.485 69.5978 69.5978 85.485 50 85.485C30.4022 85.485 14.515 69.5978 14.515 50C14.515 30.4022 30.4022 14.515 50 14.515C69.5978 14.515 85.485 30.4022 85.485 50Z',
 })`
   fill: ${(props) => props.color};
 `;
 
-export const RightTextGuidePath = styled.path.attrs({
+export const TopTextGuidePath = styled.path.attrs({
   id: 'textLine1',
-  d: 'M38 6.5C54.5 6.5 68.5 21 68.5 37C68.5 53.5 55.5 68.5 38 68.5',
+  d: 'M14.5 49.5C14.5 29.5 31.5945 14.5 50 14.5C68.4055 14.5 85.5 29.5 85.5 49.5',
 })`
   fill: none;
 `;
 
-export const RightText = styled.text.attrs({ width: 500 })`
-  font-size: 0.3rem;
-  font-weight: bold;
+export const TopText = styled.text.attrs({ width: 500 })`
+  font-size: 0.77rem;
+  font-weight: light;
   fill: ${(props) => props.color};
+  letter-spacing: 0.1rem;
 `;
 
-export const RightTextPath = styled.textPath.attrs({
-  startOffset: 14,
+export const TopTextPath = styled.textPath.attrs({
+  startOffset: 10,
   alignmentBaseline: 'center',
   xlinkHref: '#textLine1',
 })``;
-export const LeftTextGuidePath = styled.path.attrs({
+
+export const BottomTextGuidePath = styled.path.attrs({
   id: 'textLine2',
-  d: 'M37 66C21.8525 66 8.99999 52.6694 9 37.9597C9 22.7903 20.9344 9 37 9',
+  d: 'M5.5 49.5C5.5 72 25.0614 93.8604 49.5 94C73.8017 94.1389 94 74.5 94 50.5',
 })`
   fill: none;
 `;
 
-export const LeftText = styled.text.attrs({ width: 500 })`
-  font-size: 0.4rem;
-  font-weight: bold;
-  fill: #d9d9d9;
+export const BottomText = styled.text.attrs({ width: 500 })`
+  font-size: 0.77rem;
+  font-weight: light;
+  fill: white;
 `;
 
-export const LeftTextPath = styled.textPath.attrs({
-  startOffset: 18,
+export const BottomTextPath = styled.textPath.attrs({
+  startOffset: 26,
   alignmentBaseline: 'center',
   xlinkHref: '#textLine2',
+})``;
+
+export const StyledSpartanLogo = styled(SpartanLogo).attrs({
+  x: (100 - 44) / 2,
+  y: (100 - 44) / 2,
 })``;

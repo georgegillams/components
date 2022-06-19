@@ -20,8 +20,8 @@ import {
   LeftTextGuidePath,
   LeftTextPath,
   LeftText,
+  StyledSpartanLogo,
 } from './spartan-medal.styles';
-import SpartanLogo from '../spartan-logo/spartan-logo';
 
 const SpartanMedal = (props) => {
   const { type, year, ...rest } = props;
@@ -52,7 +52,7 @@ const SpartanMedal = (props) => {
         <LeftTextPath>SPRINT {yearRoman}</LeftTextPath>
       </LeftText>
 
-      <SpartanLogo />
+      <StyledSpartanLogo color={background} />
     </Wrapper>
   );
 };

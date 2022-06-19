@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import SpartanLogo from '../spartan-logo';
 
 export const Wrapper = styled.svg.attrs({
   xmlns: 'http://www.w3.org/2000/svg',
@@ -34,7 +35,7 @@ export const Flash = styled.path.attrs({
 
 export const RightTextGuidePath = styled.path.attrs({
   id: 'textLine1',
-  d: 'M38 6.5C54.5 6.5 68.5 21 68.5 37C68.5 53.5 55.5 68.5 38 68.5',
+  d: 'M38 6C54.7705 6 69 20.7339 69 36.9919C69 53.7581 55.7869 69 38 69',
 })`
   fill: none;
 `;
@@ -46,7 +47,7 @@ export const RightText = styled.text.attrs({ width: 500 })`
 `;
 
 export const RightTextPath = styled.textPath.attrs({
-  startOffset: 14,
+  startOffset: 15,
   alignmentBaseline: 'center',
   xlinkHref: '#textLine1',
 })``;
@@ -58,13 +59,18 @@ export const LeftTextGuidePath = styled.path.attrs({
 `;
 
 export const LeftText = styled.text.attrs({ width: 500 })`
-  font-size: 0.4rem;
+  font-size: 0.5rem;
   font-weight: bold;
   fill: #d9d9d9;
 `;
 
 export const LeftTextPath = styled.textPath.attrs({
-  startOffset: 18,
+  startOffset: 14,
   alignmentBaseline: 'center',
   xlinkHref: '#textLine2',
+})``;
+
+export const StyledSpartanLogo = styled(SpartanLogo).attrs({
+  x: (75 - 44) / 2,
+  y: (75 - 44) / 2,
 })``;
