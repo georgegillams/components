@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.2.0
+
+### Features
+
+ - Add medals (#621)
+
 ## 24.1.0
 
 ### Features
