@@ -6,6 +6,8 @@
 
 A set of reusable React components, that are published as plain JS and CSS for maximum compatibility.
 
+To use in a Next.js app, follow this [guide for using styled components in next.js](https://www.simplenextjs.com/posts/next-styled-components).
+
 ## Developing
 
 To develop components within Storybook, run `npm start`.
