@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.3.2
+
+### Bug Fixes
+
+ - Fix CI apt install (#623)
+
 ## 24.3.1
 
 ## 24.3.0
