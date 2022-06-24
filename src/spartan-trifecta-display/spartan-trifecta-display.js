@@ -16,7 +16,12 @@ const SpartanTrifectaDisplay = (props) => {
       {wedges.map(
         (type, index) =>
           type && (
-            <StyledSpartanTrifectaWedge type={type} year={year} index={index} />
+            <StyledSpartanTrifectaWedge
+              type={type}
+              year={year}
+              index={index}
+              wedgePosition={`${index}`}
+            />
           ),
       )}
     </Wrapper>

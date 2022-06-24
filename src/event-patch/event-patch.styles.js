@@ -34,7 +34,9 @@ export const Wrapper = styled.div`
   }}
 `;
 
-export const EventName = styled(Text).attrs({ size: SIZES.xxl })``;
+export const EventName = styled(Text).attrs({ size: SIZES.xxl })`
+  text-align: center;
+`;
 
 export const EventYear = styled(Text)`
   margin-top: ${spacingSm};
