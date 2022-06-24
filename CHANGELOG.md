@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.3.3
+
+### Bug Fixes
+
+ - Fix trifecta xlink-href (#624)
+
 ## 24.3.2
 
 ### Bug Fixes
