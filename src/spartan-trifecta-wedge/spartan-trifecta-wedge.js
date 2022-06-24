@@ -19,7 +19,7 @@ import {
 } from './spartan-trifecta-wedge.styles';
 
 const SpartanTrifectaWedge = (props) => {
-  const { type, year, ...rest } = props;
+  const { type, year, wedgePosition, ...rest } = props;
 
   const { foreground, background } = TYPE_COLORS[type];
 
@@ -29,14 +29,18 @@ const SpartanTrifectaWedge = (props) => {
       <BackgroundInner />
       <InnerDecoration />
       <Flash color={background} />
-      <TopTextGuidePath />
+      <TopTextGuidePath id={`textLineTop${wedgePosition}`} />
       <TopText color={foreground}>
-        <TopTextPath>SPARTAN {year}</TopTextPath>
+        <TopTextPath xlinkHref={`#textLineTop${wedgePosition}`}>
+          SPARTAN {year}
+        </TopTextPath>
       </TopText>
 
-      <BottomTextGuidePath />
+      <BottomTextGuidePath id={`textLineBottom${wedgePosition}`} />
       <BottomText color={foreground}>
-        <BottomTextPath>TRIFECTA TRIBE</BottomTextPath>
+        <BottomTextPath xlinkHref={`#textLineBottom${wedgePosition}`}>
+          TRIFECTA TRIBE
+        </BottomTextPath>
       </BottomText>
       <StyledSpartanLogo color={background} />
     </Wrapper>
@@ -46,6 +50,11 @@ const SpartanTrifectaWedge = (props) => {
 SpartanTrifectaWedge.propTypes = {
   type: PropTypes.oneOf(Object.values(EVENT_TYPE)).isRequired,
   year: PropTypes.string.isRequired,
+  wedgePosition: PropTypes.string,
+};
+
+SpartanTrifectaWedge.defaultProps = {
+  wedgePosition: '',
 };
 
 export default SpartanTrifectaWedge;

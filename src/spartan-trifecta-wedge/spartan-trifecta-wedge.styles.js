@@ -46,7 +46,6 @@ export const Flash = styled.path.attrs({
 `;
 
 export const TopTextGuidePath = styled.path.attrs({
-  id: 'textLine1',
   d: 'M14.5 49.5C14.5 29.5 31.5945 14.5 50 14.5C68.4055 14.5 85.5 29.5 85.5 49.5',
 })`
   fill: none;
@@ -62,11 +61,9 @@ export const TopText = styled.text.attrs({ width: 500 })`
 export const TopTextPath = styled.textPath.attrs({
   startOffset: 1,
   alignmentBaseline: 'center',
-  xlinkHref: '#textLine1',
 })``;
 
 export const BottomTextGuidePath = styled.path.attrs({
-  id: 'textLine2',
   d: 'M5.5 49.5C5.5 72 25.0614 93.8604 49.5 94C73.8017 94.1389 94 74.5 94 50.5',
 })`
   fill: none;
@@ -81,7 +78,6 @@ export const BottomText = styled.text.attrs({ width: 500 })`
 export const BottomTextPath = styled.textPath.attrs({
   startOffset: 26,
   alignmentBaseline: 'center',
-  xlinkHref: '#textLine2',
 })``;
 
 export const StyledSpartanLogo = styled(SpartanLogo).attrs({
