@@ -1,45 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Language, StyledCodeBlock, StyledTextLink } from './code.styles';
 import TextLink from '../text-link';
-import { cssModules } from '../helpers/cssModules';
-import { THEMES } from '../Theming';
-
-import STYLES from './code.scss';
-
-const getClassName = cssModules(STYLES);
 
 const Code = (props) => {
-  const { children, lang, githubUrl, className, ...rest } = props;
-
-  const classNameFinal = [getClassName('code__outer-container')];
-  if (className) classNameFinal.push(className);
+  const { children, lang, githubUrl, ...rest } = props;
 
   const showTag = lang || githubUrl;
   const showSpace = lang && githubUrl;
 
   return (
-    <div className={classNameFinal.join(' ')} {...rest}>
+    <StyledCodeBlock {...rest}>
       <code>
         {children}
         {showTag && (
-          <span className={getClassName('code__lang')}>
+          <Language>
             {lang && lang}
             {showSpace && <span>&nbsp;</span>}
             {githubUrl && (
-              <TextLink
-                theme={THEMES.allWhite}
-                href={githubUrl}
-                hrefExternal
-                className={getClassName('code__text-link')}
-              >
+              <TextLink href={githubUrl} hrefExternal>
                 View on Github
               </TextLink>
             )}
-          </span>
+          </Language>
         )}
       </code>
-    </div>
+    </StyledCodeBlock>
   );
 };
 
@@ -47,13 +34,11 @@ Code.propTypes = {
   lang: PropTypes.string,
   githubUrl: PropTypes.string,
   children: PropTypes.node.isRequired,
-  className: PropTypes.string,
 };
 
 Code.defaultProps = {
   lang: null,
   githubUrl: null,
-  className: null,
 };
 
 export default Code;
