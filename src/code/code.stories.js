@@ -2,7 +2,7 @@ import React from 'react';
 
 import Code from './index';
 
-export default { title: 'Sass/Molecules/Code block', component: Code };
+export default { title: 'Styled/Molecules/Code block', component: Code };
 
 export const Default = () => (
   <Code>
