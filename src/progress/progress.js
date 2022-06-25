@@ -31,3 +31,5 @@ Progress.defaultProps = {
 };
 
 export default withStyledTheme(Progress);
+
+export { Progress as ProgressWithoutTheme };

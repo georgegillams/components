@@ -31,3 +31,5 @@ CopyButton.defaultProps = {
 };
 
 export default withStyledTheme(CopyButton);
+
+export { CopyButton as CopyButtonWithoutTheme };

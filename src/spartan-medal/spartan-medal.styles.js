@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { spacingXs } from '../constants/layout';
+import styled from 'styled-components';
 import SpartanLogo from '../spartan-logo';
 import TextLink from '../text-link';
+import { metalColor1, metalColor2 } from './constants';
 
 // Wedges are 7.5cm in real life. 7.5 *1.8666666667 = 14
 const displayWidth = `14rem`;
@@ -27,7 +27,7 @@ export const BackgroundOuter = styled.circle.attrs({
   cy: 37.5,
   r: 37.5,
 })`
-  fill: #a0a0a0;
+  fill: ${metalColor1};
 `;
 
 export const BackgroundInner = styled.circle.attrs({
@@ -35,7 +35,7 @@ export const BackgroundInner = styled.circle.attrs({
   cy: 37.5,
   r: 25.5,
 })`
-  fill: #d9d9d9;
+  fill: ${metalColor2};
 `;
 
 export const Flash = styled.path.attrs({
@@ -72,7 +72,7 @@ export const LeftTextGuidePath = styled.path.attrs({
 export const LeftText = styled.text.attrs({ width: 500 })`
   font-size: 0.5rem;
   font-weight: bold;
-  fill: #d9d9d9;
+  fill: ${metalColor2};
 `;
 
 export const LeftTextPath = styled.textPath.attrs({

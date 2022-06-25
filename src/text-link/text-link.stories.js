@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { StyledThemeProvider } from '../styled-theming';
 
 import TextLink from './index';
+import { TextLinkWithoutTheme } from './text-link';
 
 const testTheme = {
   textLinkColor: 'red',
@@ -26,7 +27,10 @@ const FocusTextLink = (props) => {
   );
 };
 
-export default { title: 'Styled/Molecules/Text link', component: TextLink };
+export default {
+  title: 'Styled/Molecules/Text link',
+  component: TextLinkWithoutTheme,
+};
 export const Default = () => (
   <TextLink href="/lol" name="Test">
     Test

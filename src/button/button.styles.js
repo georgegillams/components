@@ -1,0 +1,98 @@
+import styled, { css } from 'styled-components';
+import { focusStyle } from '../constants/styles';
+import { createStylesForButtonType } from './button-style-helpers';
+import { BUTTON_SIZES, BUTTON_TYPES } from './constants';
+
+const outerStyles = ({ theme, size, buttonType, disabled }) => css`
+  position: relative;
+  min-width: 5rem;
+  // average vertical padding of 0.375rem
+  padding: 0.43rem 1.125rem 0.32rem 1.125rem;
+  transition: filter 0.3s;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration-color: transparent;
+  text-decoration-line: none;
+
+  ${focusStyle()}
+
+  ${buttonType === BUTTON_TYPES.primary &&
+  createStylesForButtonType(BUTTON_TYPES.primary, theme)}
+
+  ${size === BUTTON_SIZES.large &&
+  css`
+    min-width: 7rem;
+    // average vertical padding of 0.4rem
+    padding: 0.455rem 1.4rem 0.345rem 1.4rem;
+    font-size: 1.6rem;
+  `}
+
+  ${buttonType === BUTTON_TYPES.bouncy &&
+  css`
+    ${createStylesForButtonType(BUTTON_TYPES.bouncy, theme)}
+
+    @keyframes gg-bounce-hover-effect {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    min-width: unset;
+    padding: 0.2rem 0.8rem;
+    font-weight: normal;
+
+    &:focus,
+    &:active,
+    &:hover {
+      animation-duration: 0.4s;
+      animation-name: gg-bounce-hover-effect;
+    }
+  `}
+
+  ${buttonType === BUTTON_TYPES.destructive &&
+  createStylesForButtonType(BUTTON_TYPES.destructive, theme)}
+
+    ${disabled &&
+  css`
+    cursor: default;
+  `}
+`;
+
+export const StyledButton = styled.button`
+  ${(props) => outerStyles(props)}
+`;
+
+export const StyledLink = styled.a`
+  ${(props) => outerStyles(props)}
+  display: inline-block;
+`;
+
+export const ChildContainer = styled.span`
+  display: flex;
+  justify-content: center;
+  ${({ loading }) =>
+    loading &&
+    css`
+      opacity: 0.1;
+    `}
+`;
+
+export const LoadingSpinner = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`;

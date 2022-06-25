@@ -1,9 +1,13 @@
 import React from 'react';
 import { StyledThemeProvider } from '../styled-theming';
+import { CopyButtonWithoutTheme } from './copy-button';
 
 import CopyButton from './index';
 
-export default { title: 'Styled/Molecules/Copy button', component: CopyButton };
+export default {
+  title: 'Styled/Molecules/Copy button',
+  component: CopyButtonWithoutTheme,
+};
 
 export const Default = () => <CopyButton text="This was a JS copy test." />;
 export const Themed = () => (

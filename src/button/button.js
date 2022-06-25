@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Spinner from '../spinner';
-import { cssModules } from '../helpers/cssModules';
 
-import STYLES from './button.scss';
+import { BUTTON_SIZES, BUTTON_TYPES } from './constants';
+import {
+  StyledButton,
+  StyledLink,
+  LoadingSpinner,
+  ChildContainer,
+} from './button.styles';
+import withStyledTheme from '../styled-theming';
 
-const getClassName = cssModules(STYLES);
+const getClassName = (c) => c;
 
 const Button = React.forwardRef((props, ref) => {
   const [showDestructiveConfirmation, setShowDestructiveConfirmation] =
@@ -15,72 +21,15 @@ const Button = React.forwardRef((props, ref) => {
   const {
     href,
     hrefExternal,
-    destructive,
+    buttonType,
     disabled: disabledProp,
-    light,
-    bouncy,
     onClick,
-    className,
-    large,
     children,
-    secondary,
-    white,
     loading,
     ...rest
   } = props;
 
   const disabled = disabledProp || loading;
-
-  const childClassNames = [getClassName('button__child')];
-  if (loading) {
-    childClassNames.push(getClassName('button__child--loading'));
-  }
-
-  const classNameFinal = [getClassName('button__outer')];
-  if (!destructive && !bouncy) {
-    classNameFinal.push(getClassName('button__outer--regular'));
-  }
-  if (destructive) {
-    classNameFinal.push(getClassName('button__outer--destructive'));
-  }
-  if (bouncy) {
-    if (!light) {
-      classNameFinal.push(getClassName('button__outer--dark-text'));
-    }
-    classNameFinal.push(getClassName('button__outer--bouncy'));
-    if (destructive) {
-      classNameFinal.push(getClassName('button__outer--bouncy--destructive'));
-    }
-    if (disabled) {
-      classNameFinal.push(getClassName('button__outer--disabled'));
-    }
-  } else {
-    classNameFinal.push(getClassName('button__outer--no-bouncy'));
-    if (destructive) {
-      classNameFinal.push(
-        getClassName('button__outer--no-bouncy--destructive'),
-      );
-    }
-    if (disabled) {
-      classNameFinal.push(getClassName('button__outer--disabled'));
-    }
-  }
-  if (large) {
-    classNameFinal.push(getClassName('button__outer--large'));
-  }
-  if (secondary) {
-    classNameFinal.push(getClassName('button__outer--secondary'));
-  }
-
-  if (white) {
-    classNameFinal.push(getClassName('button__outer--white'));
-  }
-
-  if (href && !disabled) {
-    classNameFinal.push(getClassName('button__outer--link'));
-  }
-
-  if (className) classNameFinal.push(className);
 
   const targettingProps = hrefExternal
     ? {
@@ -91,17 +40,19 @@ const Button = React.forwardRef((props, ref) => {
 
   if (href && !disabled) {
     return (
-      <a
+      <StyledLink
         aria-label={children}
         href={href}
         onClick={onClick}
         ref={ref}
-        className={getClassName('button__a', classNameFinal.join(' '))}
+        className={getClassName('button__a', 'outerClassName')}
+        buttonType={buttonType}
+        disabled={disabled}
         {...targettingProps}
         {...rest}
       >
-        <span className={childClassNames.join(' ')}>{children}</span>
-      </a>
+        <ChildContainer>{children}</ChildContainer>
+      </StyledLink>
     );
   }
 
@@ -123,57 +74,57 @@ const Button = React.forwardRef((props, ref) => {
   };
 
   return (
-    <button
+    <StyledButton
       type="button"
       disabled={disabled}
-      onClick={destructive ? onDestructiveClickFinal : onClickFinal}
-      className={classNameFinal.join(' ')}
+      onClick={
+        buttonType === BUTTON_TYPES.destructive
+          ? onDestructiveClickFinal
+          : onClickFinal
+      }
+      className={'outer'}
+      buttonType={buttonType}
       ref={ref}
       {...rest}
     >
-      <span className={childClassNames.join(' ')}>
+      <ChildContainer loading={loading}>
         {showDestructiveConfirmation && 'Click again to confirm '}
         {children}
-      </span>
+      </ChildContainer>
       {loading && (
-        <div aria-hidden className={getClassName('button__loading-spinner')}>
+        <LoadingSpinner
+          aria-hidden
+          className={getClassName('button__loading-spinner')}
+        >
           <Spinner />
-        </div>
+        </LoadingSpinner>
       )}
-    </button>
+    </StyledButton>
   );
 });
 
 Button.propTypes = {
-  large: PropTypes.bool,
+  size: PropTypes.oneOf(Object.keys(BUTTON_SIZES)),
+  buttonType: PropTypes.oneOf(Object.keys(BUTTON_TYPES)),
   href: PropTypes.string,
   hrefExternal: PropTypes.bool,
-  secondary: PropTypes.bool,
-  white: PropTypes.bool,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
-  light: PropTypes.bool,
-  bouncy: PropTypes.bool,
-  destructive: PropTypes.bool,
   onClick: PropTypes.func,
-  className: PropTypes.string,
   children: PropTypes.node,
 };
 
 Button.defaultProps = {
-  large: false,
+  size: BUTTON_SIZES.regular,
+  buttonType: BUTTON_TYPES.primary,
   href: null,
   hrefExternal: false,
-  secondary: false,
-  white: false,
-  light: false,
   loading: false,
   disabled: false,
-  bouncy: false,
-  destructive: false,
   onClick: null,
-  className: null,
   children: null,
 };
 
-export default Button;
+export default withStyledTheme(Button);
+
+export { Button as ButtonWithoutTheme };

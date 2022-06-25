@@ -1,4 +1,5 @@
-import { notBlack } from '../constants/colors';
+export const metalColor1 = '#a0a0a0';
+export const metalColor2 = '#d9d9d9';
 
 export const EVENT_TYPE = {
   sprint: 'sprint',
@@ -30,19 +31,19 @@ export const TYPE_OBSTACLES = {
 
 export const TYPE_COLORS = {
   [EVENT_TYPE.sprint]: {
-    background: '#BA0000',
+    background: '#C50722',
     foreground: 'white',
   },
   [EVENT_TYPE.super]: {
-    background: 'blue',
+    background: '#11388E',
     foreground: 'white',
   },
   [EVENT_TYPE.beast]: {
-    background: 'green',
+    background: '#549C00',
     foreground: 'white',
   },
   [EVENT_TYPE.ultra]: {
-    background: 'purple',
+    background: '#5E539A',
     foreground: 'white',
   },
 };
