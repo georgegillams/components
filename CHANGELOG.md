@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.4.0
+
+### Features
+
+ - Styled code block (#625)
+
 ## 24.3.3
 
 ### Bug Fixes
