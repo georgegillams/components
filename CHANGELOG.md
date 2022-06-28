@@ -1,5 +1,11 @@
 # Changelog
 
+## 25.0.0
+
+### Breaking changes
+
+ - Styled button (#626)
+
 ## 24.4.0
 
 ### Features
