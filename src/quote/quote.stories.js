@@ -1,12 +1,11 @@
 import React from 'react';
 
 import Quote from './index';
+import { QuoteWithoutTheme } from './quote';
 
-export default { title: 'Styled/Molecules/Quote', component: Quote };
+export default {
+  title: 'Styled/Molecules/Quote',
+  component: QuoteWithoutTheme,
+};
 
 export const Default = () => <Quote>Lorem ipse dolor sit amet.</Quote>;
-// export const themed = () => (
-//   <div className={getClassName('stories__themed')}>
-//     <Quote>Lorem ipse dolor sit amet.</Quote>
-//   </div>
-// ));

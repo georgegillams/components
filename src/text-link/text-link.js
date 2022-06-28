@@ -52,3 +52,5 @@ TextLink.defaultProps = {
 };
 
 export default withStyledTheme(TextLink);
+
+export { TextLink as TextLinkWithoutTheme };

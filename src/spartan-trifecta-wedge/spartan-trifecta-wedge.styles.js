@@ -1,5 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { notBlack } from '../constants/colors';
 import SpartanLogo from '../spartan-logo/spartan-logo';
+import { metalColor1, metalColor2 } from '../spartan-medal/constants';
 
 // Wedges are 10cm in real life. 10 *1.8666666667 = 18.6
 const displayWidth = '18.6rem';
@@ -19,7 +21,7 @@ export const BackgroundOuter = styled.circle.attrs({
   cy: 50,
   r: 50,
 })`
-  fill: #a0a0a0;
+  fill: ${metalColor1};
 `;
 
 export const BackgroundInner = styled.circle.attrs({
@@ -27,7 +29,7 @@ export const BackgroundInner = styled.circle.attrs({
   cy: 50,
   r: 31.5,
 })`
-  fill: #d9d9d9;
+  fill: ${metalColor2};
 `;
 
 export const InnerDecoration = styled.circle.attrs({
@@ -35,7 +37,7 @@ export const InnerDecoration = styled.circle.attrs({
   cy: 50,
   r: 31.5,
 })`
-  stroke: black;
+  stroke: ${notBlack};
   fill: none;
 `;
 

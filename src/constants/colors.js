@@ -15,13 +15,19 @@ export const primaryColorLight = 'lightblue';
 export const primaryColorTransparent = 'rgba(30, 50, 200, 0.15)';
 export const primaryColor = '#44aeff';
 
-export const destructiveColor = '#e02626';
-export const destructiveColorDarkMode = '#9f1717';
+export const destructiveColor = '#E02626';
+export const destructiveColorHover = '#BA2020';
+export const destructiveColorActive = '#9F1717';
+export const destructiveColorDarkMode = '#CA2020';
+export const destructiveColorHoverDarkMode = '#891111';
+export const destructiveColorActiveDarkMode = '#730D0D';
 
-export const ctaColorDarkInvert = '#004479';
-export const ctaColorDark = '#004880';
-export const ctaColorInvert = '#025ca2';
-export const ctaColor = '#0067b7';
+export const ctaColor = '#0067B7';
+export const ctaColorHover = '#004F8C';
+export const ctaColorActive = '#003E6F';
+export const ctaColorDarkMode = '#025CA2';
+export const ctaColorHoverDarkMode = '#004479';
+export const ctaColorActiveDarkMode = '#003965';
 
 export const notBlack = '#1e1e1e';
 export const notBlackDarkMode = 'white';

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import Checkbox from './index';
+import { CheckboxWithoutTheme } from './checkbox';
 import { StyledThemeProvider } from '../styled-theming';
 console.log(`Checkbox`, Checkbox);
 
@@ -22,7 +23,10 @@ const StatefulCheckbox = (props) => {
   );
 };
 
-export default { title: 'Styled/Molecules/Checkbox', component: Checkbox };
+export default {
+  title: 'Styled/Molecules/Checkbox',
+  component: CheckboxWithoutTheme,
+};
 
 export const Default = () => <Checkbox label="Test" name="Test" />;
 export const Valid = () => <Checkbox label="Test" name="Test" valid />;

@@ -11,6 +11,18 @@ const themeProperties = [
   'progressBarColorDarkMode',
   'quoteBarColor',
   'quoteBarColorDarkMode',
+  'buttonPrimaryBackgroundColor',
+  'buttonPrimaryBackgroundColorDarkMode',
+  'buttonPrimaryForegroundColor',
+  'buttonPrimaryForegroundColorDarkMode',
+  'buttonDestructiveBackgroundColor',
+  'buttonDestructiveBackgroundColorDarkMode',
+  'buttonDestructiveForegroundColor',
+  'buttonDestructiveForegroundColorDarkMode',
+  'buttonBouncyBackgroundColor',
+  'buttonBouncyBackgroundColorDarkMode',
+  'buttonBouncyForegroundColor',
+  'buttonBouncyForegroundColorDarkMode',
 ];
 
 export const STYLED_THEMES = {

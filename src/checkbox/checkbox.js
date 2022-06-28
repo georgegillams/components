@@ -78,3 +78,5 @@ Checkbox.defaultProps = {
 };
 
 export default withStyledTheme(Checkbox);
+
+export { Checkbox as CheckboxWithoutTheme };
