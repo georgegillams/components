@@ -79,7 +79,6 @@ const buttonColors = {
 };
 
 export const createStylesForButtonType = (buttonType, theme) => {
-  console.table({ buttonType });
   return css`
     background-color: ${(theme &&
       theme[`button${buttonType}BackgroundColor`]) ||

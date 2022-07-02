@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import SectionSkeleton from '../skeleton/section-skeleton';
-import CardSkeleton from '../skeleton/card-skeleton';
+import Skeleton, { SKELETON_STYLES } from '../skeleton';
 import Section from '../section';
 import { cssModules } from '../helpers/cssModules';
 
@@ -11,9 +10,10 @@ import LoadingCover from './index';
 
 const getClassName = cssModules(STYLES);
 
-const Skeleton = () => (
+const LoadingSkeleton = () => (
   <>
-    <SectionSkeleton /> <CardSkeleton />
+    <Skeleton skeletonStyle={SKELETON_STYLES.section} />
+    <Skeleton skeletonStyle={SKELETON_STYLES.card} />
   </>
 );
 
@@ -23,7 +23,11 @@ const StatefulLoadingCover = () => {
 
   return (
     <>
-      <LoadingCover loadingSkeleton={Skeleton} loading={loading} error={error}>
+      <LoadingCover
+        loadingSkeleton={LoadingSkeleton}
+        loading={loading}
+        error={error}
+      >
         <Section>This content is loading.</Section>
       </LoadingCover>
       <button

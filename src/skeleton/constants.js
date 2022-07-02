@@ -1,0 +1,17 @@
+export const SKELETON_STYLES = {
+  button: 'button',
+  buttonSmall: 'buttonSmall',
+  card: 'card',
+  cardCompact: 'cardCompact',
+  checkbox: 'checkbox',
+  formHint: 'formHint',
+  formLabel: 'formLabel',
+  infoCell: 'infoCell',
+  input: 'input',
+  notification: 'notification',
+  progress: 'progress',
+  progressSmall: 'progressSmall',
+  section: 'section',
+  subsection: 'subsection',
+  textLink: 'textLink',
+};

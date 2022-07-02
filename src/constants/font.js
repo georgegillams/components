@@ -5,6 +5,9 @@ export const fontSizeMd = '1.2rem';
 export const fontSizeSm = '1rem';
 export const fontSizeXs = '0.875rem';
 
+export const sectionFontSize = fontSizeXl;
+export const subsectionFontSize = fontSizeLg;
+
 export const pageTitleMarginTop = '2.3rem';
 export const sectionMarginTop = '3.34rem';
 export const subsectionMarginTop = '2.13rem';
