@@ -1,5 +1,11 @@
 # Changelog
 
+## 26.0.0
+
+### Breaking changes
+
+ - New skeleton API (#627)
+
 ## 25.0.0
 
 ### Breaking changes
