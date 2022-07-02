@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { cssModules } from '../helpers/cssModules';
 import Subsection from '../subsection';
-import Skeleton from '../skeleton/skeleton';
+import Skeleton from '../skeleton';
 
 import STYLES from './loading-cover.scss';
 

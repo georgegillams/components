@@ -1,51 +1,65 @@
 import React from 'react';
 
-import Skeleton from './skeleton';
+import Skeleton, { SKELETON_STYLES } from './index';
 
-import {
-  ButtonSkeleton,
-  CardSkeleton,
-  CheckboxSkeleton,
-  CompactCardSkeleton,
-  FormHintSkeleton,
-  FormLabelSkeleton,
-  InfoCellSkeleton,
-  InputSkeleton,
-  NotificationSkeleton,
-  ProgressSkeleton,
-  SectionSkeleton,
-  SmallButtonSkeleton,
-  SmallProgressSkeleton,
-  SubSectionSkeleton,
-  TextLinkSkeleton,
-  TicketStatusSkeleton,
-} from './index';
+export default { title: 'Styled/Molecules/Skeletons', component: Skeleton };
 
-export default { title: 'Sass/Molecules/Skeletons', component: Skeleton };
-
-export {
-  ButtonSkeleton,
-  FormHintSkeleton,
-  FormLabelSkeleton,
-  InfoCellSkeleton,
-  InputSkeleton,
-  NotificationSkeleton,
-  ProgressSkeleton,
-  SectionSkeleton,
-  SmallButtonSkeleton,
-  SmallProgressSkeleton,
-  SubSectionSkeleton,
-  TextLinkSkeleton,
-  TicketStatusSkeleton,
-};
+export const Button = () => <Skeleton skeletonStyle={SKELETON_STYLES.button} />;
+export const ButtonSmall = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.buttonSmall} />
+);
+export const Card = () => <Skeleton skeletonStyle={SKELETON_STYLES.card} />;
+export const CardCompact = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.cardCompact} />
+);
+export const Checkbox = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.checkbox} />
+);
+export const FormHint = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.formHint} />
+);
+export const FormLabel = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.formLabel} />
+);
+export const InfoCell = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.infoCell} />
+);
+export const Input = () => <Skeleton skeletonStyle={SKELETON_STYLES.input} />;
+export const Notification = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.notification} />
+);
+export const Progress = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.progress} />
+);
+export const ProgressSmall = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.progressSmall} />
+);
+export const Section = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.section} />
+);
+export const Subsection = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.subsection} />
+);
+export const TextLink = () => (
+  <Skeleton skeletonStyle={SKELETON_STYLES.textLink} />
+);
 
 export const Combination = () => (
   <div style={{ width: '100%', overflow: 'hidden' }}>
-    <ButtonSkeleton />
-    <CardSkeleton />
-    <CheckboxSkeleton />
-    <CompactCardSkeleton style={{ marginLeft: '15rem' }} />
-    <CompactCardSkeleton style={{ marginLeft: '30rem' }} />
-    <CompactCardSkeleton style={{ marginLeft: '45rem' }} />
+    <Skeleton skeletonStyle={SKELETON_STYLES.button} />
+    <Skeleton skeletonStyle={SKELETON_STYLES.card} />
+    <Skeleton skeletonStyle={SKELETON_STYLES.checkbox} />
+    <Skeleton
+      skeletonStyle={SKELETON_STYLES.cardCompact}
+      style={{ marginLeft: '15rem' }}
+    />
+    <Skeleton
+      skeletonStyle={SKELETON_STYLES.cardCompact}
+      style={{ marginLeft: '30rem' }}
+    />
+    <Skeleton
+      skeletonStyle={SKELETON_STYLES.cardCompact}
+      style={{ marginLeft: '45rem' }}
+    />
   </div>
 );

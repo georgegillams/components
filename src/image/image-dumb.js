@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { cssModules } from '../helpers/cssModules';
-import Skeleton from '../skeleton/skeleton';
+import Skeleton from '../skeleton';
 
 import STYLES from './image.scss';
 
