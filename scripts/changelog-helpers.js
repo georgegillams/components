@@ -100,7 +100,7 @@ const generateMarkdown = (versionRc, newVersion, changes) => {
     .forEach((changeType) => {
       result += `### ${titleForChangeType(versionRc, changeType)}\n\n`;
       changes[changeType].forEach((message) => {
-        result += ` - ${message}\n`;
+        result += `- ${message}\n`;
       });
       result += '\n';
     });
