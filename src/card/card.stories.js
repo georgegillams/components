@@ -7,7 +7,7 @@ import backgroundImage from './backgroundImage.png';
 
 import Card from './index';
 
-export default { title: 'Sass/Molecules/Card', component: Card };
+export default { title: 'Styled/Molecules/Card', component: Card };
 
 export const Default = () => (
   <Card onClick={action('Button clicked')}>
@@ -16,11 +16,6 @@ export const Default = () => (
 );
 export const Href = () => (
   <Card href="/test">
-    <Section padding={false} name="Test" />{' '}
-  </Card>
-);
-export const Highlighted = () => (
-  <Card highlighted href="/test">
     <Section padding={false} name="Test" />{' '}
   </Card>
 );

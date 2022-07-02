@@ -3,20 +3,21 @@
 exports[`Card should render correctly 1`] = `
 <button
   aria-disabled={null}
-  className="card card--atomic card--not-disabled"
+  className="sc-bczRLJ fxjpXu"
+  disabled={false}
   onClick={null}
   onKeyPress={[Function]}
   type="button"
 >
   <div
-    className="card__outer-container"
+    className="sc-dkzDqf eUJUoo"
+    disabled={false}
   >
     <div
-      className="card__background"
-      style={Object {}}
+      className="sc-hKMtZM kvlGVY"
     />
     <div
-      className="card__content-container card__content-container--padded"
+      className="sc-eCYdqJ heBWoi"
     >
       Some content
     </div>

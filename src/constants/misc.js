@@ -3,6 +3,7 @@ export const pageMaxWidth = '60rem';
 export const pageMaxWidthProse = '41.25rem';
 
 import { css } from 'styled-components';
+import { shadowColor, shadowColorDarkMode } from './colors';
 import { breakpointMd } from './layout';
 
 // // bpk-token values
@@ -69,13 +70,10 @@ import { breakpointMd } from './layout';
 // $not-black: #1e1e1e;
 // $not-black-invert: white;
 
-export const shadowColor = 'rgba(37, 32, 31, 0.3)';
-export const shadowColorInvert = 'transparent';
-
 export const shadowNormal = `0.2rem 0.2rem 0.5rem 0 ${shadowColor}`;
-export const shadowNormalInvert = `0.44rem 0.44rem 1rem 0 ${shadowColorInvert}}`;
+export const shadowNormalDarkMode = `0.44rem 0.44rem 1rem 0 ${shadowColorDarkMode}}`;
 export const shadowHover = `0.4rem 0.4rem 1rem 0 ${shadowColor}`;
-export const shadowHoverInvert = `0.2rem 0.2rem 0.5rem 0 ${shadowColorInvert}`;
+export const shadowHoverDarkMode = `0.2rem 0.2rem 0.5rem 0 ${shadowColorDarkMode}`;
 
 // $background-color: white;
 // $background-color-invert: black;
