@@ -33,14 +33,14 @@ export const notBlack = '#1e1e1e';
 export const notBlackDarkMode = 'white';
 
 export const shadowColor = 'rgba(37, 32, 31, 0.3)';
-export const shadowColorInvert = 'transparent';
+export const shadowColorDarkMode = 'transparent';
 
 export const backgroundColor = 'white';
 export const backgroundColorDarkMode = 'black';
 export const backgroundColorElevated = 'white';
-export const backgroundColorElevatedinvert = '#222324';
+export const backgroundColorElevatedDarkMode = '#222324';
 export const backgroundColorElevatedColored = 'white';
-export const backgroundColorElevatedColoredinvert = '#050d1b';
+export const backgroundColorElevatedColoredDarkMode = '#050d1b';
 
 export const alternatingBackgroundColor1 = '#fbfbfb';
 export const alternatingBackgroundColor1DarkMode = '#121313';

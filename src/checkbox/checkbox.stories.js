@@ -6,7 +6,6 @@ import { boolean, select, text } from '@storybook/addon-knobs';
 import Checkbox from './index';
 import { CheckboxWithoutTheme } from './checkbox';
 import { StyledThemeProvider } from '../styled-theming';
-console.log(`Checkbox`, Checkbox);
 
 const StatefulCheckbox = (props) => {
   const [checked, setChecked] = useState(props.checked);

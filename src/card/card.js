@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { cssModules } from '../helpers/cssModules';
-
-import STYLES from './card.scss';
-
-const getClassName = cssModules(STYLES);
+import {
+  ChildrenContainer,
+  ContentInnerWrapper,
+  ContentOuterWrapper,
+  OuterButton,
+  OuterLink,
+} from './card.styles';
 
 const Card = React.forwardRef((props, ref) => {
   const {
@@ -15,53 +16,18 @@ const Card = React.forwardRef((props, ref) => {
     fillImageSrc,
     light,
     ariaLabel,
-    className,
-    backgroundImageClassName,
+    backgroundImageStyle,
     children,
     disabled,
-    onHoverChanged,
-    highlighted,
     atomic,
     ...rest
   } = props;
 
-  const cardClassNames = [getClassName('card', className)];
-
-  const backgroundImageClassNames = [getClassName('card__background')];
-  if (highlighted) {
-    backgroundImageClassNames.push(
-      getClassName('card__background--highlighted'),
-    );
-  }
-  if (atomic) {
-    cardClassNames.push(getClassName('card--atomic'));
-  }
-  if (disabled) {
-    cardClassNames.push(getClassName('card--disabled'));
-    backgroundImageClassNames.push(getClassName('card__background--disabled'));
-  } else {
-    cardClassNames.push(getClassName('card--not-disabled'));
-  }
-  if (light) {
-    backgroundImageClassNames.push(getClassName('card__background--light'));
-  }
-  if (backgroundImageClassName) {
-    backgroundImageClassNames.push(backgroundImageClassName);
-  }
-  const outerClassNames = [getClassName('card__outer-container')];
-  const contentClassNames = [getClassName('card__content-container')];
-  if (padded) {
-    contentClassNames.push(getClassName('card__content-container--padded'));
-  }
-
   const cardContent = (
-    <div className={outerClassNames.join(' ')}>
-      <div
-        className={backgroundImageClassNames.join(' ')}
-        style={fillImageSrc ? { backgroundImage: `url(${fillImageSrc})` } : {}}
-      />
-      <div className={contentClassNames.join(' ')}>{children}</div>
-    </div>
+    <ContentOuterWrapper disabled={disabled}>
+      <ContentInnerWrapper fillImageSrc={fillImageSrc} />
+      <ChildrenContainer padded={padded}>{children}</ChildrenContainer>
+    </ContentOuterWrapper>
   );
 
   // If atomic, enable keyboard focus and don't mess with roles.
@@ -79,16 +45,16 @@ const Card = React.forwardRef((props, ref) => {
 
   if (href && !disabled) {
     return (
-      <a
+      <OuterLink
         href={href}
-        className={cardClassNames.join(' ')}
         onClick={onClick}
         ref={ref}
+        disabled={disabled}
         {...atomicProps}
         {...rest}
       >
         {cardContent}
-      </a>
+      </OuterLink>
     );
   }
 
@@ -99,50 +65,43 @@ const Card = React.forwardRef((props, ref) => {
   };
 
   return (
-    <button
-      type="button"
+    <OuterButton
       aria-disabled={disabled ? 'true' : null}
-      className={cardClassNames.join(' ')}
       onClick={disabled ? null : onClick}
       onKeyPress={disabled ? null : onPress}
       ref={ref}
+      disabled={disabled}
       {...atomicProps}
       {...rest}
     >
       {cardContent}
-    </button>
+    </OuterButton>
   );
 });
 
 Card.propTypes = {
   ariaLabel: PropTypes.string,
-  backgroundImageClassName: PropTypes.string,
+  backgroundImageStyle: PropTypes.object,
   children: PropTypes.node,
-  className: PropTypes.string,
   disabled: PropTypes.bool,
   fillImageSrc: PropTypes.node,
   href: PropTypes.string,
   light: PropTypes.bool,
   onClick: PropTypes.func,
-  onHoverChanged: PropTypes.func,
   padded: PropTypes.bool,
-  highlighted: PropTypes.bool,
   atomic: PropTypes.bool,
 };
 
 Card.defaultProps = {
   ariaLabel: null,
-  backgroundImageClassName: null,
+  backgroundImageStyle: null,
   children: null,
-  className: null,
   disabled: false,
   fillImageSrc: null,
   href: null,
   light: false,
   onClick: null,
-  onHoverChanged: null,
   padded: true,
-  highlighted: false,
   atomic: true,
 };
 
