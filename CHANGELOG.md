@@ -1,5 +1,11 @@
 # Changelog
 
+## 27.0.0
+
+### Breaking changes
+
+- Styled card (#628)
+
 ## 26.0.1
 
 ## 26.0.0
