@@ -1,12 +1,17 @@
 import React from 'react';
 
 import FeatureCard, { FEATURE_CARD_LAYOUTS } from './index';
+import Tag, { TAG_TYPES } from '../tag';
+import { FeatureCardWithoutTheme } from './feature-card';
 
 const image = 'https://via.placeholder.com/460x460/red/white?text=image';
 const backgroundImage =
   'https://via.placeholder.com/460x210/blue/black?text=image';
 
-export default { title: 'Sass/Organisms/Feature card', component: FeatureCard };
+export default {
+  title: 'Styled/Organisms/Feature card',
+  component: FeatureCardWithoutTheme,
+};
 
 export const Default = () => (
   <FeatureCard
@@ -17,10 +22,33 @@ export const Default = () => (
     imageSrc={image}
   />
 );
+export const Highlighted = () => (
+  <FeatureCard
+    annotations={['23', 'Jan']}
+    href="/test"
+    title="Title here"
+    imageBorder="orchid"
+    imageSrc={image}
+    highlighted
+  />
+);
+export const WithChildren = () => (
+  <FeatureCard
+    annotations={['23', 'Jan']}
+    href="/test"
+    title="Title here"
+    imageBorder="orchid"
+    imageSrc={image}
+  >
+    <Tag type={TAG_TYPES.security} />
+    <Tag type={TAG_TYPES.events} />
+    <Tag type={TAG_TYPES.photography} />
+  </FeatureCard>
+);
 export const WithCustomAriaLabel = () => (
   <FeatureCard
     ariaLabel="This is the aria label"
-    layout={FEATURE_CARD_LAYOUTS.narrow}
+    layout={FEATURE_CARD_LAYOUTS.auto}
     annotations={['23', 'Jan']}
     href="/test"
     title="Title here"
@@ -30,16 +58,6 @@ export const WithCustomAriaLabel = () => (
 );
 WithCustomAriaLabel.storyName = 'With custom ariaLabel';
 
-export const Narrow = () => (
-  <FeatureCard
-    layout={FEATURE_CARD_LAYOUTS.narrow}
-    annotations={['23', 'Jan']}
-    href="/test"
-    title="Title here"
-    imageBorder="orchid"
-    imageSrc={image}
-  />
-);
 export const NarrowCompact = () => (
   <FeatureCard
     layout={FEATURE_CARD_LAYOUTS.narrowCompact}
@@ -71,23 +89,12 @@ export const WithFillImage = () => (
     imageSrc={image}
   />
 );
-export const WithBannerColour = () => (
-  <FeatureCard
-    annotations={['23', 'Jan']}
-    href="/test"
-    title="Title here"
-    imageBorder="orchid"
-    imageSrc={image}
-    bannerColor="red"
-  />
-);
 export const WithoutImage = () => (
   <FeatureCard
     annotations={['23', 'Jan']}
     href="/test"
     title="Title here"
     imageBorder="orchid"
-    bannerColor="red"
   />
 );
 export const Light = () => (

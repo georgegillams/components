@@ -1,19 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { cssModules } from '../helpers/cssModules';
-import Section from '../section';
-import Subsection from '../subsection';
-import Card from '../card';
-import Image from '../image';
+import withStyledTheme from '../styled-theming';
 
-import STYLES from './feature-card.scss';
-
-const getClassName = cssModules(STYLES);
+import {
+  AnnotationMobile,
+  AnnotationsContainer,
+  AnnotationTablet,
+  CenterContainer,
+  ChildrenContainer,
+  ImageContainer,
+  OuterContainer,
+  StyledCard,
+  StyledImage,
+} from './feature-card.styles';
+import Text, { SIZES } from '../text';
 
 export const FEATURE_CARD_LAYOUTS = {
   auto: 'auto',
-  narrow: 'narrow',
   narrowCompact: 'narrowCompact',
 };
 
@@ -23,131 +27,50 @@ const FeatureCard = React.forwardRef((props, ref) => {
     ariaLabel,
     children,
     imageBorder,
-    imageClassName,
+    imageStyle,
     imageSrc,
     layout,
     title,
 
-    className,
     disabled,
-    backgroundImageClassName,
+    backgroundImageStyle,
 
     ...rest
   } = props;
 
-  const classNameFinal = [getClassName('feature-card')];
-  const centerClassNames = [getClassName('feature-card__center-container')];
-  const contentContainerClassNames = [
-    getClassName('feature-card__inner-container'),
-  ];
-  const dateContainerClassNames = [getClassName('feature-card__date')];
-
-  if (disabled) {
-    contentContainerClassNames.push(
-      getClassName('feature-card__inner-container--disabled'),
-    );
-  }
-
-  const outerBannerClassNames = [getClassName('feature-card__outer-container')];
-  if (layout === FEATURE_CARD_LAYOUTS.narrowCompact) {
-    classNameFinal.push(getClassName('feature-card--narrow-compact'));
-    outerBannerClassNames.push(
-      getClassName('feature-card__outer-container--narrow-compact'),
-    );
-    centerClassNames.push(
-      getClassName('feature-card__center-container--narrow-compact'),
-    );
-    dateContainerClassNames.push(
-      getClassName('feature-card__date--narrow-compact'),
-    );
-  } else if (layout === FEATURE_CARD_LAYOUTS.auto) {
-    outerBannerClassNames.push(
-      getClassName('feature-card__outer-container--auto'),
-    );
-  }
-  if (className) classNameFinal.push(className);
-
-  const imageContainerClassNames = [
-    getClassName('feature-card__image-container'),
-  ];
-
-  const imageClassNames = [getClassName('feature-card__image')];
-  if (disabled) {
-    imageClassNames.push(getClassName('feature-card__image--disabled'));
-  }
-  if (imageClassName) {
-    imageClassNames.push(imageClassName);
-  }
-
-  const backgroundImageClassNames = [getClassName('feature-card__background')];
-  if (backgroundImageClassName) {
-    backgroundImageClassNames.push(backgroundImageClassName);
-  }
-
   const cardContent = (
-    <div className={outerBannerClassNames.join(' ')} aria-hidden="true">
-      <div className={dateContainerClassNames.join(' ')}>
+    <OuterContainer aria-hidden="true">
+      <AnnotationsContainer layout={layout} className={'date container'}>
         {annotations && annotations.map && (
           <>
             {/* Note we're using an additional div here to apply the className
             due to an issue with className ordering in next.js */}
-            <div
-              className={getClassName(
-                'feature-card__annotation',
-                'feature-card__annotation--mobile',
-              )}
-            >
-              <Subsection
-                inheritColor
-                disabled={disabled}
-                anchor={false}
-                padding={false}
-                name={annotations.join(' ')}
-              />
-            </div>
+            <AnnotationMobile>
+              <Text size={SIZES.lg}>{annotations.join(' ')}</Text>
+            </AnnotationMobile>
             {annotations.map((annotation) => (
-              <div
-                className={getClassName(
-                  'feature-card__annotation',
-                  'feature-card__annotation--tablet',
-                )}
-              >
-                <Subsection
-                  inheritColor
-                  key={annotation}
-                  disabled={disabled}
-                  anchor={false}
-                  padding={false}
-                  name={annotation}
-                />
-              </div>
+              <AnnotationTablet>
+                <Text size={SIZES.lg} key={annotation}>
+                  {annotation}
+                </Text>
+              </AnnotationTablet>
             ))}
           </>
         )}
-      </div>
-      <div className={centerClassNames.join(' ')}>
-        <Section
-          inheritColor
-          padding={false}
-          disabled={disabled}
-          name={title}
-          className={getClassName('feature-card__title')}
-        />
-        {children && (
-          <div className={getClassName('feature-card__children')}>
-            {children}
-          </div>
-        )}
-      </div>
+      </AnnotationsContainer>
+      <CenterContainer>
+        <Text size={SIZES.xl} tagName="h2">
+          {title}
+        </Text>
+        {children && <ChildrenContainer>{children}</ChildrenContainer>}
+      </CenterContainer>
       {imageSrc && (
-        <div
-          className={imageContainerClassNames.join(' ')}
+        <ImageContainer
           style={{
             border: imageBorder ? `solid ${imageBorder} 0.1rem` : 'none',
           }}
         >
-          <Image
-            className={imageClassNames.join(' ')}
+          <StyledImage
             aspectX={1}
             aspectY={1}
             imgProps={{
@@ -155,38 +78,38 @@ const FeatureCard = React.forwardRef((props, ref) => {
             }}
             lightSrc={imageSrc}
             darkSrc={imageSrc}
+            style={imageStyle}
+            disabled={disabled}
           />
-        </div>
+        </ImageContainer>
       )}
-    </div>
+    </OuterContainer>
   );
 
   return (
-    <Card
+    <StyledCard
       aria-label={ariaLabel || title}
-      className={classNameFinal.join(' ')}
       disabled={disabled}
-      backgroundImageClassName={backgroundImageClassName}
+      backgroundImageStyle={backgroundImageStyle}
       ref={ref}
+      layout={layout}
       {...rest}
     >
       {cardContent}
-    </Card>
+    </StyledCard>
   );
 });
 
 FeatureCard.propTypes = {
   ariaLabel: PropTypes.string,
-  backgroundImageClassName: PropTypes.string,
-  bannerColor: PropTypes.string,
+  backgroundImageStyle: PropTypes.string,
   children: PropTypes.node,
-  className: PropTypes.string,
   annotations: PropTypes.arrayOf(PropTypes.string),
   disabled: PropTypes.bool,
   fillImageSrc: PropTypes.node,
   href: PropTypes.string,
   imageBorder: PropTypes.string,
-  imageClassName: PropTypes.string,
+  imageStyle: PropTypes.string,
   imageSrc: PropTypes.node,
   layout: PropTypes.string,
   onClick: PropTypes.func,
@@ -195,20 +118,20 @@ FeatureCard.propTypes = {
 
 FeatureCard.defaultProps = {
   ariaLabel: null,
-  backgroundImageClassName: null,
-  bannerColor: null,
+  backgroundImageStyle: null,
   children: null,
-  className: null,
   annotations: null,
   disabled: false,
   fillImageSrc: null,
   href: null,
   imageBorder: null,
-  imageClassName: null,
+  imageStyle: null,
   imageSrc: null,
   layout: FEATURE_CARD_LAYOUTS.auto,
   onClick: null,
   title: null,
 };
 
-export default FeatureCard;
+export default withStyledTheme(FeatureCard);
+
+export { FeatureCard as FeatureCardWithoutTheme };

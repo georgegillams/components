@@ -48,39 +48,44 @@ export const Flash = styled.path.attrs({
 `;
 
 export const TopTextGuidePath = styled.path.attrs({
-  d: 'M14.5 49.5C14.5 29.5 31.5945 14.5 50 14.5C68.4055 14.5 85.5 29.5 85.5 49.5',
+  d: 'M13.5 49.75C13.5 29.1786 31.0761 13.75 50 13.75C68.9239 13.75 86.5 29.1786 86.5 49.75',
 })`
   fill: none;
 `;
 
 export const TopText = styled.text.attrs({ width: 500 })`
-  font-size: 0.77rem;
+  font-size: 0.65rem;
   font-weight: light;
   fill: ${(props) => props.color};
-  letter-spacing: 0.16rem;
+  letter-spacing: 0.27rem;
 `;
 
 export const TopTextPath = styled.textPath.attrs({
-  startOffset: 1,
+  startOffset: 0.5,
   alignmentBaseline: 'center',
-})``;
+})`
+  text-shadow: 0px 0px 3px white;
+`;
 
 export const BottomTextGuidePath = styled.path.attrs({
-  d: 'M5.5 49.5C5.5 72 25.0614 93.8604 49.5 94C73.8017 94.1389 94 74.5 94 50.5',
+  d: 'M5.5 48.75C5.5 71.5024 24.9509 93.6081 49.2514 93.7493C73.4158 93.8897 93.5 74.0305 93.5 49.7612',
 })`
   fill: none;
 `;
 
 export const BottomText = styled.text.attrs({ width: 500 })`
-  font-size: 0.77rem;
+  font-size: 0.65rem;
   font-weight: light;
   fill: white;
+  letter-spacing: 0.1rem;
 `;
 
 export const BottomTextPath = styled.textPath.attrs({
-  startOffset: 26,
+  startOffset: 23,
   alignmentBaseline: 'center',
-})``;
+})`
+  text-shadow: 0px 0px 3px white;
+`;
 
 export const StyledSpartanLogo = styled(SpartanLogo).attrs({
   x: (100 - 44) / 2,

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { notBlack } from '../constants/colors';
 import SpartanLogo from '../spartan-logo';
 import TextLink from '../text-link';
 import { metalColor1, metalColor2 } from './constants';
@@ -61,7 +62,10 @@ export const RightTextPath = styled.textPath.attrs({
   startOffset: 15,
   alignmentBaseline: 'center',
   xlinkHref: '#textLine1',
-})``;
+})`
+  text-shadow: 0px 0px 3px white;
+`;
+
 export const LeftTextGuidePath = styled.path.attrs({
   id: 'textLine2',
   d: 'M37 66C21.8525 66 8.99999 52.6694 9 37.9597C9 22.7903 20.9344 9 37 9',
@@ -79,7 +83,9 @@ export const LeftTextPath = styled.textPath.attrs({
   startOffset: 16,
   alignmentBaseline: 'center',
   xlinkHref: '#textLine2',
-})``;
+})`
+  text-shadow: 1px 1px 2px ${notBlack};
+`;
 
 export const StyledSpartanLogo = styled(SpartanLogo).attrs({
   x: (75 - 44) / 2,

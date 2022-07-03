@@ -23,6 +23,10 @@ const themeProperties = [
   'buttonBouncyBackgroundColorDarkMode',
   'buttonBouncyForegroundColor',
   'buttonBouncyForegroundColorDarkMode',
+  'cardHighlightColor',
+  'cardHighlightColorDarkMode',
+  'cardHoverForegroundColor',
+  'cardHoverForegroundColorDarkMode',
 ];
 
 export const STYLED_THEMES = {

@@ -16,6 +16,7 @@ import {
   disabledBackgroundColorDarkMode,
   disabledColor,
   disabledColorDarkMode,
+  notBlack,
 } from '../constants/colors';
 import { BUTTON_TYPES } from './constants';
 
@@ -39,7 +40,7 @@ const buttonColors = {
       background: 'transparent',
       backgroundHover: ctaColorHover,
       backgroundActive: ctaColorActive,
-      foreground: 'white',
+      foreground: notBlack,
     },
     dm: {
       background: 'transparent',
