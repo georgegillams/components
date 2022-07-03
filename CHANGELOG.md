@@ -5,6 +5,7 @@
 ### Breaking changes
 
 - Styled card (#628)
+  - Removed `highlighted` option and `onHoverChanged` callback.
 
 ## 26.0.1
 
