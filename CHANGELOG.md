@@ -1,5 +1,11 @@
 # Changelog
 
+## 27.1.0
+
+### Features
+
+- Styled feature card (#629)
+
 ## 27.0.1
 
 ## 27.0.0
