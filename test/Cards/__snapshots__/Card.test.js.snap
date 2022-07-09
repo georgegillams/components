@@ -10,11 +10,12 @@ exports[`Card should render correctly 1`] = `
   type="button"
 >
   <div
-    className="sc-dkzDqf eUJUoo"
+    className="sc-dkzDqf hkFiab"
     disabled={false}
   >
     <div
       className="sc-hKMtZM kvlGVY"
+      style={null}
     />
     <div
       className="sc-eCYdqJ heBWoi"

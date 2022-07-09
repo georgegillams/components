@@ -6,8 +6,9 @@ import Section from '../section';
 import backgroundImage from './backgroundImage.png';
 
 import Card from './index';
+import { CardWithoutTheme } from './card';
 
-export default { title: 'Styled/Molecules/Card', component: Card };
+export default { title: 'Styled/Molecules/Card', component: CardWithoutTheme };
 
 export const Default = () => (
   <Card onClick={action('Button clicked')}>
@@ -36,6 +37,11 @@ export const Light = () => (
 );
 export const WithHref = () => (
   <Card href="/test">
+    <Section padding={false} name="Test" />{' '}
+  </Card>
+);
+export const Highlighted = () => (
+  <Card highlighted>
     <Section padding={false} name="Test" />{' '}
   </Card>
 );

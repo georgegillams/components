@@ -9,6 +9,9 @@ import {
   backgroundColorElevated,
   backgroundColorElevatedinvert,
   backgroundColorElevatedDarkMode,
+  primaryColor,
+  primaryColorDarkMode,
+  primaryColorDark,
 } from '../constants/colors';
 import { spacingLg } from '../constants/layout';
 import {
@@ -77,6 +80,17 @@ export const ContentOuterWrapper = styled.div`
   border-radius: 0.35rem;
   overflow: hidden;
 
+  ${({ highlighted, theme }) =>
+    highlighted &&
+    css`
+      background-color: ${theme?.cardHighlightColor || primaryColor};
+
+      @media (prefers-color-scheme: dark) {
+        background-color: ${theme?.cardHighlightColorDarkMode ||
+        primaryColorDark};
+      }
+    `}
+
   ${({ disabled }) =>
     disabled &&
     css`
@@ -90,7 +104,7 @@ export const ContentOuterWrapper = styled.div`
     `}
 `;
 
-export const ContentInnerWrapper = styled.div`
+export const BackgroundImageContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;

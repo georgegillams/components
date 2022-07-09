@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   ChildrenContainer,
-  ContentInnerWrapper,
+  BackgroundImageContainer,
   ContentOuterWrapper,
   OuterButton,
   OuterLink,
 } from './card.styles';
+import withStyledTheme from '../styled-theming';
 
 const Card = React.forwardRef((props, ref) => {
   const {
@@ -20,12 +21,21 @@ const Card = React.forwardRef((props, ref) => {
     children,
     disabled,
     atomic,
+    highlighted,
+    theme,
     ...rest
   } = props;
 
   const cardContent = (
-    <ContentOuterWrapper disabled={disabled}>
-      <ContentInnerWrapper fillImageSrc={fillImageSrc} />
+    <ContentOuterWrapper
+      highlighted={highlighted}
+      disabled={disabled}
+      theme={theme}
+    >
+      <BackgroundImageContainer
+        fillImageSrc={fillImageSrc}
+        style={backgroundImageStyle}
+      />
       <ChildrenContainer padded={padded}>{children}</ChildrenContainer>
     </ContentOuterWrapper>
   );
@@ -90,6 +100,8 @@ Card.propTypes = {
   onClick: PropTypes.func,
   padded: PropTypes.bool,
   atomic: PropTypes.bool,
+  highlighted: PropTypes.bool,
+  theme: PropTypes.object.isRequired,
 };
 
 Card.defaultProps = {
@@ -103,6 +115,9 @@ Card.defaultProps = {
   onClick: null,
   padded: true,
   atomic: true,
+  highlighted: false,
 };
 
-export default Card;
+export default withStyledTheme(Card);
+
+export { Card as CardWithoutTheme };
