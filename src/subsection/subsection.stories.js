@@ -1,17 +1,11 @@
 import React from 'react';
 
-import { cssModules } from '../helpers/cssModules';
-
-import STYLES from './stories.scss';
-
 import Subsection from './index';
 
 const LONG_TEXT =
   'LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA.';
 
-const getClassName = cssModules(STYLES);
-
-export default { title: 'Sass/Molecules/Subsection', component: Subsection };
+export default { title: 'Styled/Molecules/Subsection', component: Subsection };
 
 export const Default = () => <Subsection name="Test" />;
 export const Long = () => <Subsection name={LONG_TEXT} />;
@@ -29,16 +23,6 @@ export const WithContent = () => (
     Some content
   </Subsection>
 );
-export const Disabled = () => <Subsection disabled highlight name="Test" />;
-export const WithCssVariables = () => (
-  <div className={getClassName('stories__themed')}>
-    <Subsection anchor highlight name="Test" />
-  </div>
-);
-export const Hover = () => <Subsection anchor hover name="Test" />;
 export const NoPaddingNoAnchor = () => (
   <Subsection anchor={false} padding={false} name="Test" />
-);
-export const Link = () => (
-  <Subsection anchor={false} padding={false} name="Test" link />
 );
