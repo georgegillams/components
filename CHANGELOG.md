@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.0.0
+
+### Breaking changes
+
+- Styled page title (#631)
+
 ## 27.2.0
 
 ### Features
