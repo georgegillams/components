@@ -1,5 +1,11 @@
 # Changelog
 
+## 27.2.0
+
+### Features
+
+- Styled sections (#630)
+
 ## 27.1.0
 
 ### Features
