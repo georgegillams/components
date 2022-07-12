@@ -1,67 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { cssModules } from '../helpers/cssModules';
 import TextLink from '../text-link';
-
-import STYLES from './page-title.scss';
-
-const getClassName = cssModules(STYLES);
+import { Heading, LinkContainer } from './page-title.styles';
 
 const PageTitle = (props) => {
   const {
     padding,
     link,
-    renderLink,
+    linkProvider: LinkProvider,
     name,
     linkProps,
     children,
-    className,
     ...rest
   } = props;
 
-  const sectionClassNames = [getClassName('page-title__heading')];
-  const linkClassNames = [getClassName('page-title__link')];
-
-  if (link) {
-    sectionClassNames.push(getClassName('page-title__heading--with-link'));
-  }
-
-  if (!padding) {
-    sectionClassNames.push(getClassName('page-title__heading--no-padding'));
-    linkClassNames.push(getClassName('page-title__link--no-padding'));
-  }
-  if (className) {
-    sectionClassNames.push(className);
-  }
-
-  let linkElement = null;
-  if (link) {
-    const linkHref = link.to;
-    const linkText = `⇠ ${link.text}`;
-
-    if (renderLink) {
-      linkElement = renderLink(linkHref, linkText, linkClassNames.join(' '));
-    } else {
-      linkElement = (
-        <TextLink
-          className={linkClassNames.join(' ')}
-          href={linkHref}
-          {...linkProps}
-        >
-          {linkText}
-        </TextLink>
-      );
-    }
+  let linkHref = null;
+  let linkText = null;
+  let hasLink = false;
+  if (link && link.to && link.text) {
+    linkHref = link.to;
+    linkText = `⇠ ${link.text}`;
+    hasLink = true;
   }
 
   return (
     <>
-      {linkElement && linkElement}
+      {hasLink && (
+        <LinkContainer padding={padding}>
+          <LinkProvider href={linkHref} {...linkProps}>
+            {linkText}
+          </LinkProvider>
+        </LinkContainer>
+      )}
       {name && (
-        <h1 className={sectionClassNames.join(' ')} {...rest}>
+        <Heading padding={padding} hasLink={hasLink} {...rest}>
           {name}
-        </h1>
+        </Heading>
       )}
       {children}
     </>
@@ -75,12 +50,9 @@ PageTitle.propTypes = {
     to: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
   }),
-  // eslint-disable-next-line react/forbid-prop-types
   linkProps: PropTypes.object,
-  renderLink: PropTypes.func,
-  // eslint-disable-next-line react/forbid-prop-types
   children: PropTypes.node,
-  className: PropTypes.string,
+  linkProvider: PropTypes.func,
 };
 
 PageTitle.defaultProps = {
@@ -88,9 +60,8 @@ PageTitle.defaultProps = {
   name: null,
   link: null,
   linkProps: null,
-  renderLink: null,
   children: null,
-  className: null,
+  linkProvider: (props) => <TextLink {...props} />,
 };
 
 export default PageTitle;

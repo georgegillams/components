@@ -2,16 +2,16 @@ import React from 'react';
 
 import PageTitle from './index';
 
-export default { title: 'Sass/Organisms/Page title', component: PageTitle };
+export default { title: 'Styled/Organisms/Page title', component: PageTitle };
 
 export const Title = () => (
   <PageTitle name="Test">
-    <div style={{ width: '45rem', height: '15rem', backgroundColor: 'red' }} />
+    <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
   </PageTitle>
 );
 export const WithLink = () => (
   <PageTitle link={{ to: '/test', text: 'Back' }} name="Test">
-    <div style={{ width: '45rem', height: '15rem', backgroundColor: 'red' }} />
+    <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
   </PageTitle>
 );
 export const Centered = () => (
@@ -20,33 +20,30 @@ export const Centered = () => (
     name="Test"
     style={{ textAlign: 'center' }}
   >
-    <div style={{ width: '45rem', height: '15rem', backgroundColor: 'red' }} />
+    <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
   </PageTitle>
 );
 export const NoPadding = () => (
   <PageTitle link={{ to: '/test', text: 'Back' }} name="Test" padding={false}>
-    <div style={{ width: '45rem', height: '15rem', backgroundColor: 'red' }} />
+    <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
   </PageTitle>
 );
 export const WithCustomLinkComponent = () => (
   <PageTitle
-    renderLink={(href, name, className) => (
-      <div
-        style={{ padding: '1rem 0', background: 'lightgreen' }}
-        className={className}
-      >
-        <a href={href}>{name}</a>
+    linkProvider={(props) => (
+      <div style={{ padding: '1rem 0', background: 'lightgreen' }}>
+        <a {...props} />
       </div>
     )}
     link={{ to: '/test', text: 'Back' }}
     name="Test"
   >
-    <div style={{ width: '45rem', height: '15rem', backgroundColor: 'red' }} />
+    <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
   </PageTitle>
 );
 export const TitleWithCustomProps = () => (
   <PageTitle name="Test" id="test-this">
-    <div style={{ width: '45rem', height: '15rem', backgroundColor: 'red' }} />
+    <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
   </PageTitle>
 );
 export const WithLinkAndCustomLinkProps = () => (
@@ -55,6 +52,6 @@ export const WithLinkAndCustomLinkProps = () => (
     link={{ to: '/test', text: 'Back' }}
     name="Test"
   >
-    <div style={{ width: '45rem', height: '15rem', backgroundColor: 'red' }} />
+    <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
   </PageTitle>
 );
