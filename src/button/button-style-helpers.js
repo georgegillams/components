@@ -27,12 +27,14 @@ const buttonColors = {
       backgroundHover: ctaColorHover,
       backgroundActive: ctaColorActive,
       foreground: 'white',
+      foregroundHover: 'white',
     },
     dm: {
       background: ctaColorDarkMode,
       backgroundHover: ctaColorHoverDarkMode,
       backgroundActive: ctaColorActiveDarkMode,
       foreground: 'white',
+      foregroundHover: 'white',
     },
   },
   [BUTTON_TYPES.bouncy]: {
@@ -41,12 +43,14 @@ const buttonColors = {
       backgroundHover: ctaColorHover,
       backgroundActive: ctaColorActive,
       foreground: notBlack,
+      foregroundHover: 'white',
     },
     dm: {
       background: 'transparent',
       backgroundHover: ctaColorHoverDarkMode,
       backgroundActive: ctaColorActiveDarkMode,
       foreground: 'white',
+      foregroundHover: 'white',
     },
   },
   [BUTTON_TYPES.destructive]: {
@@ -55,12 +59,14 @@ const buttonColors = {
       backgroundHover: destructiveColorHover,
       backgroundActive: destructiveColorActive,
       foreground: 'white',
+      foregroundHover: 'white',
     },
     dm: {
       background: destructiveColorDarkMode,
       backgroundHover: destructiveColorHoverDarkMode,
       backgroundActive: destructiveColorActiveDarkMode,
       foreground: 'white',
+      foregroundHover: 'white',
     },
   },
   ['disabled']: {
@@ -69,12 +75,14 @@ const buttonColors = {
       backgroundHover: destructiveColorHover,
       backgroundActive: destructiveColorActive,
       foreground: 'white',
+      foregroundHover: 'white',
     },
     dm: {
       background: destructiveColorDarkMode,
       backgroundHover: destructiveColorHoverDarkMode,
       backgroundActive: destructiveColorActiveDarkMode,
       foreground: 'white',
+      foregroundHover: 'white',
     },
   },
 };
