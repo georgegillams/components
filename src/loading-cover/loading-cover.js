@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { cssModules } from '../helpers/cssModules';
 import Subsection from '../subsection';
 import Skeleton from '../skeleton';
-
-import STYLES from './loading-cover.scss';
-
-const getClassName = cssModules(STYLES);
 
 const LoadingCover = (props) => {
   const {
@@ -32,7 +27,6 @@ const LoadingCover = (props) => {
           name="This is taking a while. Maybe something isn't quite right..."
           padding={false}
           anchor={false}
-          className={getClassName('loading-cover__overlay--content')}
         />
       )}
     </>
