@@ -1,18 +1,19 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../button';
-import Input from '../input';
-import TextArea from '../text-area';
-import Select from '../select';
-import Checkbox from '../checkbox';
-import { cssModules } from '../helpers/cssModules';
 import { formValueChanged } from '../helpers/objects';
 import HelperFunctions from '../helpers/helper-functions';
-
-import STYLES from './forms.scss';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import {
+  PreSubmitText,
+  StyledButton,
+  StyledCheckbox,
+  StyledHint,
+  StyledInput,
+  StyledLabel,
+  StyledSelect,
+  StyledTextArea,
+  Wrapper,
+} from './form-builder.styles';
 
 const FormBuilder = (props) => {
   const [formId] = props.test
@@ -20,7 +21,6 @@ const FormBuilder = (props) => {
     : useState(Math.random().toString(36).substring(7));
 
   const {
-    className,
     centered,
     disabled: disabledProp,
     loading,
@@ -36,9 +36,6 @@ const FormBuilder = (props) => {
   } = props;
 
   const disabled = disabledProp || loading;
-
-  const classNameFinal = [];
-  if (className) classNameFinal.push(className);
 
   const validity = [];
   for (let i = 0; i < formFields.length; i += 1) {
@@ -56,38 +53,25 @@ const FormBuilder = (props) => {
   );
 
   return (
-    <div className={classNameFinal.join(' ')} {...rest}>
+    <Wrapper {...rest}>
       {filteredFormFields.map((formField, index) => {
         const label = (
-          <label
-            htmlFor={`${formField.id}_${formId}`}
-            className={getClassName(
-              'forms__component',
-              'forms__component__label',
-            )}
-          >
+          <StyledLabel htmlFor={`${formField.id}_${formId}`}>
             {formField.name}
-          </label>
+          </StyledLabel>
         );
         const hint = formField.hint ? (
-          <p
-            id={`hint_${formField.id}_${formId}`}
-            className={getClassName(
-              'forms__component',
-              'forms__component__hint',
-            )}
-          >
+          <StyledHint id={`hint_${formField.id}_${formId}`}>
             {formField.hint}
-          </p>
+          </StyledHint>
         ) : null;
 
         return (
           <Fragment key={`${formField.id}_${formId}`}>
             {formField.type === 'CHECKBOX' && (
               <>
-                <Checkbox
+                <StyledCheckbox
                   id={`${formField.id}_${formId}`}
-                  className={getClassName('forms__component')}
                   name={formField.name}
                   label={formField.name}
                   checked={entity[formField.id]}
@@ -110,15 +94,11 @@ const FormBuilder = (props) => {
                 <>
                   {label}
                   {hint && hint}
-                  <Input
+                  <StyledInput
                     id={`${formField.id}_${formId}`}
                     aria-describedby={
                       hint ? `hint_${formField.id}_${formId}` : null
                     }
-                    className={getClassName(
-                      'forms__component',
-                      'forms__component__text-box',
-                    )}
                     name={formField.name}
                     value={entity[formField.id]}
                     valid={validity[index]}
@@ -144,15 +124,11 @@ const FormBuilder = (props) => {
                 <>
                   {label}
                   {hint && hint}
-                  <TextArea
+                  <StyledTextArea
                     id={`${formField.id}_${formId}`}
                     aria-describedby={
                       hint ? `hint_${formField.id}_${formId}` : null
                     }
-                    className={getClassName(
-                      'forms__component',
-                      'forms__component__text-box',
-                    )}
                     name={formField.name}
                     value={entity[formField.id]}
                     valid={validity[index]}
@@ -175,15 +151,11 @@ const FormBuilder = (props) => {
               <>
                 {label}
                 {hint && hint}
-                <Select
+                <StyledSelect
                   id={`${formField.id}_${formId}`}
                   aria-describedby={
                     hint ? `hint_${formField.id}_${formId}` : null
                   }
-                  className={getClassName(
-                    'forms__component',
-                    'forms__component__text-box',
-                  )}
                   name={formField.name}
                   value={entity[formField.id]}
                   valid={validity[index]}
@@ -207,25 +179,19 @@ const FormBuilder = (props) => {
       })}
       {preSubmitText && (
         <>
-          <div className={getClassName('forms__component')}>
-            {preSubmitText}
-          </div>
+          <PreSubmitText>{preSubmitText}</PreSubmitText>
         </>
       )}
       {!submitOnChange && (
-        <Button
-          className={getClassName(
-            'forms__component',
-            'forms__component__button',
-          )}
+        <StyledButton
           onClick={onSubmit}
           disabled={disabled || !validity.every((v) => v)}
           loading={loading}
         >
           {submitLabel}
-        </Button>
+        </StyledButton>
       )}
-    </div>
+    </Wrapper>
   );
 };
 
@@ -242,11 +208,9 @@ FormBuilder.propTypes = {
   loading: PropTypes.bool,
   centered: PropTypes.bool,
   test: PropTypes.bool,
-  className: PropTypes.string,
 };
 
 FormBuilder.defaultProps = {
-  className: null,
   onSubmit: null,
   onDataChanged: null,
   submitOnChange: false,
