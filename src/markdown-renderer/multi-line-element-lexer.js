@@ -229,7 +229,7 @@ const parseLinesForQuoteBlock = (list) => {
 // Run list through parseLinesForCommentBlock (if that feature is supported)
 // For each element, if it has children, call self!
 const parseMultiLineElements = (list, supportedFeatures) => {
-  let result = list;
+  let result = list && list.forEach ? list : [];
 
   if (supportedFeatures.includes('table')) {
     result = parseLinesForTable(result);

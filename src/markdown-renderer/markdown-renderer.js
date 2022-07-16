@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import YoutubeEmbedVideo from 'youtube-embed-video';
 
 import { Table, Head, Body, Row, Cell } from '../table';
-import { cssModules } from '../helpers/cssModules';
 import { withTheme } from '../Theming';
 import HelperFunctions from '../helpers/helper-functions';
 import Image from '../image';
@@ -17,21 +15,19 @@ import { Citation, Reference } from '../references';
 
 import { markdownLexer } from './markdown-lexer';
 import { DEFAULT_SUPPORTED_FEATURES } from './constants';
-import STYLES from './markdown-renderer.scss';
+import {
+  Outer,
+  StyledParagraph,
+  SubsectionTitle,
+} from './markdown-renderer.styles';
 
-const getClassName = cssModules(STYLES);
+const getClassName = (c) => (typeof c === 'string' ? c : c.join(' '));
 
 const ThemedTextLink = withTheme(TextLink);
 
 const MarkdownRenderer = (props) => {
-  const {
-    content,
-    supportedFeatures,
-    light,
-    className,
-    elementClassName,
-    padding,
-  } = props;
+  const { content, supportedFeatures, light, elementClassName, padding } =
+    props;
 
   const [lexedContent, setLexedContent] = useState(
     markdownLexer(content, supportedFeatures),
@@ -46,20 +42,14 @@ const MarkdownRenderer = (props) => {
     return null;
   }
 
-  const classNames = [getClassName(`markdown-renderer__outer`)];
-  if (className) {
-    classNames.push(className);
-  }
-
-  const elementClassNames = [getClassName(`markdown-renderer__element`)];
+  const elementClassNames = [`markdown-renderer__element`];
   if (elementClassName) {
-    classNames.push(elementClassName);
     elementClassNames.push(elementClassName);
   }
 
   /* eslint-disable no-use-before-define */
   return (
-    <div className={classNames.join(' ')}>
+    <Outer>
       {elementForContent(
         lexedContent,
         0,
@@ -67,7 +57,7 @@ const MarkdownRenderer = (props) => {
         elementClassNames.join(' '),
         padding,
       )}
-    </div>
+    </Outer>
   );
   /* eslint-enable */
 };
@@ -106,16 +96,10 @@ const elementForContent = (
 
   if (content.type === 'paragraph') {
     return (
-      <Paragraph
-        padding={padding}
-        className={[
-          elementClassName,
-          getClassName('markdown-renderer__paragraph'),
-        ].join(' ')}
-      >
+      <StyledParagraph padding={padding} className={elementClassName}>
         {childElement}
         <br />
-      </Paragraph>
+      </StyledParagraph>
     );
   }
 
@@ -239,8 +223,7 @@ const elementForContent = (
 
   if (content.type === 'youtube') {
     return (
-      <YoutubeEmbedVideo
-        className={getClassName('markdown-renderer__youtube')}
+      <StyledYoutubeEmbedVideo
         showSuggestions={content.showSuggestions}
         videoId={content.videoID}
       />
@@ -265,14 +248,9 @@ const elementForContent = (
 
   if (content.type === 'subsubsection') {
     return [
-      <span
-        className={getClassName(
-          'markdown-renderer__subsubsection-title',
-          elementClassName,
-        )}
-      >
+      <SubsectionTitle className={elementClassName}>
         {content.name}
-      </span>,
+      </SubsectionTitle>,
       childElement,
       <br />,
     ];
@@ -340,7 +318,6 @@ const elementForContent = (
 
 MarkdownRenderer.propTypes = {
   content: PropTypes.string.isRequired,
-  className: PropTypes.string,
   elementClassName: PropTypes.string,
   padding: PropTypes.bool,
   light: PropTypes.bool,
@@ -349,7 +326,6 @@ MarkdownRenderer.propTypes = {
 
 MarkdownRenderer.defaultProps = {
   padding: true,
-  className: null,
   elementClassName: null,
   light: false,
   supportedFeatures: DEFAULT_SUPPORTED_FEATURES,
