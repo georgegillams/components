@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.0.1
+
+### Bug Fixes
+
+- Styled form-builder (#632)
+
 ## 28.0.0
 
 ### Breaking changes
