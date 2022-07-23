@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.0.2
+
+### Bug Fixes
+
+- Styled markdown renderer (#633)
+
 ## 28.0.1
 
 ### Bug Fixes
