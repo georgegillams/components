@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.0.3
+
+### Bug Fixes
+
+- Styled image (#635)
+
 ## 28.0.2
 
 ### Bug Fixes
