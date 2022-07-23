@@ -2,23 +2,17 @@ import React from 'react';
 
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 
-import STYLES from './global-styles.scss';
-import { cssModules } from '../src/helpers/cssModules';
 import { StyledThemeProvider, STYLED_THEMES } from '../src/styled-theming';
 import { object } from '@storybook/addon-knobs';
 import GlobalCSS, { GlobalWrapper } from './global.styles';
-
-const getClassName = cssModules(STYLES);
 
 export const decorators = [
   (Story) => (
     <GlobalWrapper>
       <GlobalCSS />
-      <div className={getClassName('global-wrapper')}>
-        <StyledThemeProvider theme={object('Theme', STYLED_THEMES.default)}>
-          <Story />
-        </StyledThemeProvider>
-      </div>
+      <StyledThemeProvider theme={object('Theme', STYLED_THEMES.default)}>
+        <Story />
+      </StyledThemeProvider>
     </GlobalWrapper>
   ),
 ];

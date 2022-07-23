@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { boolean } from '@storybook/addon-knobs';
 
 import Skeleton, { SKELETON_STYLES } from '../skeleton';
