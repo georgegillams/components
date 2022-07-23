@@ -21,8 +21,6 @@ import {
   SubsectionTitle,
 } from './markdown-renderer.styles';
 
-const getClassName = (c) => (typeof c === 'string' ? c : c.join(' '));
-
 const ThemedTextLink = withTheme(TextLink);
 
 const MarkdownRenderer = (props) => {

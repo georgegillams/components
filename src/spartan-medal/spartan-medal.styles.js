@@ -4,7 +4,10 @@ import SpartanLogo from '../spartan-logo';
 import TextLink from '../text-link';
 import { metalColor1, metalColor2 } from './constants';
 
+const LOGO_DESIGN_WIDTH = 44;
+
 // Wedges are 7.5cm in real life. 7.5 *1.8666666667 = 14
+// Medal logos are 4cm in real life. 4 *1.8666666667 = 7.5
 const displayWidth = `14rem`;
 
 export const Wrapper = styled.div`
@@ -87,9 +90,12 @@ export const LeftTextPath = styled.textPath.attrs({
   text-shadow: 1px 1px 2px ${notBlack};
 `;
 
+// As we are nesting an SVG inside another SVG, width and height styles will be ignored.
 export const StyledSpartanLogo = styled(SpartanLogo).attrs({
-  x: (75 - 44) / 2,
-  y: (75 - 44) / 2,
+  x: (75 - LOGO_DESIGN_WIDTH) / 2,
+  y: (75 - LOGO_DESIGN_WIDTH) / 2,
+  height: LOGO_DESIGN_WIDTH,
+  width: LOGO_DESIGN_WIDTH,
 })``;
 
 export const LinkContainer = styled.div`

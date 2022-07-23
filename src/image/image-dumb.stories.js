@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { JS_CLASSNAME, NO_JS_CLASSNAME } from '../js-feature-detector';
 
 import ImageDumb from './image-dumb';
 
@@ -25,110 +26,125 @@ const StatefulImageDumb = (props) => {
   );
 };
 
-export default { title: 'Sass/Molecules/Image dumb', component: ImageDumb };
+export default { title: 'Styled/Molecules/Image dumb', component: ImageDumb };
 
 export const Default = () => (
-  <ImageDumb
-    loaded
-    aspectX={460}
-    aspectY={210}
-    lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
-    darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
-    imgProps={{
-      alt: 'Some description',
-    }}
-  />
-);
-export const WithImgClassname = () => (
-  <ImageDumb
-    loaded
-    aspectX={460}
-    aspectY={210}
-    lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
-    darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
-    imgProps={{
-      alt: 'Some description',
-      className: 'test',
-    }}
-  />
+  <div className={JS_CLASSNAME}>
+    <ImageDumb
+      loaded
+      aspectX={460}
+      aspectY={210}
+      lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
+      darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
+      imgProps={{
+        alt: 'Some description',
+      }}
+    />
+  </div>
 );
 export const WidthPercent = () => (
-  <ImageDumb
-    loaded
-    aspectX={460}
-    aspectY={210}
-    lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
-    darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
-    imgProps={{
-      alt: 'Some description',
-    }}
-    style={{ width: '70%' }}
-  />
+  <div className={JS_CLASSNAME}>
+    <ImageDumb
+      loaded
+      aspectX={460}
+      aspectY={210}
+      lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
+      darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
+      imgProps={{
+        alt: 'Some description',
+      }}
+      style={{ width: '70%' }}
+    />
+  </div>
 );
 export const WidthAbsolute = () => (
-  <ImageDumb
-    loaded
-    aspectX={460}
-    aspectY={210}
-    lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
-    darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
-    imgProps={{
-      alt: 'Some description',
-    }}
-    style={{ width: '35rem' }}
-  />
+  <div className={JS_CLASSNAME}>
+    <ImageDumb
+      loaded
+      aspectX={460}
+      aspectY={210}
+      lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
+      darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
+      imgProps={{
+        alt: 'Some description',
+      }}
+      style={{ width: '35rem' }}
+    />
+  </div>
 );
 export const Stateful = () => (
-  <StatefulImageDumb
-    aspectX={460}
-    aspectY={210}
-    lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
-    darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
-    imgProps={{
-      alt: 'Some description',
-    }}
-  />
+  <div className={JS_CLASSNAME}>
+    <StatefulImageDumb
+      aspectX={460}
+      aspectY={210}
+      lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
+      darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
+      imgProps={{
+        alt: 'Some description',
+      }}
+    />
+  </div>
 );
 export const NotLoaded = () => (
-  <ImageDumb
-    loaded={false}
-    aspectX={460}
-    aspectY={210}
-    lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
-    darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
-    imgProps={{
-      alt: 'Some description',
-    }}
-  />
+  <div className={JS_CLASSNAME}>
+    <ImageDumb
+      loaded={false}
+      aspectX={460}
+      aspectY={210}
+      lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
+      darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
+      imgProps={{
+        alt: 'Some description',
+      }}
+    />
+  </div>
+);
+export const NotLoadedNoJs = () => (
+  <div className={NO_JS_CLASSNAME}>
+    <ImageDumb
+      loaded={false}
+      aspectX={460}
+      aspectY={210}
+      lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
+      darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
+      imgProps={{
+        alt: 'Some description',
+      }}
+    />
+  </div>
 );
 export const NotLoadedWidthPercent = () => (
-  <ImageDumb
-    loaded={false}
-    aspectX={460}
-    aspectY={210}
-    lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
-    darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
-    imgProps={{
-      alt: 'Some description',
-    }}
-    style={{ width: '70%' }}
-  />
+  <div className={JS_CLASSNAME}>
+    <ImageDumb
+      loaded={false}
+      aspectX={460}
+      aspectY={210}
+      lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
+      darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
+      imgProps={{
+        alt: 'Some description',
+      }}
+      style={{ width: '70%' }}
+    />
+  </div>
 );
 export const NotLoadedWidthAbsolute = () => (
-  <ImageDumb
-    loaded={false}
-    aspectX={460}
-    aspectY={210}
-    lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
-    darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
-    imgProps={{
-      alt: 'Some description',
-    }}
-    style={{ width: '35rem' }}
-  />
+  <div className={JS_CLASSNAME}>
+    <ImageDumb
+      loaded={false}
+      aspectX={460}
+      aspectY={210}
+      lightSrc="https://via.placeholder.com/460x210/red/white?text=image"
+      darkSrc="https://via.placeholder.com/460x210/blue/black?text=image"
+      imgProps={{
+        alt: 'Some description',
+      }}
+      style={{ width: '35rem' }}
+    />
+  </div>
 );
 export const DownThePage = () => (
-  <>
+  <div className={JS_CLASSNAME}>
     <div style={{ height: '50rem', width: '100%', background: 'red' }} />
     <ImageDumb
       loaded
@@ -140,5 +156,5 @@ export const DownThePage = () => (
         alt: 'Some description',
       }}
     />
-  </>
+  </div>
 );

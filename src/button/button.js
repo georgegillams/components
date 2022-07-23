@@ -12,8 +12,6 @@ import {
 } from './button.styles';
 import withStyledTheme from '../styled-theming';
 
-const getClassName = (c) => c;
-
 const Button = React.forwardRef((props, ref) => {
   const [showDestructiveConfirmation, setShowDestructiveConfirmation] =
     useState(false);
@@ -45,7 +43,6 @@ const Button = React.forwardRef((props, ref) => {
         href={href}
         onClick={onClick}
         ref={ref}
-        className={getClassName('button__a', 'outerClassName')}
         buttonType={buttonType}
         disabled={disabled}
         {...targettingProps}
@@ -92,10 +89,7 @@ const Button = React.forwardRef((props, ref) => {
         {children}
       </ChildContainer>
       {loading && (
-        <LoadingSpinner
-          aria-hidden
-          className={getClassName('button__loading-spinner')}
-        >
+        <LoadingSpinner aria-hidden>
           <Spinner />
         </LoadingSpinner>
       )}

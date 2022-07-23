@@ -3,7 +3,10 @@ import { notBlack } from '../constants/colors';
 import SpartanLogo from '../spartan-logo/spartan-logo';
 import { metalColor1, metalColor2 } from '../spartan-medal/constants';
 
+const LOGO_DESIGN_WIDTH = 55;
+
 // Wedges are 10cm in real life. 10 *1.8666666667 = 18.6
+// Wedge logos are 5cm in real life. 5 *1.8666666667 = 9.33
 const displayWidth = '18.6rem';
 
 export const Wrapper = styled.svg.attrs({
@@ -87,7 +90,10 @@ export const BottomTextPath = styled.textPath.attrs({
   text-shadow: 0px 0px 3px white;
 `;
 
+// As we are nesting an SVG inside another SVG, width and height styles will be ignored.
 export const StyledSpartanLogo = styled(SpartanLogo).attrs({
-  x: (100 - 44) / 2,
-  y: (100 - 44) / 2,
+  x: (100 - LOGO_DESIGN_WIDTH) / 2,
+  y: (100 - LOGO_DESIGN_WIDTH) / 2,
+  height: LOGO_DESIGN_WIDTH,
+  width: LOGO_DESIGN_WIDTH,
 })``;
