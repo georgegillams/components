@@ -44,7 +44,7 @@ const SpartanLogo = (props) => {
     </>
   );
 
-  return <Wrapper {...props}>{logo}</Wrapper>;
+  return <Wrapper {...rest}>{logo}</Wrapper>;
 };
 
 export default SpartanLogo;

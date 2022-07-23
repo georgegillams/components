@@ -2,12 +2,17 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { cssModules } from '../helpers/cssModules';
-import Skeleton from '../skeleton';
+import {
+  ImagePlaceholder,
+  OuterWrapper,
+  SkeletonContainer,
+  StyledSkeleton,
+  DarkImage,
+  LightImage,
+} from './image.styles';
+import { JS_CLASSNAME } from '../js-feature-detector';
 
-import STYLES from './image.scss';
-
-const getClassName = cssModules(STYLES);
+const CLASS_HIDE_JS = 'gg-image__img--hide';
 
 const ImageDumb = (props) => {
   const {
@@ -76,56 +81,33 @@ const ImageDumb = (props) => {
     setDarkImageLoaded(true);
   };
 
-  const imgClassNames = [getClassName('image__img')];
-  const skeletonClassNames = [getClassName('image__skeleton')];
-
-  imgClassNames.push(getClassName('image__img--animated'));
-  skeletonClassNames.push(getClassName('image__skeleton--animated'));
-  if (!showImage) {
-    imgClassNames.push(getClassName('image__img--hidden'));
-  }
-  if (!showSkeleton) {
-    skeletonClassNames.push(getClassName('image__skeleton--hidden'));
-  }
-  const lightImgClassNames = [
-    ...imgClassNames,
-    getClassName('image__img--light'),
-  ];
-  const darkImgClassNames = [
-    ...imgClassNames,
-    getClassName('image__img--dark'),
-  ];
-  if (imgClassName) {
-    darkImgClassNames.push(imgClassName);
-    lightImgClassNames.push(imgClassName);
-  }
-
   const aspectRatio = (100 * aspectY) / aspectX;
 
   return (
-    <div className={getClassName('image__outer', className)} {...rest}>
-      <div
-        className={getClassName('image__placeholder')}
-        style={{ paddingBottom: `${aspectRatio}%` }}
-      >
+    <OuterWrapper {...rest}>
+      <style>
+        {/* The style is only applied if an ancestor element has the `js` class. */}
+        {`.${JS_CLASSNAME} .${CLASS_HIDE_JS} {opacity: 0;}`}
+      </style>
+      <ImagePlaceholder style={{ paddingBottom: `${aspectRatio}%` }}>
         {renderSkeleton && (
-          <div className={getClassName('image__spinner-container')}>
-            <Skeleton className={skeletonClassNames.join(' ')} />
-          </div>
+          <SkeletonContainer>
+            <StyledSkeleton />
+          </SkeletonContainer>
         )}
         {renderImg && (
           <>
-            <img
-              className={lightImgClassNames.join(' ')}
+            <LightImage
               onLoad={onLightImageLoad}
+              className={!showImage && CLASS_HIDE_JS}
               // This is a hack to ensure that the src is set after onload is.
               // Otherwise onload may never be called as the image is already loaded when it's set
               src={enableSrc && lightSrc}
               {...imgPropsRest}
             />
-            <img
-              className={darkImgClassNames.join(' ')}
+            <DarkImage
               onLoad={onDarkImageLoad}
+              className={!showImage && CLASS_HIDE_JS}
               // This is a hack to ensure that the src is set after onload is.
               // Otherwise onload may never be called as the image is already loaded when it's set
               src={enableSrc && darkSrc}
@@ -133,22 +115,8 @@ const ImageDumb = (props) => {
             />
           </>
         )}
-        <noscript>
-          <>
-            <img
-              className={getClassName('image__img', 'image__img--light')}
-              src={lightSrc}
-              {...imgPropsRest}
-            />
-            <img
-              className={getClassName('image__img', 'image__img--dark')}
-              src={darkSrc}
-              {...imgPropsRest}
-            />
-          </>
-        </noscript>
-      </div>
-    </div>
+      </ImagePlaceholder>
+    </OuterWrapper>
   );
 };
 
@@ -158,12 +126,10 @@ ImageDumb.propTypes = {
   loaded: PropTypes.bool,
   renderImg: PropTypes.bool,
   onImageLoad: PropTypes.func,
-  className: PropTypes.string,
   lightSrc: PropTypes.string.isRequired,
   darkSrc: PropTypes.string.isRequired,
   imgProps: PropTypes.shape({
     alt: PropTypes.string.isRequired,
-    className: PropTypes.string,
   }),
 };
 
@@ -171,7 +137,6 @@ ImageDumb.defaultProps = {
   loaded: false,
   renderImg: true,
   onImageLoad: null,
-  className: null,
   imgProps: {},
 };
 
