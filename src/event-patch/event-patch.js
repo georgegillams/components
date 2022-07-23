@@ -17,7 +17,7 @@ const EventPatch = (props) => {
   return (
     <Wrapper background={background} foreground={foreground} {...rest}>
       <EventName>{title}</EventName>
-      <EventYear>{year}</EventYear>
+      {year && <EventYear>{year}</EventYear>}
       <LinkContainer>
         <StyledThemeProvider
           theme={{
@@ -40,12 +40,13 @@ EventPatch.propTypes = {
   background: PropTypes.string.isRequired,
   foreground: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
+  year: PropTypes.string,
   stravaLink: PropTypes.string,
 };
 
 EventPatch.defaultProps = {
   stravaLink: null,
+  year: null,
 };
 
 export default EventPatch;

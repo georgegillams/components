@@ -14,7 +14,7 @@ export const TYPE_DESCRIPTION = {
   [PATCH_TYPE.eventHalf]: 'HALF',
   [PATCH_TYPE.eventFull]: 'FULL',
   [PATCH_TYPE.legionnaire2]: '2X TOUGH MUDDER',
-  [PATCH_TYPE.legionnaire3]: '2X TOUGH MUDDER',
+  [PATCH_TYPE.legionnaire3]: '3X TOUGH MUDDER',
   [PATCH_TYPE.legionnaire456]: '4-6X TOUGH MUDDER',
   [PATCH_TYPE.legionnaire789]: '7-9X TOUGH MUDDER',
   [PATCH_TYPE.legionnaire10]: '10X+ TOUGH MUDDER',
