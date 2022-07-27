@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.0.4
+
+### Bug Fixes
+
+- Fix image classNames (#636)
+
 ## 28.0.3
 
 ### Bug Fixes
