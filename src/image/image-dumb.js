@@ -23,7 +23,6 @@ const ImageDumb = (props) => {
     darkSrc,
     renderImg,
     onImageLoad,
-    className,
     imgProps,
     ...rest
   } = props;
@@ -99,7 +98,7 @@ const ImageDumb = (props) => {
           <>
             <LightImage
               onLoad={onLightImageLoad}
-              className={!showImage && CLASS_HIDE_JS}
+              className={[imgClassName, !showImage && CLASS_HIDE_JS].join(' ')}
               // This is a hack to ensure that the src is set after onload is.
               // Otherwise onload may never be called as the image is already loaded when it's set
               src={enableSrc && lightSrc}
@@ -107,7 +106,7 @@ const ImageDumb = (props) => {
             />
             <DarkImage
               onLoad={onDarkImageLoad}
-              className={!showImage && CLASS_HIDE_JS}
+              className={[imgClassName, !showImage && CLASS_HIDE_JS].join(' ')}
               // This is a hack to ensure that the src is set after onload is.
               // Otherwise onload may never be called as the image is already loaded when it's set
               src={enableSrc && darkSrc}
