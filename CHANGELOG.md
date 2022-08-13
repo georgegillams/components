@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.1.0
+
+### Features
+
+- New blog card (#638)
+
 ## 28.0.5
 
 ### Bug Fixes
