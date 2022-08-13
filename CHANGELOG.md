@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.0.5
+
+### Bug Fixes
+
+- Styled notifications (#637)
+
 ## 28.0.4
 
 ### Bug Fixes
