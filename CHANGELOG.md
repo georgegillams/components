@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.1.1
+
+### Bug Fixes
+
+- Fix release
+
 ## 28.1.0
 
 ### Features
