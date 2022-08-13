@@ -2,10 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Citation = props => {
+const Citation = (props) => {
   const { identifier, onSelection, ...rest } = props;
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     // TODO Scroll to element?
     if (onSelection) {
       onSelection(event, identifier);
