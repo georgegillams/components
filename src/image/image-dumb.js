@@ -32,23 +32,15 @@ const ImageDumb = (props) => {
 
   const [renderSkeleton, setRenderSkeleton] = useState(!loaded);
   const [showImage, setShowImage] = useState(loaded);
-  const [showSkeleton, setShowSkeleton] = useState(!loaded);
 
   const [lightImageLoaded, setLightImageLoaded] = useState(false);
   const [darkImageLoaded, setDarkImageLoaded] = useState(false);
-
-  const [enableSrc, setEnableSrc] = useState(false);
-
-  useEffect(() => {
-    setEnableSrc(true);
-  }, []);
 
   useEffect(() => {
     if (loaded && !showImage) {
       setTransitioning(true);
       setShowImage(true);
       setTimeout(() => {
-        setShowSkeleton(false);
         setTimeout(() => {
           setRenderSkeleton(false);
           setTransitioning(false);
@@ -57,7 +49,6 @@ const ImageDumb = (props) => {
     }
     if (!loaded && showImage) {
       setTransitioning(true);
-      setShowSkeleton(true);
       setRenderSkeleton(true);
       setTimeout(() => {
         setShowImage(false);
@@ -101,7 +92,7 @@ const ImageDumb = (props) => {
               className={[imgClassName, !showImage && CLASS_HIDE_JS].join(' ')}
               // This is a hack to ensure that the src is set after onload is.
               // Otherwise onload may never be called as the image is already loaded when it's set
-              src={enableSrc && lightSrc}
+              src={lightSrc}
               {...imgPropsRest}
             />
             <DarkImage
@@ -109,7 +100,7 @@ const ImageDumb = (props) => {
               className={[imgClassName, !showImage && CLASS_HIDE_JS].join(' ')}
               // This is a hack to ensure that the src is set after onload is.
               // Otherwise onload may never be called as the image is already loaded when it's set
-              src={enableSrc && darkSrc}
+              src={darkSrc}
               {...imgPropsRest}
             />
           </>
