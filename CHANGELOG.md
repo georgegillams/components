@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.1.2
+
+### Bug Fixes
+
+- Try fix image ssr (#640)
+
 ## 28.1.1
 
 ### Bug Fixes
