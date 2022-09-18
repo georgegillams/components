@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.1.3
+
+### Bug Fixes
+
+- Fix image never showing (#641)
+
 ## 28.1.2
 
 ### Bug Fixes
