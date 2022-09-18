@@ -1,7 +1,6 @@
 {
   "is_webapp": true,
   "is_default_site": false,
-  "host_port": 3003,
   "docker_port": 8080,
   "server_name": "storybook.georgegillams.co.uk",
   "redirect_to_www": false

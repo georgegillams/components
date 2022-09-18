@@ -10,9 +10,10 @@ import {
   DarkImage,
   LightImage,
 } from './image.styles';
-import { JS_CLASSNAME } from '../js-feature-detector';
+import { JS_CLASSNAME, NO_JS_CLASSNAME } from '../js-feature-detector';
 
-const CLASS_HIDE_JS = 'gg-image__img--hide';
+const CLASS_HIDE_JS = 'gg-image__img--hide-js';
+const CLASS_HIDE_NO_JS = 'gg-image__img--hide-no-js';
 
 const ImageDumb = (props) => {
   const {
@@ -35,6 +36,11 @@ const ImageDumb = (props) => {
 
   const [lightImageLoaded, setLightImageLoaded] = useState(false);
   const [darkImageLoaded, setDarkImageLoaded] = useState(false);
+  const [enableSrc, setEnableSrc] = useState(false);
+
+  useEffect(() => {
+    setEnableSrc(true);
+  }, []);
 
   useEffect(() => {
     if (loaded && !showImage) {
@@ -77,7 +83,8 @@ const ImageDumb = (props) => {
     <OuterWrapper {...rest}>
       <style>
         {/* The style is only applied if an ancestor element has the `js` class. */}
-        {`.${JS_CLASSNAME} .${CLASS_HIDE_JS} {opacity: 0;}`}
+        {`.${JS_CLASSNAME} .${CLASS_HIDE_JS} {display: none;}`}
+        {`.${NO_JS_CLASSNAME} .${CLASS_HIDE_NO_JS} {display: none;}`}
       </style>
       <ImagePlaceholder style={{ paddingBottom: `${aspectRatio}%` }}>
         {renderSkeleton && (
@@ -87,22 +94,40 @@ const ImageDumb = (props) => {
         )}
         {renderImg && (
           <>
-            <LightImage
-              onLoad={onLightImageLoad}
-              className={[imgClassName, !showImage && CLASS_HIDE_JS].join(' ')}
-              // This is a hack to ensure that the src is set after onload is.
-              // Otherwise onload may never be called as the image is already loaded when it's set
-              src={lightSrc}
-              {...imgPropsRest}
-            />
-            <DarkImage
-              onLoad={onDarkImageLoad}
-              className={[imgClassName, !showImage && CLASS_HIDE_JS].join(' ')}
-              // This is a hack to ensure that the src is set after onload is.
-              // Otherwise onload may never be called as the image is already loaded when it's set
-              src={darkSrc}
-              {...imgPropsRest}
-            />
+            <div className={CLASS_HIDE_NO_JS}>
+              <LightImage
+                onLoad={onLightImageLoad}
+                showImage={showImage}
+                className={imgClassName}
+                // This is a hack to ensure that the src is set after onload is.
+                // Otherwise onload may never be called as the image is already loaded when it's set
+                src={enableSrc && lightSrc}
+                {...imgPropsRest}
+              />
+              <DarkImage
+                onLoad={onDarkImageLoad}
+                showImage={showImage}
+                className={imgClassName}
+                // This is a hack to ensure that the src is set after onload is.
+                // Otherwise onload may never be called as the image is already loaded when it's set
+                src={enableSrc && darkSrc}
+                {...imgPropsRest}
+              />
+            </div>
+            <div className={CLASS_HIDE_JS}>
+              <LightImage
+                showImage={true}
+                className={imgClassName}
+                src={lightSrc}
+                {...imgPropsRest}
+              />
+              <DarkImage
+                showImage={true}
+                className={imgClassName}
+                src={darkSrc}
+                {...imgPropsRest}
+              />
+            </div>
           </>
         )}
       </ImagePlaceholder>

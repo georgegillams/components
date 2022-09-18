@@ -50,6 +50,17 @@ export const External = () => (
     content on another site.
   </div>
 );
+export const ExternalInScrollContainer = () => (
+  <div style={{ width: '10rem', overflowX: 'scroll' }}>
+    <div style={{ width: '15rem' }}>
+      This is an external link to{' '}
+      <TextLink hrefExternal href="/lol" name="Test">
+        Test
+      </TextLink>{' '}
+      content on another site.
+    </div>
+  </div>
+);
 export const Themed = () => (
   <StyledThemeProvider theme={testTheme}>
     <TextLink hrefExternal href="/lol" name="Test">
