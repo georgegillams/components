@@ -14,6 +14,7 @@ export const Anchor = styled(Text)`
   border-radius: 0.25rem;
   font-weight: bold;
   text-decoration: none;
+  position: relative;
 
   ${focusStyle(true)}
 

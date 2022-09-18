@@ -30,6 +30,10 @@ const imageStyles = (props) => css`
   left: 0;
   width: 100%;
   transition: opacity ease-in-out 0.4s;
+  ${!props.showImage &&
+  css`
+    opacity: 0;
+  `}
 `;
 
 export const LightImage = styled.img`
