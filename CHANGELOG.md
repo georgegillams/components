@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.2.0
+
+### Features
+
+- Add obstacle specialist wedge (#643)
+
 ## 28.1.3
 
 ### Bug Fixes
