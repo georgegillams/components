@@ -20,3 +20,6 @@ export const Beast = () => (
 export const Ultra = () => (
   <SpartanTrifectaWedge type={EVENT_TYPE.ultra} year="1941" />
 );
+export const SpecialistWorkshop = () => (
+  <SpartanTrifectaWedge type={EVENT_TYPE.obstacleSpecialistWorkshop} />
+);

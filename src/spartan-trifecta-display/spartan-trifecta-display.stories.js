@@ -18,6 +18,12 @@ export const SecondWedge = () => (
   <SpartanTrifectaDisplay wedges={[null, EVENT_TYPE.super, null]} year="1941" />
 );
 
+export const SpecialistWorkshop = () => (
+  <SpartanTrifectaDisplay
+    wedges={[EVENT_TYPE.obstacleSpecialistWorkshop, null, null]}
+  />
+);
+
 export const AllWedges = () => (
   <SpartanTrifectaDisplay
     wedges={[EVENT_TYPE.sprint, EVENT_TYPE.super, EVENT_TYPE.beast]}

@@ -25,6 +25,7 @@ export const BackgroundOuter = styled.circle.attrs({
   r: 50,
 })`
   fill: ${metalColor1};
+  ${({ backgroundColor }) => backgroundColor && `fill: ${backgroundColor};`}
 `;
 
 export const BackgroundInner = styled.circle.attrs({
@@ -91,9 +92,19 @@ export const BottomTextPath = styled.textPath.attrs({
 `;
 
 // As we are nesting an SVG inside another SVG, width and height styles will be ignored.
-export const StyledSpartanLogo = styled(SpartanLogo).attrs({
-  x: (100 - LOGO_DESIGN_WIDTH) / 2,
-  y: (100 - LOGO_DESIGN_WIDTH) / 2,
-  height: LOGO_DESIGN_WIDTH,
-  width: LOGO_DESIGN_WIDTH,
+export const StyledSpartanLogo = styled(SpartanLogo).attrs(({ fill }) => {
+  if (fill) {
+    return {
+      x: 0,
+      y: 0,
+      height: displayWidth,
+      width: displayWidth,
+    };
+  }
+  return {
+    x: (100 - LOGO_DESIGN_WIDTH) / 2,
+    y: (100 - LOGO_DESIGN_WIDTH) / 2,
+    height: LOGO_DESIGN_WIDTH,
+    width: LOGO_DESIGN_WIDTH,
+  };
 })``;
