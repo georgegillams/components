@@ -23,6 +23,15 @@ const SpartanTrifectaWedge = (props) => {
 
   const { foreground, background } = TYPE_COLORS[type];
 
+  if (type === EVENT_TYPE.obstacleSpecialistWorkshop) {
+    return (
+      <Wrapper {...rest}>
+        <BackgroundOuter backgroundColor={background} />
+        <StyledSpartanLogo color={foreground} fill />
+      </Wrapper>
+    );
+  }
+
   return (
     <Wrapper {...rest}>
       <BackgroundOuter />

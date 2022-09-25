@@ -6,6 +6,7 @@ export const EVENT_TYPE = {
   super: 'super',
   beast: 'beast',
   ultra: 'ultra',
+  obstacleSpecialistWorkshop: 'obstacleSpecialistWorkshop',
 };
 
 export const TYPE_DESCRIPTION = {
@@ -45,6 +46,10 @@ export const TYPE_COLORS = {
   [EVENT_TYPE.ultra]: {
     background: '#5E539A',
     foreground: 'white',
+  },
+  [EVENT_TYPE.obstacleSpecialistWorkshop]: {
+    background: 'white',
+    foreground: metalColor1,
   },
 };
 
