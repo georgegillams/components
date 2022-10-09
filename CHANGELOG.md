@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.2.1
+
+### Bug Fixes
+
+- Fix spartan medal text (#644)
+
 ## 28.2.0
 
 ### Features
