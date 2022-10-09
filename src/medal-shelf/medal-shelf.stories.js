@@ -14,35 +14,35 @@ export const Default = () => (
       background="red"
       foreground="yellow"
       title="Event name"
-      year="1941"
+      year="2022"
       stravaLink="https://strava.com"
     />
     <EventPatch
       background="red"
       foreground="yellow"
       title="Event name"
-      year="1941"
+      year="2022"
       stravaLink="https://strava.com"
     />
     <EventPatch
       background="red"
       foreground="yellow"
       title="Event name"
-      year="1941"
+      year="2022"
       stravaLink="https://strava.com"
     />
     <EventPatch
       background="red"
       foreground="yellow"
       title="Event name"
-      year="1941"
+      year="2022"
       stravaLink="https://strava.com"
     />
     <EventPatch
       background="red"
       foreground="yellow"
       title="Event name"
-      year="1941"
+      year="2022"
       stravaLink="https://strava.com"
     />
   </MedalShelf>

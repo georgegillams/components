@@ -11,7 +11,7 @@ export const Default = () => (
     background="red"
     foreground="yellow"
     title="Event name"
-    year="1941"
+    year="2022"
     stravaLink="https://strava.com"
   />
 );
@@ -20,7 +20,7 @@ export const Short = () => (
     background="red"
     foreground="yellow"
     title="S"
-    year="1941"
+    year="2022"
     stravaLink="https://strava.com"
   />
 );
@@ -29,7 +29,7 @@ export const Long = () => (
     background="red"
     foreground="yellow"
     title="Longer event name"
-    year="1941"
+    year="2022"
     stravaLink="https://strava.com"
   />
 );
@@ -38,6 +38,6 @@ export const NoStrava = () => (
     background="red"
     foreground="yellow"
     title="Event name"
-    year="1941"
+    year="2022"
   />
 );

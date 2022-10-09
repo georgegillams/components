@@ -10,12 +10,12 @@ export default {
 export const FirstWedge = () => (
   <SpartanTrifectaDisplay
     wedges={[EVENT_TYPE.sprint, null, null]}
-    year="1941"
+    year="2022"
   />
 );
 
 export const SecondWedge = () => (
-  <SpartanTrifectaDisplay wedges={[null, EVENT_TYPE.super, null]} year="1941" />
+  <SpartanTrifectaDisplay wedges={[null, EVENT_TYPE.super, null]} year="2022" />
 );
 
 export const SpecialistWorkshop = () => (
@@ -27,6 +27,6 @@ export const SpecialistWorkshop = () => (
 export const AllWedges = () => (
   <SpartanTrifectaDisplay
     wedges={[EVENT_TYPE.sprint, EVENT_TYPE.super, EVENT_TYPE.beast]}
-    year="1941"
+    year="2022"
   />
 );

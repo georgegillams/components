@@ -61,7 +61,7 @@ export const TopText = styled.text.attrs({ width: 500 })`
   font-size: 0.65rem;
   font-weight: light;
   fill: ${(props) => props.color};
-  letter-spacing: 0.27rem;
+  letter-spacing: 0.25rem;
 `;
 
 export const TopTextPath = styled.textPath.attrs({
