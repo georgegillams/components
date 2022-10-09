@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.2.2
+
+### Bug Fixes
+
+- Trifect wedge year fix (#645)
+
 ## 28.2.1
 
 ### Bug Fixes
