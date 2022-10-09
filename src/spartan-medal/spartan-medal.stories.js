@@ -10,31 +10,31 @@ export default {
 export const Sprint = () => (
   <SpartanMedal
     type={EVENT_TYPE.sprint}
-    year="1941"
+    year="2022"
     stravaLink="https://strava.com"
   />
 );
 export const NoStrava = () => (
-  <SpartanMedal type={EVENT_TYPE.sprint} year="1941" />
+  <SpartanMedal type={EVENT_TYPE.sprint} year="2022" />
 );
 export const Super = () => (
   <SpartanMedal
     type={EVENT_TYPE.super}
-    year="1941"
+    year="2022"
     stravaLink="https://strava.com"
   />
 );
 export const Beast = () => (
   <SpartanMedal
     type={EVENT_TYPE.beast}
-    year="1941"
+    year="2022"
     stravaLink="https://strava.com"
   />
 );
 export const Ultra = () => (
   <SpartanMedal
     type={EVENT_TYPE.ultra}
-    year="1941"
+    year="2022"
     stravaLink="https://strava.com"
   />
 );
