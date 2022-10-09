@@ -56,7 +56,9 @@ const SpartanMedal = (props) => {
 
         <LeftTextGuidePath />
         <LeftText>
-          <LeftTextPath>SPRINT {yearRoman}</LeftTextPath>
+          <LeftTextPath>
+            {title} {yearRoman}
+          </LeftTextPath>
         </LeftText>
 
         <StyledSpartanLogo color={background} />
