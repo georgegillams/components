@@ -5,7 +5,7 @@ import { number } from '@storybook/addon-knobs';
 import { ProgressWithoutTheme } from './progress';
 
 export default {
-  title: 'Styled/Molecules/Progress',
+  title: 'Molecules/Progress',
   component: ProgressWithoutTheme,
 };
 

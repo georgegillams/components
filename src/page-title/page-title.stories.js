@@ -1,14 +1,24 @@
 import React from 'react';
 
 import PageTitle from './index';
+import { JS_CLASSNAME } from '../js-feature-detector';
 
-export default { title: 'Styled/Organisms/Page title', component: PageTitle };
+export default { title: 'Organisms/Page title', component: PageTitle };
 
 export const Title = () => (
   <PageTitle name="Test">
     <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
   </PageTitle>
 );
+
+export const JSEnabled = () => (
+  <div className={JS_CLASSNAME}>
+    <PageTitle name="Test">
+      <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
+    </PageTitle>
+  </div>
+);
+
 export const WithLink = () => (
   <PageTitle link={{ to: '/test', text: 'Back' }} name="Test">
     <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />

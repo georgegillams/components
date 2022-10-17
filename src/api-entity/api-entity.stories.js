@@ -2,7 +2,7 @@ import React from 'react';
 
 import APIEntity from './index';
 
-export default { title: 'Styled/Organisms/API entity', component: APIEntity };
+export default { title: 'Organisms/API entity', component: APIEntity };
 
 export const Default = () => (
   <APIEntity

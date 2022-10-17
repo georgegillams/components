@@ -4,7 +4,7 @@ import { boolean, number } from '@storybook/addon-knobs';
 import DegreeModule from './index';
 
 export default {
-  title: 'Styled/Organisms/Degree module',
+  title: 'Organisms/Degree module',
   component: DegreeModule,
 };
 

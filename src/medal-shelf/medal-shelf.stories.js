@@ -4,7 +4,7 @@ import EventPatch from '../event-patch';
 import MedalShelf from './index';
 
 export default {
-  title: 'Styled/Molecules/Medal shelf',
+  title: 'Molecules/Medal shelf',
   component: MedalShelf,
 };
 

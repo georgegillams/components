@@ -20,7 +20,7 @@ const logo = (
 );
 
 export default {
-  title: 'Styled/Organisms/Navigation bar',
+  title: 'Organisms/Navigation bar',
   component: NavigationBar,
 };
 

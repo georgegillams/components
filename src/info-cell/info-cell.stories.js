@@ -6,7 +6,7 @@ import TextLink from '../text-link';
 import InfoCell, { INFO_CELL_STYLES } from './index';
 
 export default {
-  title: 'Styled/Organisms/Info cell',
+  title: 'Organisms/Info cell',
   component: InfoCell,
 };
 

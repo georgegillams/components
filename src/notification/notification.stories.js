@@ -5,7 +5,7 @@ import MarkdownRenderer from '../markdown-renderer';
 import Notification, { NOTIFICATION_TYPES } from './index';
 
 export default {
-  title: 'Styled/Molecules/Notifications',
+  title: 'Molecules/Notifications',
   component: Notification,
 };
 

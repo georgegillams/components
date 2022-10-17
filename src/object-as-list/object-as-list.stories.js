@@ -3,7 +3,7 @@ import React from 'react';
 import ObjectAsList from './index';
 
 export default {
-  title: 'Styled/Molecules/Object as list',
+  title: 'Molecules/Object as list',
   component: ObjectAsList,
 };
 

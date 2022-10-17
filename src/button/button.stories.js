@@ -30,7 +30,7 @@ const ButtonStory = (props) => {
 };
 
 export default {
-  title: 'Styled/Molecules/Button',
+  title: 'Molecules/Button',
   component: ButtonWithoutTheme,
 };
 

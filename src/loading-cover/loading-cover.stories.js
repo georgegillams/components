@@ -14,7 +14,7 @@ const LoadingSkeleton = () => (
 );
 
 export default {
-  title: 'Styled/Molecules/Loading cover',
+  title: 'Molecules/Loading cover',
   component: LoadingCover,
 };
 

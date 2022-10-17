@@ -3,7 +3,7 @@ import { JS_CLASSNAME } from '../js-feature-detector';
 
 import Image from './index';
 
-export default { title: 'Styled/Molecules/Image', component: Image };
+export default { title: 'Molecules/Image', component: Image };
 
 export const Loading = () => (
   <div className={JS_CLASSNAME}>

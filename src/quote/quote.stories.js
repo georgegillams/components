@@ -4,7 +4,7 @@ import Quote from './index';
 import { QuoteWithoutTheme } from './quote';
 
 export default {
-  title: 'Styled/Molecules/Quote',
+  title: 'Molecules/Quote',
   component: QuoteWithoutTheme,
 };
 

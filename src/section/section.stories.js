@@ -5,7 +5,7 @@ import Section from './index';
 const LONG_TEXT =
   'LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA.';
 
-export default { title: 'Styled/Molecules/Section', component: Section };
+export default { title: 'Molecules/Section', component: Section };
 
 export const Default = () => <Section name="Test" />;
 export const Long = () => <Section name={LONG_TEXT} />;

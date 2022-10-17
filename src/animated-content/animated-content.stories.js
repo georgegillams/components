@@ -4,7 +4,7 @@ import React from 'react';
 import AnimatedContent from './index';
 
 export default {
-  title: 'Styled/Molecules/Animated content',
+  title: 'Molecules/Animated content',
   component: AnimatedContent,
 };
 

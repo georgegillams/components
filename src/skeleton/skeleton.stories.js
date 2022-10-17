@@ -2,7 +2,7 @@ import React from 'react';
 
 import Skeleton, { SKELETON_STYLES } from './index';
 
-export default { title: 'Styled/Molecules/Skeletons', component: Skeleton };
+export default { title: 'Molecules/Skeletons', component: Skeleton };
 
 export const Button = () => <Skeleton skeletonStyle={SKELETON_STYLES.button} />;
 export const ButtonSmall = () => (

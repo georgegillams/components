@@ -4,7 +4,7 @@ import React from 'react';
 import PageContainer, { WIDTHS } from './index';
 
 export default {
-  title: 'Styled/Molecules/Page container',
+  title: 'Molecules/Page container',
   component: PageContainer,
 };
 

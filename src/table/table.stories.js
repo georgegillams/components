@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Table, Head, Body, Row, Cell } from './index';
 
-export default { title: 'Styled/Molecules/Table', component: Table };
+export default { title: 'Molecules/Table', component: Table };
 
 export const Default = () => (
   <Table>

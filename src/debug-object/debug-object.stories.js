@@ -3,7 +3,7 @@ import React from 'react';
 import DebugObject from './index';
 
 export default {
-  title: 'Styled/Molecules/Debug object',
+  title: 'Molecules/Debug object',
   component: DebugObject,
 };
 
