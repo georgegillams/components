@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.3.1
+
+### Bug Fixes
+
+- Remove last mention of SASS
+
 ## 28.3.0
 
 ### Features
