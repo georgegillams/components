@@ -3,7 +3,7 @@ import { EVENT_TYPE } from '../spartan-medal';
 import SpartanTrifectaDisplay from './index';
 
 export default {
-  title: 'Styled/Molecules/Spartan trifecta display',
+  title: 'Molecules/Spartan trifecta display',
   component: SpartanTrifectaDisplay,
 };
 

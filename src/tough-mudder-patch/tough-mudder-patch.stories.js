@@ -2,7 +2,7 @@ import React from 'react';
 import ToughMudderPatch, { PATCH_TYPE } from './index';
 
 export default {
-  title: 'Styled/Molecules/Tough mudder patch',
+  title: 'Molecules/Tough mudder patch',
   component: ToughMudderPatch,
 };
 

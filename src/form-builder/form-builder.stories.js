@@ -48,7 +48,7 @@ const StatefulFormBuilder = (props) => {
 };
 
 export default {
-  title: 'Styled/Organisms/Form builder',
+  title: 'Organisms/Form builder',
   component: FormBuilder,
 };
 

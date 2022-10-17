@@ -63,7 +63,7 @@ ScrollReporter.propTypes = withScrollProps;
 
 const ScrollReportedWithScroll = withScroll(ScrollReporter);
 
-export default { title: 'Styled/HOCs/Scroll container' };
+export default { title: 'HOCs/Scroll container' };
 
 export const ScrollContainer = () => (
   <div

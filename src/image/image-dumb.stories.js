@@ -26,7 +26,7 @@ const StatefulImageDumb = (props) => {
   );
 };
 
-export default { title: 'Styled/Molecules/Image dumb', component: ImageDumb };
+export default { title: 'Molecules/Image dumb', component: ImageDumb };
 
 export const Default = () => (
   <div className={JS_CLASSNAME}>

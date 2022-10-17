@@ -3,7 +3,7 @@ import React from 'react';
 import SpartanMedal, { EVENT_TYPE } from './index';
 
 export default {
-  title: 'Styled/Molecules/Spartan medal',
+  title: 'Molecules/Spartan medal',
   component: SpartanMedal,
 };
 

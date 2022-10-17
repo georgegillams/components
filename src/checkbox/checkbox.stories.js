@@ -23,7 +23,7 @@ const StatefulCheckbox = (props) => {
 };
 
 export default {
-  title: 'Styled/Molecules/Checkbox',
+  title: 'Molecules/Checkbox',
   component: CheckboxWithoutTheme,
 };
 

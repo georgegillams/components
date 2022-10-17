@@ -3,7 +3,7 @@ import React from 'react';
 import { RequestStatusContainer } from './index';
 
 export default {
-  title: 'Styled/Organisms/Request status',
+  title: 'Organisms/Request status',
   component: RequestStatusContainer,
 };
 

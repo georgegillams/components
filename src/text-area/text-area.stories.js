@@ -85,7 +85,7 @@ class StatefulTextArea extends Component {
 }
 
 export default {
-  title: 'Styled/Molecules/Text area',
+  title: 'Molecules/Text area',
   component: TextArea,
 };
 

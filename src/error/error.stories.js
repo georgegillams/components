@@ -5,7 +5,7 @@ import { text } from '@storybook/addon-knobs';
 
 import Error from './index';
 
-export default { title: 'Styled/Molecules/Error', component: Error };
+export default { title: 'Molecules/Error', component: Error };
 
 export const Default = () => (
   <Error>

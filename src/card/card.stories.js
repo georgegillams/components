@@ -8,7 +8,7 @@ import backgroundImage from './backgroundImage.png';
 import Card from './index';
 import { CardWithoutTheme } from './card';
 
-export default { title: 'Styled/Molecules/Card', component: CardWithoutTheme };
+export default { title: 'Molecules/Card', component: CardWithoutTheme };
 
 export const Default = () => (
   <Card onClick={action('Button clicked')}>

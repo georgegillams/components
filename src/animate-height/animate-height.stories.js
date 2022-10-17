@@ -83,7 +83,7 @@ const StatefulAnimateHeight = (props) => {
 };
 
 export default {
-  title: 'Styled/Molecules/Animate height',
+  title: 'Molecules/Animate height',
   component: AnimateHeight,
 };
 

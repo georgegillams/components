@@ -4,7 +4,7 @@ import { EVENT_TYPE } from '../spartan-medal';
 import SpartanTrifectaWedge from './index';
 
 export default {
-  title: 'Styled/Molecules/Spartan trifecta wedge',
+  title: 'Molecules/Spartan trifecta wedge',
   component: SpartanTrifectaWedge,
 };
 

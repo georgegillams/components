@@ -2,7 +2,7 @@ import React from 'react';
 
 import Redirect from './index';
 
-export default { title: 'Styled/Organisms/Redirect', component: Redirect };
+export default { title: 'Organisms/Redirect', component: Redirect };
 
 export const Default = () => (
   <Redirect

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Paragraph from './index';
 
-export default { title: 'Styled/Molecules/Paragraph', component: Paragraph };
+export default { title: 'Molecules/Paragraph', component: Paragraph };
 export const Single = () => (
   <Paragraph>{`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Consectetur a erat nam at lectus urna duis convallis convallis. Commodo ullamcorper a lacus vestibulum sed. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec. Viverra justo nec ultrices dui sapien eget. Blandit aliquam etiam erat velit scelerisque. Consequat mauris nunc congue nisi vitae. Aenean pharetra magna ac placerat vestibulum lectus mauris. Viverra justo nec ultrices dui sapien eget. In nulla posuere sollicitudin aliquam. Viverra suspendisse potenti nullam ac tortor vitae purus. Eu consequat ac felis donec. Fringilla est ullamcorper eget nulla facilisi. Convallis convallis tellus id interdum. Enim tortor at auctor urna nunc id cursus metus.
 

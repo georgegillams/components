@@ -5,7 +5,7 @@ import Subsection from './index';
 const LONG_TEXT =
   'LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA.';
 
-export default { title: 'Styled/Molecules/Subsection', component: Subsection };
+export default { title: 'Molecules/Subsection', component: Subsection };
 
 export const Default = () => <Subsection name="Test" />;
 export const Long = () => <Subsection name={LONG_TEXT} />;

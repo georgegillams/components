@@ -3,7 +3,7 @@ import React from 'react';
 import ArticleDate from './index';
 
 export default {
-  title: 'Styled/Molecules/Article date',
+  title: 'Molecules/Article date',
   component: ArticleDate,
 };
 

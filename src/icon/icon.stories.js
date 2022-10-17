@@ -7,7 +7,7 @@ import FilterIcon from './filter';
 import NewWindowIcon from './new-window';
 import TickIcon from './tick';
 
-export default { title: 'Styled/Molecules/Icon' };
+export default { title: 'Molecules/Icon' };
 
 export const Chevron = () => <ChevronIcon />;
 export const Copy = () => <CopyIcon />;

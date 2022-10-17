@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import TextLink from '../text-link';
 import { Heading, LinkContainer } from './page-title.styles';
+import { withScrollAnimation } from '../effects';
 
 const PageTitle = (props) => {
   const {
@@ -64,4 +65,4 @@ PageTitle.defaultProps = {
   linkProvider: (props) => <TextLink {...props} />,
 };
 
-export default PageTitle;
+export default withScrollAnimation(PageTitle);

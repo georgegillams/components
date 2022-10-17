@@ -2,7 +2,7 @@ import React from 'react';
 import EventPatch from './index';
 
 export default {
-  title: 'Styled/Molecules/Event patch',
+  title: 'Molecules/Event patch',
   component: EventPatch,
 };
 
