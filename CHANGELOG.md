@@ -1,5 +1,12 @@
 # Changelog
 
+## 28.3.0
+
+### Features
+
+- Add withEffects HOC 2 (#647)
+- Add withEffects HOC (#646)
+
 ## 28.2.2
 
 ### Bug Fixes
