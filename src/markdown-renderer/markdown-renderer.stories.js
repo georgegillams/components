@@ -6,7 +6,7 @@ import MarkdownRenderer from './index';
 //   'LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA.';
 
 export default {
-  title: 'Sass/Organisms/Markdown renderer',
+  title: 'Organisms/Markdown renderer',
   component: MarkdownRenderer,
 };
 
