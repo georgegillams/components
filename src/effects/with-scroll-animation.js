@@ -1,15 +1,9 @@
 import React from 'react';
-import AnimatedContent from '../animated-content';
-import withScroll from '../scroll-container';
-const AnimatedContentWithScroll = withScroll(AnimatedContent);
+import { ScrollAnimationWrapper } from './scroll-animation-wrapper';
 
 export const withScrollAnimation = (WrappedComponent) => {
   const NewComponent = (props) => {
-    return (
-      <AnimatedContentWithScroll>
-        <WrappedComponent {...props} />
-      </AnimatedContentWithScroll>
-    );
+    return <ScrollAnimationWrapper {...props} />;
   };
 
   NewComponent.displayName = `withScrollEffects(${WrappedComponent.displayName})`;
