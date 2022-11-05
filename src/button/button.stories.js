@@ -2,8 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import Button from './index';
-import { BUTTON_SIZES, BUTTON_TYPES } from './constants';
+import Button, { BUTTON_SIZES, BUTTON_TYPES } from './index';
 import { ButtonWithoutTheme } from './button';
 
 const ButtonStory = (props) => {

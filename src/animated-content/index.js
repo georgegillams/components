@@ -1,1 +1,1 @@
-export { default } from './animated-content';
+export { default, ANIMATIONS } from './animated-content';

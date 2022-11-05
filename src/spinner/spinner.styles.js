@@ -1,19 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { notBlack, notBlackDarkMode } from '../constants/colors';
 
 export const spinTime = 0.8;
 export const bladeCount = 8;
 
-export const Outer = styled.div`
-  @keyframes spinner-fade {
-    0% {
-      opacity: 1;
+const spinnerFade = keyframes`
+  0% {
+    opacity: 1
     }
     100% {
-      opacity: 0.4;
-    }
-  }
+      opacity: 0.1;
+      }
+      `;
 
+export const Outer = styled.div`
   position: relative;
   display: inline-block;
   width: 1.125rem;
@@ -51,7 +51,7 @@ export const Spoke = styled.div`
   border-radius: 1rem;
   background-color: transparent;
   background-color: currentColor;
-  animation: spinner-fade ${spinTime}s infinite linear;
+  animation: ${spinnerFade} ${spinTime}s infinite linear;
   transform-origin: center -0.16rem;
 
   ${({ index }) => {

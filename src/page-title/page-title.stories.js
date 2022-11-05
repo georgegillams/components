@@ -19,6 +19,14 @@ export const JSEnabled = () => (
   </div>
 );
 
+export const JSEnabledWithLink = () => (
+  <div className={JS_CLASSNAME}>
+    <PageTitle name="Test" link={{ to: '/test', text: 'Back' }}>
+      <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />
+    </PageTitle>
+  </div>
+);
+
 export const WithLink = () => (
   <PageTitle link={{ to: '/test', text: 'Back' }} name="Test">
     <div style={{ width: '100%', height: '15rem', backgroundColor: 'red' }} />

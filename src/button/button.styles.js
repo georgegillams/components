@@ -1,7 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { focusStyle } from '../constants/styles';
 import { createStylesForButtonType } from './button-style-helpers';
 import { BUTTON_SIZES, BUTTON_TYPES } from './constants';
+
+const ggBounceHoverEffect = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
 
 const outerStyles = ({ theme, size, buttonType, disabled }) => css`
   position: relative;
@@ -34,18 +46,6 @@ const outerStyles = ({ theme, size, buttonType, disabled }) => css`
   css`
     ${createStylesForButtonType(BUTTON_TYPES.bouncy, theme)}
 
-    @keyframes gg-bounce-hover-effect {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-
     min-width: unset;
     padding: 0.2rem 0.8rem;
     font-weight: normal;
@@ -54,7 +54,7 @@ const outerStyles = ({ theme, size, buttonType, disabled }) => css`
     &:active,
     &:hover {
       animation-duration: 0.4s;
-      animation-name: gg-bounce-hover-effect;
+      animation-name: ${ggBounceHoverEffect};
     }
   `}
 

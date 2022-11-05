@@ -16,7 +16,7 @@
     "transpile": "yarn pretranspile && yarn transpile:js && yarn transpile:remove-stories",
     "transpile:js": "babel src -d dist --copy-files",
     "transpile:remove-stories": "find ./dist -name \"stories.js\" -exec rm {} \\;",
-    "transpile:js:live": "yarn transpile:js --watch",
+    "transpile:js:live": "cp package.json ./dist/ && yarn transpile:js --watch",
     "clean": "yarn test:clean && yarn build:clean",
     "dev": "yarn start",
     "fix:adapter-core-5": "cp ./scripts/adapter_core5.js node_modules/webrtc-adapter/src/js/adapter_core5.js",

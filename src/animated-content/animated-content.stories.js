@@ -1,7 +1,7 @@
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import React from 'react';
 
-import AnimatedContent from './index';
+import AnimatedContent, { ANIMATIONS } from './index';
 
 export default {
   title: 'Molecules/Animated content',
@@ -39,7 +39,14 @@ export const NoJs = () => (
 
 export const Interactive = () => (
   <div class="js">
-    <AnimatedContent inView={boolean('In view', false)}>
+    <AnimatedContent
+      inView={boolean('In view', false)}
+      animation={select(
+        'Animation',
+        Object.values(ANIMATIONS),
+        ANIMATIONS.fadeAndDriftIn,
+      )}
+    >
       <div
         style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}
       />
