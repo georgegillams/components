@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.4.0
+
+### Features
+
+- Effect hoc improvements (#649)
+
 ## 28.3.3
 
 ### Bug Fixes
