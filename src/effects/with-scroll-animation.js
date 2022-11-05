@@ -3,9 +3,11 @@ import { ScrollAnimationWrapper } from './scroll-animation-wrapper';
 
 export const withScrollAnimation = (WrappedComponent) => {
   const NewComponent = (props) => {
+    const { animationProps, ...rest } = props;
+
     return (
-      <ScrollAnimationWrapper>
-        <WrappedComponent {...props} />
+      <ScrollAnimationWrapper {...animationProps}>
+        <WrappedComponent {...rest} />
       </ScrollAnimationWrapper>
     );
   };
