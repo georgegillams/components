@@ -14,7 +14,7 @@ const Tag = (props) => {
 };
 
 Tag.propTypes = {
-  type: PropTypes.oneOf(TAG_TYPES),
+  type: PropTypes.oneOf(Object.keys(TAG_TYPES)),
 };
 
 Tag.defaultProps = {

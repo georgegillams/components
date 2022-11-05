@@ -68,7 +68,7 @@ const InfoCell = (props) => {
 
 InfoCell.propTypes = {
   title: PropTypes.string.isRequired,
-  cellStyle: PropTypes.oneOf(INFO_CELL_STYLES),
+  cellStyle: PropTypes.oneOf(Object.keys(INFO_CELL_STYLES)),
   content: PropTypes.element,
   aux: PropTypes.element,
   hasBeenFullyInView: PropTypes.bool,

@@ -66,7 +66,7 @@ BlogCard.propTypes = {
   imageStyle: PropTypes.string,
   imageSrc: PropTypes.node,
   title: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.oneOf(TAG_TYPES)),
+  tags: PropTypes.arrayOf(PropTypes.oneOf(Object.keys(TAG_TYPES))),
 };
 
 BlogCard.defaultProps = {
