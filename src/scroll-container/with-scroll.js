@@ -21,10 +21,11 @@ const withScrollProps = {
 
 const withScroll = (ComponentToScroll) => {
   class WithScroll extends Component {
-    constructor(): void {
+    constructor() {
       super();
 
       this.documentRef = null;
+      this.interval = null;
 
       this.state = {
         fullyInView: false,
@@ -42,32 +43,17 @@ const withScroll = (ComponentToScroll) => {
       };
     }
 
-    componentDidMount(): void {
-      this.documentRef = typeof window !== 'undefined' ? document : null;
-      // this.document should only be `null` when SSR
-      if (!this.documentRef) {
-        return;
-      }
-      this.documentRef.addEventListener('scroll', this.checkPosition, {
-        capture: true,
-        ...this.getPassiveArgs(),
-      });
-      this.documentRef.addEventListener('resize', this.checkPosition);
-      this.documentRef.addEventListener(
-        'orientationchange',
-        this.checkPosition,
-      );
-      this.documentRef.addEventListener('fullscreenchange', this.checkPosition);
-      // call checkPosition immediately incase the
-      // component is already in view prior to scrolling
-      this.checkPosition();
+    componentDidMount() {
+      setTimeout(() => {
+        this.setUpEventListeners();
+      }, 400);
     }
 
-    componentWillUnmount(): void {
+    componentWillUnmount() {
       this.removeEventListeners();
     }
 
-    getPassiveArgs(): {} {
+    getPassiveArgs() {
       return this.supportsPassiveEvents() ? { passive: true } : {};
     }
 
@@ -97,7 +83,35 @@ const withScroll = (ComponentToScroll) => {
       }));
     };
 
-    removeEventListeners = (): void => {
+    setUpEventListeners = () => {
+      this.documentRef = typeof window !== 'undefined' ? document : null;
+      // this.document should only be `null` when SSR
+      if (!this.documentRef) {
+        return;
+      }
+
+      this.documentRef.addEventListener('scroll', this.checkPosition, {
+        capture: true,
+        ...this.getPassiveArgs(),
+      });
+      this.documentRef.addEventListener('resize', this.checkPosition);
+      this.documentRef.addEventListener(
+        'orientationchange',
+        this.checkPosition,
+      );
+      this.documentRef.addEventListener('fullscreenchange', this.checkPosition);
+      // call checkPosition immediately incase the
+      // component is already in view prior to scrolling
+      this.checkPosition();
+
+      // call checkPosition periodically to deal with
+      // other page layout changes
+      this.interval = setInterval(() => {
+        this.checkPosition();
+      }, 1000);
+    };
+
+    removeEventListeners = () => {
       this.documentRef.removeEventListener('scroll', this.checkPosition, {
         capture: true,
         ...this.getPassiveArgs(),
@@ -111,6 +125,7 @@ const withScroll = (ComponentToScroll) => {
         'fullscreenchange',
         this.checkPosition,
       );
+      clearInterval(this.interval);
     };
 
     checkPosition = throttle(() => {
@@ -125,7 +140,7 @@ const withScroll = (ComponentToScroll) => {
     // This function is taken from modernizr
     // See https://github.com/modernizr/modernizr
     // eslint-disable-next-line
-    supportsPassiveEvents = (): boolean => {
+    supportsPassiveEvents = () => {
       let supportsPassiveOption = false;
       try {
         // $FlowFixMe

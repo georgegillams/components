@@ -1,13 +1,11 @@
 import React from 'react';
 import { ScrollAnimationWrapper } from './scroll-animation-wrapper';
 
-export const withScrollAnimation = (WrappedComponent) => {
+export const withScrollAnimation = (WrappedComponent, options) => {
   const NewComponent = (props) => {
-    const { animationProps, ...rest } = props;
-
     return (
-      <ScrollAnimationWrapper {...animationProps}>
-        <WrappedComponent {...rest} />
+      <ScrollAnimationWrapper {...(options || {})}>
+        <WrappedComponent {...props} />
       </ScrollAnimationWrapper>
     );
   };

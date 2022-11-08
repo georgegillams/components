@@ -15,6 +15,10 @@ const DemoComponent = () => (
 );
 
 const DemoComponentWithScrollAnimation = withScrollAnimation(DemoComponent);
+const DemoComponentWithScrollAnimationFade = withScrollAnimation(
+  DemoComponent,
+  { animation: ANIMATIONS.fade },
+);
 
 export const FadeAndDriftWrapperNoJs = () => (
   <ScrollAnimationWrapper>
@@ -48,8 +52,6 @@ export const FadeAndDriftHOCWithJs = () => (
 
 export const FadeHOCWithJs = () => (
   <div class="js">
-    <DemoComponentWithScrollAnimation
-      animationProps={{ animation: ANIMATIONS.fade }}
-    />
+    <DemoComponentWithScrollAnimationFade />
   </div>
 );

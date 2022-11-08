@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import {
   backgroundColorDarkMode,
   backgroundColorElevatedColored,
@@ -72,11 +72,20 @@ const navigationBarBackgroundStyles = css`
   }
 `;
 
+const navigationKeyFrames = keyframes`
+  0% {
+    opacity: 0.1;
+    }
+    100% {
+      opacity: 1;
+      }
+      `;
+
 export const Header = styled.header`
   position: sticky;
   top: 0;
-  /* z-index: ${navigationBarMenuZIndex}; */
   z-index: ${navigationbarZIndex};
+  animation: ${navigationKeyFrames} 0.4s ease-in-out;
 `;
 export const Scrim = styled.div`
   position: fixed;

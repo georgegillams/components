@@ -22,7 +22,9 @@ const ANIMATION_CSS = {
 };
 
 const AnimatedContent = (props) => {
-  const { animation, inView, children, ...rest } = props;
+  const { animation, inView, hasBeenInView, children, ...rest } = props;
+
+  const show = inView || hasBeenInView;
 
   const cssForAnimation =
     ANIMATION_CSS[animation] || ANIMATION_CSS.fadeAndDriftIn;
@@ -30,7 +32,7 @@ const AnimatedContent = (props) => {
   return (
     <>
       <style>{cssForAnimation}</style>
-      <Wrapper className={inView ? '' : HIDDEN_CLASSNAME} {...rest}>
+      <Wrapper className={show ? '' : HIDDEN_CLASSNAME} {...rest}>
         {children}
       </Wrapper>
     </>
