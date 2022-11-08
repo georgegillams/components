@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { SKELETON_STYLES } from './constants';
 import { spacingBase } from '../constants/layout';
 import {
@@ -122,16 +122,16 @@ export const Outer = styled.div`
   }}
 `;
 
-export const Shimmer = styled.div`
-  @keyframes gg-shim {
+const ggShim = keyframes`
     from {
       left: -13rem;
     }
     to {
       left: calc(100vw + 13rem);
     }
-  }
+`;
 
+export const Shimmer = styled.div`
   position: absolute;
   top: 0;
   width: 13rem;
@@ -144,7 +144,7 @@ export const Shimmer = styled.div`
   );
   background-repeat: no-repeat;
   background-size: 12.5rem 100%;
-  animation: gg-shim 3.5s ease-in-out infinite;
+  animation: ${ggShim} 3.5s ease-in-out infinite;
 
   @media (prefers-color-scheme: dark) {
     background-image: linear-gradient(

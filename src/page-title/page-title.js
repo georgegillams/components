@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import TextLink from '../text-link';
 import { Heading, LinkContainer } from './page-title.styles';
-import { ScrollAnimationWrapper } from '../effects';
+import { AnimationWrapper, ScrollAnimationWrapper } from '../effects';
 
 const PageTitle = (props) => {
   const {
@@ -28,20 +28,20 @@ const PageTitle = (props) => {
   return (
     <>
       {hasLink && (
-        <ScrollAnimationWrapper>
+        <AnimationWrapper>
           <LinkContainer padding={padding}>
             <LinkProvider href={linkHref} {...linkProps}>
               {linkText}
             </LinkProvider>
           </LinkContainer>
-        </ScrollAnimationWrapper>
+        </AnimationWrapper>
       )}
       {name && (
-        <ScrollAnimationWrapper>
+        <AnimationWrapper>
           <Heading padding={padding} hasLink={hasLink} {...rest}>
             {name}
           </Heading>
-        </ScrollAnimationWrapper>
+        </AnimationWrapper>
       )}
       {children}
     </>
