@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`doesn't parses section if unsupported 1`] = `
-Array [
-  Object {
+[
+  {
     "content": "# 1 Unsupported section",
     "type": "line",
   },
-  Object {
+  {
     "content": "1 paragraph.",
     "type": "line",
   },
@@ -14,16 +14,16 @@ Array [
 `;
 
 exports[`parses multiple paragraphs 1`] = `
-Array [
-  Object {
+[
+  {
     "content": "1 paragraph.",
     "type": "line",
   },
-  Object {
+  {
     "content": "2 paragraph.",
     "type": "line",
   },
-  Object {
+  {
     "content": "3 paragraph.",
     "type": "line",
   },
@@ -31,10 +31,10 @@ Array [
 `;
 
 exports[`parses nested sectioning 1`] = `
-Array [
-  Object {
-    "children": Array [
-      Object {
+[
+  {
+    "children": [
+      {
         "content": "1 paragraph.",
         "type": "line",
       },
@@ -42,15 +42,15 @@ Array [
     "name": null,
     "type": "section",
   },
-  Object {
-    "children": Array [
-      Object {
+  {
+    "children": [
+      {
         "content": "2 paragraph.",
         "type": "line",
       },
-      Object {
-        "children": Array [
-          Object {
+      {
+        "children": [
+          {
             "content": "3 paragraph.",
             "type": "line",
           },
@@ -62,9 +62,9 @@ Array [
     "name": "1 Section",
     "type": "section",
   },
-  Object {
-    "children": Array [
-      Object {
+  {
+    "children": [
+      {
         "content": "4 paragraph.",
         "type": "line",
       },
@@ -72,9 +72,9 @@ Array [
     "name": "2 Sub-section",
     "type": "section",
   },
-  Object {
-    "children": Array [
-      Object {
+  {
+    "children": [
+      {
         "content": "5 paragraph.",
         "type": "line",
       },
@@ -86,10 +86,10 @@ Array [
 `;
 
 exports[`parses section at start 1`] = `
-Array [
-  Object {
-    "children": Array [
-      Object {
+[
+  {
+    "children": [
+      {
         "content": "1 paragraph.",
         "type": "line",
       },
@@ -101,10 +101,10 @@ Array [
 `;
 
 exports[`parses section in middle 1`] = `
-Array [
-  Object {
-    "children": Array [
-      Object {
+[
+  {
+    "children": [
+      {
         "content": "1 paragraph.",
         "type": "line",
       },
@@ -112,9 +112,9 @@ Array [
     "name": null,
     "type": "section",
   },
-  Object {
-    "children": Array [
-      Object {
+  {
+    "children": [
+      {
         "content": "2 paragraph.",
         "type": "line",
       },
@@ -126,12 +126,12 @@ Array [
 `;
 
 exports[`parses single paragraph 1`] = `
-Array [
-  Object {
+[
+  {
     "content": "1 paragraph.",
     "type": "line",
   },
 ]
 `;
 
-exports[`parses whitespace 1`] = `Array []`;
+exports[`parses whitespace 1`] = `[]`;
