@@ -2,10 +2,10 @@
 
 exports[`SkipLink should render correctly 1`] = `
 <div
-  className="sc-bczRLJ fcZDZy"
+  className="sc-bcXHqe fzwuJr"
 >
   <a
-    className="sc-gsnTZi dttWYl"
+    className="sc-gswNZR irEuey"
     href="#main"
   >
     Skip to main content
@@ -15,10 +15,10 @@ exports[`SkipLink should render correctly 1`] = `
 
 exports[`SkipLink should support arbitrary props 1`] = `
 <div
-  className="sc-bczRLJ fcZDZy"
+  className="sc-bcXHqe fzwuJr"
 >
   <a
-    className="sc-gsnTZi dttWYl"
+    className="sc-gswNZR irEuey"
     href="#main"
   >
     Skip to main content
@@ -28,10 +28,10 @@ exports[`SkipLink should support arbitrary props 1`] = `
 
 exports[`SkipLink should support custom class names 1`] = `
 <div
-  className="sc-bczRLJ fcZDZy custom-classname"
+  className="sc-bcXHqe fzwuJr custom-classname"
 >
   <a
-    className="sc-gsnTZi dttWYl"
+    className="sc-gswNZR irEuey"
     href="#main"
   >
     Skip to main content

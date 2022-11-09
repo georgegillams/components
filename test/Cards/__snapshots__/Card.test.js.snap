@@ -3,22 +3,22 @@
 exports[`Card should render correctly 1`] = `
 <button
   aria-disabled={null}
-  className="sc-bczRLJ fxjpXu"
+  className="sc-bcXHqe kRKDYz"
   disabled={false}
   onClick={null}
   onKeyPress={[Function]}
   type="button"
 >
   <div
-    className="sc-dkzDqf hkFiab"
+    className="sc-dkrFOg issWQp"
     disabled={false}
   >
     <div
-      className="sc-hKMtZM kvlGVY"
+      className="sc-hLBbgP ePknQl"
       style={null}
     />
     <div
-      className="sc-eCYdqJ heBWoi"
+      className="sc-eDvSVe dgcnrq"
     >
       Some content
     </div>

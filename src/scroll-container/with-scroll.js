@@ -112,6 +112,10 @@ const withScroll = (ComponentToScroll) => {
     };
 
     removeEventListeners = () => {
+      if (!this.documentRef) {
+        return;
+      }
+
       this.documentRef.removeEventListener('scroll', this.checkPosition, {
         capture: true,
         ...this.getPassiveArgs(),
