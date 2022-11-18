@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.2
+
+### Bug Fixes
+
+- HTML script formatting fixes (#655)
+
 ## 28.5.1
 
 ## 28.5.0
