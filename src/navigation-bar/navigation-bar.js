@@ -122,14 +122,12 @@ const NavigationBar = (props) => {
       {/* This style is inlined to ensure that it is available as soon as the HTML is delivered to the browser. */}
 
       <style>
-        {/* The style is only applied if an ancestor element has the `js` class. */}
-        {`.${JS_CLASSNAME} .${CLASS_HIDE_JS} {
-  display: none;
-}`}
-        {/* The style is only applied if an ancestor element has the `no-js` class. */}
-        {`.${NO_JS_CLASSNAME} .${CLASS_HIDE_NO_JS} {
-  display: none;
-}`}
+        {/* The hide-js style is only applied if an ancestor element has the `js` class. */}
+        {/* The hide-no-js style is only applied if an ancestor element has the `no-js` class. */}
+        {`
+          .${JS_CLASSNAME} .${CLASS_HIDE_JS} { display: none; }
+          .${NO_JS_CLASSNAME} .${CLASS_HIDE_NO_JS} { display: none; }
+        `}
       </style>
       {show && (
         // scrim

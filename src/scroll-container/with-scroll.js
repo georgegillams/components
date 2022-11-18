@@ -181,11 +181,18 @@ const withScroll = (ComponentToScroll) => {
       return { x: 0, y: 0, width: viewPortWidth, height: viewPortHeight };
     };
 
-    isInViewPort = (elementRect, viewPortRect) =>
-      elementRect.bottom >= viewPortRect.y &&
-      elementRect.right >= viewPortRect.x &&
-      elementRect.top < viewPortRect.height &&
-      elementRect.left < viewPortRect.width;
+    isInViewPort = (elementRect, viewPortRect) => {
+      if (!elementRect || !viewPortRect) {
+        return false;
+      }
+
+      return (
+        elementRect.bottom >= viewPortRect.y &&
+        elementRect.right >= viewPortRect.x &&
+        elementRect.top < viewPortRect.height &&
+        elementRect.left < viewPortRect.width
+      );
+    };
 
     scrollPosition = (elementRect, viewPortRect) => {
       const elementHeight = elementRect.height;
