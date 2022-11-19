@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.4
+
+### Bug Fixes
+
+- Guard against elementRect null
+
 ## 28.5.2
 
 ### Bug Fixes
