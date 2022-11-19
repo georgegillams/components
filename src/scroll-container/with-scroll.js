@@ -195,6 +195,10 @@ const withScroll = (ComponentToScroll) => {
     };
 
     scrollPosition = (elementRect, viewPortRect) => {
+      if (!elementRect || !viewPortRect) {
+        return 0;
+      }
+
       const elementHeight = elementRect.height;
       const elementHeightInView = viewPortRect.height - elementRect.y;
       let elementPercentageInView = (100 * elementHeightInView) / elementHeight;
@@ -202,6 +206,10 @@ const withScroll = (ComponentToScroll) => {
     };
 
     scrollPositionVh = (elementRect, viewPortRect) => {
+      if (!elementRect || !viewPortRect) {
+        return 0;
+      }
+
       const elementMidpointInViewport = elementRect.y + elementRect.height / 2;
       const viewPortHeight = viewPortRect.height;
       let elementPercentageThroughViewport =
