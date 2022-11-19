@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.5
+
+### Bug Fixes
+
+- Add eslint-react-hooks (#657)
+
 ## 28.5.4
 
 ### Bug Fixes
