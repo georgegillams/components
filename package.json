@@ -25,7 +25,7 @@
     "lint:js": "eslint src && eslint test && eslint scripts",
     "lint:fix": "yarn lint:js:fix",
     "lint:js:fix": "eslint src --fix && eslint test --fix && eslint scripts --fix",
-    "transpile:clean": "rimraf ./dist",
+    "transpile:clean": "yarn rimraf ./dist",
     "pretranspile": "yarn transpile:clean",
     "pretest": "yarn test:clean",
     "prettier": "prettier --config .prettierrc --write \"**/*.js\"",
@@ -43,7 +43,7 @@
     "test:lint": "yarn lint",
     "test:jest": "cross-env jest --coverage",
     "test:jest:debug": "node --inspect node_modules/.bin/jest --runInBand --watchAll",
-    "test:clean": "rimraf ./coverage",
+    "test:clean": "yarn rimraf ./coverage",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll"
   },
   "lint-staged": {
