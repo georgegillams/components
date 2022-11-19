@@ -1,5 +1,16 @@
 # Changelog
 
+## 28.5.3
+
+### Bug Fixes
+
+- Fix 4
+- Does this work?
+- Fix 2
+- Fix 1
+- Guard against elementRect null
+- Reinstate yarn install
+
 ## 28.5.2
 
 ### Bug Fixes
