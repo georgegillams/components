@@ -20,6 +20,7 @@ yarn-error.log
 # built stuff
 dist
 build
+deploy
 app/helpers
 helpers/helpers
 server/api/helpers
