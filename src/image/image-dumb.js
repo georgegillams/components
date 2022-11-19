@@ -61,7 +61,7 @@ const ImageDumb = (props) => {
         setTransitioning(false);
       }, 400);
     }
-  }, [loaded, transitioning]);
+  }, [loaded, transitioning, showImage]);
 
   useEffect(() => {
     if (lightImageLoaded && darkImageLoaded && onImageLoad) {

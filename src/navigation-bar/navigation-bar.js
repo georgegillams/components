@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { scopeFocus, unscopeFocus } from 'a11y-focus-scope';
 import { JS_CLASSNAME, NO_JS_CLASSNAME } from '../js-feature-detector';
@@ -51,7 +51,7 @@ const NavigationBar = (props) => {
     }
   };
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setChanging(true);
     setOpen(false);
     setAppAriaHidden(false);
@@ -59,7 +59,7 @@ const NavigationBar = (props) => {
       setShow(false);
       setChanging(false);
     }, 500);
-  };
+  }, []);
 
   const openMenu = () => {
     setChanging(true);
@@ -83,7 +83,7 @@ const NavigationBar = (props) => {
       document.removeEventListener('keydown', escEventListener);
     };
     return cleanUp;
-  }, []);
+  }, [closeMenu]);
 
   const toggleMenu = () => {
     if (changing) {

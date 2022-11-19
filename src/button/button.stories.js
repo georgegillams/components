@@ -13,7 +13,7 @@ const ButtonStory = (props) => {
     if (focus && button.current) {
       button.current.focus();
     }
-  }, []);
+  }, [focus, button]);
 
   return (
     <div
