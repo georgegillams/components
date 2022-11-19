@@ -96,7 +96,7 @@
     "backstopjs": "^6.1.4",
     "core-js": "^3.26.0",
     "cross-env": "^7.0.3",
-    "css-loader": "6.7.1",
+    "css-loader": "6.7.2",
     "eslint": "^8.27.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
