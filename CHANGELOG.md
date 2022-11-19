@@ -1,5 +1,14 @@
 # Changelog
 
+## 28.5.6
+
+### Bug Fixes
+
+- fix dependenbot config
+- Remove deploy folder
+- Configure dependabot
+- 0434cb4 Create dependabot.yml
+
 ## 28.5.5
 
 ### Bug Fixes
