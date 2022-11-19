@@ -133,6 +133,12 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
+      - name: restore-yarn-cache
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
       # We use a fresh checkout here so that we can authenticate with a personal access token.
       # This allows us to push new commits to a protected branch, which we cannot do with default GH action token.
       - name: Pull git repo
@@ -141,12 +147,7 @@ jobs:
           git config --global user.email "<>"
           git config --global credential.helper cache
           git clone https://${{secrets.PUBLISH_GH_TOKEN}}@github.com/georgegillams/gg-components
-
-      - name: restore-yarn-cache
-        uses: actions/cache@v3
-        with:
-          path: 'gg-components/**/node_modules'
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('gg-components/**/yarn.lock') }}
+          mv node_modules gg-components/
 
       - name: npm install
         run: |
