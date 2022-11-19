@@ -16,9 +16,9 @@ import {
 } from './form-builder.styles';
 
 const FormBuilder = (props) => {
-  const [formId] = props.test
-    ? ['FORM_ID']
-    : useState(Math.random().toString(36).substring(7));
+  const [formId] = useState(
+    props.test ? 'FORM_ID' : Math.random().toString(36).substring(7),
+  );
 
   const {
     centered,

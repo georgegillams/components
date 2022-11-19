@@ -33,7 +33,7 @@ const useEffectAfterPageLoad = (effectFunc) => {
         cleanupFunc();
       }
     };
-  }, [pageLoaded]);
+  }, [pageLoaded, effectFunc]);
 };
 
 export default useEffectAfterPageLoad;
