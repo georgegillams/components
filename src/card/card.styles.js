@@ -7,10 +7,8 @@ import {
   notBlack,
   notBlackDarkMode,
   backgroundColorElevated,
-  backgroundColorElevatedinvert,
   backgroundColorElevatedDarkMode,
   primaryColor,
-  primaryColorDarkMode,
   primaryColorDark,
 } from '../constants/colors';
 import { spacingLg } from '../constants/layout';
