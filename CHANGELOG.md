@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.7
+
+### Bug Fixes
+
+- Fix module publishing (#664)
+
 ## 28.5.6
 
 ### Bug Fixes
