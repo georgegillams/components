@@ -8,12 +8,7 @@
   },
   "author": "George Gillams",
   "license": "MIT",
-  "type": "module",
   "main": "./index.js",
-  "exports": {
-    "import": "./index.mjs",
-    "require": "./index.cjs"
-  },
   "scripts": {
     "prerelease": "yarn transpile",
     "release": "babel-node scripts/release.js",
@@ -23,7 +18,8 @@
     "transpile:cjs": "babel src -d dist --copy-files --out-file-extension '.cjs' --config-file ./transpile-cjs-babel-config.cjs",
     "transpile:mjs": "babel src -d dist --copy-files --out-file-extension '.mjs' --config-file ./transpile-mjs-babel-config.cjs",
     "transpile:remove-stories": "find ./dist -name \"*stories.[m|c]js\" -exec rm {} \\;",
-    "transpile:js:live": "cp package.json ./dist/ && (yarn transpile:cjs --watch & yarn transpile:mjs --watch)",
+    "transpile:js:live": "yarn transpile:package-json && (yarn transpile:cjs --watch & yarn transpile:mjs --watch)",
+    "transpile:package-json": "babel-node scripts/transpile-package-json.js",
     "clean": "yarn test:clean && yarn build:clean",
     "dev": "yarn start",
     "fix:adapter-core-5": "cp ./scripts/adapter_core5.js node_modules/webrtc-adapter/src/js/adapter_core5.js",
@@ -119,7 +115,6 @@
     "file-loader": "6.2.0",
     "http-server": "^14.1.1",
     "jest-cli": "^29.3.1",
-    "jest-config": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
     "prettier": "^2.7.1",
     "react": "^18.2.0",

@@ -1,6 +1,4 @@
-import { defaults } from 'jest-config';
-
-export default {
+module.exports = {
   collectCoverageFrom: [
     'server/**/*.{js,jsx}',
     'app/**/*.{js,jsx}',
@@ -31,6 +29,4 @@ export default {
   },
   setupFilesAfterEnv: ['<rootDir>/config/test-setup.js'],
   testEnvironment: 'jsdom',
-  moduleFileExtensions: ['cjs', 'mjs', ...defaults.moduleFileExtensions],
-  transform: { '\\.m?[jt]sx?$': 'babel-jest' },
 };
