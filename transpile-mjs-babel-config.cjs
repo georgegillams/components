@@ -12,6 +12,6 @@ module.exports = {
     '@babel/preset-react',
   ],
   plugins: [
-    ['babel-plugin-add-import-extension', { extension: 'mjs', replace: true }],
+    ['babel-plugin-add-import-extension', { extension: 'js', replace: true }],
   ],
 };
