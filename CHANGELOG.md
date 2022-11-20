@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.10
+
+### Bug Fixes
+
+- Move jest-styled-components to dev
+
 ## 28.5.9
 
 ### Bug Fixes
