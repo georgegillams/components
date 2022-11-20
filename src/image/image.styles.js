@@ -47,9 +47,7 @@ export const LightImage = styled.img`
 export const DarkImage = styled.img`
   ${(props) => imageStyles(props)}
 
-  display: none;
-
-  @media (prefers-color-scheme: dark) {
-    display: unset;
+  @media not (prefers-color-scheme: dark) {
+    display: none;
   }
 `;
