@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.9
+
+### Bug Fixes
+
+- Revert modularisation (#666)
+
 ## 28.5.8
 
 ### Bug Fixes
