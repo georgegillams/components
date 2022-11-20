@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.8
+
+### Bug Fixes
+
+- Only output mjs (#665)
+
 ## 28.5.7
 
 ### Bug Fixes
