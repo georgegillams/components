@@ -25,7 +25,7 @@ const updatePackageFile = (newVersion) => {
   newPackageData.version = newVersion;
   const fileContent = `${JSON.stringify(newPackageData, null, 2)}\n`;
   writeFileSync('package.json', fileContent, 'utf8');
-  execSync('cp package.json ./dist/');
+  execSync('yarn transpile:package-json');
   execSync('cp README.md ./dist/');
   console.log(blue('package.json updated'));
 };
