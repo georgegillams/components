@@ -1,15 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   linkColor,
   linkColorDarkMode,
   linkColorHover,
   linkColorHoverDarkMode,
 } from '../constants/colors';
-import Text from '../text';
 import { focusStyle } from '../constants/styles';
 import NewWindow from '../icon/new-window';
 
-export const Anchor = styled(Text)`
+const anchorStyles = css`
   display: inline-block;
   border-radius: 0.25rem;
   font-weight: bold;
@@ -37,6 +36,14 @@ export const Anchor = styled(Text)`
         theme?.textLinkColorHoverDarkMode || linkColorHoverDarkMode};
     }
   }
+`;
+
+export const Anchor = styled.a`
+  ${anchorStyles}
+`;
+
+export const applyStylesToAnchor = (component) => styled(component)`
+  ${anchorStyles}
 `;
 
 export const IconContainer = styled.div`

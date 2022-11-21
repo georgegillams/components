@@ -1,6 +1,9 @@
 import React from 'react';
 
-import FeatureCard, { FEATURE_CARD_LAYOUTS } from './index';
+import FeatureCard, {
+  applyStylesToAnchor,
+  FEATURE_CARD_LAYOUTS,
+} from './index';
 import Tag, { TAG_TYPES } from '../tag';
 import { FeatureCardWithoutTheme } from './feature-card';
 
@@ -124,5 +127,20 @@ export const WithHref = () => (
     title="Title here"
     imageBorder="orchid"
     imageSrc={image}
+  />
+);
+
+const AnchorComponent = applyStylesToAnchor((props) => (
+  <a style={{ border: 'limegreen 10px solid' }} {...props} />
+));
+export const CustomAnchorComponent = () => (
+  <FeatureCard
+    annotations={['23', 'Jan']}
+    href="https://www.duckduckgo.com"
+    hrefExternal
+    title="Title here"
+    imageBorder="orchid"
+    imageSrc={image}
+    anchorComponent={AnchorComponent}
   />
 );

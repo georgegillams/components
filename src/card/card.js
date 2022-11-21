@@ -23,6 +23,7 @@ const Card = React.forwardRef((props, ref) => {
     atomic,
     highlighted,
     theme,
+    anchorComponent,
     ...rest
   } = props;
 
@@ -53,9 +54,11 @@ const Card = React.forwardRef((props, ref) => {
     atomicProps.tabIndex = -1;
   }
 
+  const OuterWrapper = anchorComponent || OuterLink;
+
   if (href && !disabled) {
     return (
-      <OuterLink
+      <OuterWrapper
         href={href}
         onClick={onClick}
         ref={ref}
@@ -64,7 +67,7 @@ const Card = React.forwardRef((props, ref) => {
         {...rest}
       >
         {cardContent}
-      </OuterLink>
+      </OuterWrapper>
     );
   }
 
@@ -102,6 +105,7 @@ Card.propTypes = {
   atomic: PropTypes.bool,
   highlighted: PropTypes.bool,
   theme: PropTypes.object.isRequired,
+  anchorComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 Card.defaultProps = {
@@ -116,6 +120,7 @@ Card.defaultProps = {
   padded: true,
   atomic: true,
   highlighted: false,
+  anchorComponent: null,
 };
 
 export default withStyledTheme(Card);

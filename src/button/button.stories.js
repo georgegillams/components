@@ -2,7 +2,11 @@
 import React, { useEffect, useRef } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import Button, { BUTTON_SIZES, BUTTON_TYPES } from './index';
+import Button, {
+  BUTTON_SIZES,
+  BUTTON_TYPES,
+  applyStylesToAnchor,
+} from './index';
 import { ButtonWithoutTheme } from './button';
 
 const ButtonStory = (props) => {
@@ -52,4 +56,15 @@ export const SideBySide = () => (
 );
 export const ExternalHref = () => (
   <ButtonStory hrefExternal href="https://duckduckgo.com/" />
+);
+
+const AnchorComponent = applyStylesToAnchor((props) => (
+  <a style={{ border: 'limegreen 10px solid' }} {...props} />
+));
+export const CustomAnchorComponent = () => (
+  <ButtonStory
+    hrefExternal
+    href="https://duckduckgo.com/"
+    anchorComponent={AnchorComponent}
+  />
 );
