@@ -24,20 +24,21 @@ export const StyledSkeleton = styled(Skeleton)`
   height: 100%;
 `;
 
-const imageStyles = (props) => css`
+const imageStyles = css`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   transition: opacity ease-in-out 0.4s;
-  ${!props.showImage &&
-  css`
-    opacity: 0;
-  `}
+  ${(props) =>
+    !props.showImage &&
+    css`
+      opacity: 0;
+    `}
 `;
 
 export const LightImage = styled.img`
-  ${(props) => imageStyles(props)}
+  ${imageStyles}
 
   @media (prefers-color-scheme: dark) {
     display: none;
@@ -45,7 +46,7 @@ export const LightImage = styled.img`
 `;
 
 export const DarkImage = styled.img`
-  ${(props) => imageStyles(props)}
+  ${imageStyles}
 
   display: none;
 

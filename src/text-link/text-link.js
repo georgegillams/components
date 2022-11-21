@@ -3,9 +3,18 @@ import PropTypes from 'prop-types';
 
 import withStyledTheme from '../styled-theming';
 import { Anchor, IconContainer, Icon } from './text-link.styles';
+import Text from '../text';
 
 const TextLink = React.forwardRef((props, ref) => {
-  const { href, hrefExternal, children, onClick, theme, ...rest } = props;
+  const {
+    href,
+    hrefExternal,
+    children,
+    onClick,
+    theme,
+    anchorComponent,
+    ...rest
+  } = props;
 
   const targettingProps = hrefExternal
     ? {
@@ -14,9 +23,10 @@ const TextLink = React.forwardRef((props, ref) => {
       }
     : {};
 
+  const OuterWrapper = anchorComponent || Anchor;
+
   return (
-    <Anchor
-      as="a"
+    <OuterWrapper
       theme={theme}
       href={href}
       onClick={onClick}
@@ -25,13 +35,13 @@ const TextLink = React.forwardRef((props, ref) => {
       {...targettingProps}
       {...rest}
     >
-      {children}
+      <Text>{children}</Text>
       {hrefExternal && (
         <IconContainer>
           <Icon />
         </IconContainer>
       )}
-    </Anchor>
+    </OuterWrapper>
   );
 });
 
@@ -41,6 +51,7 @@ TextLink.propTypes = {
   href: PropTypes.string,
   hrefExternal: PropTypes.bool,
   theme: PropTypes.object,
+  anchorComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 TextLink.defaultProps = {
@@ -49,6 +60,7 @@ TextLink.defaultProps = {
   hrefExternal: false,
   children: null,
   theme: null,
+  anchorComponent: null,
 };
 
 export default withStyledTheme(TextLink);
