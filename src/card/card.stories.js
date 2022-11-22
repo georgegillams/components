@@ -5,7 +5,7 @@ import Section from '../section';
 
 import backgroundImage from './backgroundImage.png';
 
-import Card from './index';
+import Card, { applyStylesToAnchor } from './index';
 import { CardWithoutTheme } from './card';
 
 export default { title: 'Molecules/Card', component: CardWithoutTheme };
@@ -65,5 +65,14 @@ export const NonAtomicWithHref = () => (
   <Card atomic={false} href="/test">
     <Section padding={false} name="Test" />{' '}
     <a href="https://duckduckgo.com">Link</a>
+  </Card>
+);
+
+const AnchorComponent = applyStylesToAnchor((props) => (
+  <a style={{ border: 'limegreen 10px solid' }} {...props} />
+));
+export const CustomAnchorComponent = () => (
+  <Card atomic href="/test" hrefExternal anchorComponent={AnchorComponent}>
+    Test
   </Card>
 );

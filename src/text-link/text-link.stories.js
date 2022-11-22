@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { StyledThemeProvider } from '../styled-theming';
 
-import TextLink from './index';
+import TextLink, { applyStylesToAnchor } from './index';
 import { TextLinkWithoutTheme } from './text-link';
 
 const testTheme = {
@@ -67,4 +67,17 @@ export const Themed = () => (
       Test
     </TextLink>
   </StyledThemeProvider>
+);
+const AnchorComponent = applyStylesToAnchor((props) => (
+  <a style={{ border: 'limegreen 10px solid' }} {...props} />
+));
+export const CustomAnchorComponent = () => (
+  <TextLink
+    hrefExternal
+    href="/lol"
+    name="Test"
+    anchorComponent={AnchorComponent}
+  >
+    Test
+  </TextLink>
 );

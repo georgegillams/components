@@ -24,6 +24,7 @@ const Button = React.forwardRef((props, ref) => {
     onClick,
     children,
     loading,
+    anchorComponent,
     ...rest
   } = props;
 
@@ -36,9 +37,11 @@ const Button = React.forwardRef((props, ref) => {
       }
     : {};
 
+  const OuterLink = anchorComponent || StyledLink;
+
   if (href && !disabled) {
     return (
-      <StyledLink
+      <OuterLink
         aria-label={children}
         href={href}
         onClick={onClick}
@@ -49,7 +52,7 @@ const Button = React.forwardRef((props, ref) => {
         {...rest}
       >
         <ChildContainer>{children}</ChildContainer>
-      </StyledLink>
+      </OuterLink>
     );
   }
 
@@ -106,6 +109,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.node,
+  anchorComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 Button.defaultProps = {
@@ -117,6 +121,7 @@ Button.defaultProps = {
   disabled: false,
   onClick: null,
   children: null,
+  anchorComponent: null,
 };
 
 export default withStyledTheme(Button);

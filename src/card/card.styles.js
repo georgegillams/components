@@ -20,7 +20,7 @@ import {
 } from '../constants/misc';
 import { focusStyle } from '../constants/styles';
 
-const outerStyles = (props) => css`
+const outerStyles = css`
   position: relative;
   display: inline-block; // a tag needs this
   z-index: 1;
@@ -40,10 +40,11 @@ const outerStyles = (props) => css`
     box-shadow: ${shadowNormalDarkMode};
   }
 
-  ${props.atomic &&
-  css`
-    ${focusStyle(true)};
-  `}
+  ${(props) =>
+    props.atomic &&
+    css`
+      ${focusStyle(true)};
+    `}
 
   &:disabled {
     cursor: not-allowed;
@@ -64,11 +65,15 @@ const outerStyles = (props) => css`
 `;
 
 export const OuterButton = styled.button.attrs({ type: 'button' })`
-  ${(props) => outerStyles(props)}
+  ${outerStyles}
 `;
 
 export const OuterLink = styled.a`
-  ${(props) => outerStyles(props)}
+  ${outerStyles}
+`;
+
+export const applyStylesToAnchor = (anchor) => styled(anchor)`
+  ${outerStyles}
 `;
 
 export const ContentOuterWrapper = styled.div`

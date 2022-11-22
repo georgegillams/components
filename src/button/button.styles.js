@@ -15,7 +15,7 @@ const ggBounceHoverEffect = keyframes`
   }
 `;
 
-const outerStyles = ({ theme, size, buttonType, disabled }) => css`
+const outerStyles = css`
   position: relative;
   min-width: 5rem;
   // average vertical padding of 0.375rem
@@ -31,48 +31,58 @@ const outerStyles = ({ theme, size, buttonType, disabled }) => css`
 
   ${focusStyle()}
 
-  ${buttonType === BUTTON_TYPES.primary &&
-  createStylesForButtonType(BUTTON_TYPES.primary, theme)}
+  ${({ buttonType, theme }) =>
+    buttonType === BUTTON_TYPES.primary &&
+    createStylesForButtonType(BUTTON_TYPES.primary, theme)}
 
-  ${size === BUTTON_SIZES.large &&
-  css`
-    min-width: 7rem;
-    // average vertical padding of 0.4rem
-    padding: 0.455rem 1.4rem 0.345rem 1.4rem;
-    font-size: 1.6rem;
-  `}
+  ${({ size }) =>
+    size === BUTTON_SIZES.large &&
+    css`
+      min-width: 7rem;
+      // average vertical padding of 0.4rem
+      padding: 0.455rem 1.4rem 0.345rem 1.4rem;
+      font-size: 1.6rem;
+    `}
 
-  ${buttonType === BUTTON_TYPES.bouncy &&
-  css`
-    ${createStylesForButtonType(BUTTON_TYPES.bouncy, theme)}
+  ${({ buttonType, theme }) =>
+    buttonType === BUTTON_TYPES.bouncy &&
+    css`
+      ${createStylesForButtonType(BUTTON_TYPES.bouncy, theme)}
 
-    min-width: unset;
-    padding: 0.2rem 0.8rem;
-    font-weight: normal;
+      min-width: unset;
+      padding: 0.2rem 0.8rem;
+      font-weight: normal;
 
-    &:focus,
-    &:active,
-    &:hover {
-      animation-duration: 0.4s;
-      animation-name: ${ggBounceHoverEffect};
-    }
-  `}
+      &:focus,
+      &:active,
+      &:hover {
+        animation-duration: 0.4s;
+        animation-name: ${ggBounceHoverEffect};
+      }
+    `}
 
-  ${buttonType === BUTTON_TYPES.destructive &&
-  createStylesForButtonType(BUTTON_TYPES.destructive, theme)}
+  ${({ buttonType, theme }) =>
+    buttonType === BUTTON_TYPES.destructive &&
+    createStylesForButtonType(BUTTON_TYPES.destructive, theme)}
 
-    ${disabled &&
-  css`
-    cursor: default;
-  `}
+    ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: default;
+    `}
 `;
 
 export const StyledButton = styled.button`
-  ${(props) => outerStyles(props)}
+  ${outerStyles}
 `;
 
 export const StyledLink = styled.a`
-  ${(props) => outerStyles(props)}
+  ${outerStyles};
+  display: inline-block;
+`;
+
+export const applyStylesToAnchor = (anchor) => styled(anchor)`
+  ${outerStyles};
   display: inline-block;
 `;
 

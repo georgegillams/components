@@ -48,8 +48,14 @@ export const NoPadding = () => (
 );
 export const WithCustomLinkComponent = () => (
   <PageTitle
-    linkProvider={(props) => (
-      <div style={{ padding: '1rem 0', background: 'lightgreen' }}>
+    anchorComponent={(props) => (
+      <div
+        style={{
+          padding: '1rem 0',
+          background: 'white',
+          border: 'limegreen 10px solid',
+        }}
+      >
         <a {...props} />
       </div>
     )}

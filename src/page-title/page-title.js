@@ -9,7 +9,7 @@ const PageTitle = (props) => {
   const {
     padding,
     link,
-    linkProvider: LinkProvider,
+    anchorComponent: AnchorComponent,
     name,
     linkProps,
     children,
@@ -30,9 +30,9 @@ const PageTitle = (props) => {
       {hasLink && (
         <AnimationWrapper>
           <LinkContainer padding={padding}>
-            <LinkProvider href={linkHref} {...linkProps}>
+            <AnchorComponent href={linkHref} {...linkProps}>
               {linkText}
-            </LinkProvider>
+            </AnchorComponent>
           </LinkContainer>
         </AnimationWrapper>
       )}
@@ -57,7 +57,7 @@ PageTitle.propTypes = {
   }),
   linkProps: PropTypes.object,
   children: PropTypes.node,
-  linkProvider: PropTypes.func,
+  anchorComponent: PropTypes.func,
 };
 
 PageTitle.defaultProps = {
@@ -66,7 +66,7 @@ PageTitle.defaultProps = {
   link: null,
   linkProps: null,
   children: null,
-  linkProvider: (props) => <TextLink {...props} />,
+  anchorComponent: (props) => <TextLink {...props} />,
 };
 
 export default PageTitle;
