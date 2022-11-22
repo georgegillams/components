@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.11
+
+### BREAKING
+
+- Support Next 13 links (#667)
+
 ## 28.5.10
 
 ### Bug Fixes
