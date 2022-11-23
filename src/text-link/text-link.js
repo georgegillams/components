@@ -25,6 +25,17 @@ const TextLink = React.forwardRef((props, ref) => {
 
   const OuterWrapper = anchorComponent || Anchor;
 
+  const content = hrefExternal ? (
+    <>
+      <Text>{children}</Text>
+      <IconContainer>
+        <Icon />
+      </IconContainer>
+    </>
+  ) : (
+    <Text>{children}</Text>
+  );
+
   return (
     <OuterWrapper
       theme={theme}
@@ -35,12 +46,7 @@ const TextLink = React.forwardRef((props, ref) => {
       {...targettingProps}
       {...rest}
     >
-      <Text>{children}</Text>
-      {hrefExternal && (
-        <IconContainer>
-          <Icon />
-        </IconContainer>
-      )}
+      {content}
     </OuterWrapper>
   );
 });
