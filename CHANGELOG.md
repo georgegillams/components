@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.12
+
+### Bug Fixes
+
+- Avoid multiple children in internal text link (#668)
+
 ## 28.5.11
 
 ### BREAKING
