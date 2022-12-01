@@ -3,7 +3,7 @@ import React from 'react';
 import PageTitle from './index';
 import { JS_CLASSNAME } from '../js-feature-detector';
 
-export default { title: 'Organisms/Page title', component: PageTitle };
+export default { title: 'Molecules/Page title', component: PageTitle };
 
 export const Title = () => (
   <PageTitle name="Test">

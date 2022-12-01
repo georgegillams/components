@@ -13,7 +13,7 @@ const ArticleDate = (props) => {
 };
 
 ArticleDate.propTypes = {
-  date: PropTypes.number.isRequired,
+  date: PropTypes.object.isRequired,
   padding: PropTypes.bool,
 };
 

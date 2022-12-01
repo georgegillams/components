@@ -31,7 +31,7 @@ const BlogCard = React.forwardRef((props, ref) => {
           {title}
         </Text>
         {tags.map((type) => (
-          <Tag type={type} />
+          <Tag key={type} type={type} />
         ))}
         {publishedDate && <Text>Published {publishedDate}</Text>}
       </LeftContainer>

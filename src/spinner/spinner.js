@@ -8,7 +8,7 @@ const Spinner = (props) => {
   return (
     <Outer large={large} light={light} {...rest}>
       {[...new Array(bladeCount)].map((_, key) => (
-        <Spoke index={key} large={large} light={light} />
+        <Spoke index={key} key={key} large={large} light={light} />
       ))}
     </Outer>
   );

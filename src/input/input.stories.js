@@ -20,7 +20,7 @@ const StatefulInput = (props) => {
 };
 
 export default {
-  title: 'Molecules/Input',
+  title: 'Atoms/Input',
   component: Input,
 };
 

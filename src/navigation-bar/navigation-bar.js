@@ -105,9 +105,10 @@ const NavigationBar = (props) => {
 
   const menuItemsWithClickBehaviour =
     menuItems &&
-    menuItems.map((menuItem) =>
+    menuItems.map((menuItem, index) =>
       menuItem
         ? React.cloneElement(menuItem, {
+            key: `menu_${index}`,
             onClick: closeMenu,
           })
         : null,

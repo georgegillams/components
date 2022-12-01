@@ -12,7 +12,7 @@ const backgroundImage =
   'https://via.placeholder.com/460x210/blue/black?text=image';
 
 export default {
-  title: 'Organisms/Feature card',
+  title: 'Molecules/Feature card',
   component: FeatureCardWithoutTheme,
 };
 

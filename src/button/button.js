@@ -87,7 +87,7 @@ const Button = React.forwardRef((props, ref) => {
       ref={ref}
       {...rest}
     >
-      <ChildContainer loading={loading}>
+      <ChildContainer $loading={loading}>
         {showDestructiveConfirmation && 'Click again to confirm '}
         {children}
       </ChildContainer>

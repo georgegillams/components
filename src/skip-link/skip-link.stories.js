@@ -4,7 +4,7 @@ import Paragraph from '../paragraph';
 
 import SkipLink from './index';
 
-export default { title: 'Molecules/Skip link', component: SkipLink };
+export default { title: 'Atoms/Skip link', component: SkipLink };
 
 export const Default = () => (
   <>

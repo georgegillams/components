@@ -9,7 +9,7 @@ export default {
 };
 
 export const InView = () => (
-  <div class="js">
+  <div className="js">
     <AnimatedContent inView>
       <div
         style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}
@@ -18,7 +18,7 @@ export const InView = () => (
   </div>
 );
 export const OutOfView = () => (
-  <div class="js">
+  <div className="js">
     <AnimatedContent inView={false}>
       <div
         style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}
@@ -28,7 +28,7 @@ export const OutOfView = () => (
 );
 
 export const NoJs = () => (
-  <div class="no-js">
+  <div className="no-js">
     <AnimatedContent inView={boolean('In view', false)}>
       <div
         style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}
@@ -38,7 +38,7 @@ export const NoJs = () => (
 );
 
 export const Interactive = () => (
-  <div class="js">
+  <div className="js">
     <AnimatedContent
       inView={boolean('In view', false)}
       animation={select(

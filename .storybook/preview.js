@@ -29,4 +29,9 @@ export const parameters = {
     container: DocsContainer,
     page: DocsPage,
   },
+  options: {
+    storySort: {
+      order: ['Docs', 'Tokens', 'Atoms', 'Molecules', 'Organisms', 'Modules'],
+    },
+  },
 };

@@ -91,7 +91,7 @@ const selectOptions = [
   { value: 'cranberry', name: 'Cranberry' },
 ];
 
-export default { title: 'Molecules/Select', component: Select };
+export default { title: 'Atoms/Select', component: Select };
 
 export const Default = () => <Select value="apple" options={selectOptions} />;
 export const Valid = () => (

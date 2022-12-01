@@ -2,7 +2,7 @@ import React from 'react';
 
 import Tag, { TAG_TYPES } from './index';
 
-export default { title: 'Molecules/Tag', component: Tag };
+export default { title: 'Atoms/Tag', component: Tag };
 
 export const Tech = () => <Tag type={TAG_TYPES.tech}>A tech tag</Tag>;
 export const Travel = () => <Tag type={TAG_TYPES.travel}>A travel tag</Tag>;

@@ -3,7 +3,7 @@ import Paragraph from '../paragraph';
 
 import { CodeInline } from './index';
 
-export default { title: 'Molecules/Code inline', component: CodeInline };
+export default { title: 'Atoms/Code inline', component: CodeInline };
 
 export const Default = () => <CodeInline>This is some code.</CodeInline>;
 export const InheritColor = () => (

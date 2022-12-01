@@ -5,7 +5,7 @@ import { CopyButtonWithoutTheme } from './copy-button';
 import CopyButton from './index';
 
 export default {
-  title: 'Molecules/Copy button',
+  title: 'Atoms/Copy button',
   component: CopyButtonWithoutTheme,
 };
 
