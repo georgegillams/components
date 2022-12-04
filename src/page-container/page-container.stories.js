@@ -4,7 +4,7 @@ import React from 'react';
 import PageContainer, { WIDTHS } from './index';
 
 export default {
-  title: 'Molecules/Page container',
+  title: 'Organisms/Page container',
   component: PageContainer,
 };
 

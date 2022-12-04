@@ -29,7 +29,7 @@ export const FadeAndDriftWrapperNoJs = () => (
 export const FadeAndDriftHOCNoJs = () => <DemoComponentWithScrollAnimation />;
 
 export const FadeAndDriftWrapperWithJs = () => (
-  <div class="js">
+  <div className="js">
     <ScrollAnimationWrapper>
       <DemoComponent />
     </ScrollAnimationWrapper>
@@ -37,7 +37,7 @@ export const FadeAndDriftWrapperWithJs = () => (
 );
 
 export const FadeWrapperWithJs = () => (
-  <div class="js">
+  <div className="js">
     <ScrollAnimationWrapper animation={ANIMATIONS.fade}>
       <DemoComponent />
     </ScrollAnimationWrapper>
@@ -45,13 +45,13 @@ export const FadeWrapperWithJs = () => (
 );
 
 export const FadeAndDriftHOCWithJs = () => (
-  <div class="js">
+  <div className="js">
     <DemoComponentWithScrollAnimation />
   </div>
 );
 
 export const FadeHOCWithJs = () => (
-  <div class="js">
+  <div className="js">
     <DemoComponentWithScrollAnimationFade />
   </div>
 );

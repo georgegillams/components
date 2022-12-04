@@ -7,7 +7,7 @@ import { BlogCardWithoutTheme } from './blog-card';
 const image = 'https://via.placeholder.com/460x460/red/white?text=image';
 
 export default {
-  title: 'Organisms/Blog card',
+  title: 'Molecules/Blog card',
   component: BlogCardWithoutTheme,
 };
 

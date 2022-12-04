@@ -104,7 +104,7 @@ const ImageDumb = (props) => {
                 className={imgClassName}
                 // This is a hack to ensure that the src is set after onload is.
                 // Otherwise onload may never be called as the image is already loaded when it's set
-                src={enableSrc && lightSrc}
+                src={enableSrc ? lightSrc : null}
                 {...imgPropsRest}
               />
               <DarkImage
@@ -113,7 +113,7 @@ const ImageDumb = (props) => {
                 className={imgClassName}
                 // This is a hack to ensure that the src is set after onload is.
                 // Otherwise onload may never be called as the image is already loaded when it's set
-                src={enableSrc && darkSrc}
+                src={enableSrc ? darkSrc : null}
                 {...imgPropsRest}
               />
             </div>

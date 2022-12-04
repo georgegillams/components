@@ -89,8 +89,8 @@ export const applyStylesToAnchor = (anchor) => styled(anchor)`
 export const ChildContainer = styled.span`
   display: flex;
   justify-content: center;
-  ${({ loading }) =>
-    loading &&
+  ${({ $loading }) =>
+    $loading &&
     css`
       opacity: 0.1;
     `}

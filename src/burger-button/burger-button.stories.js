@@ -19,7 +19,7 @@ const StatefulBurger = (props) => {
 };
 
 export default {
-  title: 'Molecules/Burger button',
+  title: 'Atoms/Burger button',
   component: BurgerButton,
 };
 export const Closed = () => <BurgerButton onClick={action('burger clicked')} />;

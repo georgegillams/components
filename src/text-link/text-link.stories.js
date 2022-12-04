@@ -28,7 +28,7 @@ const FocusTextLink = (props) => {
 };
 
 export default {
-  title: 'Molecules/Text link',
+  title: 'Atoms/Text link',
   component: TextLinkWithoutTheme,
 };
 export const Default = () => (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper } from './animate-height.styles';
 
@@ -22,15 +22,15 @@ const AnimateHeight = (props) => {
   const [expanding, setExpanding] = useState(false);
   const childElement = useRef(null);
 
-  const getContentHeight = () => {
+  const getContentHeight = useCallback(() => {
     if (!childElement || !childElement.current) {
       return 50;
     }
 
     return childElement.current.getBoundingClientRect().height + verticalMargin;
-  };
+  }, [childElement, verticalMargin]);
 
-  const scrollBackIntoView = () => {
+  const scrollBackIntoView = useCallback(() => {
     if (!childElement || !childElement.current) {
       return;
     }
@@ -45,7 +45,7 @@ const AnimateHeight = (props) => {
       top: currentScrollY + collapsingElementTop - (50 + scrollOffset),
       behavior: 'smooth',
     });
-  };
+  }, [childElement, scrollOffset]);
 
   useEffect(() => {
     if (expanded) {
@@ -80,7 +80,12 @@ const AnimateHeight = (props) => {
       setRenderHeight(getContentHeight());
       setNeedsCollapsing(false);
     }
-  }, [needsCollapsing, animationInProgress]);
+  }, [
+    needsCollapsing,
+    animationInProgress,
+    scrollBackIntoView,
+    getContentHeight,
+  ]);
 
   useEffect(() => {
     if (collapsingInProgress) {
@@ -102,7 +107,7 @@ const AnimateHeight = (props) => {
         setAnimationInProgress(false);
       }, 400);
     }
-  }, [expanding]);
+  }, [expanding, getContentHeight]);
 
   return (
     <Wrapper

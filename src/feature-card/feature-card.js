@@ -49,7 +49,7 @@ const FeatureCard = React.forwardRef((props, ref) => {
               <Text size={SIZES.lg}>{annotations.join(' ')}</Text>
             </AnnotationMobile>
             {annotations.map((annotation) => (
-              <AnnotationTablet>
+              <AnnotationTablet key={annotation}>
                 <Text size={SIZES.lg} key={annotation}>
                   {annotation}
                 </Text>

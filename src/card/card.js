@@ -59,6 +59,7 @@ const Card = React.forwardRef((props, ref) => {
   if (href && !disabled) {
     return (
       <OuterWrapper
+        as={atomic ? 'a' : 'div'}
         href={href}
         onClick={onClick}
         ref={ref}

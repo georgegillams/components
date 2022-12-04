@@ -29,6 +29,7 @@ const SpartanTrifectaDisplay = (props) => {
         (type, index) =>
           type && (
             <StyledSpartanTrifectaWedge
+              key={`${type}_${index}`}
               type={type}
               year={year}
               index={index}
