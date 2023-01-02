@@ -141,6 +141,8 @@ export const BackgroundImageContainer = styled.div`
     `}
 `;
 export const ChildrenContainer = styled.div`
+  height: 100%;
+
   ${({ padded }) =>
     padded &&
     css`
