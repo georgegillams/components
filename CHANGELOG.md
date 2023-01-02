@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.14
+
+### Bug Fixes
+
+- Card children fill height fix (#676)
+
 ## 28.5.13
 
 ### Bug Fixes
