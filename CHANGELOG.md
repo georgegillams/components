@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.15
+
+### Bug Fixes
+
+- Fix markdown code GT creating block-quote (#680)
+
 ## 28.5.14
 
 ### Bug Fixes
