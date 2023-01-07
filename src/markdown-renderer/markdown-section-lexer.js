@@ -115,6 +115,7 @@ const parseSections = (splitContent) => {
  * Turns a string into a list of sections and lines, ready for further processing
  */
 const lexStructure = (content, supportedFeatures) => {
+  // TODO: Filtering out empty lines should happen later so that code blocks can contain empty lines
   const splitContent = content.split('\n').filter((x) => x.trim() !== '');
   if (splitContent.length === 0) {
     return [];

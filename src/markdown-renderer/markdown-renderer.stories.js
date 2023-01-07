@@ -216,6 +216,22 @@ export const LinkAndItalicLimitedToJustLink = () => (
     content="This contains a [link](/test) and _italics_"
   />
 );
+
+export const GreaterThanInsideCode = () => (
+  <MarkdownRenderer
+    content={`
+Some text first.
+
+\`\`\`javascript
+const someVariable = 5;
+
+const someFunction = (arg1, arg2) =>  {
+  return arg1 + arg2;
+}
+  `}
+  />
+);
+
 export const Extreme = () => (
   <MarkdownRenderer
     content={`
