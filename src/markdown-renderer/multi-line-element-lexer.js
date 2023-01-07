@@ -1,7 +1,7 @@
 /* eslint-disable prefer-destructuring */
 
 /* eslint-disable no-useless-escape */
-const MD_QUOTATION_REGEX = /\>\ (.*)/gims;
+const MD_QUOTATION_REGEX = /^\>\ (.*)/gims;
 const MD_BULLET_REGEX = /^\s+\-\ (.*)/gims;
 const MD_NUMBERED_REGEX = /^\s+[0-9]+\.\ (.*)/gims;
 const MD_CODE_BLOCK_START_REGEX = /```\ ?(.*)/gims;
