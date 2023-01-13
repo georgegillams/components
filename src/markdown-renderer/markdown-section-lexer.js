@@ -42,7 +42,7 @@ const parseSectioning = (
   listIfUnsectioned = true,
 ) => {
   if (splitContent.length === 0) {
-    return { type, name: null, children: [] };
+    return [{ type, name: null, children: [] }];
   }
 
   const results = [];

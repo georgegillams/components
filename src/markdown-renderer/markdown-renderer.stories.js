@@ -232,6 +232,20 @@ const someFunction = (arg1, arg2) =>  {
   />
 );
 
+export const EmptyHeadings = () => (
+  <MarkdownRenderer
+    content={`
+
+# h1 Heading
+
+
+# h1 Heading 8-)
+
+
+`}
+  ></MarkdownRenderer>
+);
+
 export const Extreme = () => (
   <MarkdownRenderer
     content={`
