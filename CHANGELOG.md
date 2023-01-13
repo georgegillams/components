@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.5.16
+
+### Bug Fixes
+
+- Fix MD renderer crash when rendering 2 H1s (#682)
+
 ## 28.5.15
 
 ### Bug Fixes
