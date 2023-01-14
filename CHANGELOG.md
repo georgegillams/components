@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.8.0
+
+### Features
+
+- Migrate icon and constants to TS (#685)
+
 ## 28.7.0
 
 ### Features
