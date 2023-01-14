@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.7.0
+
+### Features
+
+- Include types in transpiled package (#684)
+
 ## 28.6.1
 
 ### Bug Fixes
