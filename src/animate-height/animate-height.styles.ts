@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     padding 0.2s ease-in-out;
   overflow: hidden;
 
-  ${({ isExpanded }) =>
+  ${({ isExpanded }: { isExpanded: boolean }) =>
     isExpanded &&
     css`
       margin: -1rem;
