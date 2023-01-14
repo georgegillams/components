@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.6.1
+
+### Bug Fixes
+
+- Fix transpile
+
 ## 28.6.0
 
 ### Features
