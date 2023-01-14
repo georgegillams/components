@@ -15,7 +15,7 @@
     "release": "babel-node scripts/release.js",
     "release:alpha": "yarn release --alpha",
     "transpile": "yarn pretranspile && yarn transpile:js && yarn transpile:remove-stories",
-    "transpile:js": "babel src -d dist --copy-files --extensions \".ts\"",
+    "transpile:js": "babel src -d dist --copy-files --extensions \".js,.ts\"",
     "transpile:remove-stories": "find ./dist -name \"*stories.[tj]s\" -exec rm {} \\;",
     "transpile:js:live": "cp package.json ./dist/ && yarn transpile:js --watch",
     "clean": "yarn test:clean && yarn build:clean",
