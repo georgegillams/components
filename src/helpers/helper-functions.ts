@@ -1,5 +1,5 @@
 class HelperFunctions {
-  static includes(container, value) {
+  static includes(container: string, value: string) {
     let returnValue = false;
     const pos = container.indexOf(value);
     if (pos >= 0) {
@@ -8,14 +8,14 @@ class HelperFunctions {
     return returnValue;
   }
 
-  static isArray(obj) {
+  static isArray(obj: any) {
     if (typeof obj !== 'object') {
       return false;
     }
     return Object.prototype.toString.call(obj) === '[object Array]';
   }
 
-  static isLocalHost(url) {
+  static isLocalHost(url: string) {
     let returnValue = false;
     const pos =
       url.indexOf(':3000') +
@@ -28,17 +28,18 @@ class HelperFunctions {
     return returnValue;
   }
 
-  static evalCompat(code) {
+  static evalCompat(code: string) {
     if (typeof window === 'undefined' || this.getBrowser(window).ie) {
+      // @ts-ignore
       return () => null;
     }
     return eval(code); // eslint-disable-line
   }
 
-  static getBrowser(window) {
+  static getBrowser(window: Window) {
     const ua = window.navigator.userAgent;
 
-    let browser = false;
+    let browser: number | boolean = false;
 
     // Test values; Uncomment to check result …
 
