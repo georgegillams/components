@@ -1,8 +1,22 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  MutableRefObject,
+} from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper } from './animate-height.styles';
 
-const AnimateHeight = (props) => {
+type animateHeightProps = {
+  expanded: boolean;
+  children: React.ReactNode;
+  verticalMargin: number;
+  bleedEdges: boolean;
+  scrollOffset: number;
+};
+
+const AnimateHeight = (props: animateHeightProps) => {
   const {
     expanded,
     children,
@@ -20,7 +34,7 @@ const AnimateHeight = (props) => {
   const [needsExpanding, setNeedsExpanding] = useState(false);
   const [collapsingInProgress, setCollapsingInProgress] = useState(false);
   const [expanding, setExpanding] = useState(false);
-  const childElement = useRef(null);
+  const childElement: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
   const getContentHeight = useCallback(() => {
     if (!childElement || !childElement.current) {
@@ -113,6 +127,7 @@ const AnimateHeight = (props) => {
     <Wrapper
       expanded={bleedEdges && expanded}
       aria-hidden={!expanded}
+      // @ts-ignore
       style={{ height: renderHeight }}
       {...rest}
     >
