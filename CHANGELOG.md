@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.6.0
+
+### Features
+
+- Add typescript (#683)
+
 ## 28.5.16
 
 ### Bug Fixes
