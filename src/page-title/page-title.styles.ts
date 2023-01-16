@@ -1,11 +1,14 @@
 import styled, { css } from 'styled-components';
 import { pageMarginTop, pageTitleMarginTop } from '../constants/font';
-import Text, { SIZES } from '../text';
+import Text, { SIZES, TAG_NAME } from '../text';
 
 export const Heading = styled(Text).attrs({
   size: SIZES.xxl,
-  tagName: 'h1',
-})`
+  tagName: TAG_NAME.h1,
+})<{
+  hasLink?: boolean;
+  padding?: boolean;
+}>`
   margin: ${pageTitleMarginTop} 0 0 0;
 
   ${({ hasLink }) =>
@@ -21,7 +24,9 @@ export const Heading = styled(Text).attrs({
     `}
 `;
 
-export const LinkContainer = styled.div`
+export const LinkContainer = styled.div<{
+  padding?: boolean;
+}>`
   margin: ${pageMarginTop} 0 0 0;
 
   ${({ padding }) =>

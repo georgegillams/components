@@ -2,7 +2,9 @@ import styled, { css } from 'styled-components';
 import { notBlack } from '../constants/colors';
 import { NOTIFICATION_TYPES } from './notification';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{
+  type: NOTIFICATION_TYPES;
+}>`
   width: 100%;
   display: flex;
   padding: 0.8rem;

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { notBlack, notBlackDarkMode, primaryColor } from '../constants/colors';
-import { borderRadiusSm, spacingLg, spacingSm } from '../constants/layout';
+import { spacingLg } from '../constants/layout';
 import { focusStyle } from '../constants/styles';
 import Image from '../image';
 
@@ -52,7 +52,9 @@ export const ImageContainer = styled.div`
   margin-left: ${spacingLg};
 `;
 
-export const StyledImage = styled(Image)`
+export const StyledImage = styled(Image)<{
+  disabled?: boolean;
+}>`
   z-index: 3;
   width: 100%;
   height: 100%;

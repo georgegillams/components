@@ -8,6 +8,6 @@ const StyledAnimatedContentWithScroll = styled(AnimatedContentWithScroll)`
   width: 100%;
 `;
 
-export const ScrollAnimationWrapper = (props) => (
+export const ScrollAnimationWrapper = <T extends {}>(props: T) => (
   <StyledAnimatedContentWithScroll {...props} />
 );
