@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.8.1
+
+### Bug Fixes
+
+- Typescript helpers, text, tag (#687)
+
 ## 28.8.0
 
 ### Features
