@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.8.2
+
+### Bug Fixes
+
+- f9710a4 Update main.cjs (#688)
+
 ## 28.8.1
 
 ### Bug Fixes
