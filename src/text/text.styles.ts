@@ -7,7 +7,16 @@ import {
   fontSizeSm,
   fontSizeXs,
 } from '../constants/font';
-import { SIZES } from './constants.js';
+import { SIZES } from './constants';
+
+export interface TextComponentProps {
+  size: string;
+  children: React.ReactNode;
+}
+
+export interface TextProps extends TextComponentProps {
+  tagName: string;
+}
 
 const sizeStyles = {
   [SIZES.xxl]: css`
@@ -36,7 +45,7 @@ const sizeStyles = {
 
 export const commonStyles = css`
   margin: 0;
-  ${(props) => sizeStyles[props.size]}
+  ${(props: TextProps) => sizeStyles[props.size]}
 `;
 
 export const StyledH1 = styled.h1`
