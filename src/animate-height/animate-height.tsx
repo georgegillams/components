@@ -8,7 +8,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { Wrapper } from './animate-height.styles';
 
-type animateHeightProps = {
+type AnimateHeightProps = {
   expanded: boolean;
   children: React.ReactNode;
   verticalMargin: number;
@@ -16,7 +16,7 @@ type animateHeightProps = {
   scrollOffset: number;
 };
 
-const AnimateHeight = (props: animateHeightProps) => {
+const AnimateHeight = (props: AnimateHeightProps) => {
   const {
     expanded,
     children,

@@ -1,13 +1,17 @@
+import React from 'react';
+
 const formValueChanged = (
-  object,
-  attributeName,
-  event,
-  action,
-  callback = null,
+  object: { [key: string]: any },
+  attributeName: string,
+  event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  action: Function | null = null,
+  callback: Function | null = null,
 ) => {
   const newValue = JSON.parse(JSON.stringify(object));
   newValue[attributeName] =
-    event.target.value === 'on' ? event.target.checked : event.target.value;
+    event.target.value === 'on'
+      ? (event as React.ChangeEvent<HTMLInputElement>).target.checked
+      : event.target.value;
   if (action) {
     action(newValue);
   }
@@ -16,8 +20,11 @@ const formValueChanged = (
   }
 };
 
-const createDictionary = (data, keyProperty) => {
-  const dict = {};
+const createDictionary = (
+  data: Array<{ [key: string]: any }>,
+  keyProperty: string,
+) => {
+  const dict: { [key: string]: any } = {};
   for (let i = 0; i < data.length; i += 1) {
     const key = data[i][keyProperty];
     if (dict[key]) {
@@ -29,20 +36,23 @@ const createDictionary = (data, keyProperty) => {
   return dict;
 };
 
-const deArrayitise = (array) => {
-  if (array && array.length === 1) {
-    return array[0];
+const deArrayitise = <T>(input: T | Array<T>): T | null => {
+  if (Array.isArray(input)) {
+    if (input.length === 0) {
+      return null;
+    }
+    return input[0];
   }
-  return array;
+  return input;
 };
 
 const associate = (
-  data,
-  additionalData,
-  dataKey,
-  additionalDataKey,
-  associationName,
-  preventDearrayisation,
+  data: Array<{ [key: string]: any }>,
+  additionalData: Array<{ [key: string]: any }>,
+  dataKey: string,
+  additionalDataKey: string,
+  associationName: string,
+  preventDearrayisation: boolean,
 ) => {
   const newData = JSON.parse(JSON.stringify(data));
 

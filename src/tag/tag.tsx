@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, StyledTag } from './tag.styles';
+import { Wrapper, StyledTag, TagProps } from './tag.styles';
 import { TAG_TYPES, TAG_TEXT_MAPPING } from './constants';
 
-const Tag = (props) => {
+const Tag = (props: TagProps) => {
   const { type, children, ...rest } = props;
 
   const tagComponent = (

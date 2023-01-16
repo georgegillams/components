@@ -1,11 +1,11 @@
 const POST_LOGIN_REDIRECT_LOCATION = 'post-login-redirect-location';
 
-const setPostLoginRedirect = (location) => {
+const setPostLoginRedirect = (location: string) => {
   localStorage.setItem(POST_LOGIN_REDIRECT_LOCATION, location);
 };
 
 const redirectToCurrentPageAfterLogin = () => {
-  const currentLocation = window.location;
+  const currentLocation = window.location.toString();
   setPostLoginRedirect(currentLocation);
 };
 

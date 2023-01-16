@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, ReactComponentElement } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -8,10 +8,14 @@ import {
   StyledH4,
   StyledP,
   StyledSpan,
-} from './text.styles.js';
-import { SIZES } from './constants.js';
+  TextProps,
+  TextComponentProps,
+} from './text.styles';
+import { SIZES } from './constants';
 
-const componentForTagName = {
+const componentForTagName: {
+  [tagName: string]: (props: TextComponentProps) => JSX.Element;
+} = {
   h1: StyledH1,
   h2: StyledH2,
   h3: StyledH3,
@@ -20,7 +24,7 @@ const componentForTagName = {
   p: StyledP,
 };
 
-const Text = (props) => {
+const Text = (props: TextProps) => {
   const { size, tagName, children, ...rest } = props;
 
   const Component = componentForTagName[tagName];
