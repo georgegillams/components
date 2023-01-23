@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { SIZES } from '../text';
-import { commonPropTypes, commonDefaultProps } from './constants';
 import {
   Outer,
   StyledLink,
@@ -9,15 +8,23 @@ import {
   StyledText,
 } from './section.styles';
 
-const Section = (props) => {
+export interface SectionProps {
+  padding?: boolean;
+  anchor?: boolean;
+  name?: string;
+  children?: React.ReactNode;
+  headingProps?: object; // For backwards compatibility
+  isSubsection?: boolean;
+}
+
+const Section = (props: SectionProps) => {
   const {
-    padding,
-    anchor,
+    padding = false,
+    anchor = false,
     name,
     children,
-    textClassName, // For backwards compatibility
     headingProps, // For backwards compatibility
-    isSubsection,
+    isSubsection = false,
     ...rest
   } = props;
 
@@ -52,16 +59,6 @@ const Section = (props) => {
       {children}
     </Outer>
   );
-};
-
-Section.propTypes = {
-  ...commonPropTypes,
-  isSubsection: PropTypes.bool,
-};
-
-Section.defaultProps = {
-  ...commonDefaultProps,
-  isSubsection: false,
 };
 
 export default Section;

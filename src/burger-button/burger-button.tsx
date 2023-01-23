@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InnerWrapper, Line, OuterWrapper } from './burger-button.styles';
 
-const BurgerButton = (props) => {
+export type BurgerButtonProps = {
+  onClick?: () => void;
+  isOpen?: boolean;
+};
+
+const BurgerButton = (props: BurgerButtonProps) => {
   const { onClick, isOpen, ...rest } = props;
 
   return (
@@ -25,15 +30,11 @@ const BurgerButton = (props) => {
 BurgerButton.propTypes = {
   isOpen: PropTypes.bool,
   onClick: PropTypes.func,
-  className: PropTypes.string,
-  lineClassName: PropTypes.string,
 };
 
 BurgerButton.defaultProps = {
   isOpen: false,
   onClick: null,
-  className: null,
-  lineClassName: null,
 };
 
 export default BurgerButton;

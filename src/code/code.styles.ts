@@ -7,6 +7,13 @@ import {
   primaryColorDarkMode,
 } from '../constants/colors';
 
+export interface CodeProps {
+  inheritColor?: boolean;
+  children: React.ReactNode;
+  lang?: string;
+  githubUrl?: string;
+}
+
 const codeStyle = css`
   position: relative;
   padding: 0.5rem;
@@ -41,7 +48,7 @@ export const StyledCodeBashArrow = styled.span`
   font-size: 0.6rem;
 `;
 
-export const StyledCodeInline = styled.span`
+export const StyledCodeInline = styled.span<CodeProps>`
   ${codeStyle}
   ${codeStyleLight}
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledCodeInline } from './code.styles';
+import { CodeProps, StyledCodeInline } from './code.styles';
 
-const CodeInline = (props) => {
+const CodeInline = (props: CodeProps) => {
   const { ...rest } = props;
 
   return <StyledCodeInline {...rest} />;

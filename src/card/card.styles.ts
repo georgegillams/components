@@ -20,21 +20,25 @@ import {
 } from '../constants/misc';
 import { focusStyle } from '../constants/styles';
 
-const outerStyles = css`
+const outerStyles = css<{
+  atomic?: boolean;
+}>`
   position: relative;
-  display: inline-block; // a tag needs this
+  // a tag needs display: inline-block
+  display: inline-block;
   z-index: 1;
   width: 100%;
-  padding: 0; // button tag applies padding
-  transition: all 0.4s;
-  border: none; // button tag applies border
-  border-radius: 0.35rem;
-  background: none; // override system button style
-  text-align: left; // button tag centers things by default
   text-decoration: none;
   box-shadow: ${shadowNormal};
   cursor: pointer;
   box-sizing: border-box;
+  // revert button tag default styles
+  padding: 0;
+  transition: all 0.4s;
+  border: none;
+  border-radius: 0.35rem;
+  background: none;
+  text-align: left;
 
   @media (prefers-color-scheme: dark) {
     box-shadow: ${shadowNormalDarkMode};
@@ -72,11 +76,16 @@ export const OuterLink = styled.a`
   ${outerStyles}
 `;
 
-export const applyStylesToAnchor = (anchor) => styled(anchor)`
+export const applyStylesToAnchor = (anchor: React.ComponentType) => styled(
+  anchor,
+)`
   ${outerStyles}
 `;
 
-export const ContentOuterWrapper = styled.div`
+export const ContentOuterWrapper = styled.div<{
+  highlighted?: boolean;
+  disabled?: boolean;
+}>`
   position: relative;
   width: 100%;
   height: 100%;
@@ -107,7 +116,10 @@ export const ContentOuterWrapper = styled.div`
     `}
 `;
 
-export const BackgroundImageContainer = styled.div`
+export const BackgroundImageContainer = styled.div<{
+  light?: boolean;
+  fillImageSrc?: string;
+}>`
   position: absolute;
   top: 0;
   left: 0;
@@ -140,7 +152,10 @@ export const BackgroundImageContainer = styled.div`
       background-image: url(${fillImageSrc});
     `}
 `;
-export const ChildrenContainer = styled.div`
+
+export const ChildrenContainer = styled.div<{
+  padded?: boolean;
+}>`
   height: 100%;
 
   ${({ padded }) =>
@@ -149,6 +164,3 @@ export const ChildrenContainer = styled.div`
       padding: ${spacingLg};
     `}
 `;
-
-//   &__background {
-// }

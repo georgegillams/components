@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import BurgerButton from './index';
+import { BurgerButtonProps } from './burger-button';
 
-const StatefulBurger = (props) => {
+const StatefulBurger = (props: BurgerButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

@@ -10,7 +10,21 @@ import {
   VisibleLabel,
 } from './checkbox.styles';
 
-const Checkbox = (props) => {
+export interface CheckboxProps
+  extends Omit<React.HTMLAttributes<HTMLLabelElement>, 'onChange'> {
+  disabled?: boolean;
+  checked?: boolean;
+  indeterminate?: boolean;
+  light?: boolean;
+  valid?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+  label?: string;
+  theme?: any;
+}
+
+const Checkbox = (props: CheckboxProps) => {
   const {
     onChange,
     name,
@@ -31,13 +45,13 @@ const Checkbox = (props) => {
       <InputWrapper>
         <Input
           aria-invalid={invalid}
-          aria-disabled={disabled ? true : null}
+          aria-disabled={disabled ? true : undefined}
           aria-label={label}
           name={name}
           type="checkbox"
           checked={checked}
           readOnly={!onChange}
-          onChange={enabled ? onChange : null}
+          onChange={enabled ? onChange : undefined}
           disabled={disabled}
           valid={valid}
           {...inputProps}
@@ -69,14 +83,14 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
-  onChange: null,
+  onChange: undefined,
   inputProps: {},
   checked: false,
   disabled: false,
-  valid: null,
-  theme: null,
+  valid: undefined,
+  theme: undefined,
 };
 
-export default withStyledTheme(Checkbox);
+export default withStyledTheme<CheckboxProps>(Checkbox);
 
 export { Checkbox as CheckboxWithoutTheme };

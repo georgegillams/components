@@ -8,7 +8,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { Wrapper } from './animate-height.styles';
 
-type AnimateHeightProps = {
+export type AnimateHeightProps = {
   expanded: boolean;
   children: React.ReactNode;
   verticalMargin: number;

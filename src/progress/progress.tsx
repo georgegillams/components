@@ -3,8 +3,14 @@ import PropTypes from 'prop-types';
 import { Inner, Outer } from './progress.styles';
 import withStyledTheme from '../styled-theming';
 
-const Progress = (props) => {
-  const { error, progress, max, theme, ...rest } = props;
+export interface ProgressProps {
+  progress: number;
+  max?: number;
+  theme?: any;
+}
+
+const Progress = (props: ProgressProps) => {
+  const { progress, max = 100, theme, ...rest } = props;
 
   const cappedProgress = Math.min(max, progress);
   const progressPercentage = (100 * cappedProgress) / max;
@@ -12,7 +18,7 @@ const Progress = (props) => {
   return (
     <Outer
       aria-valuenow={cappedProgress}
-      aria-valuemin="0"
+      aria-valuemin={0}
       aria-valuemax={max}
       {...rest}
     >
@@ -26,10 +32,6 @@ Progress.propTypes = {
   max: PropTypes.number,
 };
 
-Progress.defaultProps = {
-  max: 100,
-};
-
-export default withStyledTheme(Progress);
+export default withStyledTheme<ProgressProps>(Progress);
 
 export { Progress as ProgressWithoutTheme };
