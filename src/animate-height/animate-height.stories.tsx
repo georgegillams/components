@@ -9,7 +9,11 @@ const content2 =
   'Lorem ipse dolor siLorem ipse dolor siLorem ipse dolor siLorem ipse dolor siLorem ipse dolor siLorem ipse dolor siLorem ipse dolor sitttttttLorem ipse dolor sit';
 const cardContent = <Card>content1</Card>;
 
-const StatefulAnimateHeight = (props) => {
+type StatefulAnimateHeightProps = {
+  children?: React.ReactNode;
+};
+
+const StatefulAnimateHeight = (props: StatefulAnimateHeightProps) => {
   const { children, ...rest } = props;
   const [expanded, setExpanded] = useState(false);
   const [content, setContent] = useState(false);

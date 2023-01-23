@@ -2,7 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link, Wrapper } from './skip-link.styles';
 
-const SkipLink = (props) => {
+export interface SkipLinkProps {
+  label: string;
+  href: string;
+}
+
+const SkipLink = (props: SkipLinkProps) => {
   const { label, href, ...rest } = props;
 
   return (

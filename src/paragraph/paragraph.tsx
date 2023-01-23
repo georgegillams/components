@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 import { StyledParagraph } from './paragraph.styles';
 
-const Paragraph = (props) => {
+export interface ParagraphProps {
+  padding?: boolean;
+  children?: React.ReactNode;
+}
+
+const Paragraph = (props: ParagraphProps) => {
   const { ...rest } = props;
 
   return <StyledParagraph {...rest} />;
