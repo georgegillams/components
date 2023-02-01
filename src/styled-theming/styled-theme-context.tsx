@@ -48,10 +48,19 @@ export const STYLED_THEMES = {
   ),
 };
 
-export const StyledThemeContext = React.createContext(
+export interface ThemeContextType {
+  theme: any;
+}
+
+export interface ThemeProviderProps extends ThemeContextType {
+  children: React.ReactNode;
+}
+
+export const StyledThemeContext = React.createContext<ThemeContextType>(
   { theme: STYLED_THEMES.default }, // default value
 );
 
-export const StyledThemeProvider = ({ theme, ...rest }) => (
-  <StyledThemeContext.Provider value={{ theme }} {...rest} />
-);
+export const StyledThemeProvider = (props: ThemeProviderProps) => {
+  const { theme, ...rest } = props;
+  return <StyledThemeContext.Provider value={{ theme }} {...rest} />;
+};

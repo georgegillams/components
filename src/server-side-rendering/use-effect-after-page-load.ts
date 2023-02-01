@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useEffectAfterPageLoad = (effectFunc) => {
+const useEffectAfterPageLoad = (effectFunc: () => () => void) => {
   const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const useEffectAfterPageLoad = (effectFunc) => {
   }, []);
 
   useEffect(() => {
-    let cleanupFunc = null;
+    let cleanupFunc: (() => void) | null = null;
 
     if (pageLoaded) {
       cleanupFunc = effectFunc();
