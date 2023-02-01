@@ -8,7 +8,11 @@ import {
   subsectionMarginTop,
 } from '../constants/font';
 
-export const Outer = styled.div`
+export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+  skeletonStyle?: typeof SKELETON_STYLES[keyof typeof SKELETON_STYLES];
+}
+
+export const Outer = styled.div<SkeletonProps>`
   position: relative;
   width: 100%;
   border-radius: 0.25rem;

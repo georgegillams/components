@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bladeCount, Outer, Spoke } from './spinner.styles';
+import { bladeCount, Outer, SpinnerProps, Spoke } from './spinner.styles';
 
-const Spinner = (props) => {
+const Spinner = (props: SpinnerProps) => {
   const { large, light, ...rest } = props;
 
   return (
