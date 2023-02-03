@@ -3,8 +3,16 @@ import PropTypes from 'prop-types';
 import { Button, Icon } from './copy-button.styles';
 import withStyledTheme from '../styled-theming';
 
-const CopyButton = (props) => {
-  const { text, accessibilityLabel, className, theme, ...rest } = props;
+export interface CopyButtonProps
+  extends React.HTMLAttributes<HTMLButtonElement> {
+  text: string;
+  onClick?: (event: React.MouseEvent) => void;
+  accessibilityLabel?: string;
+  theme?: any;
+}
+
+const CopyButton = (props: CopyButtonProps) => {
+  const { text, accessibilityLabel, theme, ...rest } = props;
 
   return (
     <Button
@@ -19,17 +27,6 @@ const CopyButton = (props) => {
   );
 };
 
-CopyButton.propTypes = {
-  text: PropTypes.string.isRequired,
-  accessibilityLabel: PropTypes.string,
-  theme: PropTypes.object,
-};
-
-CopyButton.defaultProps = {
-  accessibilityLabel: null,
-  theme: null,
-};
-
-export default withStyledTheme(CopyButton);
+export default withStyledTheme<CopyButtonProps>(CopyButton);
 
 export { CopyButton as CopyButtonWithoutTheme };

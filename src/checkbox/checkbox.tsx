@@ -10,15 +10,28 @@ import {
   VisibleLabel,
 } from './checkbox.styles';
 
-const Checkbox = (props) => {
+export interface CheckboxProps extends React.HTMLAttributes<HTMLElement> {
+  disabled?: boolean;
+  checked?: boolean;
+  indeterminate?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  light?: boolean;
+  valid?: boolean;
+  name: string;
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+  label?: string;
+  theme?: any;
+}
+
+const Checkbox = (props: CheckboxProps) => {
   const {
     onChange,
     name,
     label,
-    checked,
-    disabled,
+    checked = false,
+    disabled = false,
     valid,
-    inputProps,
+    inputProps = {},
     theme,
     ...rest
   } = props;
@@ -31,13 +44,13 @@ const Checkbox = (props) => {
       <InputWrapper>
         <Input
           aria-invalid={invalid}
-          aria-disabled={disabled ? true : null}
+          aria-disabled={disabled ? true : undefined}
           aria-label={label}
           name={name}
           type="checkbox"
           checked={checked}
           readOnly={!onChange}
-          onChange={enabled ? onChange : null}
+          onChange={enabled ? onChange : undefined}
           disabled={disabled}
           valid={valid}
           {...inputProps}
@@ -56,27 +69,6 @@ const Checkbox = (props) => {
   );
 };
 
-Checkbox.propTypes = {
-  onChange: PropTypes.func,
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  inputProps: PropTypes.object,
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  valid: PropTypes.bool,
-  theme: PropTypes.object,
-};
-
-Checkbox.defaultProps = {
-  onChange: null,
-  inputProps: {},
-  checked: false,
-  disabled: false,
-  valid: null,
-  theme: null,
-};
-
-export default withStyledTheme(Checkbox);
+export default withStyledTheme<CheckboxProps>(Checkbox);
 
 export { Checkbox as CheckboxWithoutTheme };

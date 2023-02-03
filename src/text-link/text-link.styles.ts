@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import {
   linkColor,
@@ -42,7 +43,9 @@ export const Anchor = styled.a`
   ${anchorStyles}
 `;
 
-export const applyStylesToAnchor = (component) => styled(component)`
+export const applyStylesToAnchor = (component: React.ComponentType) => styled(
+  component,
+)`
   ${anchorStyles}
 `;
 

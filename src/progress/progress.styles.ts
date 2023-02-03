@@ -14,7 +14,9 @@ export const Outer = styled.div.attrs({ role: 'progressbar' })`
 
 export const Inner = styled.div.attrs({
   ariaHidden: true,
-})`
+})<{
+  progressPercentage: number;
+}>`
   height: 100%;
   transition: width 0.4s ease-in-out;
   border-radius: 5rem;

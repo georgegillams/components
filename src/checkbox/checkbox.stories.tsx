@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import Checkbox from './index';
-import { CheckboxWithoutTheme } from './checkbox';
+import { CheckboxProps, CheckboxWithoutTheme } from './checkbox';
 import { StyledThemeProvider } from '../styled-theming';
 
-const StatefulCheckbox = (props) => {
+const StatefulCheckbox = (props: { checked?: CheckboxProps['checked'] }) => {
   const [checked, setChecked] = useState(props.checked);
 
   return (
@@ -17,7 +17,7 @@ const StatefulCheckbox = (props) => {
       onChange={(e) => setChecked(e.target.checked)}
       label={text('Label', 'Label')}
       disabled={boolean('Disabled', false)}
-      valid={select('Valid', [null, true, false], null)}
+      valid={select('Valid', [undefined, true, false], undefined)}
     />
   );
 };

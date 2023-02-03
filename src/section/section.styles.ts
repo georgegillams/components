@@ -21,7 +21,9 @@ export const Outer = styled.div`
   }
 `;
 
-export const StyledLinkContainer = styled.div`
+export const StyledLinkContainer = styled.div<{
+  isSubsection: boolean;
+}>`
   position: absolute;
   margin-top: -2px;
   opacity: 0.5;
@@ -42,7 +44,9 @@ export const StyledLinkContainer = styled.div`
   }
 `;
 
-export const StyledLink = styled(TextLink)`
+export const StyledLink = styled(TextLink)<{
+  isSubsection: boolean;
+}>`
   ${({ isSubsection }) =>
     isSubsection &&
     css`
@@ -51,7 +55,12 @@ export const StyledLink = styled(TextLink)`
     `}
 `;
 
-export const StyledText = styled(Text)`
+export const StyledText = styled(Text)<{
+  anchor: boolean;
+  padding: boolean;
+  isSubsection: boolean;
+  id: string;
+}>`
   ${({ anchor }) =>
     anchor &&
     css`

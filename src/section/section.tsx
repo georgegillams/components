@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { SIZES } from '../text';
-import { commonPropTypes, commonDefaultProps } from './constants';
+import { SIZE, TAG_NAME } from '../text';
 import {
   Outer,
   StyledLink,
@@ -9,15 +8,23 @@ import {
   StyledText,
 } from './section.styles';
 
-const Section = (props) => {
+export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
+  padding?: boolean;
+  anchor?: boolean;
+  name?: string;
+  children?: React.ReactNode;
+  headingProps?: object;
+  isSubsection?: boolean;
+}
+
+const Section = (props: SectionProps) => {
   const {
-    padding,
-    anchor,
+    padding = false,
+    anchor = false,
     name,
     children,
-    textClassName, // For backwards compatibility
-    headingProps, // For backwards compatibility
-    isSubsection,
+    headingProps,
+    isSubsection = false,
     ...rest
   } = props;
 
@@ -38,8 +45,8 @@ const Section = (props) => {
       )}
       {name && (
         <StyledText
-          size={isSubsection ? SIZES.lg : SIZES.xl}
-          tagName={isSubsection ? 'h3' : 'h2'}
+          size={isSubsection ? SIZE.lg : SIZE.xl}
+          tagName={isSubsection ? TAG_NAME.h3 : TAG_NAME.h2}
           id={anchorLink}
           anchor={anchor}
           padding={padding}
@@ -52,16 +59,6 @@ const Section = (props) => {
       {children}
     </Outer>
   );
-};
-
-Section.propTypes = {
-  ...commonPropTypes,
-  isSubsection: PropTypes.bool,
-};
-
-Section.defaultProps = {
-  ...commonDefaultProps,
-  isSubsection: false,
 };
 
 export default Section;
