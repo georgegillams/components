@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.8.4
+
+### Bug Fixes
+
+- TS fixes (#694)
+
 ## 28.8.3
 
 ## 28.8.2
