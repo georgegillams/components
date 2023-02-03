@@ -8,11 +8,9 @@ import {
   subsectionMarginTop,
 } from '../constants/font';
 
-export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
-  skeletonStyle?: typeof SKELETON_STYLES[keyof typeof SKELETON_STYLES];
-}
-
-export const Outer = styled.div<SkeletonProps>`
+export const Outer = styled.div<{
+  skeletonStyle?: SKELETON_STYLES;
+}>`
   position: relative;
   width: 100%;
   border-radius: 0.25rem;
@@ -159,5 +157,3 @@ export const Shimmer = styled.div`
     );
   }
 `;
-
-// }

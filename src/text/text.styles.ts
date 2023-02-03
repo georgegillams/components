@@ -7,45 +7,38 @@ import {
   fontSizeSm,
   fontSizeXs,
 } from '../constants/font';
-import { SIZES } from './constants';
-
-export interface TextComponentProps {
-  size: string;
-  children: React.ReactNode;
-}
-
-export interface TextProps extends TextComponentProps {
-  tagName: string;
-}
+import { SIZE } from './constants';
 
 const sizeStyles = {
-  [SIZES.xxl]: css`
+  [SIZE.xxl]: css`
     font-size: ${fontSizeXxl};
     font-weight: bold;
   `,
-  [SIZES.xl]: css`
+  [SIZE.xl]: css`
     font-size: ${fontSizeXl};
     font-weight: bold;
   `,
-  [SIZES.lg]: css`
+  [SIZE.lg]: css`
     font-size: ${fontSizeLg};
     font-weight: bold;
   `,
-  [SIZES.md]: css`
+  [SIZE.md]: css`
     font-size: ${fontSizeMd};
   `,
-  [SIZES.sm]: css`
+  [SIZE.sm]: css`
     font-size: ${fontSizeSm};
   `,
-  [SIZES.xs]: css`
+  [SIZE.xs]: css`
     font-size: ${fontSizeXs};
   `,
-  [SIZES.inherit]: css``,
+  [SIZE.inherit]: css``,
 };
 
-export const commonStyles = css`
+export const commonStyles = css<{
+  size: SIZE;
+}>`
   margin: 0;
-  ${(props: TextProps) => sizeStyles[props.size]}
+  ${(props) => sizeStyles[props.size]}
 `;
 
 export const StyledH1 = styled.h1`

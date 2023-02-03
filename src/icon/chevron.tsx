@@ -1,6 +1,7 @@
 import React from 'react';
+import { IconProps } from './constants';
 
-import { Icon, IconProps } from './icon.styles';
+import { Icon } from './icon.styles';
 
 const ExclamationCircle = (props: IconProps) => {
   return (

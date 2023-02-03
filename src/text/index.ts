@@ -1,2 +1,2 @@
 export { default } from './text';
-export { SIZES } from './constants';
+export { SIZE, TAG_NAME } from './constants';

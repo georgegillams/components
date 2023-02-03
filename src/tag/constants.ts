@@ -1,12 +1,12 @@
-export const TAG_TYPES = {
-  tech: 'tech',
-  travel: 'travel',
-  photography: 'photography',
-  events: 'events',
-  security: 'security',
-};
+export enum TAG_TYPES {
+  tech,
+  travel,
+  photography,
+  events,
+  security,
+}
 
-export const TAG_TEXT_MAPPING = {
+export const TAG_TEXT_MAPPING: Record<TAG_TYPES, string> = {
   [TAG_TYPES.tech]: 'Tech',
   [TAG_TYPES.travel]: 'Travel',
   [TAG_TYPES.photography]: 'Photography',

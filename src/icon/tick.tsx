@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Icon, IconProps } from './icon.styles';
+import { Icon } from './icon.styles';
+import { IconProps } from './constants';
 
 const Tick = (props: IconProps) => {
   return (
