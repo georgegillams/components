@@ -4,15 +4,6 @@ import { notBlack, notBlackDarkMode } from '../constants/colors';
 export const spinTime = 0.8;
 export const bladeCount = 8;
 
-export interface SpinnerProps {
-  light?: boolean;
-  large?: boolean;
-}
-
-export interface SpokeProps extends SpinnerProps {
-  index: number;
-}
-
 const spinnerFade = keyframes`
   0% {
     opacity: 1
@@ -22,7 +13,10 @@ const spinnerFade = keyframes`
       }
       `;
 
-export const Outer = styled.div<SpinnerProps>`
+export const Outer = styled.div<{
+  large?: boolean;
+  light?: boolean;
+}>`
   position: relative;
   display: inline-block;
   width: 1.125rem;
@@ -51,7 +45,10 @@ export const Outer = styled.div<SpinnerProps>`
     `}
 `;
 
-export const Spoke = styled.div<SpokeProps>`
+export const Spoke = styled.div<{
+  index: number;
+  large?: boolean;
+}>`
   position: absolute;
   bottom: 0.05rem;
   left: 0.5rem;

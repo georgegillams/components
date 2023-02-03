@@ -1,21 +1,21 @@
 import React from 'react';
 
-import Text, { SIZES } from './index';
+import Text, { SIZE } from './index';
 import { text, select } from '@storybook/addon-knobs';
 
 export default { title: 'Atoms/Text', component: Text };
 
 export const Default = () => (
-  <Text size={select('Size', Object.keys(SIZES), SIZES.md)}>
+  <Text size={select('Size', Object.keys(SIZE), SIZE.md) as SIZE}>
     {text('Text', 'Lorem ipsum')}
   </Text>
 );
 
 export const EverySize = () => (
   <>
-    {Object.keys(SIZES).map((s) => (
+    {Object.keys(SIZE).map((s) => (
       <div key={s}>
-        <Text size={s}>Lorem ipsum — {s}</Text>
+        <Text size={s as SIZE}>Lorem ipsum — {s}</Text>
         <br />
       </div>
     ))}

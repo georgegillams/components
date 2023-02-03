@@ -1,14 +1,11 @@
 import styled, { css } from 'styled-components';
 import { TAG_TYPES } from './constants';
 
-export type TagProps = {
-  type: string;
-  children: React.ReactNode;
-};
-
 export const Wrapper = styled.div``;
 
-export const StyledTag = styled.span`
+export const StyledTag = styled.span<{
+  type: TAG_TYPES;
+}>`
   position: relative;
   top: 0.15rem;
   height: 1rem;
@@ -21,7 +18,7 @@ export const StyledTag = styled.span`
   text-decoration: none;
   text-decoration-color: transparent;
   text-decoration-line: none;
-  ${({ type }: TagProps) => {
+  ${({ type }) => {
     switch (type) {
       case TAG_TYPES.tech:
         return css`

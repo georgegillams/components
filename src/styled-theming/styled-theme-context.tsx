@@ -1,5 +1,7 @@
 import React from 'react';
 
+// TODO: Define Theme type
+
 const themeProperties = [
   'textLinkColor',
   'textLinkColorHover',
@@ -37,7 +39,7 @@ const themeProperties = [
   'cardHoverForegroundColorHoverDarkMode',
 ];
 
-export const STYLED_THEMES = {
+export const STYLED_THEMES: Record<string, any> = {
   default: themeProperties.reduce(
     (prev, next) => ({ ...prev, [next]: null }),
     {},

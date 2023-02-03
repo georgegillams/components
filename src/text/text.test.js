@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import Text from './text';
+import { TAG_NAME } from './constants';
 
 describe('text', () => {
   it('should render children', () => {
@@ -12,7 +13,7 @@ describe('text', () => {
   });
 
   it('should be rendered with provided tag', () => {
-    render(<Text as="h2">content</Text>);
+    render(<Text tagName={TAG_NAME.h2}>content</Text>);
 
     const text = screen.getByRole('heading');
     expect(text).toBeTruthy();

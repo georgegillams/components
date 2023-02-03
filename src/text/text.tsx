@@ -1,5 +1,5 @@
 import React, { Component, ReactComponentElement } from 'react';
-import PropTypes from 'prop-types';
+import { SIZE, TAG_NAME } from './constants';
 
 import {
   StyledH1,
@@ -8,13 +8,18 @@ import {
   StyledH4,
   StyledP,
   StyledSpan,
-  TextProps,
-  TextComponentProps,
 } from './text.styles';
-import { SIZES } from './constants';
+
+export interface TextProps extends React.HTMLAttributes<HTMLElement> {
+  size?: SIZE;
+  tagName?: TAG_NAME;
+  children: React.ReactNode;
+}
 
 const componentForTagName: {
-  [tagName: string]: (props: TextComponentProps) => JSX.Element;
+  [tagName: string]: React.ComponentType<{
+    size: SIZE;
+  }>;
 } = {
   h1: StyledH1,
   h2: StyledH2,
@@ -25,7 +30,12 @@ const componentForTagName: {
 };
 
 const Text = (props: TextProps) => {
-  const { size, tagName, children, ...rest } = props;
+  const {
+    size = SIZE.inherit,
+    tagName = TAG_NAME.span,
+    children,
+    ...rest
+  } = props;
 
   const Component = componentForTagName[tagName];
   if (!Component) {
@@ -38,12 +48,5 @@ const Text = (props: TextProps) => {
     </Component>
   );
 };
-
-Text.propTypes = {
-  size: PropTypes.string,
-  tagName: PropTypes.oneOf(Object.keys(componentForTagName)),
-};
-
-Text.defaultProps = { size: SIZES.inherit, tagName: 'span' };
 
 export default Text;

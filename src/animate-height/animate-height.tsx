@@ -5,24 +5,24 @@ import React, {
   useCallback,
   MutableRefObject,
 } from 'react';
-import PropTypes from 'prop-types';
 import { Wrapper } from './animate-height.styles';
 
-type AnimateHeightProps = {
-  expanded: boolean;
+export interface AnimateHeightProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  expanded?: boolean;
   children: React.ReactNode;
-  verticalMargin: number;
-  bleedEdges: boolean;
-  scrollOffset: number;
-};
+  verticalMargin?: number;
+  bleedEdges?: boolean;
+  scrollOffset?: number;
+}
 
 const AnimateHeight = (props: AnimateHeightProps) => {
   const {
-    expanded,
+    expanded = false,
+    verticalMargin = 0,
+    bleedEdges = false,
+    scrollOffset = 0,
     children,
-    verticalMargin,
-    bleedEdges,
-    scrollOffset,
     ...rest
   } = props;
 
@@ -134,21 +134,6 @@ const AnimateHeight = (props: AnimateHeightProps) => {
       <div ref={childElement}>{showChildren && children}</div>
     </Wrapper>
   );
-};
-
-AnimateHeight.propTypes = {
-  verticalMargin: PropTypes.number,
-  expanded: PropTypes.bool,
-  bleedEdges: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  scrollOffset: PropTypes.number,
-};
-
-AnimateHeight.defaultProps = {
-  verticalMargin: 0,
-  bleedEdges: false,
-  expanded: false,
-  scrollOffset: 0,
 };
 
 export default AnimateHeight;

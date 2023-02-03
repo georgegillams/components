@@ -1,27 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { bladeCount, Outer, SpinnerProps, Spoke } from './spinner.styles';
+import { bladeCount, Outer, Spoke } from './spinner.styles';
+
+export interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
+  light?: boolean;
+  large?: boolean;
+}
 
 const Spinner = (props: SpinnerProps) => {
-  const { large, light, ...rest } = props;
+  const { large = false, light = false, ...rest } = props;
 
   return (
     <Outer large={large} light={light} {...rest}>
       {[...new Array(bladeCount)].map((_, key) => (
-        <Spoke index={key} key={key} large={large} light={light} />
+        <Spoke index={key} key={key} large={large} />
       ))}
     </Outer>
   );
-};
-
-Spinner.propTypes = {
-  light: PropTypes.bool,
-  large: PropTypes.bool,
-};
-
-Spinner.defaultProps = {
-  light: false,
-  large: false,
 };
 
 export default Spinner;

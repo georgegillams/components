@@ -1,10 +1,6 @@
 import React, { ComponentType, useContext } from 'react';
 
-import {
-  ThemeContextType,
-  StyledThemeContext,
-  STYLED_THEMES,
-} from './styled-theme-context';
+import { StyledThemeContext, STYLED_THEMES } from './styled-theme-context';
 
 const withStyledTheme = <P extends object>(Component: ComponentType<P>) => {
   const StyledThemedComponent = React.forwardRef((props: P, ref) => {
