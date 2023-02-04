@@ -2,8 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InnerWrapper, Line, OuterWrapper } from './burger-button.styles';
 
-const BurgerButton = (props) => {
-  const { onClick, isOpen, ...rest } = props;
+export interface BurgerButtonProps
+  extends React.HTMLAttributes<HTMLButtonElement> {
+  onClick?: () => void;
+  isOpen?: boolean;
+}
+
+const BurgerButton = (props: BurgerButtonProps) => {
+  const { onClick, isOpen = false, ...rest } = props;
 
   return (
     <OuterWrapper
@@ -20,20 +26,6 @@ const BurgerButton = (props) => {
       </InnerWrapper>
     </OuterWrapper>
   );
-};
-
-BurgerButton.propTypes = {
-  isOpen: PropTypes.bool,
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  lineClassName: PropTypes.string,
-};
-
-BurgerButton.defaultProps = {
-  isOpen: false,
-  onClick: null,
-  className: null,
-  lineClassName: null,
 };
 
 export default BurgerButton;

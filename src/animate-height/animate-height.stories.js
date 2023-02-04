@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
 import Card from '../card';
@@ -18,8 +17,8 @@ const StatefulAnimateHeight = (props) => {
   const [bleedEdges, setBleedEdges] = useState(false);
 
   const OuterComponent = bleedEdges
-    ? (p) => <Card {...p} />
-    : (p) => <div {...p} />;
+    ? ({ ...p }) => <Card {...p} />
+    : ({ ...p }) => <div {...p} />;
 
   return (
     <>

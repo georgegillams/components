@@ -27,7 +27,9 @@ export const InputWrapper = styled.div`
   height: 1.5rem;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<{
+  valid?: boolean;
+}>`
   position: absolute;
   top: 0;
   left: 0;
@@ -75,7 +77,11 @@ export const Input = styled.input`
   }}
 `;
 
-export const Icon = styled(TickIcon)`
+export const Icon = styled(TickIcon)<{
+  checked?: boolean;
+  disabled?: boolean;
+  valid?: boolean;
+}>`
   position: absolute;
   top: 0.12rem;
   left: 0.15rem;
@@ -137,21 +143,20 @@ export const Icon = styled(TickIcon)`
   }}
 `;
 
-export const VisibleLabel = styled.div`
-     margin-left: 0.5rem;
-     color: ${notBlack};
-     font-size: 1.2rem;
+export const VisibleLabel = styled.div<{
+  disabled?: boolean;
+}>`
+  margin-left: 0.5rem;
+  color: ${notBlack};
+  font-size: 1.2rem;
 
-     @media (prefers-color-scheme: dark) {
-       color: ${notBlackDarkMode};
-     }
+  @media (prefers-color-scheme: dark) {
+    color: ${notBlackDarkMode};
+  }
 
-     ${({ disabled }) =>
-       disabled &&
-       css`
-         color: ${disabledBackgroundColor};
-       `}
-     }
-   }
-
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${disabledBackgroundColor};
+    `}
 `;

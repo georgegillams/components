@@ -22,7 +22,7 @@ export const Button = styled.button`
   ${focusStyle(true)}
 `;
 
-export const Icon = styled(Copy)`
+export const Icon = styled(Copy)<{ theme: any }>`
   ${({ theme }) => css`
     color: ${theme?.textLinkColor || linkColor};
     fill: ${theme?.textLinkColor || linkColor};

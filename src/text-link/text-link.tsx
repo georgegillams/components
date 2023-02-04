@@ -5,10 +5,19 @@ import withStyledTheme from '../styled-theming';
 import { Anchor, IconContainer, Icon } from './text-link.styles';
 import Text from '../text';
 
-const TextLink = React.forwardRef((props, ref) => {
+export interface TextLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  children: React.ReactNode;
+  href?: string;
+  hrefExternal?: boolean;
+  theme?: any;
+  anchorComponent?: React.ComponentType;
+}
+
+const TextLink = React.forwardRef((props: TextLinkProps, ref: any) => {
   const {
     href,
-    hrefExternal,
+    hrefExternal = false,
     children,
     onClick,
     theme,
@@ -42,7 +51,7 @@ const TextLink = React.forwardRef((props, ref) => {
       href={href}
       onClick={onClick}
       ref={ref}
-      aria-label={hrefExternal ? `${children} (opens in a new tab)` : null}
+      aria-label={hrefExternal ? `${children} (opens in a new tab)` : undefined}
       {...targettingProps}
       {...rest}
     >
@@ -50,24 +59,6 @@ const TextLink = React.forwardRef((props, ref) => {
     </OuterWrapper>
   );
 });
-
-TextLink.propTypes = {
-  onClick: PropTypes.func,
-  children: PropTypes.node,
-  href: PropTypes.string,
-  hrefExternal: PropTypes.bool,
-  theme: PropTypes.object,
-  anchorComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-};
-
-TextLink.defaultProps = {
-  onClick: null,
-  href: null,
-  hrefExternal: false,
-  children: null,
-  theme: null,
-  anchorComponent: null,
-};
 
 export default withStyledTheme(TextLink);
 

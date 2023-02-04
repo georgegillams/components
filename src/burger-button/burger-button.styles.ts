@@ -19,7 +19,7 @@ export const InnerWrapper = styled.div`
   height: 100%;
 `;
 
-export const Line = styled.div`
+export const Line = styled.div<{ isOpen?: boolean }>`
   position: absolute;
   left: 0;
   width: 100%;
