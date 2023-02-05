@@ -1,1 +1,1 @@
-export { default } from './section';
+export { default, PublicSectionProps as SectionProps } from './section';
