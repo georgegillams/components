@@ -18,7 +18,7 @@
     "transpile:ts": "tsc --skipLibCheck",
     "transpile:js": "babel src -d dist",
     "transpile:remove-stories": "find ./dist -name \"*stories.[tj]s\" -exec rm {} \\;",
-    "transpile:js:live": "cp package.json ./dist/ && yarn transpile:js --watch",
+    "transpile:js:live": "cp package.json ./dist/ && (yarn transpile:js --watch & yarn transpile:ts --watch)",
     "clean": "yarn test:clean && yarn build:clean",
     "dev": "yarn start",
     "fix:adapter-core-5": "cp ./scripts/adapter_core5.js node_modules/webrtc-adapter/src/js/adapter_core5.js",
