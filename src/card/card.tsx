@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   ChildrenContainer,
   BackgroundImageContainer,
@@ -9,11 +8,28 @@ import {
 } from './card.styles';
 import withStyledTheme from '../styled-theming';
 
-const Card = React.forwardRef((props, ref) => {
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  href?: string;
+  hrefExternal?: boolean;
+  onClick?: (event: React.MouseEvent<any>) => void;
+  padded?: boolean;
+  fillImageSrc?: string;
+  light?: boolean;
+  ariaLabel?: string;
+  backgroundImageStyle?: React.CSSProperties;
+  children?: React.ReactNode;
+  disabled?: boolean;
+  atomic?: boolean;
+  highlighted?: boolean;
+  theme?: any;
+  anchorComponent?: React.ComponentType;
+}
+
+const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
   const {
     href,
     onClick,
-    padded,
+    padded = true,
     fillImageSrc,
     light,
     ariaLabel,
@@ -43,7 +59,10 @@ const Card = React.forwardRef((props, ref) => {
 
   // If atomic, enable keyboard focus and don't mess with roles.
   // If non-atomic, disable keyboard focus and use article role.
-  const atomicProps = {};
+  const atomicProps: {
+    role?: string;
+    tabIndex?: number;
+  } = {};
 
   if (!atomic) {
     atomicProps.role = 'group';
@@ -59,9 +78,11 @@ const Card = React.forwardRef((props, ref) => {
   if (href && !disabled) {
     return (
       <OuterWrapper
+        // @ts-ignore
         as={atomic ? 'a' : 'div'}
-        href={href}
+        href={atomic ? href : undefined}
         onClick={onClick}
+        // @ts-ignore
         ref={ref}
         disabled={disabled}
         {...atomicProps}
@@ -72,17 +93,11 @@ const Card = React.forwardRef((props, ref) => {
     );
   }
 
-  const onPress = (e) => {
-    if (e.key === 'Enter') {
-      onClick(e);
-    }
-  };
-
   return (
     <OuterButton
-      aria-disabled={disabled ? 'true' : null}
-      onClick={disabled ? null : onClick}
-      onKeyPress={disabled ? null : onPress}
+      aria-disabled={disabled ? 'true' : undefined}
+      onClick={disabled ? undefined : onClick}
+      // @ts-ignore
       ref={ref}
       disabled={disabled}
       {...atomicProps}
@@ -92,37 +107,6 @@ const Card = React.forwardRef((props, ref) => {
     </OuterButton>
   );
 });
-
-Card.propTypes = {
-  ariaLabel: PropTypes.string,
-  backgroundImageStyle: PropTypes.object,
-  children: PropTypes.node,
-  disabled: PropTypes.bool,
-  fillImageSrc: PropTypes.node,
-  href: PropTypes.string,
-  light: PropTypes.bool,
-  onClick: PropTypes.func,
-  padded: PropTypes.bool,
-  atomic: PropTypes.bool,
-  highlighted: PropTypes.bool,
-  theme: PropTypes.object.isRequired,
-  anchorComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-};
-
-Card.defaultProps = {
-  ariaLabel: null,
-  backgroundImageStyle: null,
-  children: null,
-  disabled: false,
-  fillImageSrc: null,
-  href: null,
-  light: false,
-  onClick: null,
-  padded: true,
-  atomic: true,
-  highlighted: false,
-  anchorComponent: null,
-};
 
 export default withStyledTheme(Card);
 

@@ -47,12 +47,12 @@ export const Highlighted = () => (
 );
 export const Disabled = () => (
   <Card disabled>
-    <Section disabled padding={false} name="Test" />{' '}
+    <Section padding={false} name="Test" />{' '}
   </Card>
 );
 export const DisabledWithHref = () => (
   <Card disabled href="/test">
-    <Section disabled padding={false} name="Test" />{' '}
+    <Section padding={false} name="Test" />{' '}
   </Card>
 );
 export const NonAtomic = () => (

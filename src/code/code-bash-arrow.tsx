@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { StyledCodeBashArrow } from './code.styles';
 
-const CodeBashArrow = (props) => (
+const CodeBashArrow = (props: {}) => (
   <StyledCodeBashArrow {...props}>{'▶ '}</StyledCodeBashArrow>
 );
 

@@ -1,4 +1,4 @@
-export enum SIZE {
+export enum SIZES {
   xxl = 'xxl',
   xl = 'xl',
   lg = 'lg',
