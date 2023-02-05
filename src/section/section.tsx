@@ -8,16 +8,20 @@ import {
   StyledText,
 } from './section.styles';
 
-export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface PublicSectionProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   padding?: boolean;
   anchor?: boolean;
   name?: string;
   children?: React.ReactNode;
   headingProps?: object;
+}
+
+export interface PrivateSectionProps extends PublicSectionProps {
   isSubsection?: boolean;
 }
 
-const Section = (props: SectionProps) => {
+const Section = (props: PrivateSectionProps) => {
   const {
     padding = false,
     anchor = false,
