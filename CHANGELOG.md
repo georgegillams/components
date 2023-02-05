@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.8.7
+
+### Bug Fixes
+
+- Fix TS rootDir (#698)
+
 ## 28.8.6
 
 ## 28.8.5
