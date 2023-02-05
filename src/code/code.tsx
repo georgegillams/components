@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { Language, StyledCodeBlock, StyledTextLink } from './code.styles';
+import { CodeProps, Language, StyledCodeBlock } from './code.styles';
 import TextLink from '../text-link';
 
-const Code = (props) => {
+const Code = (props: CodeProps) => {
   const { children, lang, githubUrl, ...rest } = props;
 
   const showTag = lang || githubUrl;
@@ -28,17 +27,6 @@ const Code = (props) => {
       </code>
     </StyledCodeBlock>
   );
-};
-
-Code.propTypes = {
-  lang: PropTypes.string,
-  githubUrl: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
-
-Code.defaultProps = {
-  lang: null,
-  githubUrl: null,
 };
 
 export default Code;

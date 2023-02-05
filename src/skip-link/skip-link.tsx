@@ -2,7 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link, Wrapper } from './skip-link.styles';
 
-const SkipLink = (props) => {
+export interface SkipLinkProps extends React.HTMLAttributes<HTMLDivElement> {
+  label: string;
+  href: string;
+}
+
+const SkipLink = (props: SkipLinkProps) => {
   const { label, href, ...rest } = props;
 
   return (
@@ -11,12 +16,5 @@ const SkipLink = (props) => {
     </Wrapper>
   );
 };
-
-SkipLink.propTypes = {
-  label: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-};
-
-SkipLink.defaultProps = {};
 
 export default SkipLink;

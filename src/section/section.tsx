@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { SIZE, TAG_NAME } from '../text';
+import { SIZES, TAG_NAME } from '../text';
 import {
   Outer,
   StyledLink,
@@ -23,7 +23,7 @@ export interface PrivateSectionProps extends PublicSectionProps {
 
 const Section = (props: PrivateSectionProps) => {
   const {
-    padding = false,
+    padding = true,
     anchor = false,
     name,
     children,
@@ -49,7 +49,7 @@ const Section = (props: PrivateSectionProps) => {
       )}
       {name && (
         <StyledText
-          size={isSubsection ? SIZE.lg : SIZE.xl}
+          size={isSubsection ? SIZES.lg : SIZES.xl}
           tagName={isSubsection ? TAG_NAME.h3 : TAG_NAME.h2}
           id={anchorLink}
           anchor={anchor}

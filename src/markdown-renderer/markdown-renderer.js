@@ -18,6 +18,7 @@ import { DEFAULT_SUPPORTED_FEATURES } from './constants';
 import {
   Outer,
   StyledParagraph,
+  StyledYoutubeEmbedVideo,
   SubsectionTitle,
 } from './markdown-renderer.styles';
 

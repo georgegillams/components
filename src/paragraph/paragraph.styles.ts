@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { paragraphMarginTop, paragraphMarginTopFirst } from '../constants/font';
 
-export const StyledParagraph = styled.span`
+export const StyledParagraph = styled.span<{
+  padding?: boolean;
+}>`
   display: inline-block;
   margin-bottom: 0;
   padding-bottom: 0;

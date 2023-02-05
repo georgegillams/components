@@ -7,35 +7,35 @@ import {
   fontSizeSm,
   fontSizeXs,
 } from '../constants/font';
-import { SIZE } from './constants';
+import { SIZES } from './constants';
 
 const sizeStyles = {
-  [SIZE.xxl]: css`
+  [SIZES.xxl]: css`
     font-size: ${fontSizeXxl};
     font-weight: bold;
   `,
-  [SIZE.xl]: css`
+  [SIZES.xl]: css`
     font-size: ${fontSizeXl};
     font-weight: bold;
   `,
-  [SIZE.lg]: css`
+  [SIZES.lg]: css`
     font-size: ${fontSizeLg};
     font-weight: bold;
   `,
-  [SIZE.md]: css`
+  [SIZES.md]: css`
     font-size: ${fontSizeMd};
   `,
-  [SIZE.sm]: css`
+  [SIZES.sm]: css`
     font-size: ${fontSizeSm};
   `,
-  [SIZE.xs]: css`
+  [SIZES.xs]: css`
     font-size: ${fontSizeXs};
   `,
-  [SIZE.inherit]: css``,
+  [SIZES.inherit]: css``,
 };
 
 export const commonStyles = css<{
-  size: SIZE;
+  size: SIZES;
 }>`
   margin: 0;
   ${(props) => sizeStyles[props.size]}
