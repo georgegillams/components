@@ -17,7 +17,7 @@
     "transpile": "yarn pretranspile && yarn transpile:js && yarn transpile:ts && yarn transpile:remove-stories",
     "transpile:ts": "tsc --skipLibCheck",
     "transpile:js": "babel src -d dist",
-    "transpile:remove-stories": "find ./dist -name \"*stories.[tj]s\" -exec rm {} \\;",
+    "transpile:remove-stories": "find ./dist -name \"*stories.[tj]sx?\" -exec rm {} \\;",
     "transpile:js:live": "cp package.json ./dist/ && (yarn transpile:js --watch & yarn transpile:ts --watch)",
     "clean": "yarn test:clean && yarn build:clean",
     "dev": "yarn start",
