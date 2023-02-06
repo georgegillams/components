@@ -77,8 +77,6 @@ exports[`Card should render correctly 1`] = `
 
 <button
   className="c0"
-  role="group"
-  tabIndex={-1}
   type="button"
 >
   <div

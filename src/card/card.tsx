@@ -36,7 +36,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
     backgroundImageStyle,
     children,
     disabled,
-    atomic,
+    atomic = true,
     highlighted,
     theme,
     anchorComponent,
