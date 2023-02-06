@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.8.9
+
+### Bug Fixes
+
+- Fix ts props 2 (#700)
+
 ## 28.8.8
 
 ### Bug Fixes
