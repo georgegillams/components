@@ -3,7 +3,7 @@ import React from 'react';
 import { DateText } from './article-date.styles';
 
 const ArticleDate = (props) => {
-  const { date, padding, ...rest } = props;
+  const { date, padding = true, ...rest } = props;
 
   return (
     <DateText padding={padding} {...rest}>

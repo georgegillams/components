@@ -1,9 +1,9 @@
 export enum TAG_TYPES {
-  tech,
-  travel,
-  photography,
-  events,
-  security,
+  tech = 'tech',
+  travel = 'travel',
+  photography = 'photography',
+  events = 'events',
+  security = 'security',
 }
 
 export const TAG_TEXT_MAPPING: Record<TAG_TYPES, string> = {

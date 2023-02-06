@@ -11,7 +11,7 @@ export interface ParagraphProps extends React.HTMLAttributes<HTMLSpanElement> {
 const Paragraph = (props: ParagraphProps) => {
   const { padding = true, ...rest } = props;
 
-  return <StyledParagraph {...rest} />;
+  return <StyledParagraph padding={padding} {...rest} />;
 };
 
 export default Paragraph;
