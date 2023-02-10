@@ -15,7 +15,11 @@ const ggBounceHoverEffect = keyframes`
   }
 `;
 
-const outerStyles = css`
+const outerStyles = css<{
+  buttonType: BUTTON_TYPES;
+  size: BUTTON_SIZES;
+  disabled?: boolean;
+}>`
   position: relative;
   min-width: 5rem;
   // average vertical padding of 0.375rem
@@ -81,12 +85,16 @@ export const StyledLink = styled.a`
   display: inline-block;
 `;
 
-export const applyStylesToAnchor = (anchor) => styled(anchor)`
+export const applyStylesToAnchor = (anchor: React.ComponentType) => styled(
+  anchor,
+)`
   ${outerStyles};
   display: inline-block;
 `;
 
-export const ChildContainer = styled.span`
+export const ChildContainer = styled.span<{
+  $loading?: boolean;
+}>`
   display: flex;
   justify-content: center;
   ${({ $loading }) =>

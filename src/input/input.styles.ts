@@ -10,8 +10,11 @@ import {
 } from '../constants/colors';
 import { focusStyle } from '../constants/styles';
 import { fontSizeSm } from '../constants/font';
+import { ComponentType } from 'react';
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.div<{
+  disabled?: boolean;
+}>`
   ${focusStyle(true)}
 
   display: flex;
@@ -36,29 +39,9 @@ export const InputWrapper = styled.div`
     `}
 `;
 
-// export const StyledInput = styled.input`
-//   padding: 0.375rem 0.75rem;
-//   flex-grow: 1;
-//   border: none;
-//   outline: none;
-//   background-color: transparent;
-//   color: ${notBlack};
-//   font-size: ${fontSizeSm};
-
-//   @media (prefers-color-scheme: dark) {
-//     color: ${notBlackDarkMode};
-//   }
-
-//   &:disabled {
-//     color: #b2b2bf;
-
-//     @media (prefers-color-scheme: dark) {
-//       color: #7b7b86;
-//     }
-//   }
-// `;
-
-export const styleInputComponent = (InputComponent) => styled(InputComponent)`
+export const styleInputComponent = (InputComponent: ComponentType) => styled(
+  InputComponent,
+)`
   padding: 0.375rem 0.75rem;
   flex-grow: 1;
   border: none;
@@ -80,7 +63,11 @@ export const styleInputComponent = (InputComponent) => styled(InputComponent)`
   }
 `;
 
-export const styleIconComponent = (IconComponent) => styled(IconComponent)`
+export const styleIconComponent = (IconComponent: ComponentType) => styled(
+  IconComponent,
+)<{
+  valid?: boolean;
+}>`
   margin-right: 0.5rem;
 
   ${({ valid }) => {

@@ -1,14 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import Input from '../input';
+import Input, { InputProps } from '../input';
 
-const Select = (props) => {
+export interface SelectProps extends InputProps {
+  options: Array<{
+    name: string;
+    value: string;
+  }>;
+}
+
+const Select = (props: SelectProps) => {
   const {
     name,
     value,
     onChange,
-    enabled,
+    enabled = true,
     valid,
     inputProps,
     id,
@@ -41,33 +47,6 @@ const Select = (props) => {
       </Input>
     </div>
   );
-};
-
-Select.propTypes = {
-  name: PropTypes.string,
-  value: PropTypes.string,
-  id: PropTypes.string,
-  'aria-describedby': PropTypes.string,
-  onChange: PropTypes.func,
-  options: PropTypes.arrayOf(PropTypes.object).isRequired,
-  enabled: PropTypes.bool,
-  // eslint-disable-next-line react/forbid-prop-types
-  iconProps: PropTypes.object,
-  // eslint-disable-next-line react/forbid-prop-types
-  inputProps: PropTypes.object,
-  valid: PropTypes.bool,
-};
-
-Select.defaultProps = {
-  onChange: null,
-  name: null,
-  value: null,
-  id: null,
-  'aria-describedby': null,
-  enabled: true,
-  iconProps: null,
-  inputProps: null,
-  valid: null,
 };
 
 export default Select;

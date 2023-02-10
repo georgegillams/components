@@ -4,15 +4,21 @@ import React, { Component, useState } from 'react';
 import Input from './index';
 import { boolean, select } from '@storybook/addon-knobs';
 
-const StatefulInput = (props) => {
+export interface StatefulInputProps {
+  value?: string;
+}
+
+const StatefulInput = (props: StatefulInputProps) => {
   const [value, setValue] = useState(props.value || 'Type here');
 
   return (
     <Input
       name="Stateful_input"
+      // @ts-ignore
       valid={select('Valid', [true, false, null], true)}
       enabled={boolean('Enabled', true)}
       value={value}
+      // @ts-ignore
       onChange={(e) => setValue(e.target.value)}
       {...props}
     />

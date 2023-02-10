@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentType, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 
 // TODO: can we use react's useMemo for this?
@@ -15,17 +15,28 @@ import {
 const styleInputComponentMemoized = memoize(styleInputComponent);
 const styleIconComponentMemoized = memoize(styleIconComponent);
 
-const Input = (props) => {
+export interface InputProps extends HTMLAttributes<HTMLInputElement> {
+  name?: string;
+  value?: string;
+  enabled?: boolean;
+  type?: string;
+  valid?: boolean;
+  inputProps?: any;
+  iconProps?: any;
+  component?: ComponentType;
+}
+
+const Input = (props: InputProps) => {
   const {
     name,
     value,
     onChange,
-    enabled,
+    enabled = true,
     type,
     valid,
     inputProps,
     iconProps,
-    component: InputComponent,
+    component: InputComponent = (props) => <input {...props} />,
     id,
     'aria-describedby': ariaDescribedby,
     children,
@@ -59,7 +70,7 @@ const Input = (props) => {
         name={name}
         disabled={disabled}
         readOnly={!onChange}
-        onChange={enabled ? onChange : null}
+        onChange={enabled ? onChange : undefined}
         id={id}
         aria-describedby={ariaDescribedby}
         {...inputProps}
@@ -71,36 +82,6 @@ const Input = (props) => {
       )}
     </InputWrapper>
   );
-};
-
-Input.propTypes = {
-  id: PropTypes.string,
-  'aria-describedby': PropTypes.string,
-  value: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  component: PropTypes.func,
-  enabled: PropTypes.bool,
-  // eslint-disable-next-line react/forbid-prop-types
-  iconProps: PropTypes.object,
-  // eslint-disable-next-line react/forbid-prop-types
-  inputProps: PropTypes.object,
-  type: PropTypes.string,
-  valid: PropTypes.bool,
-};
-
-Input.defaultProps = {
-  id: null,
-  'aria-describedby': null,
-  value: null,
-  name: null,
-  onChange: null,
-  component: (props) => <input {...props} />,
-  enabled: true,
-  iconProps: null,
-  inputProps: null,
-  type: null,
-  valid: null,
 };
 
 export default Input;
