@@ -7,11 +7,16 @@ import Button, {
   BUTTON_TYPES,
   applyStylesToAnchor,
 } from './index';
-import { ButtonWithoutTheme } from './button';
+import { ButtonProps, ButtonWithoutTheme } from './button';
 
-const ButtonStory = (props) => {
+export interface ButtonStoryProps extends ButtonProps {
+  dark?: boolean;
+  focus?: boolean;
+}
+
+const ButtonStory = (props: ButtonStoryProps) => {
   const { dark, focus, ...rest } = props;
-  const button = useRef(null);
+  const button = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (focus && button.current) {

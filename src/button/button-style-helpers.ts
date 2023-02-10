@@ -28,6 +28,7 @@ const buttonColors = {
       backgroundActive: ctaColorActive,
       foreground: 'white',
       foregroundHover: 'white',
+      foregroundActive: 'white',
     },
     dm: {
       background: ctaColorDarkMode,
@@ -35,6 +36,7 @@ const buttonColors = {
       backgroundActive: ctaColorActiveDarkMode,
       foreground: 'white',
       foregroundHover: 'white',
+      foregroundActive: 'white',
     },
   },
   [BUTTON_TYPES.bouncy]: {
@@ -44,6 +46,7 @@ const buttonColors = {
       backgroundActive: ctaColorActive,
       foreground: notBlack,
       foregroundHover: 'white',
+      foregroundActive: 'white',
     },
     dm: {
       background: 'transparent',
@@ -51,6 +54,7 @@ const buttonColors = {
       backgroundActive: ctaColorActiveDarkMode,
       foreground: 'white',
       foregroundHover: 'white',
+      foregroundActive: 'white',
     },
   },
   [BUTTON_TYPES.destructive]: {
@@ -60,6 +64,7 @@ const buttonColors = {
       backgroundActive: destructiveColorActive,
       foreground: 'white',
       foregroundHover: 'white',
+      foregroundActive: 'white',
     },
     dm: {
       background: destructiveColorDarkMode,
@@ -67,6 +72,7 @@ const buttonColors = {
       backgroundActive: destructiveColorActiveDarkMode,
       foreground: 'white',
       foregroundHover: 'white',
+      foregroundActive: 'white',
     },
   },
   ['disabled']: {
@@ -76,6 +82,7 @@ const buttonColors = {
       backgroundActive: destructiveColorActive,
       foreground: 'white',
       foregroundHover: 'white',
+      foregroundActive: 'white',
     },
     dm: {
       background: destructiveColorDarkMode,
@@ -83,11 +90,15 @@ const buttonColors = {
       backgroundActive: destructiveColorActiveDarkMode,
       foreground: 'white',
       foregroundHover: 'white',
+      foregroundActive: 'white',
     },
   },
 };
 
-export const createStylesForButtonType = (buttonType, theme) => {
+export const createStylesForButtonType = (
+  buttonType: BUTTON_TYPES,
+  theme: any,
+) => {
   return css`
     background-color: ${(theme &&
       theme[`button${buttonType}BackgroundColor`]) ||

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { MouseEvent, MouseEventHandler, useState } from 'react';
 
 import Spinner from '../spinner';
 
@@ -12,14 +11,26 @@ import {
 } from './button.styles';
 import withStyledTheme from '../styled-theming';
 
-const Button = React.forwardRef((props, ref) => {
+export interface ButtonProps extends React.HTMLAttributes<HTMLDivElement> {
+  href?: string;
+  hrefExternal?: boolean;
+  buttonType?: BUTTON_TYPES;
+  size?: BUTTON_SIZES;
+  disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLElement>;
+  loading?: boolean;
+  anchorComponent?: React.ComponentType;
+}
+
+const Button = React.forwardRef<HTMLElement, ButtonProps>((props, ref) => {
   const [showDestructiveConfirmation, setShowDestructiveConfirmation] =
     useState(false);
 
   const {
     href,
     hrefExternal,
-    buttonType,
+    buttonType = BUTTON_TYPES.primary,
+    size = BUTTON_SIZES.regular,
     disabled: disabledProp,
     onClick,
     children,
@@ -45,8 +56,10 @@ const Button = React.forwardRef((props, ref) => {
         aria-label={children}
         href={href}
         onClick={onClick}
+        // @ts-ignore
         ref={ref}
         buttonType={buttonType}
+        size={size}
         disabled={disabled}
         {...targettingProps}
         {...rest}
@@ -58,11 +71,11 @@ const Button = React.forwardRef((props, ref) => {
 
   let onClickFinal = onClick;
   if (disabled) {
-    onClickFinal = null;
+    onClickFinal = undefined;
   }
 
-  const onDestructiveClickFinal = (event) => {
-    if (showDestructiveConfirmation) {
+  const onDestructiveClickFinal = (event: MouseEvent<HTMLElement>) => {
+    if (showDestructiveConfirmation && onClickFinal) {
       setShowDestructiveConfirmation(false);
       onClickFinal(event);
     } else {
@@ -84,6 +97,8 @@ const Button = React.forwardRef((props, ref) => {
       }
       className={'outer'}
       buttonType={buttonType}
+      size={size}
+      // @ts-ignore
       ref={ref}
       {...rest}
     >
@@ -99,30 +114,6 @@ const Button = React.forwardRef((props, ref) => {
     </StyledButton>
   );
 });
-
-Button.propTypes = {
-  size: PropTypes.oneOf(Object.keys(BUTTON_SIZES)),
-  buttonType: PropTypes.oneOf(Object.keys(BUTTON_TYPES)),
-  href: PropTypes.string,
-  hrefExternal: PropTypes.bool,
-  loading: PropTypes.bool,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  children: PropTypes.node,
-  anchorComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-};
-
-Button.defaultProps = {
-  size: BUTTON_SIZES.regular,
-  buttonType: BUTTON_TYPES.primary,
-  href: null,
-  hrefExternal: false,
-  loading: false,
-  disabled: false,
-  onClick: null,
-  children: null,
-  anchorComponent: null,
-};
 
 export default withStyledTheme(Button);
 
