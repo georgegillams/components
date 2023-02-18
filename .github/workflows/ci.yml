@@ -16,15 +16,14 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - name: read node version
-        id: nvmrc
-        run: |
-          echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+      - name: Read .nvmrc
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
 
-      - name: Use Node.js (.nvmrc)
-        uses: actions/setup-node@v1
+      - name: Set Nodejs version ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
         with:
-          node-version: '${{ steps.nvmrc.outputs.NVMRC }}'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
 
       - name: restore-yarn-cache
         uses: actions/cache@v3
@@ -47,20 +46,20 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - name: read node version
-        id: nvmrc
-        run: |
-          echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+      - name: Read .nvmrc
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
 
-      - name: Use Node.js (.nvmrc)
-        uses: actions/setup-node@v1
+      - name: Set Nodejs version ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
         with:
-          node-version: '${{ steps.nvmrc.outputs.NVMRC }}'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
 
       - name: print job details
         run: |
           echo "github_ref ${{ github.ref }}"
           echo "github_event_name ${{ github.event_name }}"
+          echo "node version ${{ env.NODE_VERSION }}"
 
       - name: restore-yarn-cache
         uses: actions/cache@v3
@@ -114,15 +113,14 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - name: read node version
-        id: nvmrc
-        run: |
-          echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+      - name: Read .nvmrc
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
 
-      - name: Use Node.js (.nvmrc)
-        uses: actions/setup-node@v1
+      - name: Set Nodejs version ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
         with:
-          node-version: '${{ steps.nvmrc.outputs.NVMRC }}'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
 
       - name: generate hash
         run: |
@@ -165,15 +163,14 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
-      - name: read node version
-        id: nvmrc
-        run: |
-          echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+      - name: Read .nvmrc
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
 
-      - name: Use Node.js (.nvmrc)
-        uses: actions/setup-node@v1
+      - name: Set Nodejs version ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
         with:
-          node-version: '${{ steps.nvmrc.outputs.NVMRC }}'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
 
       - name: restore-yarn-cache
         uses: actions/cache@v3
