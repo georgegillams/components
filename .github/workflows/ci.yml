@@ -16,17 +16,25 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Read .nvmrc
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - name: Set Nodejs version ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
       - name: restore-yarn-cache
         uses: actions/cache@v3
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: nvm use
-        run: nvm use
-
       - name: npm install
-        run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
+        run: |
+          node -v
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
 
   test:
     runs-on: ubuntu-latest
@@ -38,19 +46,26 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Read .nvmrc
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - name: Set Nodejs version ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
       - name: print job details
         run: |
           echo "github_ref ${{ github.ref }}"
           echo "github_event_name ${{ github.event_name }}"
+          echo "node version ${{ env.NODE_VERSION }}"
 
       - name: restore-yarn-cache
         uses: actions/cache@v3
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-
-      - name: nvm use
-        run: nvm use
 
       - name: npm install
         run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
@@ -98,6 +113,15 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Read .nvmrc
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - name: Set Nodejs version ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
       - name: generate hash
         run: |
           HASH=$(date | md5sum | cut -d ' ' -f 1)
@@ -139,6 +163,15 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
+      - name: Read .nvmrc
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - name: Set Nodejs version ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
       - name: restore-yarn-cache
         uses: actions/cache@v3
         with:
@@ -154,9 +187,6 @@ jobs:
           git config --global credential.helper cache
           git clone https://${{secrets.PUBLISH_GH_TOKEN}}@github.com/georgegillams/components
           mv node_modules components/
-
-      - name: nvm use
-        run: nvm use
 
       - name: npm install
         run: |
