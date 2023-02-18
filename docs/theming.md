@@ -1,4 +1,4 @@
-# [Docs](https://github.com/georgegillams/gg-components/tree/main/docs) > Theming
+# [Docs](https://github.com/georgegillams/components/tree/main/docs) > Theming
 
 Components can be themed using CSS modules by setting the following variables:
 

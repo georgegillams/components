@@ -4,7 +4,7 @@
   "description": "Reusable transpiled React components",
   "repository": {
     "type": "git",
-    "url": "git://github.com/georgegillams/gg-components.git"
+    "url": "git://github.com/georgegillams/components.git"
   },
   "author": "George Gillams",
   "license": "MIT",

@@ -5,7 +5,7 @@ useTTY=("$2" -eq "--tty")
 skipNpm=("$3" -eq "--skip-npm")
 containerId=$(docker ps -a | grep gg-snapshot-test  | awk '{print $1}')
 tmpDirectory="/usr/src/tmp/"
-projectName="gg-components"
+projectName="components"
 destinationDirectory="${tmpDirectory}${projectName}/"
 if [ $useTTY ]; then
   dockerArgs="-it"
