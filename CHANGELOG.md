@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.8.11
+
+### Bug Fixes
+
+- Fix nvmrc (#705)
+
 ## 28.8.10
 
 ## 28.8.9
