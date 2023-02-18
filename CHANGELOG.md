@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.9.0
+
+### Features
+
+- Typescript modules 1 (#706)
+
 ## 28.8.11
 
 ### Bug Fixes
