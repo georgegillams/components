@@ -16,17 +16,26 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: read node version
+        id: nvmrc
+        run: |
+          echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - name: Use Node.js (.nvmrc)
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvmrc.outputs.NVMRC }}'
+
       - name: restore-yarn-cache
         uses: actions/cache@v3
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: nvm use
-        run: nvm use
-
       - name: npm install
-        run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
+        run: |
+          node -v
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
 
   test:
     runs-on: ubuntu-latest
