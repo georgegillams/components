@@ -1,8 +1,8 @@
-## gg-components
+## components
 
-![Build status](https://github.com/georgegillams/gg-components/workflows/CI/badge.svg)
-![Dependencies status](https://img.shields.io/david/georgegillams/gg-components)
-![Dependencies status](https://img.shields.io/librariesio/release/npm/gg-components)
+![Build status](https://github.com/georgegillams/components/workflows/CI/badge.svg)
+![Dependencies status](https://img.shields.io/david/georgegillams/components)
+![Dependencies status](https://img.shields.io/librariesio/release/npm/components)
 
 A set of reusable React components, that are published as plain JS and CSS for maximum compatibility.
 
@@ -46,7 +46,7 @@ Use one of the following to release. These update the version, commit and tag th
 
 ## Documentation
 
-[General docs can be found here](https://github.com/georgegillams/gg-components/tree/main/docs). Docs for each component should be available soon(ish).
+[General docs can be found here](https://github.com/georgegillams/components/tree/main/docs). Docs for each component should be available soon(ish).
 
 That's it!
 

@@ -35,4 +35,4 @@ yarn-debug.log*
 yarn-error.log*
 backstop_data/bitmaps_test
 backstop_data/html_report
-gg-components.tar.gz
+components.tar.gz
