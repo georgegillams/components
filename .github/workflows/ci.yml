@@ -58,9 +58,6 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: nvm use
-        run: nvm use
-
       - name: npm install
         run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
 
@@ -163,9 +160,6 @@ jobs:
           git config --global credential.helper cache
           git clone https://${{secrets.PUBLISH_GH_TOKEN}}@github.com/georgegillams/components
           mv node_modules components/
-
-      - name: nvm use
-        run: nvm use
 
       - name: npm install
         run: |
