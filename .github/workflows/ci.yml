@@ -47,6 +47,16 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: read node version
+        id: nvmrc
+        run: |
+          echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - name: Use Node.js (.nvmrc)
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvmrc.outputs.NVMRC }}'
+
       - name: print job details
         run: |
           echo "github_ref ${{ github.ref }}"
@@ -104,6 +114,16 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: read node version
+        id: nvmrc
+        run: |
+          echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - name: Use Node.js (.nvmrc)
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvmrc.outputs.NVMRC }}'
+
       - name: generate hash
         run: |
           HASH=$(date | md5sum | cut -d ' ' -f 1)
@@ -144,6 +164,16 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+
+      - name: read node version
+        id: nvmrc
+        run: |
+          echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - name: Use Node.js (.nvmrc)
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvmrc.outputs.NVMRC }}'
 
       - name: restore-yarn-cache
         uses: actions/cache@v3
