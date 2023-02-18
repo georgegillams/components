@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {
   BarWrapper,
@@ -10,8 +9,16 @@ import {
   Wrapper,
 } from './degree-module.styles';
 
-const DegreeModule = (props) => {
-  const { name, markerPosition, percentage, filled, ...rest } = props;
+export interface DegreeModuleProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  name: string;
+  percentage?: number;
+  filled?: boolean;
+  markerPosition?: number;
+}
+
+const DegreeModule = (props: DegreeModuleProps) => {
+  const { name, markerPosition, percentage, filled = true, ...rest } = props;
 
   return (
     <Wrapper {...rest}>
@@ -29,26 +36,11 @@ const DegreeModule = (props) => {
           />
         )}
       </BarWrapper>
-      <Percentage showFilled={filled && percentage && percentage > 0.01}>
+      <Percentage showFilled={filled && !!percentage && percentage > 0.01}>
         {`${percentage || '00'}%`}
       </Percentage>
     </Wrapper>
   );
-};
-
-DegreeModule.propTypes = {
-  name: PropTypes.string.isRequired,
-  percentage: PropTypes.number,
-  filled: PropTypes.bool,
-  className: PropTypes.string,
-  markerPosition: PropTypes.number,
-};
-
-DegreeModule.defaultProps = {
-  filled: true,
-  className: null,
-  percentage: null,
-  markerPosition: null,
 };
 
 export default DegreeModule;

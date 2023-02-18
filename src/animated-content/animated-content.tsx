@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper } from './animated-content.styles';
 
 const HIDDEN_CLASSNAME = 'animated-content__wrapper--hidden';
 
-export const ANIMATIONS = {
-  fade: 'fade',
-  fadeAndDriftIn: 'fadeAndDriftIn',
-};
+export enum ANIMATIONS {
+  fade = 'fade',
+  fadeAndDriftIn = 'fadeAndDriftIn',
+}
 
 //  The hidden style is only shown if an ancestor element has the `js` class.
 //  This style is inlined to ensure that it is available as soon as the HTML is delivered to the browser.
@@ -21,8 +21,20 @@ const ANIMATION_CSS = {
 }`,
 };
 
-const AnimatedContent = (props) => {
-  const { animation, inView, hasBeenInView, children, ...rest } = props;
+export interface AnimatedContentProps extends HTMLAttributes<HTMLDivElement> {
+  animation?: ANIMATIONS;
+  inView?: boolean;
+  hasBeenInView?: boolean;
+}
+
+const AnimatedContent = (props: AnimatedContentProps) => {
+  const {
+    animation = ANIMATIONS.fadeAndDriftIn,
+    inView = true,
+    hasBeenInView = true,
+    children,
+    ...rest
+  } = props;
 
   const show = inView || hasBeenInView;
 
@@ -37,17 +49,6 @@ const AnimatedContent = (props) => {
       </Wrapper>
     </>
   );
-};
-
-AnimatedContent.propTypes = {
-  children: PropTypes.element.isRequired,
-  inView: PropTypes.bool,
-  animation: PropTypes.oneOf(Object.keys(ANIMATIONS)),
-};
-
-AnimatedContent.defaultProps = {
-  inView: true,
-  animation: ANIMATIONS.fadeAndDriftIn,
 };
 
 export default AnimatedContent;

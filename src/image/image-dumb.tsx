@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 
 import {
   ImagePlaceholder,
@@ -15,16 +14,30 @@ import { JS_CLASSNAME, NO_JS_CLASSNAME } from '../js-feature-detector';
 const CLASS_HIDE_JS = 'gg-image__img--hide-js';
 const CLASS_HIDE_NO_JS = 'gg-image__img--hide-no-js';
 
-const ImageDumb = (props) => {
+export interface ImageDumbProps extends React.HTMLAttributes<HTMLDivElement> {
+  aspectX: number;
+  aspectY: number;
+  loaded: boolean;
+  lightSrc: string;
+  darkSrc: string;
+  renderImg?: boolean;
+  onImageLoad?: () => void;
+  imgProps: {
+    className?: string;
+    alt?: string;
+  };
+}
+
+const ImageDumb = (props: ImageDumbProps) => {
   const {
     aspectX,
     aspectY,
     loaded,
     lightSrc,
     darkSrc,
-    renderImg,
+    renderImg = true,
     onImageLoad,
-    imgProps,
+    imgProps = {},
     ...rest
   } = props;
   const { className: imgClassName, ...imgPropsRest } = imgProps;
@@ -104,7 +117,7 @@ const ImageDumb = (props) => {
                 className={imgClassName}
                 // This is a hack to ensure that the src is set after onload is.
                 // Otherwise onload may never be called as the image is already loaded when it's set
-                src={enableSrc ? lightSrc : null}
+                src={enableSrc ? lightSrc : undefined}
                 {...imgPropsRest}
               />
               <DarkImage
@@ -113,7 +126,7 @@ const ImageDumb = (props) => {
                 className={imgClassName}
                 // This is a hack to ensure that the src is set after onload is.
                 // Otherwise onload may never be called as the image is already loaded when it's set
-                src={enableSrc ? darkSrc : null}
+                src={enableSrc ? darkSrc : undefined}
                 {...imgPropsRest}
               />
             </div>
@@ -136,26 +149,6 @@ const ImageDumb = (props) => {
       </ImagePlaceholder>
     </OuterWrapper>
   );
-};
-
-ImageDumb.propTypes = {
-  aspectX: PropTypes.number.isRequired,
-  aspectY: PropTypes.number.isRequired,
-  loaded: PropTypes.bool,
-  renderImg: PropTypes.bool,
-  onImageLoad: PropTypes.func,
-  lightSrc: PropTypes.string.isRequired,
-  darkSrc: PropTypes.string.isRequired,
-  imgProps: PropTypes.shape({
-    alt: PropTypes.string.isRequired,
-  }),
-};
-
-ImageDumb.defaultProps = {
-  loaded: false,
-  renderImg: true,
-  onImageLoad: null,
-  imgProps: {},
 };
 
 export default ImageDumb;

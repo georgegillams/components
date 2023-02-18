@@ -24,7 +24,9 @@ export const StyledSkeleton = styled(Skeleton)`
   height: 100%;
 `;
 
-const imageStyles = css`
+const imageStyles = css<{
+  showImage: boolean;
+}>`
   position: absolute;
   top: 0;
   left: 0;

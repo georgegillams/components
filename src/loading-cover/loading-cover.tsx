@@ -1,12 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Subsection from '../subsection';
 import Skeleton from '../skeleton';
 
-const LoadingCover = (props) => {
+export interface LoadingCoverProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  loading?: boolean;
+  loadingSkeleton?: React.ElementType;
+  error?: boolean;
+  children: React.ReactNode;
+}
+
+const LoadingCover = (props: LoadingCoverProps) => {
   const {
-    loadingSkeleton: LoadingSkeleton,
+    loadingSkeleton: LoadingSkeleton = Skeleton,
     loading,
     error,
     children,
@@ -16,7 +23,7 @@ const LoadingCover = (props) => {
   const showLoadingMessage = loading || error;
 
   if (!showLoadingMessage) {
-    return children || null;
+    return children ? <>{children}</> : null;
   }
 
   return (
@@ -31,19 +38,6 @@ const LoadingCover = (props) => {
       )}
     </>
   );
-};
-
-LoadingCover.propTypes = {
-  loading: PropTypes.bool,
-  loadingSkeleton: PropTypes.elementType,
-  error: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-};
-
-LoadingCover.defaultProps = {
-  loading: false,
-  loadingSkeleton: Skeleton,
-  error: false,
 };
 
 export default LoadingCover;

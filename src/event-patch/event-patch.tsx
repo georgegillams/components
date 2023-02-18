@@ -11,7 +11,15 @@ import {
 } from './event-patch.styles';
 import { StyledThemeProvider } from '../styled-theming';
 
-const EventPatch = (props) => {
+export interface EventPatchProps {
+  background: string;
+  foreground: string;
+  title: string;
+  year?: string;
+  stravaLink?: string;
+}
+
+const EventPatch = (props: EventPatchProps) => {
   const { foreground, background, title, year, stravaLink, ...rest } = props;
 
   return (
@@ -34,19 +42,6 @@ const EventPatch = (props) => {
       </LinkContainer>
     </Wrapper>
   );
-};
-
-EventPatch.propTypes = {
-  background: PropTypes.string.isRequired,
-  foreground: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  year: PropTypes.string,
-  stravaLink: PropTypes.string,
-};
-
-EventPatch.defaultProps = {
-  stravaLink: null,
-  year: null,
 };
 
 export default EventPatch;

@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { DateText } from './article-date.styles';
 
-const ArticleDate = (props) => {
+export interface ArticleDateProps extends HTMLAttributes<HTMLSpanElement> {
+  date: Date;
+  padding?: boolean;
+}
+
+const ArticleDate = (props: ArticleDateProps) => {
   const { date, padding = true, ...rest } = props;
 
   return (
@@ -10,15 +15,6 @@ const ArticleDate = (props) => {
       Published {date && date.toString()}
     </DateText>
   );
-};
-
-ArticleDate.propTypes = {
-  date: PropTypes.object.isRequired,
-  padding: PropTypes.bool,
-};
-
-ArticleDate.defaultProps = {
-  padding: true,
 };
 
 export default ArticleDate;
