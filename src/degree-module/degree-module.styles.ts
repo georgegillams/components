@@ -43,41 +43,23 @@ export const ProgressBar = styled(Progress)`
   top: -0.2rem;
 `;
 
-//   &--first-marker {
-//   }
+export const Percentage = styled.span<{
+  showFilled?: boolean;
+}>`
+  width: 2.1rem;
+  margin-left: 0.6rem;
+  transition: all 0.4s;
+  color: ${primaryColorDarkMode};
+  font-weight: bold;
+  opacity: 0;
 
-//   &--21-marker {
-//     position: absolute;
-//     top: -0.2rem;
-//     width: 0.2rem;
-//     height: 0.5rem;
-//     margin-left: calc(70% - 0.175rem);
-//     background-color: $not-black;
-//     opacity: 0.5;
+  @media (prefers-color-scheme: dark) {
+    color: ${primaryColor};
+  }
 
-//     @media (prefers-color-scheme: dark) {
-//       background-color: $not-black-invert;
-//       opacity: 0.8;
-//     }
-//   }
-
-export const Percentage = styled.span`
-     width: 2.1rem;
-     margin-left: 0.6rem;
-     transition: all 0.4s;
-       color: ${primaryColorDarkMode};
-     font-weight: bold;
-     opacity: 0;
-
-     @media (prefers-color-scheme: dark) {
-       color: ${primaryColor};
-     }
-
-     ${({ showFilled }) =>
-       showFilled &&
-       css`
-         opacity: 1;
-       `}
-   }
-   `;
-// }
+  ${({ showFilled }) =>
+    showFilled &&
+    css`
+      opacity: 1;
+    `}
+`;

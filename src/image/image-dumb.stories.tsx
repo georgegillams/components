@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { JS_CLASSNAME, NO_JS_CLASSNAME } from '../js-feature-detector';
 
-import ImageDumb from './image-dumb';
+import ImageDumb, { ImageDumbProps } from './image-dumb';
 
-const StatefulImageDumb = (props) => {
+type StatefulImageDumbProps = {
+  [K in keyof ImageDumbProps as K extends 'loaded'
+    ? never
+    : K]: ImageDumbProps[K];
+};
+
+const StatefulImageDumb = (props: StatefulImageDumbProps) => {
   const [loaded, setLoaded] = useState(false);
 
   return (

@@ -8,9 +8,12 @@ import {
 } from '../constants/layout';
 import Text, { SIZES } from '../text';
 import TextLink from '../text-link';
-import { shadowNormal, shadowNormalInvert } from '../constants/misc';
+import { shadowNormal, shadowNormalDarkMode } from '../constants/misc';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{
+  background: string;
+  foreground: string;
+}>`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -22,7 +25,7 @@ export const Wrapper = styled.div`
   box-shadow: ${shadowNormal};
 
   @media (prefers-color-scheme: dark) {
-    box-shadow: ${shadowNormalInvert};
+    box-shadow: ${shadowNormalDarkMode};
   }
 
   ${({ background, foreground }) => {

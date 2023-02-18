@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 
 import { Error as StyledError } from './error.styles';
 
-const Error = (props) => {
+export interface ErrorProps extends HTMLAttributes<HTMLSpanElement> {}
+
+const Error = (props: ErrorProps) => {
   return <StyledError {...props} />;
 };
 
