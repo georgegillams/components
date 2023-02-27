@@ -16,7 +16,7 @@ const commonDefaultProps = {
   children: null,
 };
 
-const Table = (props) => {
+const Table = (props: React.HTMLAttributes<HTMLTableElement>) => {
   return <StyledTable {...props} />;
 };
 
@@ -28,7 +28,7 @@ Table.defaultProps = {
   ...commonDefaultProps,
 };
 
-const Head = (props) => {
+const Head = (props: React.HTMLAttributes<HTMLHeadElement>) => {
   return <StyledHead {...props} />;
 };
 
@@ -40,7 +40,7 @@ Head.defaultProps = {
   ...commonDefaultProps,
 };
 
-const Body = (props) => {
+const Body = (props: React.HTMLAttributes<HTMLTableSectionElement>) => {
   return <StyledBody {...props} />;
 };
 
@@ -52,7 +52,7 @@ Body.defaultProps = {
   ...commonDefaultProps,
 };
 
-const Row = (props) => {
+const Row = (props: React.HTMLAttributes<HTMLTableRowElement>) => {
   return <StyledRow {...props} />;
 };
 
@@ -64,7 +64,7 @@ Row.defaultProps = {
   ...commonDefaultProps,
 };
 
-const Cell = (props) => {
+const Cell = (props: React.HTMLAttributes<HTMLTableCellElement>) => {
   return <StyledCell {...props} />;
 };
 

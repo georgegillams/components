@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { notBlack } from '../constants/colors';
 import { metalColor2 } from '../spartan-medal/constants';
 import SpartanTrifectaWedge from '../spartan-trifecta-wedge';
 
@@ -30,7 +29,9 @@ export const Background = styled.circle.attrs({
 export const StyledSpartanTrifectaWedge = styled(SpartanTrifectaWedge).attrs({
   x: (TRIFECTA_DISPLAY_DESIGN_SIZE - TRIFECTA_WEDGE_DESIGN_SIZE) / 2,
   y: (TRIFECTA_DISPLAY_DESIGN_SIZE - TRIFECTA_WEDGE_DESIGN_SIZE) / 2,
-})`
+})<{
+  index: number;
+}>`
   clip-path: ${(props) => {
     switch (props.index) {
       case 0:
@@ -59,7 +60,7 @@ export const OuterText = styled.text.attrs({ width: 500 })`
 `;
 
 export const OuterTextPath = styled.textPath.attrs({
-  alignmentBaseline: 'center',
+  alignmentBaseline: 'central',
   xlinkHref: '#outerTextLine',
 })`
   text-shadow: 1px 1px 2px white;

@@ -26,6 +26,8 @@ export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   component?: ComponentType;
 }
 
+const DefaultInputComponent = (props: InputProps) => <input {...props} />;
+
 const Input = (props: InputProps) => {
   const {
     name,
@@ -36,7 +38,7 @@ const Input = (props: InputProps) => {
     valid,
     inputProps,
     iconProps,
-    component: InputComponent = (props) => <input {...props} />,
+    component: InputComponent = DefaultInputComponent,
     id,
     'aria-describedby': ariaDescribedby,
     children,

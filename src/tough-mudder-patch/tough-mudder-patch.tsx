@@ -3,8 +3,17 @@ import PropTypes from 'prop-types';
 
 import { PATCH_TYPE, TYPE_COLORS, TYPE_DESCRIPTION } from './constants';
 import EventPatch from '../event-patch';
+import { EventPatchProps } from '../event-patch/event-patch';
 
-const ToughMudderPatch = (props) => {
+export type ToughMudderPatchProps = {
+  [K in keyof EventPatchProps as K extends 'foreground' | 'background' | 'title'
+    ? never
+    : K]: EventPatchProps[K];
+} & {
+  type: typeof PATCH_TYPE[keyof typeof PATCH_TYPE];
+};
+
+const ToughMudderPatch = (props: ToughMudderPatchProps) => {
   const { type, ...rest } = props;
 
   const { foreground, background } = TYPE_COLORS[type];
@@ -18,16 +27,6 @@ const ToughMudderPatch = (props) => {
       {...rest}
     />
   );
-};
-
-ToughMudderPatch.propTypes = {
-  type: PropTypes.oneOf(Object.values(PATCH_TYPE)).isRequired,
-  year: PropTypes.string.isRequired,
-  stravaLink: PropTypes.string,
-};
-
-ToughMudderPatch.defaultProps = {
-  stravaLink: null,
 };
 
 export default ToughMudderPatch;
