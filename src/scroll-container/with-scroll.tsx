@@ -1,31 +1,43 @@
-/* eslint-disable */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import wrapDisplayName from 'recompose/wrapDisplayName';
 
-const withScrollProps = {
-  fullyInView: PropTypes.bool,
-  hasBeenFullyInView: PropTypes.bool,
-  hasBeenInView: PropTypes.bool,
-  hasBeenJustInView: PropTypes.bool,
-  hasBeenMostlyInView: PropTypes.bool,
-  hasBeenOutOfView: PropTypes.bool,
-  inView: PropTypes.bool,
-  justInView: PropTypes.bool,
-  mostlyInView: PropTypes.bool,
-  outOfView: PropTypes.bool,
-  scrollPosition: PropTypes.number,
-  scrollPositionVh: PropTypes.number,
-};
+export interface WithScrollProps {
+  style?: object;
+  className?: string;
+}
 
-const withScroll = (ComponentToScroll) => {
-  class WithScroll extends Component {
-    constructor() {
-      super();
+export interface WithScrollState {
+  fullyInView: boolean;
+  hasBeenFullyInView: boolean;
+  hasBeenInView: boolean;
+  hasBeenJustInView: boolean;
+  hasBeenMostlyInView: boolean;
+  hasBeenOutOfView: boolean;
+  inView: boolean;
+  justInView: boolean;
+  mostlyInView: boolean;
+  outOfView: boolean;
+  scrollPosition: number;
+  scrollPositionVh: number;
+}
 
-      this.documentRef = null;
-      this.interval = null;
+interface ViewPortRectType {
+  x: number;
+  y: number;
+  height: number;
+  width: number;
+}
+
+const withScroll = (ComponentToScroll: React.ComponentType<any>) => {
+  class WithScroll extends Component<WithScrollProps, WithScrollState> {
+    documentRef?: Document;
+    interval?: NodeJS.Timer;
+    element?: HTMLDivElement;
+    placeholderReference?: string;
+
+    constructor(props: WithScrollProps) {
+      super(props);
 
       this.state = {
         fullyInView: false,
@@ -57,7 +69,11 @@ const withScroll = (ComponentToScroll) => {
       return this.supportsPassiveEvents() ? { passive: true } : {};
     }
 
-    updateStateValues = (inView, scrollPosition, scrollPositionVh) => {
+    updateStateValues = (
+      inView: boolean,
+      scrollPosition: number,
+      scrollPositionVh: number,
+    ) => {
       const outOfView = !inView;
       const justInView = scrollPosition < 25.0;
       const mostlyInView = scrollPosition >= 25.0 && scrollPosition < 100;
@@ -84,8 +100,8 @@ const withScroll = (ComponentToScroll) => {
     };
 
     setUpEventListeners = () => {
-      this.documentRef = typeof window !== 'undefined' ? document : null;
-      // this.document should only be `null` when SSR
+      this.documentRef = typeof window !== 'undefined' ? document : undefined;
+      // this.document should only be `undefined` when SSR
       if (!this.documentRef) {
         return;
       }
@@ -129,11 +145,13 @@ const withScroll = (ComponentToScroll) => {
         'fullscreenchange',
         this.checkPosition,
       );
-      clearInterval(this.interval);
+      if (this.interval) {
+        clearInterval(this.interval);
+      }
     };
 
     checkPosition = throttle(() => {
-      const elementRect = this.elementBoundingRect();
+      const elementRect = this.elementBoundingRect() || undefined;
       const viewPortRect = this.viewPortRect();
       const inView = this.isInViewPort(elementRect, viewPortRect);
       const scrollPosition = this.scrollPosition(elementRect, viewPortRect);
@@ -155,7 +173,9 @@ const withScroll = (ComponentToScroll) => {
             return supportsPassiveOption;
           },
         });
+        // @ts-ignore
         window.addEventListener('test', null, opts);
+        // @ts-ignore
         window.removeEventListener('test');
       } catch (e) {
         return false;
@@ -172,16 +192,16 @@ const withScroll = (ComponentToScroll) => {
     viewPortRect = () => {
       const viewPortHeight = Math.max(
         window.innerHeight,
-        this.documentRef.documentElement.clientHeight,
+        this.documentRef?.documentElement?.clientHeight || 0,
       );
       const viewPortWidth = Math.max(
         window.innerWidth,
-        this.documentRef.documentElement.clientWidth,
+        this.documentRef?.documentElement?.clientWidth || 0,
       );
       return { x: 0, y: 0, width: viewPortWidth, height: viewPortHeight };
     };
 
-    isInViewPort = (elementRect, viewPortRect) => {
+    isInViewPort = (elementRect?: DOMRect, viewPortRect?: ViewPortRectType) => {
       if (!elementRect || !viewPortRect) {
         return false;
       }
@@ -194,7 +214,10 @@ const withScroll = (ComponentToScroll) => {
       );
     };
 
-    scrollPosition = (elementRect, viewPortRect) => {
+    scrollPosition = (
+      elementRect?: DOMRect,
+      viewPortRect?: ViewPortRectType,
+    ) => {
       if (!elementRect || !viewPortRect) {
         return 0;
       }
@@ -205,7 +228,10 @@ const withScroll = (ComponentToScroll) => {
       return elementPercentageInView;
     };
 
-    scrollPositionVh = (elementRect, viewPortRect) => {
+    scrollPositionVh = (
+      elementRect?: DOMRect,
+      viewPortRect?: ViewPortRectType,
+    ) => {
       if (!elementRect || !viewPortRect) {
         return 0;
       }
@@ -224,30 +250,19 @@ const withScroll = (ComponentToScroll) => {
         <div
           id={this.placeholderReference}
           ref={(element) => {
-            this.element = element;
+            this.element = element || undefined;
           }}
           style={style}
-          className={className}
         >
           <ComponentToScroll {...this.state} {...rest} />
         </div>
       );
     }
   }
+  // @ts-ignore
   WithScroll.displayName = wrapDisplayName(ComponentToScroll, 'withScroll');
-
-  WithScroll.propTypes = {
-    style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    className: PropTypes.string,
-  };
-
-  WithScroll.defaultProps = {
-    style: null,
-    className: null,
-  };
 
   return WithScroll;
 };
 
 export default withScroll;
-export { withScrollProps };

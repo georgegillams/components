@@ -4,12 +4,26 @@ import PropTypes from 'prop-types';
 import TextLink from '../text-link';
 import { Heading, LinkContainer } from './page-title.styles';
 import { AnimationWrapper, ScrollAnimationWrapper } from '../effects';
+import { TextLinkProps } from '../text-link/text-link';
 
-const PageTitle = (props) => {
+export interface PageTitleProps extends React.HTMLAttributes<HTMLDivElement> {
+  name?: string;
+  link?: {
+    to: string;
+    text: string;
+  };
+  padding?: boolean;
+  anchorComponent?: React.ComponentType<HTMLAnchorElement>;
+  linkProps?: any;
+}
+
+const PageTitle = (props: PageTitleProps) => {
   const {
-    padding,
+    padding = true,
     link,
-    anchorComponent: AnchorComponent,
+    anchorComponent: AnchorComponent = (p: TextLinkProps) => (
+      <TextLink {...p} />
+    ),
     name,
     linkProps,
     children,
@@ -46,27 +60,6 @@ const PageTitle = (props) => {
       {children}
     </>
   );
-};
-
-PageTitle.propTypes = {
-  padding: PropTypes.bool,
-  name: PropTypes.string,
-  link: PropTypes.shape({
-    to: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-  }),
-  linkProps: PropTypes.object,
-  children: PropTypes.node,
-  anchorComponent: PropTypes.func,
-};
-
-PageTitle.defaultProps = {
-  padding: true,
-  name: null,
-  link: null,
-  linkProps: null,
-  children: null,
-  anchorComponent: (props) => <TextLink {...props} />,
 };
 
 export default PageTitle;

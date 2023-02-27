@@ -1,6 +1,11 @@
 /* eslint-disable no-param-reassign */
 
-const cleanRestScrollProps = (obj) => {
+import { MakeObjectTypeOptional } from '../type-helpers';
+import { WithScrollState } from './with-scroll';
+
+export type OptionalWithScrollState = MakeObjectTypeOptional<WithScrollState>;
+
+const cleanRestScrollProps = (obj: OptionalWithScrollState) => {
   delete obj.fullyInView;
   delete obj.hasBeenFullyInView;
   delete obj.hasBeenInView;

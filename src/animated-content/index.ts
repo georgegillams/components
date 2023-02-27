@@ -1,1 +1,1 @@
-export { default, ANIMATIONS } from './animated-content';
+export { default, ANIMATIONS, AnimatedContentProps } from './animated-content';

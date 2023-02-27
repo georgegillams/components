@@ -2,6 +2,7 @@ import React from 'react';
 
 import PageTitle from './index';
 import { JS_CLASSNAME } from '../js-feature-detector';
+import { TextLinkProps } from '../text-link/text-link';
 
 export default { title: 'Molecules/Page title', component: PageTitle };
 
@@ -56,6 +57,7 @@ export const WithCustomLinkComponent = () => (
           border: 'limegreen 10px solid',
         }}
       >
+        {/* @ts-ignore */}
         <a {...props} />
       </div>
     )}

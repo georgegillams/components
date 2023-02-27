@@ -1,5 +1,6 @@
 import React from 'react';
 
+// @ts-ignore
 import MarkdownRenderer from '../markdown-renderer';
 
 import Notification, { NOTIFICATION_TYPES } from './index';

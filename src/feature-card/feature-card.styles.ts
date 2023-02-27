@@ -2,10 +2,12 @@ import styled, { css } from 'styled-components';
 import Card from '../card';
 import { notBlack, notBlackDarkMode, primaryColor } from '../constants/colors';
 import { breakpointSm } from '../constants/layout';
-import { FEATURE_CARD_LAYOUTS } from './feature-card';
 import Image from '../image';
+import { FEATURE_CARD_LAYOUTS } from './constants';
 
-export const StyledCard = styled(Card)`
+export const StyledCard = styled(Card)<{
+  layout: FEATURE_CARD_LAYOUTS;
+}>`
   color: ${notBlack};
 
   @media (prefers-color-scheme: dark) {
@@ -37,7 +39,9 @@ export const StyledCard = styled(Card)`
   }}
 `;
 
-export const OuterContainer = styled.div`
+export const OuterContainer = styled.div<{
+  layout: FEATURE_CARD_LAYOUTS;
+}>`
   display: flex;
   width: 100%;
   height: 100%;
@@ -72,7 +76,9 @@ export const OuterContainer = styled.div`
   }}
 `;
 
-export const AnnotationsContainer = styled.div`
+export const AnnotationsContainer = styled.div<{
+  layout: FEATURE_CARD_LAYOUTS;
+}>`
   position: relative;
   z-index: 3;
   border-radius: 0.35rem;
@@ -89,7 +95,9 @@ export const AnnotationsContainer = styled.div`
     `}
 `;
 
-export const CenterContainer = styled.div`
+export const CenterContainer = styled.div<{
+  layout?: FEATURE_CARD_LAYOUTS;
+}>`
   display: flex;
   z-index: 3;
   min-width: 100%;
@@ -144,7 +152,9 @@ export const AnnotationTablet = styled.div`
   }
 `;
 
-export const StyledImage = styled(Image)`
+export const StyledImage = styled(Image)<{
+  disabled?: boolean;
+}>`
   z-index: 3;
   width: 100%;
   height: 100%;

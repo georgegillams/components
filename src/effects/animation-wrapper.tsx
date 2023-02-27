@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import styled, { keyframes } from 'styled-components';
 import AnimatedContent, { ANIMATIONS } from '../animated-content';
 import withScroll from '../scroll-container';
-const AnimatedContentWithScroll = withScroll(AnimatedContent);
 
 const fadeKeyframes = keyframes`
   0% {
@@ -32,7 +31,12 @@ const FadeAndDriftInWrapper = styled.div`
   animation: ${fadeAndDriftInKeyframes} 0.4s ease-in-out;
 `;
 
-export const AnimationWrapper = (props) => {
+export interface AnimationWrapperProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  animation?: ANIMATIONS;
+}
+
+export const AnimationWrapper = (props: AnimationWrapperProps) => {
   const { animation, ...rest } = props;
   const WrapperComponent = useMemo(() => {
     switch (animation) {

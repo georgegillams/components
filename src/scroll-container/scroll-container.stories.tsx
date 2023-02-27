@@ -1,9 +1,9 @@
 import React from 'react';
-import scrollContainer from './index';
 
-import withScroll, { withScrollProps } from './index';
+import withScroll from './index';
+import { OptionalWithScrollState } from './utils';
 
-const ScrollReporter = (props) => {
+const ScrollReporter = (props: OptionalWithScrollState) => {
   const {
     inView,
     scrollPosition,
@@ -58,8 +58,6 @@ const ScrollReporter = (props) => {
     </div>
   );
 };
-
-ScrollReporter.propTypes = withScrollProps;
 
 const ScrollReportedWithScroll = withScroll(ScrollReporter);
 
