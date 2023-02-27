@@ -18,8 +18,15 @@ import {
   Wrapper,
 } from './spartan-trifecta-wedge.styles';
 
-const SpartanTrifectaWedge = (props) => {
-  const { type, year, wedgePosition, ...rest } = props;
+export interface SpartanTrifectaWedgeProps
+  extends React.HTMLAttributes<HTMLOrSVGElement> {
+  type: typeof EVENT_TYPE[keyof typeof EVENT_TYPE];
+  year?: string;
+  wedgePosition?: string;
+}
+
+const SpartanTrifectaWedge = (props: SpartanTrifectaWedgeProps) => {
+  const { type, year, wedgePosition = '', ...rest } = props;
 
   const { foreground, background } = TYPE_COLORS[type];
 
@@ -54,16 +61,6 @@ const SpartanTrifectaWedge = (props) => {
       <StyledSpartanLogo color={background} />
     </Wrapper>
   );
-};
-
-SpartanTrifectaWedge.propTypes = {
-  type: PropTypes.oneOf(Object.values(EVENT_TYPE)).isRequired,
-  year: PropTypes.string.isRequired,
-  wedgePosition: PropTypes.string,
-};
-
-SpartanTrifectaWedge.defaultProps = {
-  wedgePosition: '',
 };
 
 export default SpartanTrifectaWedge;

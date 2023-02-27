@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 
 import { Section } from './debug-object.styles';
 import ObjectAsList from '../object-as-list';
 
-const DebugObject = (props) => {
+export interface DebugObjectProps extends HTMLAttributes<HTMLDivElement> {
+  debugTitle?: string;
+  debugObject: {};
+}
+
+const DebugObject = (props: DebugObjectProps) => {
   const { debugTitle, debugObject } = props;
 
   return (
@@ -12,16 +17,6 @@ const DebugObject = (props) => {
       <ObjectAsList value={debugObject} />
     </Section>
   );
-};
-
-DebugObject.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  debugObject: PropTypes.object.isRequired,
-  debugTitle: PropTypes.string,
-};
-
-DebugObject.defaultProps = {
-  debugTitle: null,
 };
 
 export default DebugObject;

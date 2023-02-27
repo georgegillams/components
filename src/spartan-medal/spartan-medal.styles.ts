@@ -63,7 +63,7 @@ export const RightText = styled.text.attrs({ width: 500 })`
 
 export const RightTextPath = styled.textPath.attrs({
   startOffset: 15,
-  alignmentBaseline: 'center',
+  alignmentBaseline: 'central',
   xlinkHref: '#textLine1',
 })`
   text-shadow: 0px 0px 3px white;
@@ -84,7 +84,7 @@ export const LeftText = styled.text.attrs({ width: 500 })`
 
 export const LeftTextPath = styled.textPath.attrs({
   startOffset: 16,
-  alignmentBaseline: 'center',
+  alignmentBaseline: 'central',
   xlinkHref: '#textLine2',
 })`
   text-shadow: 1px 1px 2px ${notBlack};

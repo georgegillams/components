@@ -23,7 +23,9 @@ export const BackgroundOuter = styled.circle.attrs({
   cx: 50,
   cy: 50,
   r: 50,
-})`
+})<{
+  backgroundColor?: string;
+}>`
   fill: ${metalColor1};
   ${({ backgroundColor }) => backgroundColor && `fill: ${backgroundColor};`}
 `;
@@ -66,7 +68,7 @@ export const TopText = styled.text.attrs({ width: 500 })`
 
 export const TopTextPath = styled.textPath.attrs({
   startOffset: 0.5,
-  alignmentBaseline: 'center',
+  alignmentBaseline: 'central',
 })`
   text-shadow: 0px 0px 3px white;
 `;
@@ -86,13 +88,15 @@ export const BottomText = styled.text.attrs({ width: 500 })`
 
 export const BottomTextPath = styled.textPath.attrs({
   startOffset: 23,
-  alignmentBaseline: 'center',
+  alignmentBaseline: 'central',
 })`
   text-shadow: 0px 0px 3px white;
 `;
 
 // As we are nesting an SVG inside another SVG, width and height styles will be ignored.
-export const StyledSpartanLogo = styled(SpartanLogo).attrs(({ fill }) => {
+export const StyledSpartanLogo = styled(SpartanLogo).attrs<{
+  fill?: boolean;
+}>(({ fill }) => {
   if (fill) {
     return {
       x: 0,
@@ -107,4 +111,6 @@ export const StyledSpartanLogo = styled(SpartanLogo).attrs(({ fill }) => {
     height: LOGO_DESIGN_WIDTH,
     width: LOGO_DESIGN_WIDTH,
   };
-})``;
+})<{
+  fill?: boolean;
+}>``;

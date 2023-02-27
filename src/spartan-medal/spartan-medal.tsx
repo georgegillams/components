@@ -29,7 +29,17 @@ import { StyledThemeProvider } from '../styled-theming';
 
 import StravaIcon from '../icon/strava';
 
-const SpartanMedal = (props) => {
+export interface SpartanMedalProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  type: Exclude<
+    typeof EVENT_TYPE[keyof typeof EVENT_TYPE],
+    typeof EVENT_TYPE.obstacleSpecialistWorkshop
+  >;
+  year: keyof typeof ROMAN_NUMERALS;
+  stravaLink?: string;
+}
+
+const SpartanMedal = (props: SpartanMedalProps) => {
   const { type, year, stravaLink, ...rest } = props;
 
   const { foreground, background } = TYPE_COLORS[type];
@@ -79,16 +89,6 @@ const SpartanMedal = (props) => {
       </LinkContainer>
     </Wrapper>
   );
-};
-
-SpartanMedal.propTypes = {
-  type: PropTypes.oneOf(Object.values(EVENT_TYPE)).isRequired,
-  year: PropTypes.string.isRequired,
-  stravaLink: PropTypes.string,
-};
-
-SpartanMedal.defaultProps = {
-  stravaLink: null,
 };
 
 export default SpartanMedal;

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Container } from './quote.styles';
 import withStyledTheme from '../styled-theming';
 
-const Quote = (props) => {
+export interface QuoteProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+const Quote = (props: QuoteProps) => {
   return <Container {...props} />;
 };
 

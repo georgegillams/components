@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const ObjectAsList = (props) => {
-  const { name, value, depth, ...rest } = props;
+export interface ObjectAsListProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  name?: string;
+  value: any;
+  depth?: number;
+}
+
+const ObjectAsList = (props: ObjectAsListProps) => {
+  const { name, value, depth = 0, ...rest } = props;
 
   const [expanded, setExpanded] = useState(false);
 
@@ -45,18 +52,6 @@ const ObjectAsList = (props) => {
       {...rest}
     >{`${name}: ${value}`}</div>
   );
-};
-
-ObjectAsList.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  value: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
-  name: PropTypes.string,
-  depth: PropTypes.number,
-};
-
-ObjectAsList.defaultProps = {
-  depth: 0,
-  name: null,
 };
 
 export default ObjectAsList;

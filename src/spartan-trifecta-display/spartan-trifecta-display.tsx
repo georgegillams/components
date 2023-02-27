@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Background,
   OuterText,
@@ -11,7 +10,13 @@ import {
 import { EVENT_TYPE } from '../spartan-medal';
 import { notBlack } from '../constants/colors';
 
-const SpartanTrifectaDisplay = (props) => {
+export interface SpartanTrifectaDisplayProps
+  extends React.HTMLAttributes<SVGElement> {
+  wedges: Array<typeof EVENT_TYPE[keyof typeof EVENT_TYPE] | null>;
+  year?: string;
+}
+
+const SpartanTrifectaDisplay = (props: SpartanTrifectaDisplayProps) => {
   const { wedges, year, ...rest } = props;
 
   return (
@@ -39,12 +44,6 @@ const SpartanTrifectaDisplay = (props) => {
       )}
     </Wrapper>
   );
-};
-
-SpartanTrifectaDisplay.propTypes = {
-  wedges: PropTypes.arrayOf(PropTypes.oneOf(Object.values(EVENT_TYPE)))
-    .isRequired,
-  year: PropTypes.string.isRequired,
 };
 
 export default SpartanTrifectaDisplay;

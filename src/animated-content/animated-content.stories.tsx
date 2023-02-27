@@ -19,7 +19,7 @@ export const InView = () => (
 );
 export const OutOfView = () => (
   <div className="js">
-    <AnimatedContent inView={false}>
+    <AnimatedContent inView={false} hasBeenInView={false}>
       <div
         style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}
       />
@@ -27,29 +27,38 @@ export const OutOfView = () => (
   </div>
 );
 
-export const NoJs = () => (
-  <div className="no-js">
-    <AnimatedContent inView={boolean('In view', false)}>
-      <div
-        style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}
-      />
-    </AnimatedContent>
-  </div>
-);
+export const NoJs = () => {
+  const inView = boolean('In view', false);
 
-export const Interactive = () => (
-  <div className="js">
-    <AnimatedContent
-      inView={boolean('In view', false)}
-      animation={select(
-        'Animation',
-        Object.values(ANIMATIONS),
-        ANIMATIONS.fadeAndDriftIn,
-      )}
-    >
-      <div
-        style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}
-      />
-    </AnimatedContent>
-  </div>
-);
+  return (
+    <div className="no-js">
+      <AnimatedContent inView={inView} hasBeenInView={inView}>
+        <div
+          style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}
+        />
+      </AnimatedContent>
+    </div>
+  );
+};
+
+export const Interactive = () => {
+  const inView = boolean('In view', false);
+
+  return (
+    <div className="js">
+      <AnimatedContent
+        inView={inView}
+        hasBeenInView={inView}
+        animation={select(
+          'Animation',
+          Object.values(ANIMATIONS),
+          ANIMATIONS.fadeAndDriftIn,
+        )}
+      >
+        <div
+          style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}
+        />
+      </AnimatedContent>
+    </div>
+  );
+};

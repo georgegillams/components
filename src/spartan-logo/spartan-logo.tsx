@@ -1,7 +1,11 @@
 import React from 'react';
 import { Wrapper } from './spartan-logo.styles';
 
-const SpartanLogo = (props) => {
+export interface SpartanLogoProps extends React.HTMLAttributes<SVGElement> {
+  color?: string;
+}
+
+const SpartanLogo = (props: SpartanLogoProps) => {
   const { color, ...rest } = props;
 
   const logo = (

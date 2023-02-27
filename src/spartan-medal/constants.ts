@@ -7,7 +7,7 @@ export const EVENT_TYPE = {
   beast: 'beast',
   ultra: 'ultra',
   obstacleSpecialistWorkshop: 'obstacleSpecialistWorkshop',
-};
+} as const;
 
 export const TYPE_DESCRIPTION = {
   [EVENT_TYPE.sprint]: 'SPRINT',
