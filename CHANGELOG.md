@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.8.13
+
+### Bug Fixes
+
+- Typescript molecules (#713)
+
 ## 28.8.12
 
 ## 28.9.0
