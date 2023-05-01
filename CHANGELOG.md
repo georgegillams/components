@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.10.1
+
+### Bug Fixes
+
+- Fix 2023 medal text lines
+
 ## 28.10.0
 
 ### Features
