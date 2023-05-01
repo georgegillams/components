@@ -75,7 +75,7 @@ export const FlashRings2 = styled.circle.attrs({
 `;
 
 export const TopTextGuidePath = styled.path.attrs({
-  id: 'textLine1',
+  id: 'textLine2023_1',
   d: 'M5.74597 36.5927C5.74597 18.7932 21.0367 5.44353 37.5 5.44353C53.9633 5.44353 69.2541 18.7932 69.2541 36.5927',
 })`
   fill: none;
@@ -89,7 +89,7 @@ export const TopText = styled.text.attrs({ width: 500 })`
 
 export const TopTextPath = styled.textPath.attrs({
   alignmentBaseline: 'central',
-  xlinkHref: '#textLine1',
+  xlinkHref: '#textLine2023_1',
 })`
   text-shadow: 1px 1px 2px ${notBlack};
 `;
@@ -103,7 +103,7 @@ export const BottomDecorativeLine = styled.path.attrs({
 `;
 
 export const InsideTextGuidePath = styled.circle.attrs({
-  id: 'textLine2',
+  id: 'textLine2023_2',
   cx: 37.5,
   cy: 37.5,
   r: 16,
@@ -121,7 +121,7 @@ export const InsideText = styled.text.attrs({ width: 500 })`
 export const InsideTextPath = styled.textPath.attrs({
   startOffset: 0,
   alignmentBaseline: 'central',
-  xlinkHref: '#textLine2',
+  xlinkHref: '#textLine2023_2',
 })`
   text-shadow: 0px 0px 3px white;
 `;
