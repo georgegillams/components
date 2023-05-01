@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.9.0
+
+### Features
+
+- Spartan medal 2023 design (#717)
+
 ## 28.8.13
 
 ### Bug Fixes
