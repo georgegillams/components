@@ -30,7 +30,7 @@ Make sure docker is running. Then run these three commands:
 /bin/bash ./scripts/docker/snapshot-test/clean-up.sh'
 ```
 
-- The first will setup the docker image and container. If they already exist this will be super fast.
+- The first will setup the docker image and container. (If they already exist this will be super fast.)
 - The second will copy the project over, setup dependencies, build and run, and take screenshots. Failed screenshots will be copied back to your machine.
 - The third simply stops the docker container.
 
