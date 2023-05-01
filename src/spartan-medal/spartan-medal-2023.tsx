@@ -4,7 +4,6 @@ import {
   EVENT_TYPE,
   ROMAN_NUMERALS,
   TYPE_COLORS,
-  TYPE_DESCRIPTION,
   TYPE_DISTANCE,
   TYPE_OBSTACLES,
 } from './constants';
@@ -12,18 +11,23 @@ import {
   Wrapper,
   BackgroundOuter,
   BackgroundInner,
-  Flash,
-  RightTextGuidePath,
-  RightTextPath,
-  RightText,
-  LeftTextGuidePath,
-  LeftTextPath,
-  LeftText,
   StyledSpartanLogo,
   LinkContainer,
   StravaLink,
   WrapperSvg,
-} from './spartan-medal.styles';
+  Flash,
+  FlashRings1,
+  FlashRings2,
+  TopTextGuidePath,
+  TopText,
+  TopTextPath,
+  BottomDecorativeLine,
+  InsideTextGuidePath,
+  InsideText,
+  InsideTextPath,
+  Year,
+  FlashEdging,
+} from './spartan-medal-2023.styles';
 import { StyledThemeProvider } from '../styled-theming';
 
 import StravaIcon from '../icon/strava';
@@ -38,40 +42,42 @@ export interface SpartanMedalProps
   stravaLink?: string;
 }
 
-const SpartanMedal = (props: SpartanMedalProps) => {
+const SpartanMedal2023 = (props: SpartanMedalProps) => {
   const { type, year, stravaLink, ...rest } = props;
 
-  const { foreground, background } = TYPE_COLORS[type];
-  const title = TYPE_DESCRIPTION[type];
+  const { background } = TYPE_COLORS[type];
   const distance = TYPE_DISTANCE[type];
   const obstacles = TYPE_OBSTACLES[type];
-  const yearRoman = ROMAN_NUMERALS[year];
 
-  const logo = <circle cx="37.5" cy="37.5" r="22" />;
+  const topText = `SPARTAN ${type.toUpperCase()} FINISHER | ${distance}K | ${obstacles} OBSTACLES`;
+  const topTextOffset = 44.6 - topText.length;
 
   return (
     <Wrapper {...rest}>
       <WrapperSvg>
-        <BackgroundOuter />
         <BackgroundInner />
+        <BackgroundOuter />
+        <BottomDecorativeLine />
         <Flash color={background} />
+        <FlashEdging />
+        <FlashRings1 />
+        <FlashRings2 />
 
-        <RightTextGuidePath />
-        <RightText color={foreground}>
-          <RightTextPath>
-            {distance} KILOMETERS • {obstacles} OBSTACLES
-          </RightTextPath>
-        </RightText>
+        <TopTextGuidePath />
+        <TopText>
+          <TopTextPath startOffset={topTextOffset}>{topText}</TopTextPath>
+        </TopText>
 
-        <LeftTextGuidePath />
-        <LeftText>
-          <LeftTextPath>
-            {title} {yearRoman}
-          </LeftTextPath>
-        </LeftText>
+        <InsideTextGuidePath />
+        <InsideText>
+          <InsideTextPath>
+            SPARTAN {year} • MOPA TΩN ΠYΛOΣ • TRIFECTA QUALIFIER •{' '}
+          </InsideTextPath>
+        </InsideText>
 
-        <StyledSpartanLogo color={background} />
+        <StyledSpartanLogo />
       </WrapperSvg>
+      <Year>{year}</Year>
       <LinkContainer>
         <StyledThemeProvider
           theme={{
@@ -90,4 +96,4 @@ const SpartanMedal = (props: SpartanMedalProps) => {
   );
 };
 
-export default SpartanMedal;
+export default SpartanMedal2023;

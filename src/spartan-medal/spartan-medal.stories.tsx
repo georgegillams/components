@@ -38,3 +38,11 @@ export const Ultra = () => (
     stravaLink="https://strava.com"
   />
 );
+
+export const Sprint2023 = () => (
+  <SpartanMedal
+    type={EVENT_TYPE.sprint}
+    year="2023"
+    stravaLink="https://strava.com"
+  />
+);

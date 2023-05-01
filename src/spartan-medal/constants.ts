@@ -1,3 +1,4 @@
+export const metalColor0 = '#707070';
 export const metalColor1 = '#a0a0a0';
 export const metalColor2 = '#d9d9d9';
 
