@@ -1,5 +1,16 @@
 # Changelog
 
+## 28.10.0
+
+### Features
+
+- Fix release
+- Spartan medal 2023 design (#717)
+
+### Bug Fixes
+
+- f58f1ad [skip ci] Publish 28.9.0
+
 ## 28.9.0
 
 ### Features
