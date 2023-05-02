@@ -53,9 +53,13 @@ export const Flash = styled.path.attrs({
   fill: ${(props) => props.color};
 `;
 
-export const TopTextGuidePath = styled.path.attrs({
-  d: 'M13.5 49.75C13.5 29.1786 31.0761 13.75 50 13.75C68.9239 13.75 86.5 29.1786 86.5 49.75',
-})`
+export const TopTextGuidePath = styled.path.attrs<{ isFirefox: boolean }>(
+  ({ isFirefox }) => ({
+    d: isFirefox
+      ? 'M13.5 49.75C13.5 29.1786 31.0761 13.75 50 13.75C68.9239 13.75 86.5 29.1786 86.5 49.75'
+      : 'M11 49C11 27.2857 29.7799 11 50 11C70.2201 11 89 27.2857 89 49',
+  }),
+)<{ isFirefox: boolean }>`
   fill: none;
 `;
 
@@ -66,16 +70,22 @@ export const TopText = styled.text.attrs({ width: 500 })`
   letter-spacing: 0.25rem;
 `;
 
-export const TopTextPath = styled.textPath.attrs({
-  startOffset: 0.5,
-  alignmentBaseline: 'central',
-})`
+export const TopTextPath = styled.textPath.attrs<{ isFirefox: boolean }>(
+  ({ isFirefox }) => ({
+    startOffset: isFirefox ? 0.5 : 4,
+    alignmentBaseline: 'central',
+  }),
+)<{ isFirefox: boolean }>`
   text-shadow: 0px 0px 3px white;
 `;
 
-export const BottomTextGuidePath = styled.path.attrs({
-  d: 'M5.5 48.75C5.5 71.5024 24.9509 93.6081 49.2514 93.7493C73.4158 93.8897 93.5 74.0305 93.5 49.7612',
-})`
+export const BottomTextGuidePath = styled.path.attrs<{ isFirefox: boolean }>(
+  ({ isFirefox }) => ({
+    d: isFirefox
+      ? 'M5.5 48.75C5.5 71.5024 24.9509 93.6081 49.2514 93.7493C73.4158 93.8897 93.5 74.0305 93.5 49.7612'
+      : 'M10 50C10 70.2244 27.6826 89.8738 49.774 89.9993C71.7417 90.1242 90 72.4715 90 50.8989',
+  }),
+)<{ isFirefox: boolean }>`
   fill: none;
 `;
 
@@ -86,10 +96,12 @@ export const BottomText = styled.text.attrs({ width: 500 })`
   letter-spacing: 0.1rem;
 `;
 
-export const BottomTextPath = styled.textPath.attrs({
-  startOffset: 23,
-  alignmentBaseline: 'central',
-})`
+export const BottomTextPath = styled.textPath.attrs<{ isFirefox: boolean }>(
+  ({ isFirefox }) => ({
+    startOffset: isFirefox ? 23 : 17,
+    alignmentBaseline: 'central',
+  }),
+)<{ isFirefox: boolean }>`
   text-shadow: 0px 0px 3px white;
 `;
 
@@ -101,8 +113,8 @@ export const StyledSpartanLogo = styled(SpartanLogo).attrs<{
     return {
       x: 0,
       y: 0,
-      height: displayWidth,
-      width: displayWidth,
+      height: 100,
+      width: 100,
     };
   }
   return {

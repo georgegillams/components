@@ -1,8 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useMemo } from 'react';
 
 import { EVENT_TYPE, TYPE_COLORS } from '../spartan-medal';
-import EventPatch from '../event-patch';
 import {
   BackgroundInner,
   BackgroundOuter,
@@ -39,22 +37,38 @@ const SpartanTrifectaWedge = (props: SpartanTrifectaWedgeProps) => {
     );
   }
 
+  const isFirefox = useMemo(() => {
+    return navigator.userAgent.indexOf('Firefox') > 0;
+  }, []);
+
   return (
     <Wrapper {...rest}>
       <BackgroundOuter />
       <BackgroundInner />
       <InnerDecoration />
       <Flash color={background} />
-      <TopTextGuidePath id={`textLineTop${wedgePosition}`} />
+      <TopTextGuidePath
+        id={`textLineTop${wedgePosition}`}
+        isFirefox={isFirefox}
+      />
       <TopText color={foreground}>
-        <TopTextPath xlinkHref={`#textLineTop${wedgePosition}`}>
+        <TopTextPath
+          xlinkHref={`#textLineTop${wedgePosition}`}
+          isFirefox={isFirefox}
+        >
           SPARTAN {year}
         </TopTextPath>
       </TopText>
 
-      <BottomTextGuidePath id={`textLineBottom${wedgePosition}`} />
+      <BottomTextGuidePath
+        id={`textLineBottom${wedgePosition}`}
+        isFirefox={isFirefox}
+      />
       <BottomText color={foreground}>
-        <BottomTextPath xlinkHref={`#textLineBottom${wedgePosition}`}>
+        <BottomTextPath
+          xlinkHref={`#textLineBottom${wedgePosition}`}
+          isFirefox={isFirefox}
+        >
           TRIFECTA TRIBE
         </BottomTextPath>
       </BottomText>
