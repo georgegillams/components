@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { EVENT_TYPE, TYPE_COLORS } from '../spartan-medal';
 import {
@@ -25,8 +25,15 @@ export interface SpartanTrifectaWedgeProps
 
 const SpartanTrifectaWedge = (props: SpartanTrifectaWedgeProps) => {
   const { type, year, wedgePosition = '', ...rest } = props;
-
   const { foreground, background } = TYPE_COLORS[type];
+
+  const [isFirefox, setIsFirefox] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator === 'undefined') return;
+
+    setIsFirefox(navigator?.userAgent?.indexOf?.('Firefox') > 0);
+  }, []);
 
   if (type === EVENT_TYPE.obstacleSpecialistWorkshop) {
     return (
@@ -36,12 +43,6 @@ const SpartanTrifectaWedge = (props: SpartanTrifectaWedgeProps) => {
       </Wrapper>
     );
   }
-
-  const isFirefox = useMemo(() => {
-    if (typeof navigator === 'undefined') return false;
-
-    return navigator?.userAgent?.indexOf?.('Firefox') > 0;
-  }, []);
 
   return (
     <Wrapper {...rest}>
