@@ -48,10 +48,14 @@ export const Flash = styled.path.attrs({
   fill: ${(props) => props.color};
 `;
 
-export const RightTextGuidePath = styled.path.attrs({
-  id: 'textLine1',
-  d: 'M38 6C54.7705 6 69 20.7339 69 36.9919C69 53.7581 55.7869 69 38 69',
-})`
+export const RightTextGuidePath = styled.path.attrs<{ isFirefox: boolean }>(
+  ({ isFirefox }) => ({
+    id: 'textLine1',
+    d: isFirefox
+      ? 'M38 6C54.7705 6 69 20.7339 69 36.9919C69 53.7581 55.7869 69 38 69'
+      : 'M39 5C55.7705 5 70 20.2016 70 36.9758C70 54.2742 56.7869 70 39 70',
+  }),
+)<{ isFirefox: boolean }>`
   fill: none;
 `;
 
@@ -61,18 +65,24 @@ export const RightText = styled.text.attrs({ width: 500 })`
   fill: ${(props) => props.color};
 `;
 
-export const RightTextPath = styled.textPath.attrs({
-  startOffset: 15,
-  alignmentBaseline: 'central',
-  xlinkHref: '#textLine1',
-})`
+export const RightTextPath = styled.textPath.attrs<{ isFirefox: boolean }>(
+  ({ isFirefox }) => ({
+    startOffset: isFirefox ? 15 : 17,
+    alignmentBaseline: 'central',
+    xlinkHref: '#textLine1',
+  }),
+)<{ isFirefox: boolean }>`
   text-shadow: 0px 0px 3px white;
 `;
 
-export const LeftTextGuidePath = styled.path.attrs({
-  id: 'textLine2',
-  d: 'M37 66C21.8525 66 8.99999 52.6694 9 37.9597C9 22.7903 20.9344 9 37 9',
-})`
+export const LeftTextGuidePath = styled.path.attrs<{ isFirefox: boolean }>(
+  ({ isFirefox }) => ({
+    id: 'textLine2',
+    d: isFirefox
+      ? 'M37 66C21.8525 66 8.99999 52.6694 9 37.9597C9 22.7903 20.9344 9 37 9'
+      : 'M36 69C19.7705 69 6 54.2661 6 38.0081C6 21.2419 18.7869 6 36 6',
+  }),
+)<{ isFirefox: boolean }>`
   fill: none;
 `;
 
@@ -82,11 +92,13 @@ export const LeftText = styled.text.attrs({ width: 500 })`
   fill: ${metalColor2};
 `;
 
-export const LeftTextPath = styled.textPath.attrs({
-  startOffset: 16,
-  alignmentBaseline: 'central',
-  xlinkHref: '#textLine2',
-})`
+export const LeftTextPath = styled.textPath.attrs<{ isFirefox: boolean }>(
+  ({ isFirefox }) => ({
+    startOffset: isFirefox ? 16 : 18,
+    alignmentBaseline: 'central',
+    xlinkHref: '#textLine2',
+  }),
+)<{ isFirefox: boolean }>`
   text-shadow: 1px 1px 2px ${notBlack};
 `;
 

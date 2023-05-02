@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   EVENT_TYPE,
@@ -49,8 +49,16 @@ const SpartanMedal2023 = (props: SpartanMedalProps) => {
   const distance = TYPE_DISTANCE[type];
   const obstacles = TYPE_OBSTACLES[type];
 
+  const [isFirefox, setIsFirefox] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator === 'undefined') return;
+
+    setIsFirefox(navigator?.userAgent?.indexOf?.('Firefox') > 0);
+  }, []);
+
   const topText = `SPARTAN ${type.toUpperCase()} FINISHER | ${distance}K | ${obstacles} OBSTACLES`;
-  const topTextOffset = 44.6 - topText.length;
+  const topTextOffset = (isFirefox ? 0 : 2) + 44.6 - topText.length;
 
   return (
     <Wrapper {...rest}>
@@ -63,13 +71,13 @@ const SpartanMedal2023 = (props: SpartanMedalProps) => {
         <FlashRings1 />
         <FlashRings2 />
 
-        <TopTextGuidePath />
+        <TopTextGuidePath isFirefox={isFirefox} />
         <TopText>
           <TopTextPath startOffset={topTextOffset}>{topText}</TopTextPath>
         </TopText>
 
-        <InsideTextGuidePath />
-        <InsideText>
+        <InsideTextGuidePath isFirefox={isFirefox} />
+        <InsideText isFirefox={isFirefox}>
           <InsideTextPath>
             SPARTAN {year} • MOPA TΩN ΠYΛOΣ • TRIFECTA QUALIFIER •{' '}
           </InsideTextPath>
