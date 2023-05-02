@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.10.6
+
+### Bug Fixes
+
+- Adjust medal text alignment (#718)
+
 ## 28.10.5
 
 ### Bug Fixes
