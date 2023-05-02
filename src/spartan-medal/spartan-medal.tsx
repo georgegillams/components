@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   EVENT_TYPE,
@@ -47,7 +47,13 @@ const SpartanMedal = (props: SpartanMedalProps) => {
   const obstacles = TYPE_OBSTACLES[type];
   const yearRoman = ROMAN_NUMERALS[year];
 
-  const logo = <circle cx="37.5" cy="37.5" r="22" />;
+  const [isFirefox, setIsFirefox] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator === 'undefined') return;
+
+    setIsFirefox(navigator?.userAgent?.indexOf?.('Firefox') > 0);
+  }, []);
 
   return (
     <Wrapper {...rest}>
@@ -56,16 +62,16 @@ const SpartanMedal = (props: SpartanMedalProps) => {
         <BackgroundInner />
         <Flash color={background} />
 
-        <RightTextGuidePath />
+        <RightTextGuidePath isFirefox={isFirefox} />
         <RightText color={foreground}>
-          <RightTextPath>
+          <RightTextPath isFirefox={isFirefox}>
             {distance} KILOMETERS • {obstacles} OBSTACLES
           </RightTextPath>
         </RightText>
 
-        <LeftTextGuidePath />
+        <LeftTextGuidePath isFirefox={isFirefox} />
         <LeftText>
-          <LeftTextPath>
+          <LeftTextPath isFirefox={isFirefox}>
             {title} {yearRoman}
           </LeftTextPath>
         </LeftText>
