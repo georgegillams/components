@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.10.3
+
+### Bug Fixes
+
+- Fix ss error
+
 ## 28.10.2
 
 ### Bug Fixes
