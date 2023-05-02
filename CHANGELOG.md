@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.10.2
+
+### Bug Fixes
+
+- Fix non-FF medal text lines
+
 ## 28.10.1
 
 ### Bug Fixes
