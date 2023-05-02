@@ -38,7 +38,7 @@ const SpartanTrifectaWedge = (props: SpartanTrifectaWedgeProps) => {
   }
 
   const isFirefox = useMemo(() => {
-    return navigator.userAgent.indexOf('Firefox') > 0;
+    return navigator?.userAgent?.indexOf?.('Firefox') > 0;
   }, []);
 
   return (
