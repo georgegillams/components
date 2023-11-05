@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.11.0
+
+### Features
+
+- Add color tokens to storybook (#719)
+
 ## 28.10.6
 
 ### Bug Fixes
