@@ -3,14 +3,13 @@ import {
   backgroundColorDarkMode,
   backgroundColorElevatedColored,
   backgroundColorElevatedColoredinvert,
-  navigationBarBurgerZIndex,
-  navigationBarMenuZIndex,
-  navigationBarScrimZIndex,
-  navigationbarZIndex,
 } from '../constants/colors';
 import {
   breakpointMd,
   breakpointSm,
+  navigationBarZIndex,
+  navigationBarBurgerZIndex,
+  navigationBarScrimZIndex,
   spacingBase,
   spacingLg,
 } from '../constants/layout';
@@ -84,7 +83,7 @@ const navigationKeyFrames = keyframes`
 export const Header = styled.header`
   position: sticky;
   top: 0;
-  z-index: ${navigationbarZIndex};
+  z-index: ${navigationBarZIndex};
   animation: ${navigationKeyFrames} 0.4s ease-in-out;
 `;
 export const Scrim = styled.div`
