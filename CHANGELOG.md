@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.11.1
+
+### Bug Fixes
+
+- Transpile with babel (#720)
+
 ## 28.11.0
 
 ### Features
