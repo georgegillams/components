@@ -27,8 +27,8 @@
 // }
 
 import styled, { css } from 'styled-components';
-import { notBlack, requestStatusZIndex } from '../constants/colors';
-import { spacingBase } from '../constants/layout';
+import { notBlack } from '../constants/colors';
+import { requestStatusZIndex, spacingBase } from '../constants/layout';
 
 export const Container = styled.div`
   position: fixed;
