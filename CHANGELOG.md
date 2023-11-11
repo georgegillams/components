@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.11.3
+
+### Bug Fixes
+
+- Add navigation bar height constant (#722)
+
 ## 28.11.2
 
 ### Bug Fixes
