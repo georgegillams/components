@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.11.2
+
+### Bug Fixes
+
+- Fix z-index token references (#721)
+
 ## 28.11.1
 
 ### Bug Fixes
