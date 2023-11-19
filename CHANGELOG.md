@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.12.0
+
+### Features
+
+- Add babel-plugin-styled-components (#723)
+
 ## 28.11.3
 
 ### Bug Fixes
