@@ -95,56 +95,72 @@ const buttonColors = {
   },
 };
 
+const capitalise = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 export const createStylesForButtonType = (
   buttonType: BUTTON_TYPES,
   theme: any,
 ) => {
   return css`
     background-color: ${(theme &&
-      theme[`button${buttonType}BackgroundColor`]) ||
+      theme[`button${capitalise(buttonType)}BackgroundColor`]) ||
     buttonColors[buttonType].lm.background};
-    color: ${(theme && theme[`button${buttonType}ForegroundColor`]) ||
+    color: ${(theme &&
+      theme[`button${capitalise(buttonType)}ForegroundColor`]) ||
     buttonColors[buttonType].lm.foreground};
 
     @media (prefers-color-scheme: dark) {
       background-color: ${(theme &&
-        theme[`button${buttonType}BackgroundColorDarkMode`]) ||
+        theme[`button${capitalise(buttonType)}BackgroundColorDarkMode`]) ||
       buttonColors[buttonType].dm.background};
-      color: ${(theme && theme[`button${buttonType}ForegroundColorDarkMode`]) ||
+      color: ${(theme &&
+        theme[`button${capitalise(buttonType)}ForegroundColorDarkMode`]) ||
       buttonColors[buttonType].dm.foreground};
     }
 
     &:focus,
     &:hover {
       background-color: ${(theme &&
-        theme[`button${buttonType}BackgroundColorHover`]) ||
+        theme[`button${capitalise(buttonType)}BackgroundColorHover`]) ||
       buttonColors[buttonType].lm.backgroundHover};
-      color: ${(theme && theme[`button${buttonType}ForegroundColorHover`]) ||
+      color: ${(theme &&
+        theme[`button${capitalise(buttonType)}ForegroundColorHover`]) ||
       buttonColors[buttonType].lm.foregroundHover};
 
       @media (prefers-color-scheme: dark) {
         background-color: ${(theme &&
-          theme[`button${buttonType}BackgroundColorHoverDarkMode`]) ||
+          theme[
+            `button${capitalise(buttonType)}BackgroundColorHoverDarkMode`
+          ]) ||
         buttonColors[buttonType].dm.backgroundHover};
         color: ${(theme &&
-          theme[`button${buttonType}ForegroundColorHoverDarkMode`]) ||
+          theme[
+            `button${capitalise(buttonType)}ForegroundColorHoverDarkMode`
+          ]) ||
         buttonColors[buttonType].dm.foregroundHover};
       }
     }
 
     &:active {
       background-color: ${(theme &&
-        theme[`button${buttonType}BackgroundColorActive`]) ||
+        theme[`button${capitalise(buttonType)}BackgroundColorActive`]) ||
       buttonColors[buttonType].lm.backgroundActive};
-      color: ${(theme && theme[`button${buttonType}ForegroundColorActive`]) ||
+      color: ${(theme &&
+        theme[`button${capitalise(buttonType)}ForegroundColorActive`]) ||
       buttonColors[buttonType].lm.foregroundActive};
 
       @media (prefers-color-scheme: dark) {
         background-color: ${(theme &&
-          theme[`button${buttonType}BackgroundColorActiveDarkMode`]) ||
+          theme[
+            `button${capitalise(buttonType)}BackgroundColorActiveDarkMode`
+          ]) ||
         buttonColors[buttonType].dm.backgroundActive};
         color: ${(theme &&
-          theme[`button${buttonType}ForegroundColorActiveDarkMode`]) ||
+          theme[
+            `button${capitalise(buttonType)}ForegroundColorActiveDarkMode`
+          ]) ||
         buttonColors[buttonType].dm.foregroundActive};
       }
     }
