@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.13.1
+
+### Bug Fixes
+
+- Capitalise button theme properties (#725)
+
 ## 28.13.0
 
 ### Features
