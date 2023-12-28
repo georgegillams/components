@@ -11,4 +11,10 @@ module.exports = {
     '@storybook/addon-viewport',
     'storybook-dark-mode',
   ],
+  staticDirs: [
+    {
+      from: '../src/smooth-corners-container/worklet.js',
+      to: '/static/smooth-corners-container/worklet.js',
+    },
+  ],
 };
