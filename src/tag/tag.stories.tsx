@@ -13,3 +13,11 @@ export const Events = () => <Tag type={TAG_TYPES.events}>A events tag</Tag>;
 export const Security = () => (
   <Tag type={TAG_TYPES.security}>A security tag</Tag>
 );
+
+export const AllTypes = () => (
+  <>
+    {Object.values(TAG_TYPES).map((t) => (
+      <Tag type={t} />
+    ))}
+  </>
+);

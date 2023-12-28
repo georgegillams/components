@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { TAG_TYPES } from './constants';
+import { TAG_COLOR_MAPPINGS, TAG_TYPES } from './constants';
 
 export const Wrapper = styled.div``;
 
@@ -18,30 +18,12 @@ export const StyledTag = styled.span<{
   text-decoration: none;
   text-decoration-color: transparent;
   text-decoration-line: none;
+
   ${({ type }) => {
-    switch (type) {
-      case TAG_TYPES.tech:
-        return css`
-          background-color: #fbc02d;
-          color: #3c4451;
-        `;
-      case TAG_TYPES.events:
-        return css`
-          background-color: #6a1b9a;
-        `;
-      case TAG_TYPES.travel:
-        return css`
-          background-color: #01579b;
-        `;
-      case TAG_TYPES.security:
-        return css`
-          background-color: #44aeff;
-          color: #3c4451;
-        `;
-      case TAG_TYPES.photography:
-        return css`
-          background-color: #d84315;
-        `;
-    }
+    const tagColorMapping = TAG_COLOR_MAPPINGS[type];
+    return css`
+      background-color: ${tagColorMapping.background};
+      color: ${tagColorMapping.foreground};
+    `;
   }}
 `;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Wrapper, StyledTag } from './tag.styles';
 import { TAG_TEXT_MAPPING, TAG_TYPES } from './constants';
 
