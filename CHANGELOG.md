@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.14.0
+
+### Features
+
+- Add smooth corners container (#726)
+
 ## 28.13.1
 
 ### Bug Fixes
