@@ -79,7 +79,7 @@ const SmoothCornersContainer = (props: SmoothCornersContainerProps) => {
   useEffect(() => {
     if (!shouldRenderSvg) return;
 
-    setMaskId(`squircleMask-${idSuffixGenerator()}`);
+    setMaskId(`mask-${idSuffixGenerator()}`);
 
     const updateWidthAndHeight = () => {
       if (!containerRef?.current) {
