@@ -6,6 +6,7 @@ import Text from '../text';
 import { spacingBase } from '../constants/layout';
 import { getJsScript } from './smooth-corners-worklet-loader';
 import { JS_CLASSNAME, NO_JS_CLASSNAME } from '../js-feature-detector';
+import { primaryColor } from '../constants/colors';
 
 const CORNER_RADIUSES_30 = {
   topLeft: 30,
@@ -35,7 +36,7 @@ const StyledSmoothCornersContainer = styled(SmoothCornersContainer)`
   width: 100%;
   max-width: 25rem;
   height: 16rem;
-  background-color: red;
+  background-color: ${primaryColor};
 `;
 
 const StoryWorkletLoader = () => {
