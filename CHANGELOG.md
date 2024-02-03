@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.14.2
+
+### Bug Fixes
+
+- Fix medal colour contrast (#728)
+
 ## 28.14.1
 
 ## 28.14.0
