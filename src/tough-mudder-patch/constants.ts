@@ -23,7 +23,7 @@ export const TYPE_DESCRIPTION = {
 export const TYPE_COLORS = {
   [PATCH_TYPE.eventHalf]: {
     background: 'white',
-    foreground: 'rgb(255, 120, 26)',
+    foreground: '#E66000',
   },
   [PATCH_TYPE.eventFull]: {
     background: 'rgb(255, 120, 26)',
