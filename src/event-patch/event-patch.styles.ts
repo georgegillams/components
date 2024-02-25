@@ -13,6 +13,7 @@ import { shadowNormal, shadowNormalDarkMode } from '../constants/misc';
 export const Wrapper = styled.div<{
   background: string;
   foreground: string;
+  showDarkModeOutline?: boolean;
 }>`
   display: flex;
   position: relative;
@@ -28,11 +29,15 @@ export const Wrapper = styled.div<{
     box-shadow: ${shadowNormalDarkMode};
   }
 
-  ${({ background, foreground }) => {
+  ${({ background, foreground, showDarkModeOutline }) => {
     return css`
       background: ${background};
       color: ${foreground};
       fill: ${foreground};
+
+      @media (prefers-color-scheme: dark) {
+        ${showDarkModeOutline && `box-shadow: inset 0px 0px 0px 2px white;`}
+      }
     `;
   }}
 `;

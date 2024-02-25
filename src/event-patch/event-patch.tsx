@@ -17,13 +17,27 @@ export interface EventPatchProps {
   title: string;
   year?: string;
   stravaLink?: string;
+  showDarkModeOutline?: boolean;
 }
 
 const EventPatch = (props: EventPatchProps) => {
-  const { foreground, background, title, year, stravaLink, ...rest } = props;
+  const {
+    foreground,
+    background,
+    title,
+    year,
+    stravaLink,
+    showDarkModeOutline,
+    ...rest
+  } = props;
 
   return (
-    <Wrapper background={background} foreground={foreground} {...rest}>
+    <Wrapper
+      background={background}
+      foreground={foreground}
+      showDarkModeOutline={showDarkModeOutline}
+      {...rest}
+    >
       <EventName>{title}</EventName>
       {year && <EventYear>{year}</EventYear>}
       <LinkContainer>

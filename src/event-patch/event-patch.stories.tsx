@@ -41,3 +41,13 @@ export const NoStrava = () => (
     year="2022"
   />
 );
+
+export const ShowDarkModeOutline = () => (
+  <EventPatch
+    background="black"
+    foreground="yellow"
+    title="Event name"
+    year="2023"
+    showDarkModeOutline
+  />
+);
