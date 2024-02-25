@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.15.0
+
+### Features
+
+- Add patch outline (#729)
+
 ## 28.14.2
 
 ### Bug Fixes
