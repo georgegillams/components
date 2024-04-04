@@ -11,6 +11,18 @@ import { notBlack, notBlackDarkMode } from '../constants/colors';
 
 export const Wrapper = styled.div``;
 
+export const FieldWrapper = styled.div`
+  ${({ visuallyHidden }) =>
+    visuallyHidden &&
+    css`
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      margin-left: -1px;
+      margin-top: -1px;
+    `}
+`;
+
 const commonComponentStyles = css`
   margin-bottom: ${spacingBase};
 `;
