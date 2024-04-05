@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { formValueChanged } from '../helpers/objects';
 import HelperFunctions from '../helpers/helper-functions';
 import {
+  FieldWrapper,
   PreSubmitText,
   StyledButton,
   StyledCheckbox,
@@ -14,6 +15,7 @@ import {
   StyledTextArea,
   Wrapper,
 } from './form-builder.styles';
+import { FORM_FIELD_VISIBILITY } from './constants';
 
 const FormBuilder = (props) => {
   const [formId] = useState(
@@ -49,7 +51,8 @@ const FormBuilder = (props) => {
 
   const filteredFormFields = formFields.filter(
     (field) =>
-      HelperFunctions.includes(Object.keys(field), 'show') && field.show,
+      HelperFunctions.includes(Object.keys(field), 'visibility') &&
+      field.visibility !== FORM_FIELD_VISIBILITY.OFF,
   );
 
   return (
@@ -66,8 +69,15 @@ const FormBuilder = (props) => {
           </StyledHint>
         ) : null;
 
+        const visuallyHidden =
+          formField.visibility === FORM_FIELD_VISIBILITY.VISUALLY_HIDDEN;
+
         return (
-          <Fragment key={`${formField.id}_${formId}`}>
+          <FieldWrapper
+            key={`${formField.id}_${formId}`}
+            visuallyHidden={visuallyHidden}
+            aria-hidden={visuallyHidden}
+          >
             {formField.type === 'CHECKBOX' && (
               <>
                 <StyledCheckbox
@@ -112,7 +122,11 @@ const FormBuilder = (props) => {
                         submitOnChange ? onSubmit : null,
                       );
                     }}
-                    inputProps={formField.inputProps}
+                    inputProps={{
+                      ...formField.inputProps,
+                      'aria-hidden': visuallyHidden,
+                      tabIndex: visuallyHidden ? '-1' : undefined,
+                    }}
                     disabled={formField.disabled}
                     placeholder={formField.name}
                   />
@@ -141,7 +155,11 @@ const FormBuilder = (props) => {
                         submitOnChange ? onSubmit : null,
                       );
                     }}
-                    inputProps={formField.inputProps}
+                    inputProps={{
+                      ...formField.inputProps,
+                      'aria-hidden': visuallyHidden,
+                      tabIndex: visuallyHidden ? '-1' : undefined,
+                    }}
                     disabled={formField.disabled}
                     placeholder={formField.name}
                   />
@@ -174,7 +192,7 @@ const FormBuilder = (props) => {
                 />
               </>
             )}
-          </Fragment>
+          </FieldWrapper>
         );
       })}
       {preSubmitText && (

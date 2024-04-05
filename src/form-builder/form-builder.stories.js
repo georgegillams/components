@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import FormBuilder from './index';
+import FormBuilder, { FORM_FIELD_VISIBILITY } from './index';
 
 const selectOptions = [
   { value: 'apple', name: 'Apple' },
@@ -9,15 +9,14 @@ const selectOptions = [
 ];
 
 const formFields = [
-  { id: 'field1', name: 'Field 1', validationRegex: null, show: true },
-  { id: 'field2', name: 'Field 2', validationRegex: null, show: true },
-  { id: 'field3', name: 'Field 3', validationRegex: null, show: true },
+  { id: 'field1', name: 'Field 1', validationRegex: null },
+  { id: 'field2', name: 'Field 2', validationRegex: null },
+  { id: 'field3', name: 'Field 3', validationRegex: null },
   {
     id: 'field4',
     name: 'Field 4',
     validationRegex: null,
     type: 'CHECKBOX',
-    show: true,
   },
   {
     id: 'field5',
@@ -25,14 +24,12 @@ const formFields = [
     validationRegex: null,
     type: 'SELECT',
     options: selectOptions,
-    show: true,
   },
   {
     id: 'field6',
     name: 'Field 6',
     validationRegex: null,
     long: true,
-    show: true,
   },
 ];
 
@@ -62,7 +59,6 @@ export const NoAutocomplete = () => (
       {
         id: 'ff1',
         name: 'Input no autocomplete',
-        show: true,
         inputProps: {
           autocomplete: 'off',
           autosuggest: 'off',
@@ -74,7 +70,38 @@ export const NoAutocomplete = () => (
         id: 'ff2',
         name: 'Text area no autocomplete',
         long: true,
-        show: true,
+        inputProps: {
+          autocomplete: 'off',
+          autosuggest: 'off',
+          autofill: 'off',
+          spellcheck: 'false',
+        },
+      },
+    ]}
+    entity={{}}
+    submitLabel="Submit"
+  />
+);
+
+export const HiddenFields = () => (
+  <FormBuilder
+    formFields={[
+      {
+        id: 'ff1',
+        name: 'Input — visibility off',
+        visibility: FORM_FIELD_VISIBILITY.OFF,
+        inputProps: {
+          autocomplete: 'off',
+          autosuggest: 'off',
+          autofill: 'off',
+          spellcheck: 'false',
+        },
+      },
+      {
+        id: 'ff2',
+        name: 'Input — visually hidden',
+        long: true,
+        visibility: FORM_FIELD_VISIBILITY.VISUALLY_HIDDEN,
         inputProps: {
           autocomplete: 'off',
           autosuggest: 'off',
