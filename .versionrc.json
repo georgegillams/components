@@ -1,5 +1,6 @@
 {
   "types": [
+    { "type": "feat!", "section": "Breaking changes" },
     { "type": "feat", "section": "Features" },
     { "type": "fix", "section": "Bug Fixes" },
     { "type": "BREAKING CHANGE", "section": "Breaking changes" },

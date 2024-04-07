@@ -38,7 +38,7 @@ const titleForChangeType = (versionRc, changeType) =>
 
 // Matches format:
 // commitHash changeType(category): message
-const COMMIT_REGEX = /([a-z0-9]+) ([a-zA-Z ]+)(\(.+\))?: (.+)/gm;
+const COMMIT_REGEX = /([a-z0-9]+) ([a-zA-Z ]+\!?)(\(.+\))?: (.+)/gm;
 
 const getLastTagOnCurrentBranch = () =>
   execSync('git describe --abbrev=0 --tags').toString().split('\n')[0];
@@ -86,7 +86,7 @@ const getSemverBumpFromChanges = (changes) => {
   Object.keys(changes).forEach((changeType) => {
     if (changeType === 'feat') {
       semverBump = 'minor';
-    } else if (changeType === 'BREAKING CHANGE') {
+    } else if (changeType === 'feat!' || changeType === 'BREAKING CHANGE') {
       semverBump = 'major';
     }
   });
