@@ -50,9 +50,7 @@ const FormBuilder = (props) => {
   }
 
   const filteredFormFields = formFields.filter(
-    (field) =>
-      HelperFunctions.includes(Object.keys(field), 'visibility') &&
-      field.visibility !== FORM_FIELD_VISIBILITY.OFF,
+    (field) => field.visibility !== FORM_FIELD_VISIBILITY.OFF,
   );
 
   return (

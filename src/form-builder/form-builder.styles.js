@@ -9,7 +9,7 @@ import Select from '../select';
 import Checkbox from '../checkbox';
 import { notBlack, notBlackDarkMode } from '../constants/colors';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.form``;
 
 export const FieldWrapper = styled.div`
   ${({ visuallyHidden }) =>
