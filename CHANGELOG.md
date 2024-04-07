@@ -1,5 +1,11 @@
 # Changelog
 
+## 29.0.3
+
+### Bug Fixes
+
+- Fix iOS autofill (#734)
+
 ## 29.0.2
 
 ## 29.0.1
