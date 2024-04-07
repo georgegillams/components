@@ -1,5 +1,15 @@
 # Changelog
 
+## 29.0.0
+
+### Bug Fixes
+
+- Fix release breaking changes (#731)
+
+### Breaking changes
+
+- Support hidden fields (#730)
+
 ## 28.15.0
 
 ### Features
