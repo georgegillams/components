@@ -153,30 +153,14 @@ export const Stateful = () => (
   <StatefulFormBuilder formFields={formFields} submitLabel="Submit" />
 );
 
-export const LoginTestUnameAutoFillOnly = () => (
+export const LoginTestUname = () => (
   <StatefulFormBuilder
     formFields={[
       {
         id: 'email',
         name: 'Email',
-        validationRegex: EMAIL_REGEX,
         inputProps: {
-          spellCheck: 'false',
-          autofill: 'username',
-        },
-      },
-    ]}
-    submitLabel="Submit"
-  />
-);
-export const LoginTestUnameAutoFillComplete = () => (
-  <StatefulFormBuilder
-    formFields={[
-      {
-        id: 'email',
-        name: 'Email',
-        validationRegex: EMAIL_REGEX,
-        inputProps: {
+          type: 'email',
           spellCheck: 'false',
           autofill: 'username',
           autocomplete: 'username',
@@ -193,8 +177,8 @@ export const LoginTestUnameAndPassword = () => (
       {
         id: 'email',
         name: 'Email',
-        validationRegex: EMAIL_REGEX,
         inputProps: {
+          type: 'email',
           spellCheck: 'false',
           autofill: 'username',
           autocomplete: 'username',
@@ -204,6 +188,7 @@ export const LoginTestUnameAndPassword = () => (
         id: 'password',
         name: 'Password',
         inputProps: {
+          type: 'password',
           spellCheck: 'false',
           autofill: 'current-password',
           autocomplete: 'current-password',
@@ -214,14 +199,14 @@ export const LoginTestUnameAndPassword = () => (
   />
 );
 
-export const LoginTestUnameAndPasswordHidden = () => (
+export const LoginTestUnameAndPasswordVisuallyHidden = () => (
   <StatefulFormBuilder
     formFields={[
       {
         id: 'email',
         name: 'Email',
-        validationRegex: EMAIL_REGEX,
         inputProps: {
+          type: 'email',
           spellCheck: 'false',
           autofill: 'username',
           autocomplete: 'username',
@@ -232,6 +217,7 @@ export const LoginTestUnameAndPasswordHidden = () => (
         name: 'Password',
         visibility: FORM_FIELD_VISIBILITY.VISUALLY_HIDDEN,
         inputProps: {
+          type: 'password',
           spellCheck: 'false',
           autofill: 'current-password',
           autocomplete: 'current-password',

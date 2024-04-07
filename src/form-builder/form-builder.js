@@ -123,7 +123,8 @@ const FormBuilder = (props) => {
                     inputProps={{
                       ...formField.inputProps,
                       'aria-hidden': visuallyHidden,
-                      tabIndex: visuallyHidden ? '-1' : undefined,
+                      // Note: iOS autofill will only work here if the password field is tabbable
+                      // tabIndex: visuallyHidden ? '-1' : undefined,
                     }}
                     disabled={formField.disabled}
                     placeholder={formField.name}
@@ -156,7 +157,8 @@ const FormBuilder = (props) => {
                     inputProps={{
                       ...formField.inputProps,
                       'aria-hidden': visuallyHidden,
-                      tabIndex: visuallyHidden ? '-1' : undefined,
+                      // Note: iOS autofill will only work here if the password field is tabbable
+                      // tabIndex: visuallyHidden ? '-1' : undefined,
                     }}
                     disabled={formField.disabled}
                     placeholder={formField.name}
