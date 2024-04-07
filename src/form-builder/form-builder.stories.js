@@ -152,3 +152,92 @@ export const WithHints = () => (
 export const Stateful = () => (
   <StatefulFormBuilder formFields={formFields} submitLabel="Submit" />
 );
+
+export const LoginTestUnameAutoFillOnly = () => (
+  <StatefulFormBuilder
+    formFields={[
+      {
+        id: 'email',
+        name: 'Email',
+        validationRegex: EMAIL_REGEX,
+        inputProps: {
+          spellCheck: 'false',
+          autofill: 'username',
+        },
+      },
+    ]}
+    submitLabel="Submit"
+  />
+);
+export const LoginTestUnameAutoFillComplete = () => (
+  <StatefulFormBuilder
+    formFields={[
+      {
+        id: 'email',
+        name: 'Email',
+        validationRegex: EMAIL_REGEX,
+        inputProps: {
+          spellCheck: 'false',
+          autofill: 'username',
+          autocomplete: 'username',
+        },
+      },
+    ]}
+    submitLabel="Submit"
+  />
+);
+
+export const LoginTestUnameAndPassword = () => (
+  <StatefulFormBuilder
+    formFields={[
+      {
+        id: 'email',
+        name: 'Email',
+        validationRegex: EMAIL_REGEX,
+        inputProps: {
+          spellCheck: 'false',
+          autofill: 'username',
+          autocomplete: 'username',
+        },
+      },
+      {
+        id: 'password',
+        name: 'Password',
+        inputProps: {
+          spellCheck: 'false',
+          autofill: 'current-password',
+          autocomplete: 'current-password',
+        },
+      },
+    ]}
+    submitLabel="Submit"
+  />
+);
+
+export const LoginTestUnameAndPasswordHidden = () => (
+  <StatefulFormBuilder
+    formFields={[
+      {
+        id: 'email',
+        name: 'Email',
+        validationRegex: EMAIL_REGEX,
+        inputProps: {
+          spellCheck: 'false',
+          autofill: 'username',
+          autocomplete: 'username',
+        },
+      },
+      {
+        id: 'password',
+        name: 'Password',
+        visibility: FORM_FIELD_VISIBILITY.VISUALLY_HIDDEN,
+        inputProps: {
+          spellCheck: 'false',
+          autofill: 'current-password',
+          autocomplete: 'current-password',
+        },
+      },
+    ]}
+    submitLabel="Submit"
+  />
+);
