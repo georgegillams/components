@@ -1,5 +1,11 @@
 # Changelog
 
+## 29.0.1
+
+### Bug Fixes
+
+- Fix form field visibility (#732)
+
 ## 29.0.0
 
 ### Bug Fixes
