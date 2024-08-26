@@ -1,5 +1,11 @@
 # Changelog
 
+## 29.0.4
+
+### Bug Fixes
+
+- Update section symbol (#735)
+
 ## 29.0.3
 
 ### Bug Fixes
