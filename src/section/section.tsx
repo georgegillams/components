@@ -43,7 +43,7 @@ const Section = (props: PrivateSectionProps) => {
             href={`#${anchorLink}`}
             isSubsection={isSubsection}
           >
-            §
+            #
           </StyledLink>
         </StyledLinkContainer>
       )}
