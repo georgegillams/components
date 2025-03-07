@@ -1,5 +1,11 @@
 # Changelog
 
+## 29.0.6
+
+### Bug Fixes
+
+- Update atomic card example (#737)
+
 ## 29.0.5
 
 ### Bug Fixes
