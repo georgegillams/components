@@ -17,10 +17,40 @@ import {
   disabledColor,
   disabledColorDarkMode,
   notBlack,
+  backgroundColorElevatedColored,
+  shadowColor,
+  backgroundColor,
+  alternatingBackgroundColor1,
+  alternatingBackgroundColor2,
+  backgroundColorDarkMode,
+  alternatingBackgroundColor1DarkMode,
+  alternatingBackgroundColor2DarkMode,
+  shadowColorDarkMode,
+  alternatingBackgroundColor3,
+  alternatingBackgroundColor3DarkMode,
+  alternatingBackgroundColor4DarkMode,
+  alternatingBackgroundColor4,
 } from '../constants/colors';
 import { BUTTON_TYPES } from './constants';
+import { capitalise } from '../helpers/helper-functions';
 
-const buttonColors = {
+type ColorSet = {
+  background: string;
+  backgroundHover: string;
+  backgroundActive: string;
+  foreground: string;
+  foregroundHover: string;
+  foregroundActive: string;
+  outline?: string;
+};
+
+const buttonColors: Record<
+  string,
+  {
+    lm: ColorSet;
+    dm: ColorSet;
+  }
+> = {
   [BUTTON_TYPES.primary]: {
     lm: {
       background: ctaColor,
@@ -37,6 +67,26 @@ const buttonColors = {
       foreground: 'white',
       foregroundHover: 'white',
       foregroundActive: 'white',
+    },
+  },
+  [BUTTON_TYPES.secondary]: {
+    lm: {
+      background: backgroundColor,
+      backgroundHover: alternatingBackgroundColor2,
+      backgroundActive: alternatingBackgroundColor4,
+      foreground: notBlack,
+      foregroundHover: notBlack,
+      foregroundActive: notBlack,
+      outline: shadowColor,
+    },
+    dm: {
+      background: backgroundColorDarkMode,
+      backgroundHover: alternatingBackgroundColor2DarkMode,
+      backgroundActive: alternatingBackgroundColor4DarkMode,
+      foreground: 'white',
+      foregroundHover: 'white',
+      foregroundActive: 'white',
+      outline: alternatingBackgroundColor4DarkMode,
     },
   },
   [BUTTON_TYPES.bouncy]: {
@@ -95,10 +145,6 @@ const buttonColors = {
   },
 };
 
-const capitalise = (str: string) => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
 export const createStylesForButtonType = (
   buttonType: BUTTON_TYPES,
   theme: any,
@@ -110,6 +156,9 @@ export const createStylesForButtonType = (
     color: ${(theme &&
       theme[`button${capitalise(buttonType)}ForegroundColor`]) ||
     buttonColors[buttonType].lm.foreground};
+    box-shadow: ${buttonColors[buttonType].lm.outline
+      ? `0px 0px 0px 1px ${buttonColors[buttonType].lm.outline} inset`
+      : 'none'};
 
     @media (prefers-color-scheme: dark) {
       background-color: ${(theme &&
@@ -118,6 +167,9 @@ export const createStylesForButtonType = (
       color: ${(theme &&
         theme[`button${capitalise(buttonType)}ForegroundColorDarkMode`]) ||
       buttonColors[buttonType].dm.foreground};
+      box-shadow: ${buttonColors[buttonType].dm.outline
+        ? `0px 0px 0px 1px ${buttonColors[buttonType].dm.outline} inset`
+        : 'none'};
     }
 
     &:focus,

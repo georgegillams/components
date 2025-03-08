@@ -46,6 +46,10 @@ export const alternatingBackgroundColor1 = '#fbfbfb';
 export const alternatingBackgroundColor1DarkMode = '#121313';
 export const alternatingBackgroundColor2 = '#f4f4f4';
 export const alternatingBackgroundColor2DarkMode = '#191a1b';
+export const alternatingBackgroundColor3 = '#f0f0f0';
+export const alternatingBackgroundColor3DarkMode = '#1e1e1e';
+export const alternatingBackgroundColor4 = '#e6e6e6';
+export const alternatingBackgroundColor4DarkMode = '#242526';
 
 export const linkColor = '#9932cc';
 export const linkColorDarkMode = '#da70d6';

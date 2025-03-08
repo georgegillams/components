@@ -46,6 +46,9 @@ export const Primary = () => <ButtonStory />;
 export const Focused = () => <ButtonStory focus />;
 
 export const Large = () => <ButtonStory size={BUTTON_SIZES.large} />;
+export const Secondary = () => (
+  <ButtonStory buttonType={BUTTON_TYPES.secondary} />
+);
 export const Bouncy = () => <ButtonStory buttonType={BUTTON_TYPES.bouncy} />;
 export const Destructive = () => (
   <ButtonStory buttonType={BUTTON_TYPES.destructive} />
