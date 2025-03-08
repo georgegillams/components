@@ -1,5 +1,11 @@
 # Changelog
 
+## 29.1.0
+
+### Features
+
+- Button upgrades 2025 (#738)
+
 ## 29.0.6
 
 ### Bug Fixes
