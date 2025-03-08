@@ -91,7 +91,7 @@ export const NonAtomic = () => (
             action('CTA 1 clicked')();
             event.stopPropagation();
           }}
-          buttonType={BUTTON_TYPES.bouncy}
+          buttonType={BUTTON_TYPES.secondary}
         >
           CTA 1
         </Button>
@@ -100,7 +100,7 @@ export const NonAtomic = () => (
             action('CTA 2 clicked')();
             event.stopPropagation();
           }}
-          buttonType={BUTTON_TYPES.bouncy}
+          buttonType={BUTTON_TYPES.secondary}
         >
           CTA 2
         </Button>
@@ -109,7 +109,7 @@ export const NonAtomic = () => (
             action('CTA 3 clicked')();
             event.stopPropagation();
           }}
-          buttonType={BUTTON_TYPES.bouncy}
+          buttonType={BUTTON_TYPES.secondary}
         >
           CTA 3
         </Button>

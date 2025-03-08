@@ -36,7 +36,7 @@ const outerStyles = css<{
   padding: 0;
   transition: all 0.4s;
   border: none;
-  border-radius: 0.35rem;
+  border-radius: 0.75rem;
   background: none;
   text-align: left;
 
@@ -89,7 +89,7 @@ export const ContentOuterWrapper = styled.div<{
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 0.35rem;
+  border-radius: 0.75rem;
   overflow: hidden;
 
   ${({ highlighted, theme }) =>

@@ -1,6 +1,7 @@
 import React from 'react';
 
-// TODO: Define Theme type
+// Note: Here it is important that we import the theme properties without importing the component, as the component relies on the theme properties
+import { buttonThemeProperties } from '../button/constants';
 
 const themeProperties = [
   'textLinkColor',
@@ -13,24 +14,7 @@ const themeProperties = [
   'progressBarColorDarkMode',
   'quoteBarColor',
   'quoteBarColorDarkMode',
-  'buttonPrimaryBackgroundColor',
-  'buttonPrimaryBackgroundColorDarkMode',
-  'buttonPrimaryForegroundColor',
-  'buttonPrimaryForegroundColorDarkMode',
-  'buttonPrimaryForegroundColorHover',
-  'buttonPrimaryForegroundColorHoverDarkMode',
-  'buttonDestructiveBackgroundColor',
-  'buttonDestructiveBackgroundColorDarkMode',
-  'buttonDestructiveForegroundColor',
-  'buttonDestructiveForegroundColorDarkMode',
-  'buttonDestructiveForegroundColorHover',
-  'buttonDestructiveForegroundColorHoverDarkMode',
-  'buttonBouncyBackgroundColor',
-  'buttonBouncyBackgroundColorDarkMode',
-  'buttonBouncyForegroundColor',
-  'buttonBouncyForegroundColorDarkMode',
-  'buttonBouncyForegroundColorHover',
-  'buttonBouncyForegroundColorHoverDarkMode',
+  ...buttonThemeProperties,
   'cardHighlightColor',
   'cardHighlightColorDarkMode',
   'cardHoverForegroundColor',

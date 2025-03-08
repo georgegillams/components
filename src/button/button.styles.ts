@@ -26,18 +26,17 @@ const outerStyles = css<{
   padding: 0.43rem 1.125rem 0.32rem 1.125rem;
   transition: filter 0.3s;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   font-size: 1.4rem;
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer;
   text-decoration-color: transparent;
   text-decoration-line: none;
 
   ${focusStyle()}
 
-  ${({ buttonType, theme }) =>
-    buttonType === BUTTON_TYPES.primary &&
-    createStylesForButtonType(BUTTON_TYPES.primary, theme)}
+  ${({ buttonType, theme }) => createStylesForButtonType(buttonType, theme)}
+
 
   ${({ size }) =>
     size === BUTTON_SIZES.large &&
@@ -46,16 +45,14 @@ const outerStyles = css<{
       // average vertical padding of 0.4rem
       padding: 0.455rem 1.4rem 0.345rem 1.4rem;
       font-size: 1.6rem;
+      border-radius: 0.75rem;
     `}
 
-  ${({ buttonType, theme }) =>
+  ${({ buttonType }) =>
     buttonType === BUTTON_TYPES.bouncy &&
     css`
-      ${createStylesForButtonType(BUTTON_TYPES.bouncy, theme)}
-
       min-width: unset;
       padding: 0.2rem 0.8rem;
-      font-weight: normal;
 
       &:focus,
       &:active,
@@ -65,9 +62,6 @@ const outerStyles = css<{
       }
     `}
 
-  ${({ buttonType, theme }) =>
-    buttonType === BUTTON_TYPES.destructive &&
-    createStylesForButtonType(BUTTON_TYPES.destructive, theme)}
 
     ${({ disabled }) =>
     disabled &&
