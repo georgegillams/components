@@ -7,6 +7,7 @@ const MD_YOUTUBE_REGEX = /!yt\[(.*)\]\((.*)\)/gims;
 const MD_LINK_REGEX = /\[(.+?)\]\((.+?)\)(.*)/gims;
 const MD_BIG_LINK_REGEX = /\*\[(.+?)\]\((.+?)\)/gims;
 const MD_STRIKETHROUGH_REGEX = /~(.*?)~(.*)/gims;
+const MD_IFRAME_REGEX = /<iframe src="(.*?)"\s+title="(.*?)"\s+\/>/gims;
 const MD_CODE_REGEX = /`(.*?)`(.*)/gims;
 const MD_BOLD_REGEX = /\*\*(.*?)\*\*(.*)/gims;
 const MD_BOLD_ITALIC_3_STAR_REGEX = /\*\*\*(.*?)\*\*\*(.*)/gims;
@@ -178,6 +179,21 @@ const parseStringForCode = (item, furtherProcess) => {
 };
 
 // Takes a string, and returns an array
+const parseStringForIFrame = (item, furtherProcess) => {
+  if (item.match(MD_IFRAME_REGEX)) {
+    const elements = item.split(MD_IFRAME_REGEX);
+    return [
+      furtherProcess(elements[0]),
+      {
+        type: 'iframe',
+        src: elements[1],
+        title: elements[2],
+      },
+      furtherProcess(elements[3]),
+    ];
+  }
+  return [item];
+};
 const parseStringForStrikethrough = (item, furtherProcess) => {
   if (item.match(MD_STRIKETHROUGH_REGEX)) {
     const elements = item.split(MD_STRIKETHROUGH_REGEX);
@@ -340,6 +356,13 @@ const parseSingleLineElements = (list, supportedFeatures) => {
     result = processStringsInList(
       result,
       parseStringForStrikethrough,
+      supportedFeatures,
+    );
+  }
+  if (supportedFeatures.includes('iframe')) {
+    result = processStringsInList(
+      result,
+      parseStringForIFrame,
       supportedFeatures,
     );
   }

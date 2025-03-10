@@ -6,6 +6,7 @@ const DEFAULT_SUPPORTED_FEATURES = [
   'citation',
   'code',
   'footnote',
+  'iframe',
   'image',
   'italic',
   'linebreak',

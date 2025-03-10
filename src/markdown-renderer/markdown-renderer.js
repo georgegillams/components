@@ -12,6 +12,7 @@ import Quote from '../quote';
 import Section from '../section';
 import Subsection from '../subsection';
 import { Citation, Reference } from '../references';
+import { IFramePreview } from '../iframe-preview';
 
 import { markdownLexer } from './markdown-lexer';
 import { DEFAULT_SUPPORTED_FEATURES } from './constants';
@@ -309,6 +310,10 @@ const elementForContent = (
         reference={content.reference}
       />
     );
+  }
+
+  if (content.type === 'iframe') {
+    return <IFramePreview title={content.title} src={content.src} />;
   }
 
   // Finally, default to returning the raw content
