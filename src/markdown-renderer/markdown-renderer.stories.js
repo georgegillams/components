@@ -13,6 +13,16 @@ export default {
 export const TextOnly = () => (
   <MarkdownRenderer content="This is a simple test" />
 );
+export const IFrame = () => (
+  <MarkdownRenderer
+    content={`This content includes an iframe
+
+<iframe src="https://www.example.com/" title="Example" />
+
+Something else here!
+`}
+  />
+);
 export const Table = () => (
   <MarkdownRenderer
     content={`This content includes a table
