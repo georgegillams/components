@@ -1,5 +1,11 @@
 # Changelog
 
+## 29.2.0
+
+### Features
+
+- Add iFrame (#739)
+
 ## 29.1.0
 
 ### Features
