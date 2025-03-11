@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.0.1
+
+### Bug Fixes
+
+- Fix nav item bar position (#742)
+
 ## 30.0.0
 
 ### Breaking changes
