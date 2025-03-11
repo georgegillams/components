@@ -17,19 +17,14 @@ import {
   disabledColor,
   disabledColorDarkMode,
   notBlack,
-  backgroundColorElevatedColored,
-  shadowColor,
   backgroundColor,
-  alternatingBackgroundColor1,
   alternatingBackgroundColor2,
   backgroundColorDarkMode,
-  alternatingBackgroundColor1DarkMode,
   alternatingBackgroundColor2DarkMode,
-  shadowColorDarkMode,
-  alternatingBackgroundColor3,
-  alternatingBackgroundColor3DarkMode,
   alternatingBackgroundColor4DarkMode,
   alternatingBackgroundColor4,
+  subtleOutlineColor,
+  subtleOutlineColorDarkMode,
 } from '../constants/colors';
 import { BUTTON_TYPES } from './constants';
 import { capitalise } from '../helpers/helper-functions';
@@ -42,6 +37,7 @@ type ColorSet = {
   foregroundHover: string;
   foregroundActive: string;
   outline?: string;
+  outlineHover?: string;
 };
 
 const buttonColors: Record<
@@ -77,7 +73,8 @@ const buttonColors: Record<
       foreground: notBlack,
       foregroundHover: notBlack,
       foregroundActive: notBlack,
-      outline: shadowColor,
+      outline: subtleOutlineColor,
+      outlineHover: subtleOutlineColor,
     },
     dm: {
       background: backgroundColorDarkMode,
@@ -86,25 +83,27 @@ const buttonColors: Record<
       foreground: 'white',
       foregroundHover: 'white',
       foregroundActive: 'white',
-      outline: alternatingBackgroundColor4DarkMode,
+      outline: subtleOutlineColorDarkMode,
+      outlineHover: subtleOutlineColorDarkMode,
     },
   },
   [BUTTON_TYPES.bouncy]: {
     lm: {
       background: 'transparent',
-      backgroundHover: ctaColorHover,
-      backgroundActive: ctaColorActive,
+      backgroundHover: alternatingBackgroundColor2,
+      backgroundActive: alternatingBackgroundColor4,
       foreground: notBlack,
-      foregroundHover: 'white',
-      foregroundActive: 'white',
+      foregroundHover: notBlack,
+      foregroundActive: notBlack,
     },
     dm: {
       background: 'transparent',
-      backgroundHover: ctaColorHoverDarkMode,
-      backgroundActive: ctaColorActiveDarkMode,
+      backgroundHover: alternatingBackgroundColor2DarkMode,
+      backgroundActive: alternatingBackgroundColor4DarkMode,
       foreground: 'white',
       foregroundHover: 'white',
       foregroundActive: 'white',
+      outlineHover: subtleOutlineColorDarkMode,
     },
   },
   [BUTTON_TYPES.destructive]: {
@@ -180,6 +179,9 @@ export const createStylesForButtonType = (
       color: ${(theme &&
         theme[`button${capitalise(buttonType)}ForegroundColorHover`]) ||
       buttonColors[buttonType].lm.foregroundHover};
+      box-shadow: ${buttonColors[buttonType].lm.outlineHover
+        ? `0px 0px 0px 1px ${buttonColors[buttonType].lm.outlineHover} inset`
+        : 'none'};
 
       @media (prefers-color-scheme: dark) {
         background-color: ${(theme &&
@@ -192,6 +194,9 @@ export const createStylesForButtonType = (
             `button${capitalise(buttonType)}ForegroundColorHoverDarkMode`
           ]) ||
         buttonColors[buttonType].dm.foregroundHover};
+        box-shadow: ${buttonColors[buttonType].dm.outlineHover
+          ? `0px 0px 0px 1px ${buttonColors[buttonType].dm.outlineHover} inset`
+          : 'none'};
       }
     }
 

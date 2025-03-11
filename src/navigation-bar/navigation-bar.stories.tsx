@@ -7,10 +7,10 @@ import Paragraph from '../paragraph';
 import NavigationBar, { NavigationItem } from './index';
 
 const menuItems = [
-  <NavigationItem name="Blog" />,
-  <NavigationItem name="Photography" />,
-  <NavigationItem name="Work" />,
-  <NavigationItem name="Test 4" />,
+  <NavigationItem name="Blog" href="/blog" />,
+  <NavigationItem name="Photography" href="/photo" selected={true} />,
+  <NavigationItem name="Work" href="work" />,
+  <NavigationItem name="Test 4" href="/test-4" />,
 ];
 
 const logo = (
@@ -24,7 +24,9 @@ export default {
   component: NavigationBar,
 };
 
+// @ts-ignore - just an example component
 const Presentation = (props) => <div style={{ margin: '-1rem' }} {...props} />;
+
 export const Default = () => (
   <Presentation>
     <div className="js">
