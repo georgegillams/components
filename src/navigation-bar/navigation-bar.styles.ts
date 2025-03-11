@@ -114,7 +114,6 @@ export const Scrim = styled.div<{
 `;
 export const BarOuter = styled.nav`
   width: 100%;
-  padding: 0.4rem 0.2rem;
   box-shadow: 0 0.05rem 0.5rem rgba(0, 0, 0, 0.173);
   position: inherit;
 
@@ -125,6 +124,7 @@ export const BarOuter = styled.nav`
   }
 `;
 export const BarInner = styled.div`
+  height: 4.25rem;
   ${pageContainer};
 `;
 export const BurgerContainer = styled.div`
@@ -139,6 +139,7 @@ export const DesktopNavWrapper = styled.ul`
   margin: 0;
 
   display: none;
+  height: 100%;
 
   @media (min-width: ${breakpointMd}) {
     display: flex;
@@ -157,6 +158,7 @@ export const TabletNavWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 100%;
 
   @media (min-width: ${breakpointMd}) {
     display: none;
@@ -197,7 +199,7 @@ export const AnimatedContainer = styled.nav<{
     `}
 `;
 
-export const AnimatedContainerInner = styled.ul`
+export const AnimatedContainerInner = styled.div`
   /* Remove ul default styles */
   list-style-type: none;
   padding: 0;

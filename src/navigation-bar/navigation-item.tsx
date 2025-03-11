@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button, { BUTTON_TYPES } from '../button';
-import { OuterWrapper, SelectionBar } from './navigation-item.styles';
+import { OuterWrapper, SelectionBar, StyledLi } from './navigation-item.styles';
 
 type NavigationItemProps = React.HTMLAttributes<HTMLDivElement> & {
   name: string;
@@ -14,11 +14,11 @@ const NavigationItem = (props: NavigationItemProps) => {
 
   return (
     <OuterWrapper {...rest}>
-      <li>
+      <StyledLi>
         <Button buttonType={BUTTON_TYPES.bouncy} href={href}>
           {name}
         </Button>
-      </li>
+      </StyledLi>
       {selected && <SelectionBar />}
     </OuterWrapper>
   );

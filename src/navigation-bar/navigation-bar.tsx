@@ -155,7 +155,7 @@ const NavigationBar = (props: NavigationBarProps) => {
       {show && (
         // animated container
         <AnimatedContainer open={open} aria-hidden={show ? undefined : 'true'}>
-          <nav>
+          <nav style={{ width: '100%' }}>
             <AnimatedContainerInner>
               {menuItemsWithClickBehaviour}
             </AnimatedContainerInner>
