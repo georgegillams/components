@@ -132,7 +132,12 @@ export const BurgerContainer = styled.div`
   height: 2rem;
 `;
 
-export const DesktopNavWrapper = styled.div`
+export const DesktopNavWrapper = styled.ul`
+  /* Remove ul default styles */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
   display: none;
 
   @media (min-width: ${breakpointMd}) {
@@ -190,7 +195,12 @@ export const AnimatedContainer = styled.nav`
     `}
 `;
 
-export const AnimatedContainerInner = styled.nav`
+export const AnimatedContainerInner = styled.ul`
+  /* Remove ul default styles */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
   display: flex;
   justify-content: center;
   flex-direction: column;

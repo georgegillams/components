@@ -13,7 +13,6 @@ import {
   BurgerContainer,
   DesktopNavWrapper,
   Header,
-  LogoContainer,
   Scrim,
   TabletNavWrapper,
 } from './navigation-bar.styles';
@@ -106,12 +105,14 @@ const NavigationBar = (props) => {
   const menuItemsWithClickBehaviour =
     menuItems &&
     menuItems.map((menuItem, index) =>
-      menuItem
-        ? React.cloneElement(menuItem, {
+      menuItem ? (
+        <li>
+          {React.cloneElement(menuItem, {
             key: `menu_${index}`,
             onClick: closeMenu,
-          })
-        : null,
+          })}
+        </li>
+      ) : null,
     );
 
   const logoWithClickBehaviour = React.cloneElement(logo, {
@@ -143,9 +144,11 @@ const NavigationBar = (props) => {
       {show && (
         // animated container
         <AnimatedContainer open={open} aria-hidden={show ? null : 'true'}>
-          <AnimatedContainerInner>
-            {menuItemsWithClickBehaviour}
-          </AnimatedContainerInner>
+          <nav>
+            <AnimatedContainerInner>
+              {menuItemsWithClickBehaviour}
+            </AnimatedContainerInner>
+          </nav>
         </AnimatedContainer>
       )}
 
@@ -175,7 +178,7 @@ const NavigationBar = (props) => {
             <BurgerContainer />
           </TabletNavWrapper>
           <DesktopNavWrapper>
-            {logoWithClickBehaviour}
+            <li>{logoWithClickBehaviour}</li>
             {menuItemsWithClickBehaviour}
           </DesktopNavWrapper>
           {/* Duplicated to allow flex to position the Logo in the center */}
