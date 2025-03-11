@@ -2,13 +2,12 @@ import styled, { css, keyframes } from 'styled-components';
 import {
   backgroundColorDarkMode,
   backgroundColorElevatedColored,
-  backgroundColorElevatedColoredinvert,
+  backgroundColorElevatedColoredDarkMode,
 } from '../constants/colors';
 import {
   breakpointMd,
   breakpointSm,
   navigationBarZIndex,
-  navigationBarBurgerZIndex,
   navigationBarScrimZIndex,
   spacingBase,
   spacingLg,
@@ -25,7 +24,7 @@ const navigationBarBackgroundStandard = css`
 `;
 
 const navigationBarBackgroundStandardDark = css`
-  background-color: ${backgroundColorElevatedColoredinvert};
+  background-color: ${backgroundColorElevatedColoredDarkMode};
   backdrop-filter: unset;
 
   -webkit-backdrop-filter: unset;
@@ -86,7 +85,9 @@ export const Header = styled.header`
   z-index: ${navigationBarZIndex};
   animation: ${navigationKeyFrames} 0.4s ease-in-out;
 `;
-export const Scrim = styled.div`
+export const Scrim = styled.div<{
+  open: boolean;
+}>`
   position: fixed;
   top: 0;
   left: 0;
@@ -127,7 +128,6 @@ export const BarInner = styled.div`
   ${pageContainer};
 `;
 export const BurgerContainer = styled.div`
-  /* z-index: ${navigationBarBurgerZIndex}; */
   width: 2rem;
   height: 2rem;
 `;
@@ -163,7 +163,9 @@ export const TabletNavWrapper = styled.div`
   }
 `;
 
-export const AnimatedContainer = styled.nav`
+export const AnimatedContainer = styled.nav<{
+  open: boolean;
+}>`
   padding-top: 8rem;
   position: fixed;
   top: 0;

@@ -34,6 +34,8 @@ export const notBlackDarkMode = '#ffffff';
 
 export const shadowColor = '#25201f1E';
 export const shadowColorDarkMode = '#00000000';
+export const subtleOutlineColor = '#E5E5E5';
+export const subtleOutlineColorDarkMode = '#474747';
 
 export const backgroundColor = '#ffffff';
 export const backgroundColorDarkMode = '#000000';
