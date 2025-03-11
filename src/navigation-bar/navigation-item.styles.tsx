@@ -1,9 +1,20 @@
 import styled from 'styled-components';
-import { breakpointMd } from '../constants/layout';
+import { breakpointMd, spacingLg, spacingXs } from '../constants/layout';
 import { primaryColor, primaryColorDarkMode } from '../constants/colors';
 
 export const OuterWrapper = styled.div`
   position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledLi = styled.li`
+  margin-left: ${spacingLg};
+
+  @media (min-width: ${breakpointMd}) {
+    margin-left: unset;
+  }
 `;
 
 export const SelectionBar = styled.div`
@@ -13,7 +24,7 @@ export const SelectionBar = styled.div`
 
   height: 60%;
   width: 4px;
-  left: 15rem;
+  left: calc(2 * ${spacingXs});
   top: 20%;
 
   @media (min-width: ${breakpointMd}) {
@@ -21,7 +32,7 @@ export const SelectionBar = styled.div`
     width: 60%;
     top: unset;
     left: 20%;
-    bottom: -1rem;
+    bottom: ${spacingXs};
   }
 
   @media (prefers-color-scheme: dark) {
