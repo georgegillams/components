@@ -1,5 +1,11 @@
 # Changelog
 
+## 29.2.1
+
+### Bug Fixes
+
+- Wrap navigation in ul (#740)
+
 ## 29.2.0
 
 ### Features
