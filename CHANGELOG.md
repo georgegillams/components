@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.0.0
+
+### Breaking changes
+
+- Navigation items except logo must now be wrapped in li (#741)
+
 ## 29.2.1
 
 ### Bug Fixes
