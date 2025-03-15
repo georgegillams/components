@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.0.3
+
+### Bug Fixes
+
+- Adjust border-radii (#744)
+
 ## 30.0.2
 
 ### Bug Fixes
