@@ -11,6 +11,7 @@ import {
 import { focusStyle } from '../constants/styles';
 import { fontSizeSm } from '../constants/font';
 import { ComponentType } from 'react';
+import { borderRadiusSm } from '../constants/layout';
 
 export const InputWrapper = styled.div<{
   disabled?: boolean;
@@ -20,7 +21,7 @@ export const InputWrapper = styled.div<{
   display: flex;
   align-items: center;
   border: 1px #b2b2bf solid;
-  border-radius: 0.25rem;
+  border-radius: ${borderRadiusSm};
   background-color: ${backgroundColor};
 
   @media (prefers-color-scheme: dark) {

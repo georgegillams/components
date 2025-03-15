@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { spacingBase } from '../constants/layout';
+import { borderRadiusMd, spacingBase } from '../constants/layout';
 import {
   backgroundColorElevated,
   backgroundColorElevatedDarkMode,
@@ -10,7 +10,7 @@ import { shadowNormal, shadowNormalDarkMode } from '../constants/misc';
 
 export const Wrapper = styled.div`
   width: 100%;
-  border-radius: 0.75rem;
+  border-radius: ${borderRadiusMd};
   box-shadow: ${shadowNormal};
   background-color: ${backgroundColorElevated};
 

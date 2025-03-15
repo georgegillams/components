@@ -1,7 +1,10 @@
+export const borderRadiusXs = '0.375rem';
+export const borderRadiusSm = '0.5rem';
+export const borderRadiusMd = '0.75rem';
+
 export const outlineGap = '0.35rem';
 export const outlineWidth = '0.2rem';
-export const outlineBorderRadius = '0.5rem';
-export const borderRadiusSm = '0.375rem';
+export const outlineBorderRadius = borderRadiusMd;
 
 export const breakpointSm = '32.25rem';
 export const breakpointMd = '50.25rem';

@@ -15,6 +15,7 @@ import {
 } from '../constants/colors';
 import { focusStyle } from '../constants/styles';
 import TickIcon from '../icon/tick';
+import { borderRadiusSm } from '../constants/layout';
 
 export const Label = styled.label`
   display: flex;
@@ -36,7 +37,7 @@ export const Input = styled.input<{
   width: 100%;
   height: 100%;
   margin: 0;
-  border-radius: 0.2rem;
+  border-radius: ${borderRadiusSm};
   background: ${backgroundColor};
   box-shadow: 0 0 0 1px #cdcdd7 inset;
   cursor: pointer;

@@ -6,6 +6,7 @@ import {
   notBlackDarkMode,
   primaryColorDarkMode,
 } from '../constants/colors';
+import { borderRadiusSm } from '../constants/layout';
 
 export interface CodeProps extends React.HTMLAttributes<HTMLElement> {
   inheritColor?: boolean;
@@ -17,7 +18,7 @@ export interface CodeProps extends React.HTMLAttributes<HTMLElement> {
 const codeStyle = css`
   position: relative;
   padding: 0.5rem;
-  border-radius: 0.4rem;
+  border-radius: ${borderRadiusSm};
   background-color: ${notBlack};
   color: ${bpkColorSkyGrayTint07};
   font-family: 'Space Mono', monospace;
@@ -31,7 +32,7 @@ const codeStyle = css`
 
 const codeStyleLight = css`
   padding: 0.1rem 0.3rem;
-  border-radius: 0.2rem;
+  border-radius: ${borderRadiusSm};
   background-color: rgba(173, 174, 178, 0.2);
   color: ${notBlack};
   font-size: inherit;
@@ -72,7 +73,7 @@ export const Language = styled.span`
   top: 0;
   right: 0;
   padding: 0.25rem 0.4rem 0.1rem;
-  border-radius: 0 0.2rem 0 0.2rem;
+  border-radius: 0 ${borderRadiusSm} 0 ${borderRadiusSm};
   background-color: rgba(243, 242, 245, 0.25);
   color: #f3f2f5;
   font-family: 'Space Mono', monospace;

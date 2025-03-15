@@ -11,7 +11,7 @@ import {
   primaryColor,
   primaryColorDark,
 } from '../constants/colors';
-import { spacingLg } from '../constants/layout';
+import { borderRadiusMd, spacingLg } from '../constants/layout';
 import {
   shadowHover,
   shadowHoverDarkMode,
@@ -36,7 +36,7 @@ const outerStyles = css<{
   padding: 0;
   transition: all 0.4s;
   border: none;
-  border-radius: 0.75rem;
+  border-radius: ${borderRadiusMd};
   background: none;
   text-align: left;
 
@@ -89,7 +89,7 @@ export const ContentOuterWrapper = styled.div<{
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 0.75rem;
+  border-radius: ${borderRadiusMd};
   overflow: hidden;
 
   ${({ highlighted, theme }) =>

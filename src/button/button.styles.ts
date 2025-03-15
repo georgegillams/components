@@ -2,6 +2,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { focusStyle } from '../constants/styles';
 import { createStylesForButtonType } from './button-style-helpers';
 import { BUTTON_SIZES, BUTTON_TYPES } from './constants';
+import { borderRadiusMd, borderRadiusSm } from '../constants/layout';
 
 const ggBounceHoverEffect = keyframes`
   0% {
@@ -26,7 +27,7 @@ const outerStyles = css<{
   padding: 0.43rem 1.125rem 0.32rem 1.125rem;
   transition: filter 0.3s;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: ${borderRadiusSm};
   font-size: 1.4rem;
   font-weight: normal;
   cursor: pointer;
@@ -45,7 +46,7 @@ const outerStyles = css<{
       // average vertical padding of 0.4rem
       padding: 0.455rem 1.4rem 0.345rem 1.4rem;
       font-size: 1.6rem;
-      border-radius: 0.75rem;
+      border-radius: ${borderRadiusMd};
     `}
 
   ${({ buttonType }) =>

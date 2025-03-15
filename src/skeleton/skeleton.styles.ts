@@ -1,6 +1,10 @@
 import styled, { css, keyframes } from 'styled-components';
 import { SKELETON_STYLES } from './constants';
-import { spacingBase } from '../constants/layout';
+import {
+  borderRadiusMd,
+  borderRadiusSm,
+  spacingBase,
+} from '../constants/layout';
 import {
   sectionFontSize,
   sectionMarginTop,
@@ -28,14 +32,14 @@ export const Outer = styled.div<{
           width: 12rem;
           height: 2.6rem;
           margin-bottom: 1.2rem;
-          border-radius: 0.75rem;
+          border-radius: ${borderRadiusMd};
           overflow: hidden;
         `;
       case SKELETON_STYLES.buttonSmall:
         return css`
           min-width: 5rem;
           height: 1.5rem;
-          border-radius: 0.5rem;
+          border-radius: ${borderRadiusSm};
           overflow: hidden;
         `;
       case SKELETON_STYLES.card:
@@ -43,7 +47,7 @@ export const Outer = styled.div<{
           width: 100%;
           height: 10rem;
           margin-bottom: 1.2rem;
-          border-radius: 0.75rem;
+          border-radius: ${borderRadiusMd};
         `;
       case SKELETON_STYLES.cardCompact:
         return css`
@@ -51,7 +55,7 @@ export const Outer = styled.div<{
           max-width: 25rem;
           height: 10rem;
           margin-bottom: 1.2rem;
-          border-radius: 0.75rem;
+          border-radius: ${borderRadiusMd};
         `;
       case SKELETON_STYLES.checkbox:
         return css`
