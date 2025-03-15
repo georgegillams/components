@@ -3,6 +3,7 @@ import { bpkColorPanjin } from '../constants/colors';
 import { spacingSm } from '../constants/layout';
 import { durationSm } from '../constants/timings';
 import { focusStyle } from '../constants/styles';
+import textLink from '../text-link';
 
 export const Wrapper = styled.div`
   background-color: ${bpkColorPanjin};
@@ -30,10 +31,8 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Link = styled.a`
+export const Link = styled(textLink)`
   color: white;
   font-weight: bold;
   text-decoration: none;
-
-  ${focusStyle(true)}
 `;

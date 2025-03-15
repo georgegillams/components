@@ -15,7 +15,11 @@ const NavigationItem = (props: NavigationItemProps) => {
   return (
     <OuterWrapper {...rest}>
       <StyledLi>
-        <Button buttonType={BUTTON_TYPES.bouncy} href={href}>
+        <Button
+          buttonType={BUTTON_TYPES.bouncy}
+          href={href}
+          aria-current={selected ? 'page' : undefined}
+        >
           {name}
         </Button>
       </StyledLi>
