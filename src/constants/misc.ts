@@ -106,7 +106,7 @@ export const shadowHoverDarkMode = `0.2rem 0.2rem 0.5rem 0 ${shadowColorDarkMode
 // $outline-color-invert: rgba(0, 125, 250, 0.6);
 // $outline-gap: 0.35rem;
 // $outline-width: 0.2rem;
-// $outline-border-radius: ${borderRadiusSm};
+// $outline-border-radius: 0.5rem;
 
 // @mixin focus-style($apply-relative-positioning: true) {
 //   &:focus-within,
