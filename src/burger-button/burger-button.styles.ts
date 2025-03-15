@@ -1,13 +1,14 @@
 import styled, { css } from 'styled-components';
 import { focusStyle } from '../constants/styles';
 import { notBlack, notBlackDarkMode } from '../constants/colors';
+import { borderRadiusSm } from '../constants/layout';
 
 export const OuterWrapper = styled.button`
   width: 2rem;
   height: 2rem;
   padding: 0.5rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: ${borderRadiusSm};
   background-color: transparent;
 
   ${focusStyle(true)}

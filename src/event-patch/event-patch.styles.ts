@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import {
-  borderRadiusSm,
+  borderRadiusMd,
   spacingBase,
   spacingLg,
   spacingSm,
@@ -22,7 +22,7 @@ export const Wrapper = styled.div<{
   width: fit-content;
   padding: calc(3 * ${spacingBase});
   min-width: calc(8 * ${spacingLg});
-  border-radius: ${borderRadiusSm};
+  border-radius: ${borderRadiusMd};
   box-shadow: ${shadowNormal};
 
   @media (prefers-color-scheme: dark) {
