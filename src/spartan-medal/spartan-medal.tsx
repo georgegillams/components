@@ -83,6 +83,8 @@ const SpartanMedal = (props: SpartanMedalProps) => {
           theme={{
             textLinkColor: background,
             textLinkColorDarkMode: background,
+            focusOutlineColor: background,
+            focusOutlineColorDarkMode: background,
           }}
         >
           {stravaLink && (

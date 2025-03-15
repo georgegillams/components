@@ -45,6 +45,8 @@ const EventPatch = (props: EventPatchProps) => {
           theme={{
             textLinkColor: foreground,
             textLinkColorDarkMode: foreground,
+            focusOutlineColor: foreground,
+            focusOutlineColorDarkMode: foreground,
           }}
         >
           {stravaLink && (

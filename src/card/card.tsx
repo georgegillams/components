@@ -85,6 +85,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
         // @ts-ignore
         ref={ref}
         disabled={disabled}
+        atomic={atomic}
         {...atomicProps}
         {...rest}
       >
@@ -100,6 +101,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
       // @ts-ignore
       ref={ref}
       disabled={disabled}
+      atomic={atomic}
       {...atomicProps}
       {...rest}
     >

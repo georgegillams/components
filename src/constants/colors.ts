@@ -61,5 +61,5 @@ export const linkColorHoverDarkMode = primaryColor;
 export const checkboxTickColor = primaryColor;
 export const segmentedControlSelectedColor = linkColor;
 
-export const outlineColor = '#007dfa3C';
-export const outlineColorDarkMode = '#007dfa3C';
+export const outlineColor = primaryColor;
+export const outlineColorDarkMode = primaryColorDarkMode;

@@ -1,6 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SkipLink should render correctly 1`] = `
+.c1 {
+  display: inline-block;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  color: #9932cc;
+  fill: #9932cc;
+}
+
+.c1:focus-visible {
+  position: relative;
+  outline: none !important;
+}
+
+.c1:focus-visible::after {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.35rem;
+  bottom: -0.35rem;
+  left: -0.35rem;
+  content: '';
+  display: block;
+  border: solid white 0.2rem;
+  border-radius: 0.5rem;
+  pointer-events: none;
+}
+
+.c1:hover {
+  color: #44aeff;
+  fill: #44aeff;
+}
+
+.c3 {
+  margin: 0;
+}
+
 .c0 {
   background-color: #d1435b;
   overflow: hidden;
@@ -36,37 +74,28 @@ exports[`SkipLink should render correctly 1`] = `
   height: 3rem;
 }
 
-.c1 {
+.c2 {
   color: white;
   font-weight: bold;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c1:focus-within,
-.c1:focus {
-  position: relative;
-  outline: none !important;
-}
-
-.c1:focus-within::after,
-.c1:focus::after {
-  position: absolute;
-  top: -0.35rem;
-  right: -0.35rem;
-  bottom: -0.35rem;
-  left: -0.35rem;
-  content: '';
-  display: block;
-  border: solid #007dfa3C 0.2rem;
-  border-radius: 0.5rem;
-  pointer-events: none;
+@media (prefers-color-scheme:dark) {
+  .c1:focus-visible::after {
+    border-color: white;
+  }
 }
 
 @media (prefers-color-scheme:dark) {
-  .c1:focus-within::after,
-  .c1:focus::after {
-    border-color: #007dfa3C;
+  .c1 {
+    color: #da70d6;
+    fill: #da70d6;
+  }
+
+  .c1:hover {
+    color: #44aeff;
+    fill: #44aeff;
   }
 }
 
@@ -74,15 +103,58 @@ exports[`SkipLink should render correctly 1`] = `
   className="c0"
 >
   <a
-    className="c1"
+    className="c1 c2"
     href="#main"
   >
-    Skip to main content
+    <span
+      className="c3"
+      size="inherit"
+    >
+      Skip to main content
+    </span>
   </a>
 </div>
 `;
 
 exports[`SkipLink should support arbitrary props 1`] = `
+.c1 {
+  display: inline-block;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  color: #9932cc;
+  fill: #9932cc;
+}
+
+.c1:focus-visible {
+  position: relative;
+  outline: none !important;
+}
+
+.c1:focus-visible::after {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.35rem;
+  bottom: -0.35rem;
+  left: -0.35rem;
+  content: '';
+  display: block;
+  border: solid white 0.2rem;
+  border-radius: 0.5rem;
+  pointer-events: none;
+}
+
+.c1:hover {
+  color: #44aeff;
+  fill: #44aeff;
+}
+
+.c3 {
+  margin: 0;
+}
+
 .c0 {
   background-color: #d1435b;
   overflow: hidden;
@@ -118,37 +190,28 @@ exports[`SkipLink should support arbitrary props 1`] = `
   height: 3rem;
 }
 
-.c1 {
+.c2 {
   color: white;
   font-weight: bold;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c1:focus-within,
-.c1:focus {
-  position: relative;
-  outline: none !important;
-}
-
-.c1:focus-within::after,
-.c1:focus::after {
-  position: absolute;
-  top: -0.35rem;
-  right: -0.35rem;
-  bottom: -0.35rem;
-  left: -0.35rem;
-  content: '';
-  display: block;
-  border: solid #007dfa3C 0.2rem;
-  border-radius: 0.5rem;
-  pointer-events: none;
+@media (prefers-color-scheme:dark) {
+  .c1:focus-visible::after {
+    border-color: white;
+  }
 }
 
 @media (prefers-color-scheme:dark) {
-  .c1:focus-within::after,
-  .c1:focus::after {
-    border-color: #007dfa3C;
+  .c1 {
+    color: #da70d6;
+    fill: #da70d6;
+  }
+
+  .c1:hover {
+    color: #44aeff;
+    fill: #44aeff;
   }
 }
 
@@ -156,10 +219,15 @@ exports[`SkipLink should support arbitrary props 1`] = `
   className="c0"
 >
   <a
-    className="c1"
+    className="c1 c2"
     href="#main"
   >
-    Skip to main content
+    <span
+      className="c3"
+      size="inherit"
+    >
+      Skip to main content
+    </span>
   </a>
 </div>
 `;

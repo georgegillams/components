@@ -15,7 +15,7 @@ import { ComponentType } from 'react';
 export const InputWrapper = styled.div<{
   disabled?: boolean;
 }>`
-  ${focusStyle(true)}
+  ${focusStyle(true, true)}
 
   display: flex;
   align-items: center;

@@ -2,9 +2,12 @@ import { css } from 'styled-components';
 import { outlineColor, outlineColorDarkMode } from './colors';
 import { outlineGap, outlineBorderRadius, outlineWidth } from './layout';
 
-export const focusStyle = (applyRelativePositioning = false) => css`
-  &:focus-within,
-  &:focus {
+export const focusStyle = (
+  applyRelativePositioning = false,
+  useWithin = false,
+) => css`
+  ${useWithin ? '&:focus-within,' : undefined}
+  &:focus-visible {
     ${applyRelativePositioning &&
     css`
       position: relative;
@@ -22,12 +25,17 @@ export const focusStyle = (applyRelativePositioning = false) => css`
       left: -${outlineGap};
       content: '';
       display: block;
-      border: solid ${outlineColor} ${outlineWidth};
+      ${({ theme }) => css`
+        border: solid ${theme.focusOutlineColor ?? outlineColor} ${outlineWidth};
+      `}
       border-radius: ${outlineBorderRadius};
       pointer-events: none;
 
       @media (prefers-color-scheme: dark) {
-        border-color: ${outlineColorDarkMode};
+        ${({ theme }) => css`
+          border-color: ${theme.focusOutlineColorDarkMode ??
+          outlineColorDarkMode};
+        `}
       }
     }
   }
