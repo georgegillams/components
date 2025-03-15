@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.0.2
+
+### Bug Fixes
+
+- Add nav aria-selected and focus style improvements (#743)
+
 ## 30.0.1
 
 ### Bug Fixes
