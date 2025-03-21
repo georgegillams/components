@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.0.4
+
+### Bug Fixes
+
+- Remove extraneous logging (#745)
+
 ## 30.0.3
 
 ### Bug Fixes
