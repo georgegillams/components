@@ -24,5 +24,3 @@ export const buttonThemeProperties = Object.keys(BUTTON_TYPES).reduce(
   ],
   [] as string[],
 );
-
-console.log(`*** buttonThemeProperties`, buttonThemeProperties);
