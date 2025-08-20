@@ -46,3 +46,27 @@ export const Sprint2023 = () => (
     stravaLink="https://strava.com"
   />
 );
+
+export const Sprint2024 = () => (
+  <SpartanMedal
+    type={EVENT_TYPE.sprint}
+    year="2024"
+    stravaLink="https://strava.com"
+  />
+);
+
+export const Sprint2025 = () => (
+  <SpartanMedal
+    type={EVENT_TYPE.sprint}
+    year="2025"
+    stravaLink="https://strava.com"
+  />
+);
+
+export const Ultra2025 = () => (
+  <SpartanMedal
+    type={EVENT_TYPE.ultra}
+    year="2025"
+    stravaLink="https://strava.com"
+  />
+);
