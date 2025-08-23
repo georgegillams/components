@@ -45,7 +45,7 @@ export const TYPE_COLORS = {
     foreground: 'white',
   },
   [EVENT_TYPE.ultra]: {
-    background: '#5E539A',
+    background: '#9969bf',
     foreground: 'white',
   },
   [EVENT_TYPE.obstacleSpecialistWorkshop]: {
