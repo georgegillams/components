@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.0.5
+
+### Bug Fixes
+
+- Spartan 2025 medal design (#746)
+
 ## 30.0.4
 
 ### Bug Fixes
