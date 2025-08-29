@@ -3,6 +3,7 @@ import { notBlack } from '../constants/colors';
 import SpartanLogo from '../spartan-logo';
 import TextLink from '../text-link';
 import { metalColor0, metalColor1, metalColor2 } from './constants';
+import { breakpointSm } from '../constants/layout';
 
 const LOGO_DESIGN_WIDTH = 31;
 
@@ -15,6 +16,12 @@ export const Wrapper = styled.div`
   position: relative;
   width: ${displayWidth};
   height: ${displayHeight};
+  transform: scale(0.8);
+  transform-origin: top left;
+
+  @media (min-width: ${breakpointSm}) {
+    transform: unset;
+  }
 `;
 
 export const WrapperSvg = styled.svg.attrs({
