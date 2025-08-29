@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.0.6
+
+### Bug Fixes
+
+- Scale ultra medal mobil (#747)
+
 ## 30.0.5
 
 ### Bug Fixes
