@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.0.7
+
+### Bug Fixes
+
+- Fix input border radius (#748)
+
 ## 30.0.6
 
 ### Bug Fixes
