@@ -50,6 +50,7 @@ export const styleInputComponent = (InputComponent: ComponentType) => styled(
   background-color: transparent;
   color: ${notBlack};
   font-size: ${fontSizeSm};
+  border-radius: 0.4375rem;
 
   @media (prefers-color-scheme: dark) {
     color: ${notBlackDarkMode};
