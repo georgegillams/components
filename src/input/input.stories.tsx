@@ -3,6 +3,13 @@ import React, { Component, useState } from 'react';
 
 import Input from './index';
 import { boolean, select } from '@storybook/addon-knobs';
+import styled from 'styled-components';
+
+const VisibleInputBorderWrapper = styled.div`
+  input {
+    border: 1px solid red;
+  }
+`;
 
 export interface StatefulInputProps {
   value?: string;
@@ -36,3 +43,9 @@ export const Invalid = () => <Input value="Test" valid={false} />;
 export const Disabled = () => <Input value="Test" enabled={false} />;
 export const Password = () => <Input type="password" value="Test" valid />;
 export const Stateful = () => <StatefulInput />;
+
+export const WithVisibleInputBorder = () => (
+  <VisibleInputBorderWrapper>
+    <Input value="Test" />;
+  </VisibleInputBorderWrapper>
+);
