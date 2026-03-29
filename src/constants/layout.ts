@@ -18,4 +18,6 @@ export const requestStatusZIndex = '1000';
 export const navigationBarZIndex = '999';
 export const navigationBarScrimZIndex = '997';
 export const navigationBarMenuZIndex = '998';
+export const modalScrimZIndex = '1100';
+export const modalZIndex = '1101';
 export const navigationBarHeight = '4.5rem';
