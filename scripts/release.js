@@ -59,7 +59,7 @@ const commitChanges = (newVersion) => {
 };
 
 const publishPackage = () => {
-  const commands = [`(cd dist && npm publish --access public)`];
+  const commands = [`(cd dist && npm publish --provenance --access public)`];
 
   if (debug) {
     commands.forEach((c) => console.log(blue(c)));
