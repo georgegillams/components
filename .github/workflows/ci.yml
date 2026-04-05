@@ -155,7 +155,6 @@ jobs:
     needs: [install, test]
     permissions:
       contents: read
-      id-token: write
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
 
     steps:
@@ -173,6 +172,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
+          registry-url: 'https://registry.npmjs.org'
 
       - name: restore-yarn-cache
         uses: actions/cache@v3
@@ -195,8 +195,9 @@ jobs:
           cd components
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install --frozen-lockfile
 
-      # Publish auth: OIDC via id-token:write (trusted publisher on npm) — no NPM_TOKEN
       - name: release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           cd components
           yarn release
