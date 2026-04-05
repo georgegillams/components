@@ -1,5 +1,19 @@
 # Changelog
 
+## 30.1.0
+
+### Bug Fixes
+
+- backwards
+- Fix local run
+- Fix publish 3
+- Fix publish 2
+- Fix publish (#750)
+
+### Features
+
+- Add modal (#749)
+
 ## 30.0.7
 
 ### Bug Fixes
