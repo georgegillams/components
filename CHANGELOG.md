@@ -1,5 +1,16 @@
 # Changelog
 
+## 30.1.0
+
+### Bug Fixes
+
+- Revert due to node incompatibility
+- Adopt OIDC publishing (#750)
+
+### Features
+
+- Add modal (#749)
+
 ## 30.0.7
 
 ### Bug Fixes
