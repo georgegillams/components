@@ -32,7 +32,7 @@
     "pretest": "yarn test:clean",
     "prettier": "prettier --config .prettierrc --write \"**/*.js\"",
     "storybook": "start-storybook -p 9001",
-    "build": "NODE_ENV=production build-storybook -c .storybook -o build --quiet",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=production build-storybook -c .storybook -o build --quiet",
     "build:for-deploy:clean": "rm -rf deploy/build",
     "build:for-deploy": "yarn build:for-deploy:clean && yarn build && cp -R build deploy/ && cp -R config deploy/",
     "build:test": "yarn build",
