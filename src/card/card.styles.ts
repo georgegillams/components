@@ -22,6 +22,8 @@ import { focusStyle } from '../constants/styles';
 
 const outerStyles = css<{
   atomic?: boolean;
+  disabled?: boolean;
+  interactive?: boolean;
 }>`
   position: relative;
   // a tag needs display: inline-block
@@ -30,7 +32,6 @@ const outerStyles = css<{
   width: 100%;
   text-decoration: none;
   box-shadow: ${shadowNormal};
-  cursor: pointer;
   box-sizing: border-box;
   // revert button tag default styles
   padding: 0;
@@ -39,6 +40,19 @@ const outerStyles = css<{
   border-radius: ${borderRadiusMd};
   background: none;
   text-align: left;
+
+  ${({ disabled, interactive }) =>
+    disabled
+      ? css`
+          cursor: not-allowed;
+        `
+      : interactive
+        ? css`
+            cursor: pointer;
+          `
+        : css`
+            cursor: unset;
+          `}
 
   @media (prefers-color-scheme: dark) {
     box-shadow: ${shadowNormalDarkMode};
@@ -49,10 +63,6 @@ const outerStyles = css<{
     css`
       ${focusStyle(true)};
     `}
-
-  &:disabled {
-    cursor: not-allowed;
-  }
 
   &:not(:disabled) {
     &:focus,
@@ -74,6 +84,16 @@ export const OuterButton = styled.button.attrs({ type: 'button' })`
 
 export const OuterLink = styled.a`
   ${outerStyles}
+`;
+
+export const CardOverlayLink = styled.a`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
 `;
 
 export const applyStylesToAnchor = (anchor: React.ComponentType) => styled(
@@ -155,8 +175,27 @@ export const BackgroundImageContainer = styled.div<{
 
 export const ChildrenContainer = styled.div<{
   padded?: boolean;
+  hasOverlayLink?: boolean;
 }>`
   height: 100%;
+
+  ${({ hasOverlayLink }) =>
+    hasOverlayLink &&
+    css`
+      position: relative;
+      z-index: 2;
+      pointer-events: none;
+
+      a,
+      button,
+      input,
+      select,
+      textarea,
+      [role='button'],
+      [tabindex]:not([tabindex='-1']) {
+        pointer-events: auto;
+      }
+    `}
 
   ${({ padded }) =>
     padded &&

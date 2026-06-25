@@ -9,7 +9,6 @@ exports[`Card should render correctly 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   box-shadow: 0.2rem 0.2rem 0.5rem 0 #25201f1E;
-  cursor: pointer;
   box-sizing: border-box;
   padding: 0;
   -webkit-transition: all 0.4s;
@@ -18,6 +17,7 @@ exports[`Card should render correctly 1`] = `
   border-radius: 0.75rem;
   background: none;
   text-align: left;
+  cursor: unset;
 }
 
 .c0:focus-visible {
@@ -36,10 +36,6 @@ exports[`Card should render correctly 1`] = `
   border: solid #44aeff 0.2rem;
   border-radius: 0.75rem;
   pointer-events: none;
-}
-
-.c0:disabled {
-  cursor: not-allowed;
 }
 
 .c0:not(:disabled):focus,.c0:not(:disabled):focus-within,
