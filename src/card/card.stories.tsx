@@ -7,13 +7,17 @@ import backgroundImage from './backgroundImage.png';
 
 import Card, { applyStylesToAnchor } from './index';
 import { CardWithoutTheme } from './card';
-import Text from '../text';
 import Button, { BUTTON_TYPES } from '../button';
 import Paragraph from '../paragraph';
 
 export default { title: 'Atoms/Card', component: CardWithoutTheme };
 
 export const Default = () => (
+  <Card>
+    <Section padding={false} name="Test" />{' '}
+  </Card>
+);
+export const WithClick = () => (
   <Card onClick={action('Button clicked')}>
     <Section padding={false} name="Test" />{' '}
   </Card>
@@ -23,23 +27,18 @@ export const Href = () => (
     <Section padding={false} name="Test" />{' '}
   </Card>
 );
-export const Unpadded = () => (
+export const UnpaddedWithHref = () => (
   <Card padded={false} href="/test">
     <Section padding={false} name="Test" />{' '}
   </Card>
 );
-export const WithFillImage = () => (
+export const WithFillImageAndHref = () => (
   <Card fillImageSrc={backgroundImage} href="/test">
     <Section padding={false} name="Test" />{' '}
   </Card>
 );
-export const Light = () => (
+export const LightWithHref = () => (
   <Card href="/test" light>
-    <Section padding={false} name="Test" />{' '}
-  </Card>
-);
-export const WithHref = () => (
-  <Card href="/test">
     <Section padding={false} name="Test" />{' '}
   </Card>
 );
@@ -50,6 +49,11 @@ export const Highlighted = () => (
 );
 export const Disabled = () => (
   <Card disabled>
+    <Section padding={false} name="Test" />{' '}
+  </Card>
+);
+export const DisabledWithClick = () => (
+  <Card disabled onClick={action('Button clicked')}>
     <Section padding={false} name="Test" />{' '}
   </Card>
 );
@@ -66,15 +70,16 @@ export const NonAtomic = () => (
         'Outer card clicked - triggers same behaviour as Main CTA',
       )}
     >
-      <Section padding={false} name="Accessible non-atomic card">
+      <Section padding={false} name="Accessible non-atomic button card">
         <Paragraph style={{ marginBottom: '2rem' }}>
           Here is a card that contains CTAs. The outer card is not fully
-          accessible to a screen-reader or other assistive-technology, as it
-          uses a div with an onClick event. However, this is perfectly fine
-          because the first CTA inside performs the same action as clicking on
-          the outer card. Therefore all users are capable of performing the main
-          action, regardless of how they interact with it. Screen-reader users
-          and keyboard users can focus the Main CTA and activate it.
+          accessible to a screen-reader or other assistive-technology, as it has
+          role="group" and tabindex="-1". However, this is desirable as we want
+          users of AT to interact with individual sub-elements. The outer button
+          is just a shortcut that matches behaviour of the first CTA inside.
+          Therefore all users are capable of performing the main action,
+          regardless of how they interact with it. Screen-reader users and
+          keyboard users can focus the Main CTA and activate it.
         </Paragraph>
       </Section>
       <div style={{ display: 'flex', gap: '1rem' }}>
@@ -119,7 +124,21 @@ export const NonAtomic = () => (
 );
 export const NonAtomicWithHref = () => (
   <Card atomic={false} href="/test">
-    <Section padding={false} name="Test" />{' '}
+    <Section padding={false} name="Accessible non-atomic link card">
+      <Paragraph style={{ marginBottom: '2rem' }}>
+        Here is a card that contains links. The outer card is a simple
+        container. There is a hidden, full-size anchor inside that fills the
+        entire space, allowing users to click anywhere to navigate. The
+        invisible anchor is inaccessible to a screen-reader or other
+        assistive-technology, as it has aria-hidden="true". However, this is
+        desirable as we want users of AT to interact with individual
+        sub-elements. The full-size anchor is just a shortcut that matches
+        behaviour of the first link inside. Therefore all users are capable of
+        performing the main action, regardless of how they interact with it.
+        Screen-reader users and keyboard users can focus the link and activate
+        it.
+      </Paragraph>
+    </Section>
     <a href="https://duckduckgo.com">Link</a>
   </Card>
 );

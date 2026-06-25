@@ -5,6 +5,7 @@ import {
   ContentOuterWrapper,
   OuterButton,
   OuterLink,
+  CardOverlayLink,
 } from './card.styles';
 import withStyledTheme from '../styled-theming';
 
@@ -28,6 +29,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
   const {
     href,
+    hrefExternal,
     onClick,
     padded = true,
     fillImageSrc,
@@ -43,17 +45,36 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
     ...rest
   } = props;
 
+  const showOverlayLink = Boolean(href && !disabled && !atomic);
+
+  const targettingProps = hrefExternal
+    ? {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }
+    : {};
+
   const cardContent = (
     <ContentOuterWrapper
       highlighted={highlighted}
       disabled={disabled}
       theme={theme}
     >
+      {showOverlayLink && (
+        <CardOverlayLink
+          href={href}
+          tabIndex={-1}
+          aria-hidden="true"
+          {...targettingProps}
+        />
+      )}
       <BackgroundImageContainer
         fillImageSrc={fillImageSrc}
         style={backgroundImageStyle}
       />
-      <ChildrenContainer padded={padded}>{children}</ChildrenContainer>
+      <ChildrenContainer padded={padded} hasOverlayLink={showOverlayLink}>
+        {children}
+      </ChildrenContainer>
     </ContentOuterWrapper>
   );
 
@@ -74,6 +95,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
   }
 
   const OuterWrapper = anchorComponent || OuterLink;
+  const interactive = Boolean(href || onClick);
 
   if (href && !disabled) {
     return (
@@ -86,6 +108,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
         ref={ref}
         disabled={disabled}
         atomic={atomic}
+        interactive={interactive}
         {...atomicProps}
         {...rest}
       >
@@ -102,6 +125,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
       ref={ref}
       disabled={disabled}
       atomic={atomic}
+      interactive={interactive}
       {...atomicProps}
       {...rest}
     >
