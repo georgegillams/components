@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.2.1
+
+### Bug Fixes
+
+- Improve non-atomic card with href (#757)
+
 ## 30.2.0
 
 ### Bug Fixes
