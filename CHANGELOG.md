@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.2.2
+
+### Bug Fixes
+
+- Update docker node version (#758)
+
 ## 30.2.1
 
 ### Bug Fixes
