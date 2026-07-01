@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.2.3
+
+### Bug Fixes
+
+- Quacks like a duck (#759)
+
 ## 30.2.2
 
 ### Bug Fixes
