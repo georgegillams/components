@@ -4,6 +4,7 @@ import {
   BackgroundImageContainer,
   ContentOuterWrapper,
   OuterButton,
+  OuterDiv,
   OuterLink,
   CardOverlayLink,
 } from './card.styles';
@@ -114,6 +115,21 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
       >
         {cardContent}
       </OuterWrapper>
+    );
+  }
+
+  if (atomic && !href && !onClick) {
+    return (
+      <OuterDiv
+        // @ts-ignore
+        ref={ref}
+        disabled={disabled}
+        atomic={atomic}
+        interactive={interactive}
+        {...rest}
+      >
+        {cardContent}
+      </OuterDiv>
     );
   }
 

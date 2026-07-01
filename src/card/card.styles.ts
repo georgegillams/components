@@ -60,6 +60,7 @@ const outerStyles = css<{
 
   ${(props) =>
     props.atomic &&
+    props.interactive &&
     css`
       ${focusStyle(true)};
     `}
@@ -79,6 +80,10 @@ const outerStyles = css<{
 `;
 
 export const OuterButton = styled.button.attrs({ type: 'button' })`
+  ${outerStyles}
+`;
+
+export const OuterDiv = styled.div`
   ${outerStyles}
 `;
 
