@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.2.5
+
+### Bug Fixes
+
+- Update feature card examples (#760)
+
 ## 30.2.4
 
 ## 30.2.3
