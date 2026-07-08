@@ -18,7 +18,7 @@ export default {
 
 export const Default = () => (
   <FeatureCard
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     href="/test"
     title="Title here"
     imageBorder="orchid"
@@ -37,7 +37,7 @@ export const Highlighted = () => (
 );
 export const WithChildren = () => (
   <FeatureCard
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     href="/test"
     title="Title here"
     imageBorder="orchid"
@@ -52,7 +52,7 @@ export const WithCustomAriaLabel = () => (
   <FeatureCard
     ariaLabel="This is the aria label"
     layout={FEATURE_CARD_LAYOUTS.auto}
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     href="/test"
     title="Title here"
     imageBorder="orchid"
@@ -64,7 +64,7 @@ WithCustomAriaLabel.storyName = 'With custom ariaLabel';
 export const NarrowCompact = () => (
   <FeatureCard
     layout={FEATURE_CARD_LAYOUTS.narrowCompact}
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     href="/test"
     title="Title here"
     imageBorder="orchid"
@@ -74,7 +74,7 @@ export const NarrowCompact = () => (
 export const NarrowCompactNoImage = () => (
   <FeatureCard
     layout={FEATURE_CARD_LAYOUTS.narrowCompact}
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     href="/test"
     title="Title here"
     imageBorder="orchid"
@@ -84,7 +84,7 @@ NarrowCompactNoImage.storyName = 'Narrow Compact - No Image';
 
 export const WithFillImage = () => (
   <FeatureCard
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     fillImageSrc={backgroundImage}
     href="/test"
     title="Title here"
@@ -94,7 +94,7 @@ export const WithFillImage = () => (
 );
 export const WithoutImage = () => (
   <FeatureCard
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     href="/test"
     title="Title here"
     imageBorder="orchid"
@@ -102,7 +102,7 @@ export const WithoutImage = () => (
 );
 export const Light = () => (
   <FeatureCard
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     href="/test"
     title="Title here"
     imageBorder="orchid"
@@ -122,7 +122,7 @@ export const Disabled = () => (
 );
 export const WithHref = () => (
   <FeatureCard
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     href="/test"
     title="Title here"
     imageBorder="orchid"
@@ -135,7 +135,7 @@ const AnchorComponent = applyStylesToAnchor((props) => (
 ));
 export const CustomAnchorComponent = () => (
   <FeatureCard
-    annotations={['23', 'Jan']}
+    annotations={['23 Jan', '2026']}
     href="https://www.duckduckgo.com"
     hrefExternal
     title="Title here"
