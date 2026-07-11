@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {
   destructiveColor,
   destructiveColorDarkMode,
-} from '../constants/colors';
+} from '../constants/semantic/colors';
 
 export const Error = styled.span`
   color: ${destructiveColor};

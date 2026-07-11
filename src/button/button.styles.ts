@@ -1,8 +1,9 @@
 import styled, { css, keyframes } from 'styled-components';
+import { borderRadiusMd, borderRadiusSm } from '../constants/primitive/layout';
+import { durationSm } from '../constants/primitive/timings';
 import { focusStyle } from '../constants/styles';
 import { createStylesForButtonType } from './button-style-helpers';
 import { BUTTON_SIZES, BUTTON_TYPES } from './constants';
-import { borderRadiusMd, borderRadiusSm } from '../constants/layout';
 
 const ggBounceHoverEffect = keyframes`
   0% {
@@ -38,7 +39,6 @@ const outerStyles = css<{
 
   ${({ buttonType, theme }) => createStylesForButtonType(buttonType, theme)}
 
-
   ${({ size }) =>
     size === BUTTON_SIZES.large &&
     css`
@@ -58,11 +58,10 @@ const outerStyles = css<{
       &:focus,
       &:active,
       &:hover {
-        animation-duration: 0.4s;
+        animation-duration: ${durationSm};
         animation-name: ${ggBounceHoverEffect};
       }
     `}
-
 
     ${({ disabled }) =>
     disabled &&

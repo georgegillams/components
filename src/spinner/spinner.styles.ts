@@ -1,5 +1,10 @@
 import styled, { css, keyframes } from 'styled-components';
-import { notBlack, notBlackDarkMode } from '../constants/colors';
+import {
+  spinnerColor,
+  spinnerColorDarkMode,
+  spinnerColorLight,
+  spinnerColorLightDarkMode,
+} from '../constants/semantic/colors';
 
 export const spinTime = 0.8;
 export const bladeCount = 8;
@@ -21,19 +26,19 @@ export const Outer = styled.div<{
   display: inline-block;
   width: 1.125rem;
   height: 1.125rem;
-  color: ${notBlack};
+  color: ${spinnerColor};
 
   @media (prefers-color-scheme: dark) {
-    color: ${notBlackDarkMode};
+    color: ${spinnerColorDarkMode};
   }
 
   ${({ light }) =>
     light &&
     css`
-      color: ${notBlackDarkMode};
+      color: ${spinnerColorLight};
 
       @media (prefers-color-scheme: dark) {
-        color: ${notBlack};
+        color: ${spinnerColorLightDarkMode};
       }
     `}
 

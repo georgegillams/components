@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
 import {
-  linkColor,
-  linkColorDarkMode,
-  linkColorHover,
-  linkColorHoverDarkMode,
-} from '../constants/colors';
+  copyButtonIcon,
+  copyButtonIconDarkMode,
+  copyButtonIconHover,
+  copyButtonIconHoverDarkMode,
+} from '../constants/semantic/colors';
 import { focusStyle } from '../constants/styles';
+
 import Copy from '../icon/copy';
 
 export const Button = styled.button`
@@ -24,21 +25,23 @@ export const Button = styled.button`
 
 export const Icon = styled(Copy)<{ theme: any }>`
   ${({ theme }) => css`
-    color: ${theme?.textLinkColor || linkColor};
-    fill: ${theme?.textLinkColor || linkColor};
+    color: ${theme?.textLinkColor || copyButtonIcon};
+    fill: ${theme?.textLinkColor || copyButtonIcon};
 
     &:hover {
-      color: ${theme?.textLinkColorHover || linkColorHover};
-      fill: ${theme?.textLinkColorHover || linkColorHover};
+      color: ${theme?.textLinkColorHover || copyButtonIconHover};
+      fill: ${theme?.textLinkColorHover || copyButtonIconHover};
     }
 
     @media (prefers-color-scheme: dark) {
-      color: ${theme?.textLinkColorDarkMode || linkColorDarkMode};
-      fill: ${theme?.textLinkColorDarkMode || linkColorDarkMode};
+      color: ${theme?.textLinkColorDarkMode || copyButtonIconDarkMode};
+      fill: ${theme?.textLinkColorDarkMode || copyButtonIconDarkMode};
 
       &:hover {
-        color: ${theme?.textLinkColorHoverDarkMode || linkColorHoverDarkMode};
-        fill: ${theme?.textLinkColorHoverDarkMode || linkColorHoverDarkMode};
+        color: ${theme?.textLinkColorHoverDarkMode ||
+        copyButtonIconHoverDarkMode};
+        fill: ${theme?.textLinkColorHoverDarkMode ||
+        copyButtonIconHoverDarkMode};
       }
     }
   `}

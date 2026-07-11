@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { spacingBase, spacingXs } from '../constants/layout';
+import { spacingBase, spacingXs } from '../constants/primitive/layout';
+import { notBlack, notBlackDarkMode } from '../constants/semantic/colors';
 // @import '../Tokens/common';
 
 import Button from '../button';
@@ -7,7 +8,6 @@ import Input from '../input';
 import TextArea from '../text-area';
 import Select from '../select';
 import Checkbox from '../checkbox';
-import { notBlack, notBlackDarkMode } from '../constants/colors';
 
 export const Wrapper = styled.form``;
 

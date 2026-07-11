@@ -1,6 +1,18 @@
 import styled, { css } from 'styled-components';
 import { TAG_TYPES } from './constants';
-import { borderRadiusXs } from '../constants/layout';
+import { borderRadiusXs } from '../constants/primitive/layout';
+import { durationSm } from '../constants/primitive/timings';
+import { fontSizeSm } from '../constants/primitive/font';
+import {
+  tagEventsBackground,
+  tagForeground,
+  tagPhotographyBackground,
+  tagSecurityBackground,
+  tagSecurityColor,
+  tagTechBackground,
+  tagTechColor,
+  tagTravelBackground,
+} from '../constants/semantic/colors';
 
 export const Wrapper = styled.div``;
 
@@ -11,11 +23,11 @@ export const StyledTag = styled.span<{
   top: 0.15rem;
   height: 1rem;
   padding: 0.17rem 0.4rem 0.27rem;
-  transition: all 0.4s;
+  transition: all ${durationSm};
   border: none;
   border-radius: ${borderRadiusXs};
-  color: white;
-  font-size: 1rem;
+  color: ${tagForeground};
+  font-size: ${fontSizeSm};
   text-decoration: none;
   text-decoration-color: transparent;
   text-decoration-line: none;
@@ -23,25 +35,25 @@ export const StyledTag = styled.span<{
     switch (type) {
       case TAG_TYPES.tech:
         return css`
-          background-color: #fbc02d;
-          color: #3c4451;
+          background-color: ${tagTechBackground};
+          color: ${tagTechColor};
         `;
       case TAG_TYPES.events:
         return css`
-          background-color: #6a1b9a;
+          background-color: ${tagEventsBackground};
         `;
       case TAG_TYPES.travel:
         return css`
-          background-color: #01579b;
+          background-color: ${tagTravelBackground};
         `;
       case TAG_TYPES.security:
         return css`
-          background-color: #44aeff;
-          color: #3c4451;
+          background-color: ${tagSecurityBackground};
+          color: ${tagSecurityColor};
         `;
       case TAG_TYPES.photography:
         return css`
-          background-color: #d84315;
+          background-color: ${tagPhotographyBackground};
         `;
     }
   }}

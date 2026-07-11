@@ -4,7 +4,7 @@ import {
   notBlackDarkMode,
   primaryColor,
   primaryColorDarkMode,
-} from '../constants/colors';
+} from '../constants/semantic/colors';
 import Progress from '../progress';
 
 export const Wrapper = styled.span`

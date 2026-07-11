@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
-import * as COLORS from './colors';
+import * as PRIMITIVE_COLORS from './primitive/colors';
+import * as SEMANTIC_COLORS from './semantic/colors';
 import {
   ColorName,
   ColorSwatchWrapper,
@@ -28,11 +29,14 @@ const ColorSwatch = memo((props: ColorSwatchProps) => {
   );
 });
 
-export const Default = () => (
+const ColorList = ({ colors }: { colors: Record<string, string> }) => (
   <ListWrapper>
-    {Object.keys(COLORS).map((color) => (
-      // @ts-ignore exported colors will always be strings
-      <ColorSwatch name={color} hex={COLORS[color]} />
+    {Object.keys(colors).map((color) => (
+      <ColorSwatch key={color} name={color} hex={colors[color]} />
     ))}
   </ListWrapper>
 );
+
+export const Primitive = () => <ColorList colors={PRIMITIVE_COLORS} />;
+
+export const Semantic = () => <ColorList colors={SEMANTIC_COLORS} />;

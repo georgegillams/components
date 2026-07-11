@@ -8,7 +8,9 @@ import {
   Wrapper,
 } from './spartan-trifecta-display.styles';
 import { EVENT_TYPE } from '../spartan-medal';
-import { notBlack } from '../constants/colors';
+import {
+  notBlack,
+} from '../constants/semantic/colors';
 
 export interface SpartanTrifectaDisplayProps
   extends React.HTMLAttributes<SVGElement> {

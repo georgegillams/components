@@ -1,14 +1,21 @@
 import styled, { css } from 'styled-components';
-import { primaryColor } from '../constants/colors';
+import {
+  progressFill,
+  progressFillDarkMode,
+  progressTrackColor,
+  progressTrackColorDarkMode,
+} from '../constants/semantic/colors';
+import { borderRadiusPill } from '../constants/primitive/layout';
+import { durationSm } from '../constants/primitive/timings';
 
 export const Outer = styled.div.attrs({ role: 'progressbar' })`
   width: 100%;
   height: 0.5rem;
-  border-radius: 5rem;
-  background-color: lightgray;
+  border-radius: ${borderRadiusPill};
+  background-color: ${progressTrackColor};
 
   @media (prefers-color-scheme: dark) {
-    background-color: #3c4043;
+    background-color: ${progressTrackColorDarkMode};
   }
 `;
 
@@ -18,8 +25,8 @@ export const Inner = styled.div.attrs({
   progressPercentage: number;
 }>`
   height: 100%;
-  transition: width 0.4s ease-in-out;
-  border-radius: 5rem;
+  transition: width ${durationSm} ease-in-out;
+  border-radius: ${borderRadiusPill};
 
   ${({ progressPercentage }) =>
     css`
@@ -28,10 +35,11 @@ export const Inner = styled.div.attrs({
 
   ${({ theme }) =>
     css`
-      background-color: ${theme?.progressBarColor || primaryColor};
+      background-color: ${theme?.progressBarColor || progressFill};
 
       @media (prefers-color-scheme: dark) {
-        background-color: ${theme?.progressBarColorDarkMode || primaryColor};
+        background-color: ${theme?.progressBarColorDarkMode ||
+        progressFillDarkMode};
       }
     `}
 `;

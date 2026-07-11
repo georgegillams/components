@@ -1,7 +1,14 @@
 import styled, { css } from 'styled-components';
 import Card from '../card';
-import { notBlack, notBlackDarkMode, primaryColor } from '../constants/colors';
-import { breakpointSm } from '../constants/layout';
+import {
+  breakpointSm,
+} from '../constants/primitive/layout';
+import {
+  notBlack,
+  notBlackDarkMode,
+  primaryColor,
+} from '../constants/semantic/colors';
+
 import Image from '../image';
 import { FEATURE_CARD_LAYOUTS } from './constants';
 

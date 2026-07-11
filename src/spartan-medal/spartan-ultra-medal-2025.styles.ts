@@ -1,9 +1,13 @@
 import styled, { css } from 'styled-components';
-import { notBlack } from '../constants/colors';
+import {
+  breakpointSm,
+} from '../constants/primitive/layout';
+import {
+  notBlack,
+} from '../constants/semantic/colors';
 import SpartanLogo from '../spartan-logo';
 import TextLink from '../text-link';
 import { metalColor0, metalColor1, metalColor2 } from './constants';
-import { breakpointSm } from '../constants/layout';
 
 const LOGO_DESIGN_WIDTH = 31;
 

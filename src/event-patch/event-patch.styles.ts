@@ -5,10 +5,13 @@ import {
   spacingLg,
   spacingSm,
   spacingXs,
-} from '../constants/layout';
+} from '../constants/primitive/layout';
+import {
+  shadowNormal,
+  shadowNormalDarkMode,
+} from '../constants/semantic/elevation';
 import Text, { SIZES } from '../text';
 import TextLink from '../text-link';
-import { shadowNormal, shadowNormalDarkMode } from '../constants/misc';
 
 export const Wrapper = styled.div<{
   background: string;

@@ -1,23 +1,30 @@
 import styled, { css, keyframes } from 'styled-components';
 
 import {
-  backgroundColorElevated,
-  backgroundColorElevatedDarkMode,
-  notBlack,
-  notBlackDarkMode,
-  subtleOutlineColor,
-  subtleOutlineColorDarkMode,
-} from '../constants/colors';
-import {
   borderRadiusMd,
+  borderRadiusSm,
   breakpointSm,
-  modalScrimZIndex,
-  modalZIndex,
   spacingBase,
   spacingLg,
-} from '../constants/layout';
-import { shadowNormal, shadowNormalDarkMode } from '../constants/misc';
+} from '../constants/primitive/layout';
+import {
+  modalBackground,
+  modalBackgroundDarkMode,
+  modalCloseBackground,
+  modalForeground,
+  modalForegroundDarkMode,
+  modalHeaderBorder,
+  modalHeaderBorderDarkMode,
+  modalScrim,
+  modalScrimOpaque,
+} from '../constants/semantic/colors';
+import { modalScrimZIndex, modalZIndex } from '../constants/semantic/layout';
+import {
+  shadowNormal,
+  shadowNormalDarkMode,
+} from '../constants/semantic/elevation';
 import { focusStyle } from '../constants/styles';
+import { fontSizeLg } from '../constants/primitive/font';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -33,7 +40,7 @@ export const Scrim = styled.div`
   position: fixed;
   inset: 0;
   z-index: ${modalScrimZIndex};
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${modalScrim};
   animation: ${fadeIn} 0.18s ease-out;
 
   @media (prefers-reduced-motion: reduce) {
@@ -41,7 +48,7 @@ export const Scrim = styled.div`
   }
 
   @media (prefers-reduced-transparency: reduce) {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: ${modalScrimOpaque};
   }
 `;
 
@@ -73,14 +80,14 @@ export const Dialog = styled.div`
   min-height: 0;
   border-radius: ${borderRadiusMd};
   box-shadow: ${shadowNormal};
-  background-color: ${backgroundColorElevated};
-  color: ${notBlack};
+  background-color: ${modalBackground};
+  color: ${modalForeground};
   animation: ${popIn} 0.18s ease-out;
 
   @media (prefers-color-scheme: dark) {
     box-shadow: ${shadowNormalDarkMode};
-    background-color: ${backgroundColorElevatedDarkMode};
-    color: ${notBlackDarkMode};
+    background-color: ${modalBackgroundDarkMode};
+    color: ${modalForegroundDarkMode};
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -95,10 +102,10 @@ export const HeaderRow = styled.div`
   justify-content: space-between;
   gap: ${spacingBase};
   padding: ${spacingLg};
-  border-bottom: 1px solid ${subtleOutlineColor};
+  border-bottom: 1px solid ${modalHeaderBorder};
 
   @media (prefers-color-scheme: dark) {
-    border-bottom-color: ${subtleOutlineColorDarkMode};
+    border-bottom-color: ${modalHeaderBorderDarkMode};
   }
 `;
 
@@ -113,13 +120,13 @@ export const CloseButton = styled.button.attrs({ type: 'button' })`
 
   flex: 0 0 auto;
   border: none;
-  background: transparent;
+  background: ${modalCloseBackground};
   color: inherit;
   cursor: pointer;
   padding: 0.25rem 0.5rem;
   margin: -0.25rem -0.5rem 0 0;
-  border-radius: 0.5rem;
-  font-size: 1.5rem;
+  border-radius: ${borderRadiusSm};
+  font-size: ${fontSizeLg};
   line-height: 1;
 
   &:hover {
@@ -146,4 +153,3 @@ export const Body = styled.div<{
       padding: ${spacingLg};
     `}
 `;
-

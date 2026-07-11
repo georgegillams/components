@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import { notBlack, notBlackDarkMode } from './colors';
+import { notBlack, notBlackDarkMode } from './semantic/colors';
 import Text from '../text';
 import { calculateHexWithoutTransparency, isLight } from '../helpers/colors';
-import { shadowNormal, shadowNormalDarkMode } from './misc';
+import { shadowNormal, shadowNormalDarkMode } from './semantic/elevation';
 
 export const ColorSwatchWrapper = styled.div<{
   backgroundColor: string;

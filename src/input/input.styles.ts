@@ -1,17 +1,24 @@
 import styled, { css } from 'styled-components';
 
+import { borderRadiusSm, spacingXs } from '../constants/primitive/layout';
+import { fontSizeSm } from '../constants/primitive/font';
 import {
-  backgroundColor,
-  backgroundColorDarkMode,
-  bpkColorMonteverde,
-  bpkColorPanjin,
-  notBlack,
-  notBlackDarkMode,
-} from '../constants/colors';
+  inputBackground,
+  inputBackgroundDarkMode,
+  inputBorder,
+  inputBorderDarkMode,
+  inputBorderDisabled,
+  inputBorderDisabledDarkMode,
+  inputFieldBackground,
+  inputForeground,
+  inputForegroundDarkMode,
+  inputForegroundDisabled,
+  inputForegroundDisabledDarkMode,
+  inputIconInvalid,
+  inputIconValid,
+} from '../constants/semantic/colors';
 import { focusStyle } from '../constants/styles';
-import { fontSizeSm } from '../constants/font';
 import { ComponentType } from 'react';
-import { borderRadiusSm } from '../constants/layout';
 
 export const InputWrapper = styled.div<{
   disabled?: boolean;
@@ -20,22 +27,22 @@ export const InputWrapper = styled.div<{
 
   display: flex;
   align-items: center;
-  border: 1px #b2b2bf solid;
+  border: 1px ${inputBorder} solid;
   border-radius: ${borderRadiusSm};
-  background-color: ${backgroundColor};
+  background-color: ${inputBackground};
 
   @media (prefers-color-scheme: dark) {
-    border-color: white;
-    background-color: ${backgroundColorDarkMode};
+    border-color: ${inputBorderDarkMode};
+    background-color: ${inputBackgroundDarkMode};
   }
 
   ${({ disabled }) =>
     disabled &&
     css`
-      border-color: #f1f2f8;
+      border-color: ${inputBorderDisabled};
 
       @media (prefers-color-scheme: dark) {
-        border-color: #6a6a6a;
+        border-color: ${inputBorderDisabledDarkMode};
       }
     `}
 `;
@@ -43,24 +50,24 @@ export const InputWrapper = styled.div<{
 export const styleInputComponent = (InputComponent: ComponentType) => styled(
   InputComponent,
 )`
-  padding: 0.375rem 0.75rem;
+  padding: ${spacingXs} 0.75rem;
   flex-grow: 1;
   border: none;
   outline: none;
-  background-color: transparent;
-  color: ${notBlack};
+  background-color: ${inputFieldBackground};
+  color: ${inputForeground};
   font-size: ${fontSizeSm};
   border-radius: 0.4375rem;
 
   @media (prefers-color-scheme: dark) {
-    color: ${notBlackDarkMode};
+    color: ${inputForegroundDarkMode};
   }
 
   &:disabled {
-    color: #b2b2bf;
+    color: ${inputForegroundDisabled};
 
     @media (prefers-color-scheme: dark) {
-      color: #7b7b86;
+      color: ${inputForegroundDisabledDarkMode};
     }
   }
 `;
@@ -76,13 +83,13 @@ export const styleIconComponent = (IconComponent: ComponentType) => styled(
     switch (valid) {
       case true:
         return css`
-          color: ${bpkColorMonteverde};
-          fill: ${bpkColorMonteverde};
+          color: ${inputIconValid};
+          fill: ${inputIconValid};
         `;
       case false:
         return css`
-          color: ${bpkColorPanjin};
-          fill: ${bpkColorPanjin};
+          color: ${inputIconInvalid};
+          fill: ${inputIconInvalid};
         `;
       default:
         return null;

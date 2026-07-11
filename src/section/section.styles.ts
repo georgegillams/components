@@ -2,14 +2,21 @@ import styled, { css } from 'styled-components';
 
 import TextLink from '../text-link';
 import Text from '../text';
-import { notBlack, notBlackDarkMode } from '../constants/colors';
-import { breakpointMd } from '../constants/layout';
+import {
+  breakpointMd,
+} from '../constants/primitive/layout';
 import {
   fontSizeLg,
   fontSizeXl,
+} from '../constants/primitive/font';
+import {
+  notBlack,
+  notBlackDarkMode,
+} from '../constants/semantic/colors';
+import {
   sectionMarginTop,
   subsectionMarginTop,
-} from '../constants/font';
+} from '../constants/semantic/font';
 
 export const Outer = styled.div`
   width: 100%;

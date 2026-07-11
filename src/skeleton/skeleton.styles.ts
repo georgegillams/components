@@ -2,15 +2,23 @@ import styled, { css, keyframes } from 'styled-components';
 import { SKELETON_STYLES } from './constants';
 import {
   borderRadiusMd,
+  borderRadiusPill,
   borderRadiusSm,
   spacingBase,
-} from '../constants/layout';
+  spacingXs,
+} from '../constants/primitive/layout';
 import {
   sectionFontSize,
   sectionMarginTop,
   subsectionFontSize,
   subsectionMarginTop,
-} from '../constants/font';
+} from '../constants/semantic/font';
+import {
+  skeletonColor,
+  skeletonColorDarkMode,
+  skeletonShimmerColor,
+  skeletonShimmerColorDarkMode,
+} from '../constants/semantic/colors';
 
 export const Outer = styled.div<{
   skeletonStyle?: SKELETON_STYLES;
@@ -18,11 +26,11 @@ export const Outer = styled.div<{
   position: relative;
   width: 100%;
   border-radius: 0.25rem;
-  background-color: rgb(238, 238, 238);
+  background-color: ${skeletonColor};
   overflow: hidden;
 
   @media (prefers-color-scheme: dark) {
-    background-color: rgb(17, 17, 17);
+    background-color: ${skeletonColorDarkMode};
   }
 
   ${({ skeletonStyle }) => {
@@ -67,13 +75,13 @@ export const Outer = styled.div<{
         return css`
           width: 20rem;
           height: 0.8rem;
-          margin-bottom: 0.375rem;
+          margin-bottom: ${spacingXs};
         `;
       case SKELETON_STYLES.formLabel:
         return css`
           width: 10rem;
           height: 1.125rem;
-          margin-bottom: 0.375rem;
+          margin-bottom: ${spacingXs};
         `;
       case SKELETON_STYLES.infoCell:
         return css`
@@ -97,14 +105,14 @@ export const Outer = styled.div<{
           width: 100%;
           height: 1rem;
           margin-bottom: ${spacingBase};
-          border-radius: 10rem;
+          border-radius: ${borderRadiusPill};
         `;
       case SKELETON_STYLES.progressSmall:
         return css`
           width: 100%;
           height: 0.5rem;
           margin-bottom: ${spacingBase};
-          border-radius: 10rem;
+          border-radius: ${borderRadiusPill};
         `;
       case SKELETON_STYLES.section:
         return css`
@@ -122,7 +130,7 @@ export const Outer = styled.div<{
         return css`
           height: 0.5rem;
           margin-bottom: ${spacingBase};
-          border-radius: 10rem;
+          border-radius: ${borderRadiusPill};
         `;
       default:
         return null;
@@ -146,9 +154,9 @@ export const Shimmer = styled.div`
   height: 100vh;
   background-image: linear-gradient(
     90deg,
-    rgb(238, 238, 238),
-    rgb(245, 245, 245),
-    rgb(238, 238, 238)
+    ${skeletonColor},
+    ${skeletonShimmerColor},
+    ${skeletonColor}
   );
   background-repeat: no-repeat;
   background-size: 12.5rem 100%;
@@ -157,9 +165,9 @@ export const Shimmer = styled.div`
   @media (prefers-color-scheme: dark) {
     background-image: linear-gradient(
       90deg,
-      rgb(17, 17, 17),
-      rgb(50, 50, 50),
-      rgb(17, 17, 17)
+      ${skeletonColorDarkMode},
+      ${skeletonShimmerColorDarkMode},
+      ${skeletonColorDarkMode}
     );
   }
 `;

@@ -1,21 +1,26 @@
 import styled, { css } from 'styled-components';
 import {
-  backgroundColor,
-  backgroundColorDarkMode,
-  bpkColorMonteverde,
-  bpkColorPanjin,
-  disabledBackgroundColor,
-  disabledBackgroundColorDarkMode,
-  disabledColor,
-  disabledColorDarkMode,
-  notBlack,
-  notBlackDarkMode,
-  primaryColor,
-  primaryColorDarkMode,
-} from '../constants/colors';
+  checkboxBackground,
+  checkboxBackgroundDarkMode,
+  checkboxBackgroundDisabled,
+  checkboxBackgroundDisabledDarkMode,
+  checkboxBorder,
+  checkboxBorderInvalid,
+  checkboxBorderValid,
+  checkboxLabel,
+  checkboxLabelDarkMode,
+  checkboxLabelDisabled,
+  checkboxTick,
+  checkboxTickDarkMode,
+  checkboxTickDisabled,
+  checkboxTickDisabledDarkMode,
+  checkboxTickInvalid,
+  checkboxTickValid,
+} from '../constants/semantic/colors';
 import { focusStyle } from '../constants/styles';
 import TickIcon from '../icon/tick';
-import { borderRadiusSm } from '../constants/layout';
+import { borderRadiusSm } from '../constants/primitive/layout';
+import { fontSizeMd } from '../constants/primitive/font';
 
 export const Label = styled.label`
   display: flex;
@@ -38,8 +43,8 @@ export const Input = styled.input<{
   height: 100%;
   margin: 0;
   border-radius: ${borderRadiusSm};
-  background: ${backgroundColor};
-  box-shadow: 0 0 0 1px #cdcdd7 inset;
+  background: ${checkboxBackground};
+  box-shadow: 0 0 0 1px ${checkboxBorder} inset;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -48,17 +53,17 @@ export const Input = styled.input<{
   ${focusStyle(false)}
 
   @media (prefers-color-scheme: dark) {
-    background: ${backgroundColorDarkMode};
+    background: ${checkboxBackgroundDarkMode};
   }
 
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${disabledBackgroundColor};
+      background-color: ${checkboxBackgroundDisabled};
       cursor: inherit;
 
       @media (prefers-color-scheme: dark) {
-        background-color: ${disabledBackgroundColorDarkMode};
+        background-color: ${checkboxBackgroundDisabledDarkMode};
       }
     `}
 
@@ -66,11 +71,11 @@ export const Input = styled.input<{
     switch (valid) {
       case true:
         return css`
-          box-shadow: 0 0 0 1px ${bpkColorMonteverde} inset;
+          box-shadow: 0 0 0 1px ${checkboxBorderValid} inset;
         `;
       case false:
         return css`
-          box-shadow: 0 0 0 1px ${bpkColorPanjin} inset;
+          box-shadow: 0 0 0 1px ${checkboxBorderInvalid} inset;
         `;
       default:
         return null;
@@ -88,12 +93,12 @@ export const Icon = styled(TickIcon)<{
   left: 0.15rem;
   display: none;
   pointer-events: none;
-  color: ${primaryColor};
-  fill: ${primaryColor};
+  color: ${checkboxTick};
+  fill: ${checkboxTick};
 
   @media (prefers-color-scheme: dark) {
-    color: ${primaryColorDarkMode};
-    fill: ${primaryColorDarkMode};
+    color: ${checkboxTickDarkMode};
+    fill: ${checkboxTickDarkMode};
   }
 
   ${({ theme }) =>
@@ -117,12 +122,12 @@ export const Icon = styled(TickIcon)<{
   ${({ disabled }) =>
     disabled &&
     css`
-      color: ${disabledColor};
-      fill: ${disabledColor};
+      color: ${checkboxTickDisabled};
+      fill: ${checkboxTickDisabled};
 
       @media (prefers-color-scheme: dark) {
-        color: ${disabledColorDarkMode};
-        fill: ${disabledColorDarkMode};
+        color: ${checkboxTickDisabledDarkMode};
+        fill: ${checkboxTickDisabledDarkMode};
       }
     `}
 
@@ -130,13 +135,13 @@ export const Icon = styled(TickIcon)<{
     switch (valid) {
       case true:
         return css`
-          color: ${bpkColorMonteverde};
-          fill: ${bpkColorMonteverde};
+          color: ${checkboxTickValid};
+          fill: ${checkboxTickValid};
         `;
       case false:
         return css`
-          color: ${bpkColorPanjin};
-          fill: ${bpkColorPanjin};
+          color: ${checkboxTickInvalid};
+          fill: ${checkboxTickInvalid};
         `;
       default:
         return null;
@@ -148,16 +153,16 @@ export const VisibleLabel = styled.div<{
   disabled?: boolean;
 }>`
   margin-left: 0.5rem;
-  color: ${notBlack};
-  font-size: 1.2rem;
+  color: ${checkboxLabel};
+  font-size: ${fontSizeMd};
 
   @media (prefers-color-scheme: dark) {
-    color: ${notBlackDarkMode};
+    color: ${checkboxLabelDarkMode};
   }
 
   ${({ disabled }) =>
     disabled &&
     css`
-      color: ${disabledBackgroundColor};
+      color: ${checkboxLabelDisabled};
     `}
 `;

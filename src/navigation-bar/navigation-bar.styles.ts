@@ -1,18 +1,22 @@
 import styled, { css, keyframes } from 'styled-components';
 import {
+  breakpointMd,
+  breakpointSm,
+  spacingBase,
+  spacingLg,
+} from '../constants/primitive/layout';
+import {
   backgroundColorDarkMode,
   backgroundColorElevatedColored,
   backgroundColorElevatedColoredDarkMode,
-} from '../constants/colors';
+} from '../constants/semantic/colors';
 import {
-  breakpointMd,
-  breakpointSm,
   navigationBarZIndex,
   navigationBarScrimZIndex,
-  spacingBase,
-  spacingLg,
-} from '../constants/layout';
-import { pageContainer } from '../constants/misc';
+} from '../constants/semantic/layout';
+import {
+  pageContainer,
+} from '../constants/styles';
 
 const backdropFilter = `saturate(180%) blur(20px)`;
 

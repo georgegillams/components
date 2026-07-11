@@ -1,6 +1,13 @@
 import styled, { css } from 'styled-components';
-import { bpkColorSkyGrayTint01, primaryColor } from '../constants/colors';
-import { spacingBase } from '../constants/layout';
+import {
+  bpkColorSkyGrayTint01,
+} from '../constants/primitive/colors';
+import {
+  spacingBase,
+} from '../constants/primitive/layout';
+import {
+  primaryColor,
+} from '../constants/semantic/colors';
 
 export const Container = styled.div`
   padding: ${spacingBase} 0 ${spacingBase} 2rem;

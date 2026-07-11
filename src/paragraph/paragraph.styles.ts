@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components';
-import { paragraphMarginTop, paragraphMarginTopFirst } from '../constants/font';
+import {
+  paragraphMarginTop,
+  paragraphMarginTopFirst,
+} from '../constants/semantic/font';
 
 export const StyledParagraph = styled.span<{
   padding?: boolean;

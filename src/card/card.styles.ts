@@ -1,24 +1,25 @@
 import styled, { css } from 'styled-components';
+import { borderRadiusMd, spacingLg } from '../constants/primitive/layout';
 import {
-  disabledColorDarkMode,
-  disabledBackgroundColor,
-  disabledBackgroundColorDarkMode,
-  disabledColor,
-  notBlack,
-  notBlackDarkMode,
-  backgroundColorElevated,
-  backgroundColorElevatedDarkMode,
-  primaryColor,
-  primaryColorDark,
-} from '../constants/colors';
-import { borderRadiusMd, spacingLg } from '../constants/layout';
+  cardDisabledBackground,
+  cardDisabledBackgroundDarkMode,
+  cardDisabledForeground,
+  cardDisabledForegroundDarkMode,
+  cardHighlightBackground,
+  cardHighlightBackgroundDarkMode,
+  cardImageBackground,
+  cardImageBackgroundDarkMode,
+  cardImageBackgroundLight,
+  cardImageBackgroundLightDarkMode,
+} from '../constants/semantic/colors';
 import {
   shadowHover,
   shadowHoverDarkMode,
   shadowNormal,
   shadowNormalDarkMode,
-} from '../constants/misc';
+} from '../constants/semantic/elevation';
 import { focusStyle } from '../constants/styles';
+import { durationSm } from '../constants/primitive/timings';
 
 const outerStyles = css<{
   atomic?: boolean;
@@ -35,7 +36,7 @@ const outerStyles = css<{
   box-sizing: border-box;
   // revert button tag default styles
   padding: 0;
-  transition: all 0.4s;
+  transition: all ${durationSm};
   border: none;
   border-radius: ${borderRadiusMd};
   background: none;
@@ -47,12 +48,12 @@ const outerStyles = css<{
           cursor: not-allowed;
         `
       : interactive
-        ? css`
-            cursor: pointer;
-          `
-        : css`
-            cursor: unset;
-          `}
+      ? css`
+          cursor: pointer;
+        `
+      : css`
+          cursor: unset;
+        `}
 
   @media (prefers-color-scheme: dark) {
     box-shadow: ${shadowNormalDarkMode};
@@ -120,23 +121,23 @@ export const ContentOuterWrapper = styled.div<{
   ${({ highlighted, theme }) =>
     highlighted &&
     css`
-      background-color: ${theme?.cardHighlightColor || primaryColor};
+      background-color: ${theme?.cardHighlightColor || cardHighlightBackground};
 
       @media (prefers-color-scheme: dark) {
         background-color: ${theme?.cardHighlightColorDarkMode ||
-        primaryColorDark};
+        cardHighlightBackgroundDarkMode};
       }
     `}
 
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${disabledBackgroundColor};
-      color: ${disabledColor};
+      background-color: ${cardDisabledBackground};
+      color: ${cardDisabledForeground};
 
       @media (prefers-color-scheme: dark) {
-        background-color: ${disabledBackgroundColorDarkMode};
-        color: ${disabledColorDarkMode};
+        background-color: ${cardDisabledBackgroundDarkMode};
+        color: ${cardDisabledForegroundDarkMode};
       }
     `}
 `;
@@ -153,21 +154,21 @@ export const BackgroundImageContainer = styled.div<{
   height: calc(100% + 2rem);
   margin-top: -1rem;
   margin-left: -1rem;
-  background-color: ${notBlackDarkMode};
+  background-color: ${cardImageBackground};
   background-position: center;
   background-size: cover;
 
   @media (prefers-color-scheme: dark) {
-    background-color: ${notBlack};
+    background-color: ${cardImageBackgroundDarkMode};
   }
 
   ${({ light }) =>
     light &&
     css`
-      background-color: ${backgroundColorElevated};
+      background-color: ${cardImageBackgroundLight};
 
       @media (prefers-color-scheme: dark) {
-        background-color: ${backgroundColorElevatedDarkMode};
+        background-color: ${cardImageBackgroundLightDarkMode};
       }
     `}
 

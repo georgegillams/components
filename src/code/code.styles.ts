@@ -1,12 +1,18 @@
 import styled, { css } from 'styled-components';
 
+import { borderRadiusSm } from '../constants/primitive/layout';
 import {
-  bpkColorSkyGrayTint07,
-  notBlack,
-  notBlackDarkMode,
-  primaryColorDarkMode,
-} from '../constants/colors';
-import { borderRadiusSm } from '../constants/layout';
+  codeBackground,
+  codeBackgroundDarkMode,
+  codeBashArrow,
+  codeColor,
+  codeInlineBackground,
+  codeInlineBackgroundDarkMode,
+  codeInlineForeground,
+  codeInlineForegroundDarkMode,
+  codeLanguageBackground,
+  codeLanguageColor,
+} from '../constants/semantic/colors';
 
 export interface CodeProps extends React.HTMLAttributes<HTMLElement> {
   inheritColor?: boolean;
@@ -19,32 +25,32 @@ const codeStyle = css`
   position: relative;
   padding: 0.5rem;
   border-radius: ${borderRadiusSm};
-  background-color: ${notBlack};
-  color: ${bpkColorSkyGrayTint07};
+  background-color: ${codeBackground};
+  color: ${codeColor};
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
   overflow: hidden;
 
   @media (prefers-color-scheme: dark) {
-    background-color: black;
+    background-color: ${codeBackgroundDarkMode};
   }
 `;
 
 const codeStyleLight = css`
   padding: 0.1rem 0.3rem;
   border-radius: ${borderRadiusSm};
-  background-color: rgba(173, 174, 178, 0.2);
-  color: ${notBlack};
+  background-color: ${codeInlineBackground};
+  color: ${codeInlineForeground};
   font-size: inherit;
 
   @media (prefers-color-scheme: dark) {
-    background-color: rgba(175, 176, 182, 0.4);
-    color: ${notBlackDarkMode};
+    background-color: ${codeInlineBackgroundDarkMode};
+    color: ${codeInlineForegroundDarkMode};
   }
 `;
 
 export const StyledCodeBashArrow = styled.span`
-  color: ${primaryColorDarkMode};
+  color: ${codeBashArrow};
   font-family: 'Space Mono', monospace;
   font-size: 0.6rem;
 `;
@@ -74,8 +80,8 @@ export const Language = styled.span`
   right: 0;
   padding: 0.25rem 0.4rem 0.1rem;
   border-radius: 0 ${borderRadiusSm} 0 ${borderRadiusSm};
-  background-color: rgba(243, 242, 245, 0.25);
-  color: #f3f2f5;
+  background-color: ${codeLanguageBackground};
+  color: ${codeLanguageColor};
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
   font-style: italic;

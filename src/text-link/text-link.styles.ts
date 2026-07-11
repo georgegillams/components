@@ -1,12 +1,13 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import {
-  linkColor,
-  linkColorDarkMode,
-  linkColorHover,
-  linkColorHoverDarkMode,
-} from '../constants/colors';
+  textLink,
+  textLinkDarkMode,
+  textLinkHover,
+  textLinkHoverDarkMode,
+} from '../constants/semantic/colors';
 import { focusStyle } from '../constants/styles';
+
 import NewWindow from '../icon/new-window';
 
 const anchorStyles = css`
@@ -18,23 +19,23 @@ const anchorStyles = css`
 
   ${focusStyle(true)}
 
-  color: ${({ theme }) => theme?.textLinkColor || linkColor};
-  fill: ${({ theme }) => theme?.textLinkColor || linkColor};
+  color: ${({ theme }) => theme?.textLinkColor || textLink};
+  fill: ${({ theme }) => theme?.textLinkColor || textLink};
 
   &:hover {
-    color: ${({ theme }) => theme?.textLinkColorHover || linkColorHover};
-    fill: ${({ theme }) => theme?.textLinkColorHover || linkColorHover};
+    color: ${({ theme }) => theme?.textLinkColorHover || textLinkHover};
+    fill: ${({ theme }) => theme?.textLinkColorHover || textLinkHover};
   }
 
   @media (prefers-color-scheme: dark) {
-    color: ${({ theme }) => theme?.textLinkColorDarkMode || linkColorDarkMode};
-    fill: ${({ theme }) => theme?.textLinkColorDarkMode || linkColorDarkMode};
+    color: ${({ theme }) => theme?.textLinkColorDarkMode || textLinkDarkMode};
+    fill: ${({ theme }) => theme?.textLinkColorDarkMode || textLinkDarkMode};
 
     &:hover {
       color: ${({ theme }) =>
-        theme?.textLinkColorHoverDarkMode || linkColorHoverDarkMode};
+        theme?.textLinkColorHoverDarkMode || textLinkHoverDarkMode};
       fill: ${({ theme }) =>
-        theme?.textLinkColorHoverDarkMode || linkColorHoverDarkMode};
+        theme?.textLinkColorHoverDarkMode || textLinkHoverDarkMode};
     }
   }
 `;
