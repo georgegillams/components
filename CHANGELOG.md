@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.2.8
+
+### Bug Fixes
+
+- Fix tokens (#763)
+
 ## 30.2.7
 
 ### Bug Fixes
