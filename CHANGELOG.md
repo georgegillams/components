@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.2.7
+
+### Bug Fixes
+
+- Add and adopt semantic tokens (#762)
+
 ## 30.2.6
 
 ### Bug Fixes
