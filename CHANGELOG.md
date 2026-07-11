@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.2.6
+
+### Bug Fixes
+
+- Add card article story (#761)
+
 ## 30.2.5
 
 ### Bug Fixes
