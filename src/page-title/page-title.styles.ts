@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components';
-import { pageMarginTop, pageTitleMarginTop } from '../constants/font';
+import {
+  pageMarginTop,
+  pageTitleMarginTop,
+} from '../constants/semantic/font';
 import Text, { SIZES, TAG_NAME } from '../text';
 
 export const Heading = styled(Text).attrs({

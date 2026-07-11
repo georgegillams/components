@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
-import { breakpointMd, spacingBase, spacingLg } from '../constants/layout';
-import { pageMaxWidth, pageMaxWidthProse } from '../constants/misc';
+import {
+  breakpointMd,
+  spacingBase,
+  spacingLg,
+} from '../constants/primitive/layout';
+import { pageMaxWidth, pageMaxWidthProse } from '../constants/semantic/layout';
+
 import { WIDTHS } from './constants';
 
 export const StyledPageContainer = styled.div`

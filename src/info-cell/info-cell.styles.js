@@ -2,14 +2,15 @@ export const auxHeight = '14rem';
 export const auxHeightMobile = '10rem';
 
 import styled, { css } from 'styled-components';
+import { breakpointSm } from '../constants/primitive/layout';
 import {
   alternatingBackgroundColor1,
   alternatingBackgroundColor1DarkMode,
   alternatingBackgroundColor2,
   alternatingBackgroundColor2DarkMode,
   notBlack,
-} from '../constants/colors';
-import { breakpointSm } from '../constants/layout';
+} from '../constants/semantic/colors';
+
 import Text from '../text';
 import { INFO_CELL_STYLES } from './constants';
 

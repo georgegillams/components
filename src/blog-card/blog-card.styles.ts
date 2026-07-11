@@ -1,7 +1,16 @@
 import styled, { css } from 'styled-components';
-import { notBlack, notBlackDarkMode, primaryColor } from '../constants/colors';
-import { spacingLg } from '../constants/layout';
-import { focusStyle } from '../constants/styles';
+import {
+  spacingLg,
+} from '../constants/primitive/layout';
+import {
+  notBlack,
+  notBlackDarkMode,
+  primaryColor,
+} from '../constants/semantic/colors';
+import {
+  focusStyle,
+} from '../constants/styles';
+
 import Image from '../image';
 
 export const OuterContainer = styled.a`

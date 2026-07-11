@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { spacingLg } from '../constants/layout';
+import {
+  spacingLg,
+} from '../constants/primitive/layout';
 
 const spacing = spacingLg;
 

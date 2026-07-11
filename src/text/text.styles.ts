@@ -6,7 +6,7 @@ import {
   fontSizeMd,
   fontSizeSm,
   fontSizeXs,
-} from '../constants/font';
+} from '../constants/primitive/font';
 import { SIZES } from './constants';
 
 const sizeStyles = {

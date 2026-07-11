@@ -1,7 +1,12 @@
 import styled, { css } from 'styled-components';
+import { borderRadiusSm } from '../constants/primitive/layout';
+import { durationSm } from '../constants/primitive/timings';
+import {
+  burgerButtonBackground,
+  burgerButtonLine,
+  burgerButtonLineDarkMode,
+} from '../constants/semantic/colors';
 import { focusStyle } from '../constants/styles';
-import { notBlack, notBlackDarkMode } from '../constants/colors';
-import { borderRadiusSm } from '../constants/layout';
 
 export const OuterWrapper = styled.button`
   width: 2rem;
@@ -9,7 +14,7 @@ export const OuterWrapper = styled.button`
   padding: 0.5rem;
   border: none;
   border-radius: ${borderRadiusSm};
-  background-color: transparent;
+  background-color: ${burgerButtonBackground};
 
   ${focusStyle(true)}
 `;
@@ -25,11 +30,11 @@ export const Line = styled.div<{ isOpen?: boolean }>`
   left: 0;
   width: 100%;
   height: 0.1rem;
-  transition: all 0.4s ease;
-  background-color: ${notBlack};
+  transition: all ${durationSm} ease;
+  background-color: ${burgerButtonLine};
 
   @media (prefers-color-scheme: dark) {
-    background-color: ${notBlackDarkMode};
+    background-color: ${burgerButtonLineDarkMode};
   }
 
   &:nth-child(1n) {

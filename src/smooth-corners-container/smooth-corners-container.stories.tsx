@@ -3,7 +3,9 @@ import React, { useEffect } from 'react';
 import SmoothCornersContainer, { TECHNOLOGY } from './index';
 import styled from 'styled-components';
 import Text from '../text';
-import { spacingBase } from '../constants/layout';
+import {
+  spacingBase,
+} from '../constants/primitive/layout';
 import { getJsScript } from './smooth-corners-worklet-loader';
 import { JS_CLASSNAME, NO_JS_CLASSNAME } from '../js-feature-detector';
 

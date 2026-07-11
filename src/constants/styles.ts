@@ -1,6 +1,12 @@
 import { css } from 'styled-components';
-import { outlineColor, outlineColorDarkMode } from './colors';
-import { outlineGap, outlineBorderRadius, outlineWidth } from './layout';
+import { outlineColor, outlineColorDarkMode } from './semantic/colors';
+import {
+  outlineGap,
+  outlineBorderRadius,
+  outlineWidth,
+  pageMaxWidth,
+} from './semantic/layout';
+import { breakpointMd } from './primitive/layout';
 
 export const focusStyle = (
   applyRelativePositioning = false,
@@ -38,5 +44,19 @@ export const focusStyle = (
         `}
       }
     }
+  }
+`;
+
+export const pageContainer = css`
+  width: 100%;
+  max-width: ${pageMaxWidth};
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0.9375rem;
+  padding-left: 0.9375rem;
+
+  @media (min-width: ${breakpointMd}) {
+    padding-right: 1.875rem;
+    padding-left: 1.875rem;
   }
 `;

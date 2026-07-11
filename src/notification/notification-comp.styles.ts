@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
-import { notBlack } from '../constants/colors';
+import {
+  notBlack,
+} from '../constants/semantic/colors';
 import { NOTIFICATION_TYPES } from './notification';
 
 export const Wrapper = styled.div<{

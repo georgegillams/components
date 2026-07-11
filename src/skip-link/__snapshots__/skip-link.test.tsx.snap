@@ -75,7 +75,7 @@ exports[`SkipLink should render correctly 1`] = `
 }
 
 .c2 {
-  color: white;
+  color: #ffffff;
   font-weight: bold;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -191,7 +191,7 @@ exports[`SkipLink should support arbitrary props 1`] = `
 }
 
 .c2 {
-  color: white;
+  color: #ffffff;
   font-weight: bold;
   -webkit-text-decoration: none;
   text-decoration: none;

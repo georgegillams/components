@@ -1,12 +1,14 @@
 import styled from 'styled-components';
-import { bpkColorPanjin } from '../constants/colors';
-import { spacingSm } from '../constants/layout';
-import { durationSm } from '../constants/timings';
-import { focusStyle } from '../constants/styles';
+import { spacingSm } from '../constants/primitive/layout';
+import { durationSm } from '../constants/primitive/timings';
+import {
+  skipLinkBackground,
+  skipLinkForeground,
+} from '../constants/semantic/colors';
 import textLink from '../text-link';
 
 export const Wrapper = styled.div`
-  background-color: ${bpkColorPanjin};
+  background-color: ${skipLinkBackground};
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -32,7 +34,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Link = styled(textLink)`
-  color: white;
+  color: ${skipLinkForeground};
   font-weight: bold;
   text-decoration: none;
 `;

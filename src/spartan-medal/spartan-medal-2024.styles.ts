@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
-import { notBlack } from '../constants/colors';
+import {
+  notBlack,
+} from '../constants/semantic/colors';
 import SpartanLogo from '../spartan-logo';
 import TextLink from '../text-link';
 import { metalColor0, metalColor1, metalColor2 } from './constants';

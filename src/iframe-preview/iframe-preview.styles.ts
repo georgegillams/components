@@ -1,12 +1,18 @@
 import styled from 'styled-components';
-import { borderRadiusMd, spacingBase } from '../constants/layout';
+import {
+  borderRadiusMd,
+  spacingBase,
+} from '../constants/primitive/layout';
 import {
   backgroundColorElevated,
   backgroundColorElevatedDarkMode,
   notBlack,
   notBlackDarkMode,
-} from '../constants/colors';
-import { shadowNormal, shadowNormalDarkMode } from '../constants/misc';
+} from '../constants/semantic/colors';
+import {
+  shadowNormal,
+  shadowNormalDarkMode,
+} from '../constants/semantic/elevation';
 
 export const Wrapper = styled.div`
   width: 100%;

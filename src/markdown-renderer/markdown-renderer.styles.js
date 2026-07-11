@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { notBlack, notBlackDarkMode } from '../constants/colors';
+import { notBlack, notBlackDarkMode } from '../constants/semantic/colors';
 import paragraph from '../paragraph';
 import YoutubeEmbedVideo from 'youtube-embed-video';
 

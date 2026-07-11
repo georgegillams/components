@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
-import { notBlack } from '../constants/colors';
+import {
+  notBlack,
+} from '../constants/semantic/colors';
 
 export const Wrapper = styled.svg.attrs((props) => ({
   xmlns: 'http://www.w3.org/2000/svg',

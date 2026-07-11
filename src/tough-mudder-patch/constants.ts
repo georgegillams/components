@@ -1,4 +1,6 @@
-import { notBlack } from '../constants/colors';
+import {
+  notBlack,
+} from '../constants/semantic/colors';
 
 export const PATCH_TYPE = {
   eventHalf: 'eventHalf',

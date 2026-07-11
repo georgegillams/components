@@ -1,6 +1,13 @@
 import styled from 'styled-components';
-import { breakpointMd, spacingLg, spacingXs } from '../constants/layout';
-import { primaryColor, primaryColorDarkMode } from '../constants/colors';
+import {
+  breakpointMd,
+  spacingLg,
+  spacingXs,
+} from '../constants/primitive/layout';
+import {
+  primaryColor,
+  primaryColorDarkMode,
+} from '../constants/semantic/colors';
 
 export const OuterWrapper = styled.div`
   position: relative;
