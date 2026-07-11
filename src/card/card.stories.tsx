@@ -11,6 +11,7 @@ import Button, { BUTTON_TYPES } from '../button';
 import Input from '../input';
 import Modal from '../modal';
 import Paragraph from '../paragraph';
+import Text, { SIZES } from '../text';
 
 export default { title: 'Atoms/Card', component: CardWithoutTheme };
 
@@ -156,6 +157,49 @@ export const CustomAnchorComponent = () => (
 
 const GOOGLE_URL = 'https://google.com';
 
+export const ArticleRole = () => (
+  <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
+    <Card
+      atomic={false}
+      href={GOOGLE_URL}
+      hrefExternal
+      role="article"
+      style={{ width: 'auto' }}
+    >
+      <Section padding={false} name="Google.com (role=article)" />
+      <Paragraph style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <Button
+          href={GOOGLE_URL}
+          hrefExternal
+          onClick={(event) => {
+            event.stopPropagation();
+          }}
+        >
+          Go to google.com
+        </Button>
+        <Button
+          onClick={(event) => {
+            event.stopPropagation();
+            alert('Dismiss clicked');
+          }}
+          buttonType={BUTTON_TYPES.secondary}
+        >
+          Dismiss
+        </Button>
+        <Button
+          onClick={(event) => {
+            event.stopPropagation();
+            alert('Quack clicked');
+          }}
+          buttonType={BUTTON_TYPES.secondary}
+        >
+          Quack
+        </Button>
+      </Paragraph>
+    </Card>
+  </div>
+);
+
 const nonAtomicActionsStyle = {
   display: 'flex',
   gap: '1rem',
@@ -246,22 +290,37 @@ export const QuacksLikeAButtonExamples = () => {
           justifyItems: 'start',
         }}
       >
-        <div style={{ ...gridColumnHeaderStyle, gridColumn: 2, gridRow: 1 }}>
+        <Text
+          size={SIZES.lg}
+          style={{ ...gridColumnHeaderStyle, gridColumn: 2, gridRow: 1 }}
+        >
           Atomic
-        </div>
-        <div style={{ ...gridColumnHeaderStyle, gridColumn: 3, gridRow: 1 }}>
+        </Text>
+        <Text
+          size={SIZES.lg}
+          style={{ ...gridColumnHeaderStyle, gridColumn: 3, gridRow: 1 }}
+        >
           Non-atomic
-        </div>
+        </Text>
 
-        <div style={{ ...gridRowHeaderStyle, gridColumn: 1, gridRow: 2 }}>
+        <Text
+          size={SIZES.lg}
+          style={{ ...gridRowHeaderStyle, gridColumn: 1, gridRow: 2 }}
+        >
           Link
-        </div>
-        <div style={{ ...gridRowHeaderStyle, gridColumn: 1, gridRow: 3 }}>
+        </Text>
+        <Text
+          size={SIZES.lg}
+          style={{ ...gridRowHeaderStyle, gridColumn: 1, gridRow: 3 }}
+        >
           Button
-        </div>
-        <div style={{ ...gridRowHeaderStyle, gridColumn: 1, gridRow: 4 }}>
+        </Text>
+        <Text
+          size={SIZES.lg}
+          style={{ ...gridRowHeaderStyle, gridColumn: 1, gridRow: 4 }}
+        >
           Dumb container
-        </div>
+        </Text>
 
         <Card href={GOOGLE_URL} hrefExternal style={atomicCardStyle(1)}>
           <Section padding={false} name="Go to google.com" />
@@ -273,6 +332,13 @@ export const QuacksLikeAButtonExamples = () => {
 
         <Card style={atomicCardStyle(3)}>
           <Section padding={false} name="Status: OK" />
+        </Card>
+        <Card style={atomicCardStyle(4)} aria-label="Status: OK" role="text">
+          <Section aria-hidden="true" padding={false} name="Status: OK">
+            <Paragraph aria-hidden="true">
+              (Uses aria-label and aria-hidden to act as a single element.)
+            </Paragraph>
+          </Section>
         </Card>
 
         <Card
