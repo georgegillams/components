@@ -1,5 +1,11 @@
 # Changelog
 
+## 30.2.9
+
+### Bug Fixes
+
+- vscode settings (#765)
+
 ## 30.2.8
 
 ### Bug Fixes
