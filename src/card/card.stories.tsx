@@ -200,6 +200,46 @@ export const ArticleRole = () => (
   </div>
 );
 
+export const CardWithAccessibleFloatingHref = () => (
+  <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
+    <Card
+      atomic={false}
+      href={GOOGLE_URL}
+      hrefExternal
+      style={{ width: 'auto' }}
+      floatingAnchorProps={
+        {
+          'aria-hidden': false,
+          'aria-label': "Google.com",
+          'tabIndex': 0,
+        }
+      }
+    >
+      <Section padding={false} name="Google.com (accessible floating href)" />
+      <Paragraph style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <Button
+          onClick={(event) => {
+            event.stopPropagation();
+            alert('Dismiss clicked');
+          }}
+          buttonType={BUTTON_TYPES.secondary}
+        >
+          Dismiss
+        </Button>
+        <Button
+          onClick={(event) => {
+            event.stopPropagation();
+            alert('Quack clicked');
+          }}
+          buttonType={BUTTON_TYPES.secondary}
+        >
+          Quack
+        </Button>
+      </Paragraph>
+    </Card>
+  </div>
+);
+
 const nonAtomicActionsStyle = {
   display: 'flex',
   gap: '1rem',

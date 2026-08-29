@@ -25,6 +25,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   highlighted?: boolean;
   theme?: any;
   anchorComponent?: React.ComponentType;
+  floatingAnchorProps?: React.HTMLAttributes<HTMLAnchorElement | HTMLDivElement>;
 }
 
 const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
@@ -43,6 +44,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
     highlighted,
     theme,
     anchorComponent,
+    floatingAnchorProps,
     ...rest
   } = props;
 
@@ -67,6 +69,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>((props, ref) => {
           tabIndex={-1}
           aria-hidden="true"
           {...targettingProps}
+          {...floatingAnchorProps}
         />
       )}
       <BackgroundImageContainer
